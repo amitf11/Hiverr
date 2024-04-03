@@ -11,7 +11,5 @@ export function GigPreview({ gig }) {
             <h1>**********</h1>
             <Link to={`/gig/details/${gig._id}`}>Details</Link>
         </article>
-
     )
-
 }

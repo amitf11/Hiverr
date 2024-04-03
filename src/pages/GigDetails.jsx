@@ -23,9 +23,9 @@ export function GigDetails() {
         }
     }
 
-    if (!toy) return <div>Loading...</div>
+    if (!gig) return <div>Loading...</div>
     return (
-        <section className="toy-details">
+        <section className="gig-details">
             <h1>{gig.title}</h1>
             <div className="about-user">
                 <h2>{gig.owner.fullName}</h2>
