@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadGigs, saveGig, removeGig, setFilterBy, setSortBy } from '../store/actions/gig.actions.js'
+import { loadGigs } from '../store/actions/gig.actions.js'
 import { GigList } from '../cmps/gig/GigList'
 
 export function GigIndex() {
@@ -12,9 +12,6 @@ export function GigIndex() {
                 console.log(err)
             })
     }, [])
-
-
-
 
 
     return (
