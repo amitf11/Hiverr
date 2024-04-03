@@ -56,6 +56,7 @@ function _createGigs() {
 
         gigs = [
             {
+                id : 'd102',
                 title: "I will do hyper realistic pencil portrait by hand drawing",
                 about: "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
                 price: 172,
@@ -118,6 +119,7 @@ function _createGigs() {
                 ]
             },
             {
+                id : 'd103',
                 title: "I will do hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
                 price: 151,
@@ -181,6 +183,7 @@ function _createGigs() {
                 ]
             },
             {
+                id : 'd104',
                 title: "I will do hyper realistic pencil portrait by hand drawing",
                 about: "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
                 price: 172,
@@ -243,6 +246,7 @@ function _createGigs() {
                 ]
             },
             {
+                id : 'd105',
                 title: "I will do hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
                 price: 151,
@@ -306,6 +310,7 @@ function _createGigs() {
                 ]
             },
             {
+                id : 'd106',
                 title: "I will do hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, I am Achinthya from Sri Lanka. I am a professional graphic designer with more than 5 years of experience. I have completed a diploma in Graphic designing and I am currently following a degree in Graphic designing. I have a good knowledge of Adobe Illustrator, Adobe Photoshop, and other graphic designing software. I can create a unique and eye-catching logo, T-shirt design, poster design, and other graphic design works for you. Feel free to contact me anytime. I am available 24/7. Thank you.",
                 price: 151,
