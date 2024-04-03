@@ -1,4 +1,4 @@
-export function Explore(){
+export function GigIndex(){
     return (
         <section>
             Explore page

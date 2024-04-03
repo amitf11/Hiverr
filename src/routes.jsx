@@ -1,6 +1,6 @@
 import { HomePage } from './pages/HomePage.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
-import { Explore } from './pages/Explore.jsx'
+import { GigIndex } from './pages/GigIndex.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -15,9 +15,9 @@ const routes = [
         label: 'About us'
     },
     {
-        path: 'explore',
-        component: <Explore />,
-        label: 'Explore'
+        path: 'gig',
+        component: <GigIndex />,
+        label: 'gig'
     },
 ]
 
