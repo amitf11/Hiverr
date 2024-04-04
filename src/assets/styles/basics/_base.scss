@@ -1,7 +1,15 @@
 html {
-    font-family: macan-medium;
+    font-family: macan-regular;
+}
+
+body{
+    background-color: $clr1;
+    color: $clr5;
+    font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+    position: relative;
+    width: 100%;
 }
 
 a {
-    color: $clr5;
+    // color: $clr5;
 }
