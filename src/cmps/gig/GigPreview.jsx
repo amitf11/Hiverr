@@ -2,8 +2,6 @@ import { Link } from "react-router-dom"
 import { utilService } from "../../services/util.service"
 import StarIcon from "@mui/icons-material/Star"
 
-
-
 export function GigPreview({ gig }) {
     return (
         <article className="gig-preview flex column justify-center">
