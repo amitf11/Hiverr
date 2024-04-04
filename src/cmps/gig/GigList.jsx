@@ -5,7 +5,7 @@ export function GigList({ gigs }) {
     if (!gigs) return <div>Loading...</div>
     return (
         <section className='content flex column'>
-            <section className="gigs-container gig-index-layout">
+            <section className="gigs-container gig-index-layout flex">
                 {gigs.map((gig) => (
                     <GigPreview
                         className="gig"
