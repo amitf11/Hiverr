@@ -13,7 +13,13 @@ body {
     background-color: $clr1;
     font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     position: relative;
+    width: 100%;
+    .arrow {
+        color : white;
+    }
 }
+
+
 
 a {
     text-decoration: none;
