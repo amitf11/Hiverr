@@ -8,7 +8,7 @@
 
 .hero-img {
     height: 100%;
-    
+
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -22,8 +22,80 @@
     bottom: 0;
     right: 0;
     z-index: 1;
+
+    .hero-title {
+        position: absolute;
+        top: 240px;
+        color: $clr1;
+        padding-block-end: 24px;
+        font-size: 1.67em;
+        line-height: 48px;
+        margin: 0 auto;
+        padding-inline-start: 32px;
+    }
 }
 
-.hero-filter{
+.hero-filter {
     position: absolute;
+    top: 400px;
+    margin: 0 auto;
+    padding-inline-start: 32px;
+
+    input {
+        border-radius: 4px 0 0 4px;
+        font-size: 1em;
+        height: 48px;
+        margin-block-end: 0;
+        box-shadow: none;
+        padding: 10px 2px 10px 16px;
+        background-color: $clr1;
+        color: $clr4;
+        width: 100%;
+        border: 1px solid $clr7;
+        border-right: 0;
+    }
+
+    .btn-search {
+        border: 1px solid transparent;
+        cursor: pointer;
+        line-height: 100%;
+        text-align: center;
+        text-decoration: none;
+        background-color: $clr3;
+        border-radius: 0 4px 4px 0;
+        padding: 12px 24px;
+
+        &:hover {
+            transition: 70ms cubic-bezier(.75, 0, .25, 1);
+            background-color: $clr8;
+        }
+
+        path {
+            fill: $clr1;
+        }
+    }
+
+    .popular-filter {
+        color: $clr1;
+        padding-block-start: 24px;
+        line-height: 27px;
+        font-size: .875em;
+
+        a {
+            background-color: transparent;
+            border: 1px solid $clr1;
+            border-radius: 40px;
+            line-height: 24px;
+            padding: 1px 12px;
+            transition: .2s ease-in-out;
+
+            &:hover {
+                background-color: $clr1;
+                color: $clr6;
+                outline: none;
+            }
+        }
+    }
+
+    // position: absolute;
 }
