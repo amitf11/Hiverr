@@ -1,0 +1,21 @@
+.trusted-by {
+    justify-content: center;
+
+    padding: 0 2em;
+    height: 95px;
+    background-color: #f5f5f5;
+
+    .trusted-by-txt {
+        color: #b5b6ba;
+        font-weight: 600;
+        padding-right: 20px;
+    }
+
+    ul {
+        padding: 0 24px;
+        &>*:not(:last-child) {
+            padding-right: 60px;
+        }
+    }
+
+}
