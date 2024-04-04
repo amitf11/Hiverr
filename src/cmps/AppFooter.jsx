@@ -1,7 +1,7 @@
 export function AppFooter() {
     return (
-        <footer className="app-footer">
-            <div className="flex space-between">
+        <footer className="app-footer-container">
+            <div className="app-footer flex space-between">
                 <div className="flex space-between align-center">
                     <span>Hiverr.</span>
                     <span>© Hiverr international Ltd. 2024</span>

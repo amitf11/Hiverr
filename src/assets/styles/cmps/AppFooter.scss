@@ -1,6 +1,12 @@
-.app-footer{
+.app-footer-container{
     border-block-start: solid .5px $clr5;
+    width: 100%;
+}
+
+.app-footer{
     max-width: 1400px;
+    margin: 0 auto;
+    padding: 1em;
 }
 
 .social-list{
