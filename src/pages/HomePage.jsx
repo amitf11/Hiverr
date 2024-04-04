@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Hero } from '../cmps/Hero'
+import { HeroFilter } from '../cmps/HeroFilter'
 
 
 
@@ -10,6 +11,7 @@ export function HomePage() {
         <>
             <section>
                 <Hero />
+                <HeroFilter />
                 <div className='trusted-by flex align-center'>
                     <div className='trusted-by-txt'>
                         Trusted by:

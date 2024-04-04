@@ -9,7 +9,7 @@ export function GigFilter() {
             </section>
             
             <section className="gig-sort-container flex space-between">
-                <div className="results">41,000+ Results</div>
+                {/* <div className="results">41,000+ Results</div> */}
                 <div className="gig-sort">Sort by: <span className="bold">Best selling ∨</span></div>
             </section>
         </>

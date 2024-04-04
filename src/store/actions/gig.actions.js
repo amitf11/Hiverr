@@ -1,9 +1,10 @@
 import { gigService } from "../../services/gig.service.js"
 import { store } from "../store.js"
-import { SET_GIGS } from "../reducers/gig.reducer.js"
+import { SET_GIGS, SET_SEARCH } from "../reducers/gig.reducer.js"
 
-export function loadGigs(filterBy, sort) {
-    return gigService.query()
+export function loadGigs() {
+    const { filterBy } = getState().gigModule
+    return gigService.query(filterBy)
         .then(gigs => {
             store.dispatch({ type: SET_GIGS, gigs })
         })
@@ -11,4 +12,10 @@ export function loadGigs(filterBy, sort) {
             console.log('cannot load gigs, heres why:', err)
             throw err
         })
+}
+
+export function setSearch(search) {
+    return (dispatch) => {
+        dispatch({ type: SET_SEARCH, search })
+    }
 }

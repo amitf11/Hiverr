@@ -67,3 +67,30 @@ function getAvgRating(reviews) {
     let summedRating = reviews.reduce((acc, review) => review.rate + acc, 0)
     return +(summedRating / reviews.length).toFixed(1)
 }
+
+function getExploreTitle(category) {
+    switch (category) {
+        case 'graphics-and-design':
+            return 'Graphics & Design'
+        case 'digital-marketing':
+            return 'Digital Marketing'
+        case 'writing-and-translation':
+            return 'Writing & Translation'
+        case 'video-and-animation':
+            return 'Video & Animation'
+        case 'music-and-audio':
+            return 'Music & Audio'
+        case 'programming-and-tech':
+            return 'Programming & Tech'
+        case 'business':
+            return 'Business'
+        case 'lifestyle':
+            return 'Lifestyle'
+        case 'trending':
+            return 'Trending'
+        case null:
+            return 'Explore'
+        default:
+            return "Explore"
+    }
+}

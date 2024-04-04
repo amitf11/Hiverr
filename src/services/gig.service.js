@@ -13,10 +13,10 @@ _createGigs()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     const gigs = await storageService.query(STORAGE_KEY)
-    // if (filterBy.txt) {
-    //     const regex = new RegExp(filterBy.txt, 'i')
-    //     gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-    // }
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
+    }
     // if (filterBy.price) {
     //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
     // }
