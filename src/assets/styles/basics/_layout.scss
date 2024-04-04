@@ -1,7 +1,7 @@
 
 .main-layout {
     display: grid;
-    grid-template-columns: minmax(auto,252px) 1fr minmax(auto,252px);
+    grid-template-columns: minmax(auto,100px) 1fr minmax(auto,100px);
 }
 // 24px
 
@@ -12,4 +12,11 @@
 
 .main-layout .full {
     grid-column: 1/-1;
+}
+
+.gig-index-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 24px;
+    width: 100%;
 }
