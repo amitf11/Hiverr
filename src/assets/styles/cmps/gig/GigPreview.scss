@@ -1,0 +1,18 @@
+.gig-preview {
+    img {
+        width: 100%;
+        overflow: clip;
+    }
+
+    .gig-owner-details {
+        font-size: 0.875em;
+        margin-top: 12px;
+        height: 24px;
+
+        .owner-profile {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+        }
+    }
+}

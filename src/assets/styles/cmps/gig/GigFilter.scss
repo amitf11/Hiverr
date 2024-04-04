@@ -7,13 +7,14 @@
     .gig-filter {
         box-sizing: border-box;
         padding: 0.6875em 1em;
+        font-weight: 600;
 
         border-radius: .5em;
         border: 1px solid #dadbdd;
 
+        line-height: 24px;
         min-width: 50px;
         min-height: 48px;
-        line-height: 24px;
 
         color: #222325;
         cursor: pointer;
