@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { NavLink, Link } from "react-router-dom"
 
 export function AppHeader() {
@@ -16,15 +15,5 @@ export function AppHeader() {
                 </li>
             </ul>
         </nav>
-=======
-import { NavLink } from 'react-router-dom'
-
-export function AppHeader() {
-    return <header>
-        Nav Bar
-        <NavLink to={'/gig'}>
-            Gigs
-        </NavLink>
->>>>>>> d974c703bf1dfce28d455cffaf6f09738bd46d3b
     </header>
 }

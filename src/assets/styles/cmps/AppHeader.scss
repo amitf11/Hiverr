@@ -2,11 +2,12 @@
     background-color: transparent;
     position: sticky;
     transition: background-color .5s ease;
+    z-index: 1000;
 
     .logo {
         width: 89px;
         color: $clr1;
-        
+
         span {
 
             color: $clr3;
