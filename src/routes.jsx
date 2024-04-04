@@ -21,7 +21,7 @@ const routes = [
         label: 'gig'
     },
     {
-        path: 'gig/details/:gigId',
+        path: 'gig/:gigId',
         component: <GigDetails />,
         label: 'gigDetails'
     },

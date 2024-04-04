@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadGigs } from '../store/actions/gig.actions.js'
 import { GigList } from '../cmps/gig/GigList'
+import { GigFilter } from '../cmps/gig/GigFilter'
+import { GigIndexNavBar } from '../cmps/gig/GigIndexNavBar'
+import { loadGigs } from '../store/actions/gig.actions.js'
 
 export function GigIndex() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
@@ -15,7 +17,9 @@ export function GigIndex() {
 
 
     return (
-        <section>
+        <section className='gig-index-main'>
+            <GigIndexNavBar />
+            <GigFilter />
             <GigList
                 gigs={gigs} />
         </section>
