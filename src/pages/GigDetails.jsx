@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { ReviewList } from '../cmps/ReviewList'
 
 export function GigDetails() {
 
@@ -42,6 +43,7 @@ export function GigDetails() {
             <div>
                 {gig.about}
             </div>
+            <ReviewList/>
         </section>
     )
 }
