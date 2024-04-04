@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { HeroWrapper } from '../cmps/HeroWrapper'
 import { GigIndex } from './GigIndex'
 
 
@@ -8,11 +9,12 @@ export function HomePage() {
     return (
         <section>
 
-            <article>Changing Images
+            <HeroWrapper />
+            {/* <article>Changing Images
                 <p>Find the right freelance service, right away</p>
                 <input type="text" />
                 <p>Popular:</p>
-            </article>
+            </article> */}
             <article>
                 Gigs:
                 <GigIndex />
