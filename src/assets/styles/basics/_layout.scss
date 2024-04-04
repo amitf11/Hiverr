@@ -1,12 +1,12 @@
-
 .main-layout {
     display: grid;
-    grid-template-columns: minmax(auto,100px) 1fr minmax(auto,100px);
+    grid-template-columns: minmax(auto, 100px) 1fr minmax(auto, 100px);
 }
+
 // 24px
 
 
-.main-layout > * {
+.main-layout>* {
     grid-column: 2;
 }
 
@@ -17,6 +17,7 @@
 .gig-index-layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 40px;
     grid-column-gap: 24px;
     width: 100%;
 }

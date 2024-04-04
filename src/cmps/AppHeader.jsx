@@ -4,7 +4,7 @@ export function AppHeader() {
     return <header>
         Nav Bar
         <NavLink to={'/gig'}>
-            Gigs
+            Explore
         </NavLink>
     </header>
 }
