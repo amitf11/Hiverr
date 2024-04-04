@@ -6,7 +6,7 @@ import { GigDetails } from './pages/GigDetails.jsx'
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
     {
-        path: '/',
+        path: '',
         component: <HomePage />,
         label: 'Home 🏠',
     },
