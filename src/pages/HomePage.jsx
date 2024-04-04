@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { GigIndex } from './GigIndex'
 
 
 export function HomePage() {
-
+    
     return (
         <section>
 
@@ -13,10 +13,7 @@ export function HomePage() {
                 <input type="text" />
                 <p>Popular:</p>
             </article>
-            <article>
-                Gigs:
-                <GigIndex />
-            </article>
+            
             <div>Trusted By: </div>
 
             <article>
