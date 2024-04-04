@@ -1,4 +1,22 @@
+
+.main-details {
+    border : solid 2px black;
+    display: flex;
+    max-width: 1304px;
+    padding: 32px 24px 0
+}
+
 .gig-details {
     display: flex;
     flex-direction: column;
+    background-color: pink;
 }
+
+.packages-tabs {
+    border : solid 1px grey;
+}
+
+.sidebar {
+    padding: 70px;
+}
+
