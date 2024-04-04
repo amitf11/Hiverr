@@ -56,7 +56,7 @@ function _createGigs() {
 
         gigs = [
             {
-                _id : 'd102',
+                _id: 'd102',
                 title: "I will do hyper realistic pencil portrait by hand drawing",
                 about: "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
                 price: 172,
@@ -86,40 +86,45 @@ function _createGigs() {
                         country: "Thailand",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
                         review: "frederickkessie ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
-                        reviewedAt: "Published 2 months ago"
+                        reviewedAt: "Published 2 months ago",
+                        rate: 3
                     },
                     {
                         name: "liam31",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "I requested a slightly earlier delivery on this and once again Frederick came through and provided a fantastic delivery. Thanks so much!",
-                        reviewedAt: "Published 3 weeks ago"
+                        reviewedAt: "Published 3 weeks ago",
+                        rate: 5
                     },
                     {
                         name: "liam31",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
-                        reviewedAt: "Published 3 weeks ago"
+                        reviewedAt: "Published 3 weeks ago",
+                        rate: 1
                     },
                     {
                         name: "larsonraz",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very detailed",
-                        reviewedAt: "Published 1 week ago"
+                        reviewedAt: "Published 1 week ago",
+                        rate: 5
                     },
                     {
                         name: "stevekaszycki",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "very nice portrait, very good quality.",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 5
                     }
                 ]
             },
             {
-                _id : 'd103',
+                _id: 'd103',
                 title: "I will do hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
                 price: 151,
@@ -150,40 +155,45 @@ function _createGigs() {
                         country: "Nigeria",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ec.png",
                         review: "the work was beautifully done, and in a timely manner.",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 5
                     },
                     {
                         name: "swspencer",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very easy to work with and got the drawing to me quickly!",
-                        reviewedAt: "Published 1 month ago"
+                        reviewedAt: "Published 1 month ago",
+                        rate: 5
                     },
                     {
                         name: "merisoo",
                         country: "Finland",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1ee.png",
                         review: "Very talented artist. Will definitely hire again!",
-                        reviewedAt: "Published 2 months ago"
+                        reviewedAt: "Published 2 months ago",
+                        rate: 4
                     },
                     {
                         name: "edwarden",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant as always. Super happy!",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 5
                     },
                     {
                         name: "edwarden",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant work again. Thanks!",
-                        reviewedAt: "Published 1 week ago"
+                        reviewedAt: "Published 1 week ago",
+                        rate: 5
                     }
                 ]
             },
             {
-                _id : 'd104',
+                _id: 'd104',
                 title: "I will do hyper realistic pencil portrait by hand drawing",
                 about: "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
                 price: 172,
@@ -213,40 +223,45 @@ function _createGigs() {
                         country: "Thailand",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
                         review: "frederickkessie ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
-                        reviewedAt: "Published 2 months ago"
+                        reviewedAt: "Published 2 months ago",
+                        rate: 3
                     },
                     {
                         name: "liam31",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "I requested a slightly earlier delivery on this and once again Frederick came through and provided a fantastic delivery. Thanks so much!",
-                        reviewedAt: "Published 3 weeks ago"
+                        reviewedAt: "Published 3 weeks ago",
+                        rate: 4
                     },
                     {
                         name: "liam31",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
-                        reviewedAt: "Published 3 weeks ago"
+                        reviewedAt: "Published 3 weeks ago",
+                        rate: 5
                     },
                     {
                         name: "larsonraz",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very detailed",
-                        reviewedAt: "Published 1 week ago"
+                        reviewedAt: "Published 1 week ago",
+                        rate: 5
                     },
                     {
                         name: "stevekaszycki",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "very nice portrait, very good quality.",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 2
                     }
                 ]
             },
             {
-                _id : 'd105',
+                _id: 'd105',
                 title: "I will do hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
                 price: 151,
@@ -277,40 +292,45 @@ function _createGigs() {
                         country: "Nigeria",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ec.png",
                         review: "the work was beautifully done, and in a timely manner.",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 5
                     },
                     {
                         name: "swspencer",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very easy to work with and got the drawing to me quickly!",
-                        reviewedAt: "Published 1 month ago"
+                        reviewedAt: "Published 1 month ago",
+                        rate: 5
                     },
                     {
                         name: "merisoo",
                         country: "Finland",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1ee.png",
                         review: "Very talented artist. Will definitely hire again!",
-                        reviewedAt: "Published 2 months ago"
+                        reviewedAt: "Published 2 months ago",
+                        rate: 4
                     },
                     {
                         name: "edwarden",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant as always. Super happy!",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 5
                     },
                     {
                         name: "edwarden",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant work again. Thanks!",
-                        reviewedAt: "Published 1 week ago"
+                        reviewedAt: "Published 1 week ago",
+                        rate: 5
                     }
                 ]
             },
             {
-                _id : 'd106',
+                _id: 'd106',
                 title: "I will do hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, I am Achinthya from Sri Lanka. I am a professional graphic designer with more than 5 years of experience. I have completed a diploma in Graphic designing and I am currently following a degree in Graphic designing. I have a good knowledge of Adobe Illustrator, Adobe Photoshop, and other graphic designing software. I can create a unique and eye-catching logo, T-shirt design, poster design, and other graphic design works for you. Feel free to contact me anytime. I am available 24/7. Thank you.",
                 price: 151,
@@ -338,35 +358,40 @@ function _createGigs() {
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very professional and friendly. Completed the job efficiently and the result was exactly what I wanted.",
-                        reviewedAt: "Published 1 month ago"
+                        reviewedAt: "Published 1 month ago",
+                        rate: 3
                     },
                     {
                         name: "carynkingsley",
                         country: "United Kingdom",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Great communication and very quick turnaround. Exactly what I wanted, thank you!",
-                        reviewedAt: "Published 2 weeks ago"
+                        reviewedAt: "Published 2 weeks ago",
+                        rate: 3
                     },
                     {
                         name: "shaneo587",
                         country: "Australia",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1fa.png",
                         review: "Great communication and excellent work.",
-                        reviewedAt: "Published 3 weeks ago"
+                        reviewedAt: "Published 3 weeks ago",
+                        rate: 4
                     },
                     {
                         name: "jackson_dixon",
                         country: "United States",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Great work and fast turnaround.",
-                        reviewedAt: "Published 1 month ago"
+                        reviewedAt: "Published 1 month ago",
+                        rate: 4
                     },
                     {
                         name: "katelynboston",
                         country: "Canada",
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
                         review: "Amazing work, exactly what I was looking for. Highly recommended!",
-                        reviewedAt: "Published 1 month ago"
+                        reviewedAt: "Published 1 month ago",
+                        rate: 5
                     }
                 ]
             }
