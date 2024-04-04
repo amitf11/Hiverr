@@ -1,8 +1,9 @@
 html {
     font-family: macan-regular;
+    overflow-x: hidden;
 }
 
-body{
+body {
     background-color: $clr1;
     color: $clr5;
     font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
