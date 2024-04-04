@@ -1,9 +1,12 @@
 import { createStore, combineReducers } from 'redux'
 
 import { userReducer } from './reducers/user.reducer'
+import { gigReducer } from './reducers/gig.reducer'
+
 
 const rootReducer = combineReducers({
     userModule: userReducer,
+    gigModule: gigReducer,
 })
 
 

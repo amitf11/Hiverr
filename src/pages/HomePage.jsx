@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { GigIndex } from './GigIndex'
 
 
 export function HomePage() {
@@ -12,7 +13,10 @@ export function HomePage() {
                 <input type="text" />
                 <p>Popular:</p>
             </article>
-
+            <article>
+                Gigs:
+                <GigIndex />
+            </article>
             <div>Trusted By: </div>
 
             <article>

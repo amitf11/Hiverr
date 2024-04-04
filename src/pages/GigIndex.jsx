@@ -1,7 +1,23 @@
-export function GigIndex(){
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { loadGigs } from '../store/actions/gig.actions.js'
+import { GigList } from '../cmps/gig/GigList'
+
+export function GigIndex() {
+    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+
+    useEffect(() => {
+        loadGigs()
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
+
+
     return (
         <section>
-            Explore page
+            <GigList
+                gigs={gigs} />
         </section>
     )
 }
