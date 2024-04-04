@@ -11,7 +11,7 @@ import routes from './routes'
 export function RootCmp() {
 
     return (
-        <div className='main-layout'>
+        <div className='flex column'>
             <AppHeader />
 
             <main>
