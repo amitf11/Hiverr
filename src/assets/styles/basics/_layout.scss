@@ -1,18 +1,18 @@
-.main-layout {
-    display: grid;
-    grid-template-columns: minmax(auto, 100px) 1fr minmax(auto, 100px);
-}
+// .main-layout {
+//     display: grid;
+//     grid-template-columns: minmax(auto, 100px) 1fr minmax(auto, 100px);
+// }
 
-// 24px
+// // 24px
 
 
-.main-layout>* {
-    grid-column: 2;
-}
+// .main-layout>* {
+//     grid-column: 2;
+// }
 
-.main-layout .full {
-    grid-column: 1/-1;
-}
+// .main-layout .full {
+//     grid-column: 1/-1;
+// }
 
 // .gig-index-layout {
 //     display: grid;
