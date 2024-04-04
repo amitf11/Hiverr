@@ -9,7 +9,7 @@ export function HomePage() {
     return (
         <>
             <section>
-
+                <Hero />
             </section >
         </>
     )

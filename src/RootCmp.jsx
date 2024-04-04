@@ -5,7 +5,7 @@ import { AppFooter } from './cmps/AppFooter'
 import { AppHeader } from './cmps/AppHeader'
 
 import routes from './routes'
-import { Hero } from './cmps/Hero'
+
 
 
 export function RootCmp() {
@@ -13,7 +13,7 @@ export function RootCmp() {
     return (
         <div className='main-layout'>
             <AppHeader />
-            <Hero />
+
             <main>
                 <Routes>
                     {routes.map(route => (
