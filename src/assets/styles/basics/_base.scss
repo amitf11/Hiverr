@@ -1,12 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-family: macan-regular;
-    font-size: 1em;
-    overflow-x: hidden;
+    height: 150%;
 }
 
 body {
-    background-color: $clr1;
+    margin: 0;
     color: $clr5;
+    background-color: $clr1;
     font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     position: relative;
     width: 100%;
@@ -18,5 +22,6 @@ body {
 
 
 a {
-    // color: $clr5;
+    text-decoration: none;
+    color: unset;
 }
