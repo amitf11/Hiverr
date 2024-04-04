@@ -8,7 +8,7 @@ export function AppHeader() {
                 <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                 {/* <li><NavLink to="">Become a seller</NavLink></li> add later */}
                 <li>
-                    <a href="" className="clean-link">Sign in</a>
+                    <button>Sign in</button>
                 </li>
                 <li>
                     <button>Join</button>

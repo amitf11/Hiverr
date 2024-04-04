@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router'
 
 import { AppFooter } from './cmps/AppFooter'
 import { AppHeader } from './cmps/AppHeader'
-import { UserDetails } from './pages/UserDetails'
 
 import routes from './routes'
 
@@ -15,7 +14,13 @@ export function RootCmp() {
             <AppHeader />
             <main>
                 <Routes>
-                    {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
+                    {routes.map(route => (
+                        <Route
+                            key={route.path}
+                            exact={true}
+                            element={route.component}
+                            path={route.path} />
+                    ))}
                 </Routes>
             </main>
             <AppFooter />
