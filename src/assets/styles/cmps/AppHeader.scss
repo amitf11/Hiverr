@@ -1,6 +1,6 @@
 .main-header {
-    background-color: transparent;
-
+    position: relative;
+    
     .sub-header {
         position: fixed;
         width: 100%;
@@ -9,7 +9,7 @@
         max-width: 1400px;
         z-index: 999;
         color: #fff;
-
+        background-color: #0b4127;
         left: 50%;
         transform: translateX(-50%);
 
@@ -33,6 +33,5 @@
             background-color: #19a463;
             border-color: #19a463;
         }
-
     }
 }

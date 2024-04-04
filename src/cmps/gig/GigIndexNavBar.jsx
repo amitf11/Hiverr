@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 export function GigIndexNavBar() {
     return (
         <>
-            <Link to={'/'}>
+            <Link className='clean-link' to={'/'}>
                 Home
             </Link>
             /
-            <Link to={'/'}>
+            <Link className='clean-link' to={'/'}>
                 Graphics & Design
             </Link>
         </>

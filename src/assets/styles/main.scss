@@ -17,6 +17,7 @@
 @import "cmps/gig/GigFilter";
 @import "cmps/gig/GigDetails";
 @import "cmps/gig/GigPreview";
+@import "cmps/gig/GigList";
 
 // Hero cmps
 @import "cmps/hero/Hero";
@@ -24,7 +25,6 @@
 
 // Pages
 @import "pages/GigIndex";
-// @import "views/HomePage";
-// @import "views/CarIndex";
+@import "views/HomePage";
 // @import "views/ReviewIndex";
 // @import "views/UserDetails";
