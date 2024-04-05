@@ -24,7 +24,9 @@
     // padding: 0 24px;
 
     img {
-        width: 100%
+        width: 100%;
+        height: 100%;
+        object-fit: contain
     }
 
     h1 {
@@ -100,114 +102,28 @@
 }
 
 .sidebar {
-    width: 80%
+    width: 83%
 }
 
 .packages-tabs {
     border: 1px solid black;
     position: sticky;
     top:180px;
-    width:400px;
+    width:410px;
+    display: flex;
+    flex-direction: column;
+
+    .continue {
+        margin-top: 20px;
+        height: 40px;
+        font-size: 16px;
+        background-color: $clr4;
+        color: white;
+        border-radius: 4px;
+        width: 87%;
+        align-self: center;
+        .arrow {
+            fill:white;
+        }
+    }
 }
-
-
-// .packages-tabs {
-//     border: 1px solid grey;
-//     position: sticky;
-//     top: 0;
-//     height: 450px;
-//     width: 400px;
-
-//     h1 {
-//         font-size: 0.875rem;
-//     }
-// }
-
-
-
-// .gig-details {
-//     flex-basis: 50%;
-
-//     h1 {
-//         margin: 0;
-//         font-size: 28px;
-//         //28px
-//         // em
-//         letter-spacing: 1px;
-//         line-height: 1em;
-//     }
-
-//     h2 {
-//         margin: 0;
-//         font-size: 18px;
-//     }
-
-//     .user-pic {
-//         height: 64px;
-//         border-radius: 50%;
-//     }
-
-//     .about-user {
-//         display: flex;
-//         gap: 15px;
-//         border-bottom: 0.5px solid $clr5;
-//     }
-
-//     h3 {
-//         font-size: 16px;
-//     }
-
-//     .star {
-//         margin-right: 5px;
-//     }
-
-//     .folio {
-//         margin-top: 40px;
-//     }
-// }
-
-// .sidebar {
-//    display: flex;
-//     flex-direction: column;
-
-//     flex-basis: 40%;
-//     flex-shrink: 1;
-
-//     min-height: 260px;
-//     margin-inline: auto;
-
-//     padding: 1em; 
-//     .contact {
-//         background-color:white;
-//         width: 50%;
-//         margin-top: 10px;
-//     }
-// }
-
-// .packages-tabs {
-//     width:50%;
-//     align-self: flex-start;
-//     border: 1px solid rgb(226, 226, 226);
-
-//     h3 {
-//         margin: 0;
-//         font-size: 14px;
-//     }
-
-//     button {
-//         background-color: $clr4;
-//         color: white;
-//         align-self: center;
-//         height: 3em;
-//         border-radius: 3%;
-//         font-size: 16px;
-
-//         .arrow {
-//             fill: white;
-//         }
-//     }
-
-//     .delivery {
-//         margin-bottom: 5px;
-//     }
-// }
