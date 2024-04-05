@@ -14,7 +14,7 @@ export function GigIndex() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setSearch(searchParams.get('search')))
+        // dispatch(setSearch(searchParams.get('search')))
         loadGigs()
             .catch(err => {
                 console.log(err)
