@@ -60,7 +60,6 @@ export function GigDetails() {
             </section>
             <aside className="sidebar">
                 <div className="packages-tabs">
-                    <h1>basic</h1>
                     <h2>₪{gig.price}</h2>
                     <p>
                         {gig.about}
