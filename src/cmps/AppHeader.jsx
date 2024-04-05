@@ -17,7 +17,7 @@ export function AppHeader() {
 
     useEffect(() => {
         function handleScroll() {
-            if (window.scrollY >= 150 && pathname === '/') setHeaderClassName('regular-header')
+            if (window.scrollY >= 10 && pathname === '/') setHeaderClassName('regular-header')
             // else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('homepage-header')
             else setHeaderClassName('homepage-header')
         }
