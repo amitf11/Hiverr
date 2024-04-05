@@ -11,10 +11,10 @@ import { GigIndexNavBar } from '../cmps/gig/GigIndexNavBar'
 export function GigIndex() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const [searchParams, setSearchParams] = useSearchParams()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setSearch(searchParams.get('search')))
+        // dispatch(setSearch(searchParams.get('search')))
         loadGigs()
             .catch(err => {
                 console.log(err)

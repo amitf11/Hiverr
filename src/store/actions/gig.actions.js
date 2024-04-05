@@ -3,7 +3,7 @@ import { store } from "../store.js"
 import { SET_GIGS, SET_SEARCH } from "../reducers/gig.reducer.js"
 
 export function loadGigs() {
-    const { filterBy } = getState().gigModule
+    const { filterBy } = store.getState().gigModule
     return gigService.query(filterBy)
         .then(gigs => {
             store.dispatch({ type: SET_GIGS, gigs })

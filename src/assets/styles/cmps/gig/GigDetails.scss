@@ -1,7 +1,9 @@
 .main-details {
+    margin: auto;
+    margin-top: 100px;
+    box-sizing: border-box;
+    max-width: 1400px;
     display: flex;
-    margin-top: 5em;
-    gap: 5em;
 
     h1,
     h2,
@@ -14,19 +16,54 @@
 .gig-details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 24px;
 
     h1 {
-        font-size: 2em;
+        font-size: 28px;
+    }
+
+    hr {
+        margin: 30px 0;
+        // display: flex;
+        // font-size: .75em;
+        // margin-top: 1em;
+    }
+
+    & h1 {
+        line-height: 130%;
+        font-size: rem(30px);
+    }
+
+    & .about-this-gig {
+        margin-top: rem(100px);
+
+    }
+
+    & .about-the-seller {
+        h2 {
+            margin-bottom: 30px;
+        }
+    }
+
+    &.gig-details {
+        width: 100%;
+    }
+
+    .gig-layout {
+        max-width: 100%;
     }
 
     .about-user {
         display: flex;
-        font-size: .75em;
+        flex-direction: row;
     }
 
     .user-pic {
-        width: 60px;
-        height: 60px;
+        width: rem(60px);
+        height: rem(60px);
+        margin-right: 20px;
 
 
         img {
@@ -42,8 +79,17 @@
     }
 }
 
+
+
 .packages-tabs {
-    border : solid 1px grey;
+    border: 1px solid grey;
+    position: sticky;
+    top: 0;
+    height: 450px;
+    width: 400px;
+    // margin-top: 35px;
+    // margin-left: 80px;
+
     h1 {
         font-size: 0.875rem;
     }
