@@ -12,7 +12,7 @@ export function GigIndex() {
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const [searchParams, setSearchParams] = useSearchParams()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     useEffect(() => {
         // dispatch(setCategory(searchParams.get('category')))

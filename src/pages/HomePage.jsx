@@ -11,7 +11,6 @@ export function HomePage() {
         <>
             <section>
                 <Hero />
-                <HeroFilter />
                 <div className='trusted-by flex align-center'>
                     <div className='trusted-by-txt'>
                         Trusted by:
