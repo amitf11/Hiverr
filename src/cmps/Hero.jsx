@@ -32,21 +32,12 @@ export function Hero() {
                     <div className="hero-jordan hero-background" style={{ opacity: (counter === 3) ? 1 : 0 }}></div>
                     <div className="hero-christina hero-background" style={{ opacity: (counter === 4) ? 1 : 0 }}></div>
                 </div>
+
+                <div className="hero max-width-container">
+                    <HeroFilter />
+                </div>
             </div>
 
-
-
-            {/* <h1 className="title">Find the right <i>freelance</i> <br />service, right away</h1>
-                    <HeroFilter /> */}
-
-            {/* <div className="home-page-slider">
-                <div className="hero-container">
-                <div className="hero-img flex">
-                <div className="hero-title">
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </>
 
     )
