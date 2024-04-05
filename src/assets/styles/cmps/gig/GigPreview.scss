@@ -1,24 +1,52 @@
 .gig-preview {
-    // min-width: 245px;
+    min-width: 245px;
     width: 100%;
-    // bor
-    
+    margin-inline-end: 24px;
+
+    &:hover .gig-title {
+        text-decoration: underline;
+    }
+
     img {
         width: 100%;
         overflow: clip;
+        border-radius: 8px;
+        // padding-block-end: 60%;
+        position: relative;
     }
 
-    .level {
-        justify-self: center;
+    .gig-rating,
+    .price {
+        color: $clr9;
+        font-size: 1em;
     }
 
-    .gig-rating, .price{
-        color: $clr6;
+    .gig-rating {
+        min-height: 24px;
+        margin-block-start: 8px;
+
+        .inner-rating-container {
+            line-height: 24px;
+            font-size: 1em;
+
+            .star {
+                display: flex;
+                padding-block-end: 4px;
+            }
+
+            .rating-count {
+                padding-left: 4px;
+                color: $clr10;
+            }
+        }
     }
-    
-    .gig-title{
+
+
+    .gig-title {
         color: $clr4;
         font-size: 1em;
+        line-height: 24px;
+        padding-block-start: 8px;
     }
 
     .gig-owner-details {
@@ -26,6 +54,16 @@
         margin-top: 12px;
         height: 24px;
         color: $clr4;
+
+        .owner-details {
+            column-gap: 8px;
+            min-width: 0;
+        }
+
+        .level {
+            justify-self: center;
+            flex-shrink: 0;
+        }
 
         .owner-profile {
             height: 24px;
