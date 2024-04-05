@@ -1,6 +1,21 @@
+.content{
+    max-width: 100%;
+    width: 100%;
+}
+
 .gigs-container{
-    justify-items: center;
-    max-width: 1400px;
-    margin-right: auto;
-    margin-left: auto;
+    display: grid;
+    grid-row-gap: 40px;
+    grid-column-gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    // display: flex;
+    // // gap: 24px;
+    // // column-gap: 24px;
+    // justify-items: center;
+    // // align-items: center;
+    // max-width: 1400px;
+    // margin-right: auto;
+    // margin-left: auto;
 }
