@@ -1,3 +1,65 @@
+.hero-wrapper {
+    position: relative;
+    height: 760px;
+    
+    .hero-backgrounds {
+        padding-top: 80px;
+        height: 100%;
+    }
+
+    .hero-background {
+        position: absolute;
+
+        // display: none;
+        // opacity: 0;
+
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        transition: opacity .9s;
+        animation: fade 2s linear;
+        background-position: bottom;
+        -webkit-transition: opacity .9s;
+        -webkit-animation: fade 2s linear;
+        justify-content: flex-end;
+        padding: 0 32px 32px;
+        align-items: flex-end;
+        background-position: 100% 100%;
+        display: flex;
+    }
+
+    .hero-jenny {
+        background-color: #0a4226;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616487/jenny-2x.jpg');
+    }
+
+    .hero-colin {
+        background-color: #a7445a;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616493/colin-2x.jpg');
+    }
+
+    .hero-scarlett {
+        background-color: #5f1628;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616487/scarlett-2x.jpg');
+    }
+
+    .hero-jordan {
+        background-color: #0f4926;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616493/jordan-2x.jpg');
+    }
+
+    .hero-christina {
+        background-color: #ad3906;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616497/christina-2x.jpg');
+    }
+
+}
+
 .home-page-slider {
     position: relative;
     top: 0;
@@ -32,6 +94,7 @@
         line-height: 48px;
         margin: 0 auto;
         padding-inline-start: 32px;
+
     }
 }
 
@@ -40,6 +103,7 @@
     top: 400px;
     margin: 0 auto;
     padding-inline-start: 32px;
+
 
     input {
         border-radius: 4px 0 0 4px;
