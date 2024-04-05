@@ -18,10 +18,23 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding: 0 24px;
+    // padding: 0 24px;
 
     h1 {
         font-size: 28px;
+        margin-bottom: 1.8em;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+    .star {
+        margin-right: 0.5em;
     }
 
     hr {
