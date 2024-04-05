@@ -17,9 +17,9 @@ export function AppHeader() {
 
     useEffect(() => {
         function handleScroll() {
-            if (window.scrollY >= 150 && pathname === '/') setHeaderClassName('homepage-header-scrolled')
-            else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('homepage-header')
-            else setHeaderClassName(' homepage-header-scrolled')
+            if (window.scrollY >= 150 && pathname === '/') setHeaderClassName('regular-header')
+            // else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('homepage-header')
+            else setHeaderClassName('homepage-header')
         }
         window.addEventListener("scroll", handleScroll)
         handleScroll()
@@ -27,7 +27,7 @@ export function AppHeader() {
     }, [pathname, setWindowSize])
 
     return (
-        <header className="main-header">
+        <header className={"main-header " + headerClassName}>
             <div className="header flex align-center space-between">
                 <div>
                     <NavLink to="/" className="clean-link">

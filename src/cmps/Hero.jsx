@@ -8,7 +8,7 @@ export function Hero() {
     useEffect(() => {
         interval.current = setInterval(() => {
             setCounter(prevCount => prevCount + 1)
-        }, 3000)
+        }, 6000)
 
         return () => {
             clearInterval(interval.current)
