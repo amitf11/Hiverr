@@ -4,6 +4,7 @@
     box-sizing: border-box;
     max-width: 1400px;
     display: flex;
+    flex-direction: row;
 
     h1,
     h2,
@@ -16,9 +17,15 @@
 .gig-details {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
+    margin-right: 9.15%;
+    width: 57.42%;
     height: 100%;
-    padding: 0 24px;
+    // padding: 0 24px;
+
+    img {
+        width: 100%
+    }
 
     h1 {
         font-size: 28px;
@@ -92,11 +99,15 @@
     }
 }
 
+.sidebar {
+    width: 80%
+}
 
 .packages-tabs {
     border: 1px solid black;
     position: sticky;
     top:180px;
+    width:400px;
 }
 
 
