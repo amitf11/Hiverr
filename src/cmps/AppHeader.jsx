@@ -92,7 +92,7 @@ export function AppHeader() {
                     onCloseModal={onCloseModal} />
             </header>
             <section className="sub-header flex align-center" style={{ opacity: isShown ? 1 : 0 }}>
-                <ul className="categories-menu flex clean-list">
+                <ul className="categories-menu flex space-between clean-list">
                     <li><Link to="/gig?category=graphics-design">Graphics & Design</Link></li>
                     <li><Link to="/gig?category=programming-tech">Programming & Tech</Link></li>
                     <li><Link to="/gig?category=digital-marketing">Digital Marketing</Link></li>
@@ -102,7 +102,7 @@ export function AppHeader() {
                     <li><Link to="/gig?category=business">Business</Link></li>
                     <li><Link to="/gig?category=consulting">Consulting</Link></li>
                     <li><Link to="/gig?category=data">Data</Link></li>
-                    {/* <li>Ai Services</li> */}
+                    <li><Link to="/gig?category=ai-services">Ai Services</Link></li>
                 </ul>
             </section>
         </>
