@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { NavLink, Link, useLocation } from "react-router-dom"
+import { LoginSignup } from "./LoginSignup"
 
 export function AppHeader() {
     const location = useLocation();
     const [windowSize, setWindowSize] = useState(null)
     const [headerClassName, setHeaderClassName] = useState('')
-    
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     useEffect(() => {
         function handleResize() {
             setWindowSize(window.innerWidth)
@@ -26,9 +28,19 @@ export function AppHeader() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [location.pathname, setWindowSize])
 
+    function onOpenModal() {
+        setIsModalOpen(true)
+    }
+
+    function onCloseModal() {
+        setIsModalOpen(false)
+    }
 
     return (
         <header className={`main-header ${headerClassName}`}>
+            <LoginSignup 
+            isModalOpen={isModalOpen}
+            onCloseModal={onCloseModal} />
             <div className="header flex align-center space-between">
                 <div>
                     <NavLink to="/" className="clean-link">
@@ -39,8 +51,8 @@ export function AppHeader() {
                     <ul className="flex clean-list bold">
                         <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                         <li><NavLink className="clean-link"> Become a Seller</NavLink></li>
-                        <li><NavLink className="clean-link"> Sign In</NavLink></li>
-                        <li><NavLink className="clean-link join-btn"> Join </NavLink></li>
+                        <li><a className="clean-link" onClick={onOpenModal}> Sign In</a></li>
+                        <li><a className="clean-link join-btn" onClick={onOpenModal}> Join </a></li>
                     </ul>
                 </nav>
             </div>

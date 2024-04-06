@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Hero } from '../cmps/Hero'
 import { HeroFilter } from '../cmps/HeroFilter'
+import { LoginSignup } from '../cmps/LoginSignup'
 
 
 
@@ -23,6 +24,7 @@ export function HomePage() {
                         <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.305e264.png" alt="PayPal" /></li>
                     </ul>
                 </div>
+                <LoginSignup />
             </section >
         </>
     )
