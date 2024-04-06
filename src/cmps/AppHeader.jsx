@@ -1,10 +1,24 @@
 import { useEffect, useState } from "react"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useHistory } from "react-router-dom"
 
 export function AppHeader() {
     const [windowSize, setWindowSize] = useState(null)
     const [headerClassName, setHeaderClassName] = useState('')
-    const { pathname } = window.location
+    const history = useHistory();
+
+    useEffect(() => {
+        function handleScroll() {
+            if (window.scrollY < 100 && history.location.pathname === '/') {
+                setHeaderClassName('homepage-header');
+            } else {
+                setHeaderClassName('regular-header');
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [history]);
 
     useEffect(() => {
         function handleResize() {
@@ -15,19 +29,18 @@ export function AppHeader() {
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
-    useEffect(() => {
-        function handleScroll() {
-            if (window.scrollY >= 100 && pathname === '/') setHeaderClassName('regular-header')
-            // else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('homepage-header')
-            else setHeaderClassName('homepage-header')
-        }
-        window.addEventListener("scroll", handleScroll)
-        handleScroll()
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [pathname, setWindowSize])
+    // useEffect(() => {
+    //     function handleScroll() {
+    //         if (window.scrollY < 100 && pathname === '/') setHeaderClassName('homepage-header')
+    //         else setHeaderClassName('regular-header')
+    //     }
+    //     window.addEventListener("scroll", handleScroll)
+    //     handleScroll()
+    //     return () => window.removeEventListener("scroll", handleScroll)
+    // }, [pathname, setWindowSize])
 
     return (
-        <header className={"main-header " + headerClassName}>
+        <header className={`main-header ${headerClassName}`}>
             <div className="header flex align-center space-between">
                 <div>
                     <NavLink to="/" className="clean-link">
