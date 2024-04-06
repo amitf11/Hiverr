@@ -11,6 +11,7 @@
     h1,
     h2,
     h3,
+    h4,
     p,
     span {
         margin: 0;
@@ -56,6 +57,16 @@
 
     h3 {
         font-size: 16px;
+
+        svg {
+            fill: $clr4;
+        }
+
+        .count {
+            color: #74767e;
+            font-weight: 400;
+            text-decoration-line: underline;
+        }
     }
 
     .rate {
@@ -78,7 +89,7 @@
         h2 {
             display: flex;
             margin-bottom: 30px;
-            padding: 0 8px 0 0;
+            padding-bottom: 8px;
         }
 
     }
@@ -100,7 +111,31 @@
 
     .info-first {
         display: flex;
-        gap: 12px;
+        gap: 30px;
+        color: $clr4;
+
+        .level {
+            display: flex;
+            gap: 4px;
+            font-weight: bold;
+            .number {
+                font-weight: 600;
+            }
+        }
+
+        p {
+            align-self: flex-start;
+            font-size: 14px;
+        }
+
+        h2 {
+            padding-bottom: 8px;
+        }
+
+        .count {
+
+            font-size: 16px;
+        }
     }
 
     .user-pic {
@@ -158,7 +193,7 @@
         color: $clr4;
         cursor: pointer;
         width: 100%;
-        padding: 14px 16px 16px;
+        padding: 16px;
     }
 
     .tab button.active {
@@ -183,22 +218,22 @@
     }
 
     .price {
-        margin-top: 16px;
         font-size: 24px;
         font-weight: bold;
         align-content: flex-start;
 
-        // margin-left: 8px;
         span {
             padding: 0 0 0 8px;
         }
 
     }
 
+    .package-main {
+        padding: 32px 0 0;
+    }
+
     .package-content {
-        padding-top: 32px;
-        padding-left: 24px;
-        padding-right: 24px;
+        padding: 0 24px;
         display: flex;
         flex-direction: column;
     }
@@ -216,6 +251,14 @@
 
     .second-row {
         display: flex;
+
+        svg,
+        p,
+        span {
+            font-size: 14px;
+            color: rgb(98, 100, 106);
+            font-weight: bold;
+        }
     }
 
     .delivery {
@@ -275,6 +318,7 @@
         align-content: center;
         color: #95979d;
         font-weight: 400;
+        font-size: 14px;
 
         svg {
             margin-right: 12px;
