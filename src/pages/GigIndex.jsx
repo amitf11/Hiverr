@@ -29,7 +29,10 @@ export function GigIndex() {
         <section className='explore-page'>
             <GigIndexNavBar category={filterBy.category}/>
             <GigFilter />
-            <span className='available-services'>{gigs.length} services available</span>
+            <div className='services-container'>
+          <span className='available-services'>{gigs.length} services available</span>       
+            </div>
+           
             <section className='gig-index flex column justify-center'>
                 <GigList
                     gigs={gigs} />

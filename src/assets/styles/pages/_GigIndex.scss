@@ -1,10 +1,16 @@
 .explore-page {
     margin-top: 120px;
 
-    .available-services {
+    .services-container {
         padding: 0 32px;
+        width: 100%;
+      .available-services {
+        padding: 8px 0;
+        // padding: 0 32px;
         margin-inline: 126px;
+    }  
     }
+    
 
     .index-nav-bar {
         margin: 0 auto;
