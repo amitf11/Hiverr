@@ -30,7 +30,6 @@
     .folio {
         width: 100%;
         height: 100%;
-        border: 1px solid salmon;
     }
 
     img {
@@ -76,7 +75,7 @@
         h2 {
             display: flex;
             margin-bottom: 30px;
-            padding: 0 8px 0 0 ;
+            padding: 0 8px 0 0;
         }
 
     }
@@ -120,13 +119,15 @@
 
 .sidebar {
     width: 33.6%;
+    height: 100%;
     padding: 0 0 32px;
     position: sticky;
     top: 80px;
 }
 
 .packages-tabs {
-    border: 0.5px solid #DADBDD;
+
+    border: 1px solid #DADBDD;
     margin-bottom: 16px;
 
     width: 410px;
@@ -138,9 +139,33 @@
         display: flex;
     }
 
+    .tab {
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    .tab button {
+        border: 1px solid #DADBDD;
+        border-left: none;
+        border-top: none;
+        font-size: 16px;
+        font-weight: 700;
+        background-color: inherit;
+        color: $clr4;
+        cursor: pointer;
+        width: 100%;
+        padding: 14px 16px;
+    }
+
+    .tab button.active {
+        border-bottom: 1px solid black;
+    }
+
+
     svg {
         margin-right: 8px;
-        margin-left: 8px;
+        // margin-left: 8px;
     }
 
     h3 {
@@ -158,16 +183,22 @@
         margin-top: 16px;
         font-size: 24px;
         font-weight: bold;
+        align-content: flex-start;
         // margin-left: 8px;
 
 
     }
 
     .package-content {
+        padding-top: 32px;
         padding-left: 24px;
         padding-right: 24px;
         display: flex;
         flex-direction: column;
+    }
+
+    .package {
+        padding: 24px 0 10px;
     }
 
     header {
@@ -179,6 +210,7 @@
 
     .delivery {
         display: flex;
+        align-content: center;
         margin-bottom: 8px;
     }
 
@@ -199,6 +231,9 @@
 
     h3 {
         font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
     }
 
     ul {
@@ -208,6 +243,14 @@
 
     li {
         margin: 0;
+        display: flex;
+        align-content: center;
+        color: #95979d;
+        font-weight: 400;
+
+        svg {
+            margin-right: 12px;
+        }
     }
 
 
@@ -216,10 +259,12 @@
         padding: 12px 24px;
         // height: 40px;
         font-size: 16px;
-        background-color: $clr4;
+        background-color: #000;
+        border: 1px solid transparent;
         color: white;
         border-radius: 4px;
-        width: 90%;
+        text-align: center;
+        width: 100%;
         align-self: center;
         margin-bottom: 30px;
         display: flex;
@@ -232,6 +277,33 @@
         }
     }
 }
+
+.continue-container {
+    padding: 0 24px 20px;
+}
+
+.contact-plans-btn {
+    background-color: none;
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1px solid #000;
+
+    &:hover {
+        background-color: #74767E;
+        border: 1px transparent;
+    }
+    span {
+        margin-left: 8px;
+    }
+}
+
+.contact-container {
+    margin: 0 0 16px;
+    padding: 24px;
+}
+
 
 @media (min-width: 900px) {
     .main-details {
