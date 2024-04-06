@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useLocation } from "react-router-dom"
 
 export function AppHeader() {
+    const location = useLocation();
     const [windowSize, setWindowSize] = useState(null)
     const [headerClassName, setHeaderClassName] = useState('')
-    const { pathname } = window.location
     
-
     useEffect(() => {
         function handleResize() {
             setWindowSize(window.innerWidth)
@@ -19,13 +18,13 @@ export function AppHeader() {
 
     useEffect(() => {
         function handleScroll() {
-            if (window.scrollY < 100 && pathname === '/') setHeaderClassName('homepage-header')
+            if (window.scrollY < 100 && location.pathname === '/') setHeaderClassName('homepage-header')
             else setHeaderClassName('regular-header')
         }
         window.addEventListener("scroll", handleScroll)
         handleScroll()
         return () => window.removeEventListener("scroll", handleScroll)
-    }, [pathname, setWindowSize])
+    }, [location.pathname, setWindowSize])
 
 
     return (

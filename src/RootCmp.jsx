@@ -12,9 +12,9 @@ export function RootCmp() {
 
     return (
         <div className='flex column'>
-            <AppHeader />
 
             <main>
+                <AppHeader />
                 <Routes>
                     {routes.map(route => (
                         <Route
