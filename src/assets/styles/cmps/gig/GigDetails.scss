@@ -55,7 +55,10 @@
         // margin-bottom: 0.5em;
     }
 
-    h3 {
+.info-second {
+    display: flex;
+    gap:24px;
+     h3 {
         font-size: 16px;
 
         svg {
@@ -68,6 +71,9 @@
             text-decoration-line: underline;
         }
     }
+}
+
+   
 
     .rate {
         padding: 0 0 0 4px;
@@ -104,6 +110,7 @@
 
     .about-user {
         display: flex;
+        width: 100%;
         gap: 20px;
         flex-direction: row;
         margin-top: 12px;
@@ -111,7 +118,7 @@
 
     .info-first {
         display: flex;
-        gap: 30px;
+        gap: 24px;
         color: $clr4;
 
         .level {
