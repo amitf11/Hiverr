@@ -9,10 +9,10 @@ import { GigFilter } from '../cmps/gig/GigFilter'
 import { GigIndexNavBar } from '../cmps/gig/GigIndexNavBar'
 
 export function GigIndex() {
-    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
-    const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const [searchParams, setSearchParams] = useSearchParams()
     const dispatch = useDispatch()
+    const [searchParams, setSearchParams] = useSearchParams()
+    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
     useEffect(() => {
         const category = searchParams.get('category')
@@ -25,15 +25,11 @@ export function GigIndex() {
             })
     }, [searchParams])
 
-    console.log(filterBy);
     return (
         <section className='explore-page'>
-            <h1>
-                Explore
-            </h1>
-            <GigIndexNavBar />
+            <GigIndexNavBar category={filterBy.category}/>
             <GigFilter />
-            <span>{gigs.length} services available</span>
+            <span className='available-services'>{gigs.length} services available</span>
             <section className='gig-index flex column justify-center'>
                 <GigList
                     gigs={gigs} />

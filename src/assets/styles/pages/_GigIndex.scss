@@ -1,5 +1,69 @@
-.explore-page{
-    margin-top: 100px;
+.explore-page {
+    margin-top: 120px;
+
+    .available-services {
+        margin-bottom: 16px;
+        padding: 0 32px;
+    }
+
+    .index-nav-bar {
+        padding: 32px 32px 0;
+        color: #404145;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        text-transform: none;
+
+
+        nav {
+            padding: 0 0 12px;
+
+            .divider {
+                margin: 0 8px;
+            }
+
+            .home-link {
+                padding: 9px;
+                border-radius: 50%;
+            }
+
+            .home-link:hover {
+                background-color: #f1f1f1;
+                transition: .2s;
+            }
+
+            img {
+                height: 14px;
+                margin-bottom: -2px;
+                width: 14px;
+            }
+        }
+
+        .index-category-titles {
+            padding-bottom: 32px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #efeff0;
+
+            bor
+            .index-category-title {
+                color: #222325;
+                font-size: 32px;
+                line-height: 36px;
+                padding: 8px 0;
+                margin: 0;
+
+                text-transform: none !important;
+            }
+
+            p {
+                font-size: 16px;
+                margin: 0;
+                color: #74767e;
+            }
+        }
+        
+    }
+
     .gig-index {
         margin-left: auto;
         margin-right: auto;
