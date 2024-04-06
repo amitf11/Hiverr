@@ -9,10 +9,6 @@
 
     .hero-background {
         position: absolute;
-
-        // display: none;
-        // opacity: 0;
-
         background-repeat: no-repeat;
         background-size: auto 100%;
 
@@ -125,6 +121,12 @@
         width: 100%;
         border: 1px solid $clr7;
         border-right: 0;
+
+        &:focus-visible {
+            // outline-offset: none;
+            outline: none;
+            border: none;
+        }
     }
 
     .btn-search {
