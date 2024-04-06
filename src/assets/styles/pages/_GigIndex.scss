@@ -66,11 +66,12 @@
     }
 
     .gig-index {
-        margin-block-start: 24px;
-        margin-left: auto;
-        margin-right: auto;
+        // margin-block-start: 24px;
+        // margin-left: auto;
+        // margin-right: auto;
+        margin: 0 124px;
         max-width: 1400px;
         flex-flow: row wrap;
-        padding: 0 32px;
+        padding: 0 32px 0;
     }
 }
