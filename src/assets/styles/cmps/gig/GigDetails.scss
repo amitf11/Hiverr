@@ -48,6 +48,7 @@
         color: $clr4;
         overflow-wrap: break-word;
         padding: 0 0 16px;
+        font-weight: 700;
     }
 
     h2 {
@@ -55,25 +56,26 @@
         // margin-bottom: 0.5em;
     }
 
-.info-second {
-    display: flex;
-    gap:24px;
-     h3 {
-        font-size: 16px;
+    .info-second {
+        display: flex;
+        gap: 24px;
 
-        svg {
-            fill: $clr4;
-        }
+        h3 {
+            font-size: 16px;
 
-        .count {
-            color: #74767e;
-            font-weight: 400;
-            text-decoration-line: underline;
+            svg {
+                fill: $clr4;
+            }
+
+            .count {
+                color: #74767e;
+                font-weight: 400;
+                text-decoration-line: underline;
+            }
         }
     }
-}
 
-   
+
 
     .rate {
         padding: 0 0 0 4px;
@@ -125,6 +127,7 @@
             display: flex;
             gap: 4px;
             font-weight: bold;
+
             .number {
                 font-weight: 600;
             }
@@ -353,12 +356,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
 
         &:hover {
             background-color: #404145;
         }
 
         .arrow {
+            position: absolute;
+            right: 15px;
             fill: white;
             justify-self: flex-end;
         }
