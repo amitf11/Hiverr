@@ -1,24 +1,11 @@
 import { useEffect, useState } from "react"
-import { NavLink, Link, useHistory } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 
 export function AppHeader() {
     const [windowSize, setWindowSize] = useState(null)
     const [headerClassName, setHeaderClassName] = useState('')
-    const history = useHistory();
-
-    useEffect(() => {
-        function handleScroll() {
-            if (window.scrollY < 100 && history.location.pathname === '/') {
-                setHeaderClassName('homepage-header');
-            } else {
-                setHeaderClassName('regular-header');
-            }
-        }
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [history]);
+    const { pathname } = window.location
+    
 
     useEffect(() => {
         function handleResize() {
@@ -29,15 +16,17 @@ export function AppHeader() {
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
-    // useEffect(() => {
-    //     function handleScroll() {
-    //         if (window.scrollY < 100 && pathname === '/') setHeaderClassName('homepage-header')
-    //         else setHeaderClassName('regular-header')
-    //     }
-    //     window.addEventListener("scroll", handleScroll)
-    //     handleScroll()
-    //     return () => window.removeEventListener("scroll", handleScroll)
-    // }, [pathname, setWindowSize])
+
+    useEffect(() => {
+        function handleScroll() {
+            if (window.scrollY < 100 && pathname === '/') setHeaderClassName('homepage-header')
+            else setHeaderClassName('regular-header')
+        }
+        window.addEventListener("scroll", handleScroll)
+        handleScroll()
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [pathname, setWindowSize])
+
 
     return (
         <header className={`main-header ${headerClassName}`}>
