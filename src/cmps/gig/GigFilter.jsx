@@ -2,7 +2,7 @@ export function GigFilter() {
     return (
         <section className="filter-sort">
             <section className="gig-filter-container flex space-between">
-                <div className="flex">
+                <div className="flex inner-filer-container">
                     <div className="gig-filter">Service options ∨</div>
                     <div className="gig-filter">Seller details ∨</div>
                     <div className="gig-filter">Budget ∨</div>
