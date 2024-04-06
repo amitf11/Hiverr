@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { NavLink, Link, useLocation } from "react-router-dom"
 import { LoginSignup } from "./LoginSignup"
-import { Opacity } from "@mui/icons-material";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
 
 export function AppHeader() {
-    const location = useLocation();
+    const navigate = useNavigate()
+    const location = useLocation()
     const [search, setSearch] = useState('')
     const [isShown, setIsShown] = useState(false)
     const [windowSize, setWindowSize] = useState(null)
