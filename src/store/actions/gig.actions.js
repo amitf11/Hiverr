@@ -20,13 +20,13 @@ export function setFilterBy(filterBy) {
 }
 
 export function setCategory(category) {
-    return (dispatch) => {
-        dispatch({ type: SET_CATEGORY, category })
-    }
+    console.log(category);
+    // return (dispatch) => {
+    store.dispatch({ type: SET_CATEGORY, category })
+    // }
 }
 
 export function setSearch(search) {
-    return (dispatch) => {
-        dispatch({ type: SET_SEARCH, search })
-    }
+    store.dispatch({ type: SET_SEARCH, search })
+
 }

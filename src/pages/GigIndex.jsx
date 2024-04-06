@@ -12,20 +12,22 @@ export function GigIndex() {
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const [searchParams, setSearchParams] = useSearchParams()
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        // dispatch(setCategory(searchParams.get('category')))
-        // dispatch(setSearch(searchParams.get('search')))
+        const category = searchParams.get('category')
+        const search = searchParams.get('search')
+        setCategory(category || '')
+        setSearch(search || '')
         loadGigs()
             .catch(err => {
                 console.log(err)
             })
     }, [searchParams])
 
-
+    console.log(filterBy);
     return (
-        <section>
+        <section className='explore-page'>
             <h1>
                 Explore
             </h1>
