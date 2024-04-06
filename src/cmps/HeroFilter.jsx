@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function HeroFilter() {
-    const [search, setSearch] = useState('')
     const navigate = useNavigate()
+    const [search, setSearch] = useState('')
 
     function handleChange({ target }) {
         const value = target.value
@@ -37,32 +37,32 @@ export function HeroFilter() {
                 Popular:
                 <ul className="flex clean-list popular-list">
                     <li className="flex popular-filters">
-                        <NavLink
+                        <Link
                             to="/gig?category=website-design"
                         >
                             Website Design
-                        </NavLink>
+                        </Link>
                     </li>
                     <li className="flex popular-filters">
-                        <NavLink
+                        <Link
                             to="/gig?category=programming-tech"
                         >
                             WordPress
-                        </NavLink>
+                        </Link>
                     </li>
                     <li className="flex popular-filters">
-                        <NavLink
+                        <Link
                             to="/gig?category=graphics-design"
                         >
                             Logo Design
-                        </NavLink>
+                        </Link>
                     </li>
                     <li className="flex popular-filters">
-                        <NavLink
+                        <Link
                             to="/gig?category=ai-services"
                         >
                             AI Services
-                        </NavLink>
+                        </Link>
                     </li>
                 </ul>
             </div>
