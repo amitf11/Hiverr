@@ -2,8 +2,8 @@
     margin-top: 120px;
 
     .available-services {
-        margin-bottom: 16px;
         padding: 0 32px;
+        margin-inline: 126px;
     }
 
     .index-nav-bar {
@@ -13,7 +13,7 @@
         font-weight: 400;
         line-height: 22px;
         text-transform: none;
-
+        margin-inline: 126px;
 
         nav {
             padding: 0 0 12px;
@@ -44,8 +44,7 @@
             margin-bottom: 16px;
             border-bottom: 1px solid #efeff0;
 
-            bor
-            .index-category-title {
+             .index-category-title {
                 color: #222325;
                 font-size: 32px;
                 line-height: 36px;
@@ -61,10 +60,11 @@
                 color: #74767e;
             }
         }
-        
+
     }
 
     .gig-index {
+        margin-block-start: 24px;
         margin-left: auto;
         margin-right: auto;
         max-width: 1400px;
