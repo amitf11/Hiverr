@@ -1,30 +1,36 @@
-.gig-filter-container {
-    display: flex;
-    gap: 12px;
-    margin-top: 24px;
-    padding-left: 32px;
-    align-items: center;
+.filter-sort {
+    margin-block-end: 24px;
 
-    .gig-filter {
-        box-sizing: border-box;
-        padding: 0.6875em 1em;
-        font-weight: 600;
+    .gig-filter-container {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+        padding-left: 32px;
+        align-items: center;
+        margin-inline: 126px;
 
-        border-radius: .5em;
-        border: 1px solid #dadbdd;
+        .gig-filter {
+            box-sizing: border-box;
+            padding: 0.6875em 1em;
+            font-weight: 600;
 
-        line-height: 24px;
-        min-width: 50px;
-        min-height: 48px;
+            border-radius: .5em;
+            border: 1px solid #dadbdd;
 
-        color: #222325;
-        cursor: pointer;
+            line-height: 24px;
+            min-width: 50px;
+            min-height: 48px;
+
+            color: #222325;
+            cursor: pointer;
+        }
     }
 }
 
 .gig-sort-container {
     padding: 0 32px;
     max-width: 1400px;
+    margin: 0 auto;
     justify-content: flex-end;
 
     .results {
