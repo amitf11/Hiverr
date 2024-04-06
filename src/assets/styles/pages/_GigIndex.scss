@@ -1,10 +1,16 @@
 .explore-page {
     margin-top: 120px;
 
-    .available-services {
+    .services-container {
         padding: 0 32px;
+        width: 100%;
+      .available-services {
+        padding: 8px 0;
+        // padding: 0 32px;
         margin-inline: 126px;
+    }  
     }
+    
 
     .index-nav-bar {
         margin: 0 auto;
@@ -39,6 +45,11 @@
                 margin-bottom: -2px;
                 width: 14px;
             }
+            .category-link {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         .index-category-titles {
@@ -66,11 +77,12 @@
     }
 
     .gig-index {
-        margin-block-start: 24px;
-        margin-left: auto;
-        margin-right: auto;
+        // margin-block-start: 24px;
+        // margin-left: auto;
+        // margin-right: auto;
+        margin: 0 124px;
         max-width: 1400px;
         flex-flow: row wrap;
-        padding: 0 32px;
+        padding: 0 32px 0;
     }
 }

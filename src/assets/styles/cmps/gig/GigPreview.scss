@@ -3,9 +3,17 @@
     width: 100%;
     margin-inline-end: 24px;
 
-    &:hover .gig-title {
-        text-decoration: underline;
+    .gig-title {
+        h3 {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
     }
+
 
     img {
         width: 100%;
@@ -46,7 +54,9 @@
         color: $clr4;
         font-size: 1em;
         line-height: 24px;
-        padding-block-start: 8px;
+        padding-top: 8px;
+        margin-top: 5px;
+        // padding-block-start: 8px;
     }
 
     .gig-owner-details {
