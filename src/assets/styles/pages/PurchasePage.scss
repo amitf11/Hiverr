@@ -1,0 +1,146 @@
+.gig-purchase {
+    margin-top: 150px;
+
+    .header {
+        font-size: 1.2em;
+    }
+
+    .payment-section {
+        background-color: $clr12;
+        border: 1px solid $clr7;
+        width: 70%;
+        margin-inline: auto;
+        margin-block: 20px;
+
+        .credit-debit-card-container {
+            gap: 10px;
+        }
+
+        input {
+            padding-inline-start: 15px;
+            min-width: 100px;
+            height: 40px;
+            border-radius: 3px;
+            border: 1px solid $clr7;
+            font-size: 18px;
+            color: $clr5;
+        }
+
+        .short-inputs {
+            gap: 10px;
+        }
+
+        form {
+            .card-number p {
+                align-self: flex-start;
+            }
+
+            p {
+                margin-top: 40px;
+                font-size: 14px;
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+        }
+
+        .card-details {
+            flex-wrap: wrap;
+
+            .short {
+                max-width: 110px;
+            }
+        }
+
+        .buyer-details {
+            flex-wrap: wrap;
+            margin-block: 10px;
+        }
+    }
+
+    .package-container {
+        margin-inline: auto;
+        min-width: 350px;
+        flex: 1;
+        width: 50%;
+        background-color: $clr1;
+        position: sticky;
+        align-self: flex-start;
+        top: 53px;
+        overflow-y: auto;
+
+        .order-details {
+            border-radius: 3px;
+            padding: 32px 24px;
+            border: 1px solid $clr7;
+            margin-block-end: 16px;
+
+            .img-container {
+                height: 70px;
+                margin-inline-end: 10px;
+                margin-block-start: 5px;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+            }
+
+            p {
+                color: $clr5;
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .pricing {
+                margin-block: 15px;
+
+                .package-list {
+                    margin-block-start: 15px;
+
+                    li {
+                        gap: 10px;
+
+                        .list-txt {
+                            font-size: 14px;
+                            line-height: 24px;
+                            color: $clr10;
+                        }
+                    }
+                }
+
+                .price {
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: $clr9;
+
+                }
+            }
+
+            span.bold {
+                color: $clr4;
+            }
+
+            button {
+                background-color: $clr6;
+                color: $clr1;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                font-size: 16px;
+                padding: 12px 24px;
+                text-align: center;
+                cursor: pointer;
+                transition: cubic-bezier(.75, 0, .25, 1);
+                width: 100%;
+                line-height: 100%;
+                font-weight: 600;
+
+                &:hover {
+                    background-color: $clr3;
+                }
+            }
+        }
+    }
+
+}

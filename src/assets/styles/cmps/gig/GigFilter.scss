@@ -2,7 +2,9 @@
     display: flex;
     gap: 12px;
     margin-top: 24px;
-    padding-left: 32px;
+    padding-left: 32px;    
+    margin: 0 auto;
+    max-width: 1400px;
     align-items: center;
 
     .gig-filter {
@@ -25,6 +27,7 @@
 .gig-sort-container {
     padding: 0 32px;
     max-width: 1400px;
+    margin: 0 auto;
     justify-content: flex-end;
 
     .results {
