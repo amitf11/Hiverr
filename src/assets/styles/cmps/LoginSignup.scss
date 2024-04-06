@@ -1,0 +1,105 @@
+.login-signup-container {
+    border-radius: 12px;
+    background-color: $clr1;
+    max-height: 90vh;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 15%);
+
+    .modal-content-body {
+        border-radius: 12px;
+        width: 400px;
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        width: auto;
+        background-color: $clr1;
+
+        .identification-form {
+            height: fit-content;
+            width: fit-content;
+            max-height: 645px;
+            max-width: 875px;
+
+            .identification-step {
+                height: 480px;
+                position: relative;
+
+                .inner-container {
+                    flex-basis: 100%;
+                    height: 100%;
+                    padding: 20px 0 16px;
+                    position: relative;
+                    background-color: $clr1;
+                    border-bottom-right-radius: 0;
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;
+
+                    .logo-container {
+                        width: 100%;
+                        z-index: 2;
+
+                        .inner-logo-container {
+                            width: 100%;
+                            min-height: auto;
+                            padding: 0 24px;
+
+                            button {
+                                border: none;
+                                background: none;
+                                height: 28px;
+                                width: 28px;
+
+                            }
+                        }
+                    }
+
+                    .form-section {
+                        padding: 0 24px;
+                        flex-grow: 1;
+
+                        h1 {
+                            margin: 88px 0 44px;
+                            color: $clr9;
+                            font-size: 40px;
+                            line-height: 120%;
+
+                            span {
+                                color: $clr11;
+                            }
+                        }
+
+                        .login-signup-form {
+                            gap: .7em;
+
+                            div {
+                                width: 100%
+                            }
+
+                            input {
+                                width: 75%;
+                                height: 35px;
+                                border-radius: 5px;
+                                border: 1px solid $clr5;
+                            }
+
+                            button {
+                                height: 35px;
+                                border-radius: 4px;
+                                border: 0;
+                                cursor: pointer;
+                                margin: 10px 0;
+                                color: $clr1;
+                                background-color: $clr3;
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+}

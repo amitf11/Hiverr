@@ -12,6 +12,7 @@
 // Components
 @import "cmps/AppHeader";
 @import "cmps/AppFooter";
+@import 'cmps/LoginSignup.scss';
 
 // Gig cmps
 @import "cmps/gig/GigFilter";
@@ -21,7 +22,6 @@
 
 // Hero cmps
 @import "cmps/hero/Hero";
-
 
 // Pages
 @import "pages/GigIndex";
