@@ -11,16 +11,22 @@ export const gigService = {
 const STORAGE_KEY = 'gigDB'
 _createGigs()
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { search: '', category: '' }) {
     const gigs = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
+    let filteredGigs = gigs
+    if (filterBy.search) {
+        const regex = new RegExp(filterBy.search, 'i')
+        filteredGigs = filteredGigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
     }
-    // if (filterBy.price) {
-    //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
-    // }
-    return gigs
+
+    if (filterBy.category) {
+        filteredGigs = filteredGigs.filter(gig => gig.tags.some(tag => {
+            return filterBy.category === tag
+        }))
+
+    }
+
+    return filteredGigs
 }
 
 function getById(gigId) {
@@ -68,14 +74,13 @@ function _createGigs() {
                 },
                 country: "Ghana",
                 daysToMake: 26,
-                description: "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
+                description: "Hello ! Much obliged for visiting my gig logo :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
                 imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg",
                 tags: [
-                    "pencil drawing",
-                    "realistic drawing",
-                    "hand drawing",
-                    "portrait drawing",
-                    "pencil sketch"
+                    "pencil-drawing",
+                    "realistic-drawing",
+                    "logo-design",
+                    "graphics-design"
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -331,7 +336,7 @@ function _createGigs() {
             },
             {
                 _id: 'd106',
-                title: "I will do hyper realistic pencil sketch portrait by hand drawing",
+                title: "I will do logo hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, I am Achinthya from Sri Lanka. I am a professional graphic designer with more than 5 years of experience. I have completed a diploma in Graphic designing and I am currently following a degree in Graphic designing. I have a good knowledge of Adobe Illustrator, Adobe Photoshop, and other graphic designing software. I can create a unique and eye-catching logo, T-shirt design, poster design, and other graphic design works for you. Feel free to contact me anytime. I am available 24/7. Thank you.",
                 price: 151,
                 owner: {
