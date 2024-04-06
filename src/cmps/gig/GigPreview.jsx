@@ -14,7 +14,9 @@ export function GigPreview({ gig }) {
                     </div>
                     <p className="level bold">Level 2</p>
                 </div>
-                <a className="gig-title clean-link">{gig.title}</a>
+                <a className="gig-title clean-link">
+                    <h3>{gig.title}</h3>
+                    </a>
             </Link>
             <div className="gig-rating flex align-center">
                 <div className="inner-rating-container flex align-center">

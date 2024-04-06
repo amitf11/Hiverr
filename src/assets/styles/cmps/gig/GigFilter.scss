@@ -28,6 +28,9 @@
 
             color: #222325;
             cursor: pointer;
+            &:hover {
+                border: 1px solid rgb(34,35,37)
+            }
         }
     }
 }

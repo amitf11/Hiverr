@@ -45,6 +45,11 @@
                 margin-bottom: -2px;
                 width: 14px;
             }
+            .category-link {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         .index-category-titles {
