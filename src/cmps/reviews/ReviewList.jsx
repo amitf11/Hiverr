@@ -4,7 +4,6 @@ import { ReviewStats } from "./ReviewStats"
 
 export function ReviewList({ reviews }) {
 
-    console.log(reviews)
     if (!reviews) return <div>No review to show...</div>
     return (
         <section className="review-list">
