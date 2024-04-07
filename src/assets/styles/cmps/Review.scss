@@ -1,0 +1,122 @@
+.review-list {
+
+    box-sizing: border-box;
+
+    h1,
+    h2,
+    h3,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .review {
+        padding: 40px 0;
+        border-bottom: 1px solid $clr10;
+
+        .review-first {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0 0 64px;
+            // align-items: center;
+
+            .img {
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+            }
+
+            strong {
+                font-size: 16px;
+                font-weight: 700;
+                color: #404145;
+                margin-bottom: 8px;
+            }
+
+            .country {
+                display: flex;
+                flex-direction: row;
+
+                .flag-div {
+                    display: flex;
+                    align-items: center;
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                    margin-top: -3px;
+                }
+
+                .country-name {
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 0;
+                    padding: 0 0 0 8px;
+                    outline: 0;
+                    display: flex;
+                    align-items: flex-start;
+                }
+            }
+        }
+
+        .review-second {
+            margin: 20px 0 0 64px;
+
+            .review-rate {
+                display: flex;
+                margin: 20px 0;
+
+
+                .inline-divider {
+                    margin: 2px 8px;
+                    border-right: 1px solid #e4e5e7;
+                }
+
+                .time {
+                    font-size: 14px;
+                    line-height: 21px;
+                    font-weight: 400;
+                }
+            }
+
+            .review-content {
+                font-size: 16px;
+                font-weight: 400;
+                word-wrap: break-word;
+                color: #404145;
+                margin-bottom: 12px;
+            }
+
+        }
+
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: #404145;
+        line-height: 25px;
+        font-weight: 600;
+        font-size: 14px;
+
+        .helpful {
+            margin: 0 12px 0 0;
+        }
+
+        .svg {
+            padding: 0 4px 0 0;
+        }
+
+        .thumbs {
+            display: flex;
+            align-content: center;
+            .m-g-12 {
+                margin-right: 12px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}

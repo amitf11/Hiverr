@@ -177,7 +177,9 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ec.png",
                         review: "the work was beautifully done, and in a timely manner.",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
+                    
                     },
                     {
                         name: "swspencer",
@@ -185,7 +187,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very easy to work with and got the drawing to me quickly!",
                         reviewedAt: "Published 1 month ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "merisoo",
@@ -193,7 +196,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1ee.png",
                         review: "Very talented artist. Will definitely hire again!",
                         reviewedAt: "Published 2 months ago",
-                        rate: 4
+                        rate: 4,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "edwarden",
@@ -201,7 +205,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant as always. Super happy!",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "edwarden",
@@ -209,7 +214,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant work again. Thanks!",
                         reviewedAt: "Published 1 week ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     }
                 ]
             },
@@ -252,7 +258,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
                         review: "frederickkessie ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
                         reviewedAt: "Published 2 months ago",
-                        rate: 3
+                        rate: 3,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "liam31",
@@ -260,7 +267,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "I requested a slightly earlier delivery on this and once again Frederick came through and provided a fantastic delivery. Thanks so much!",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 4
+                        rate: 4,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "liam31",
@@ -268,7 +276,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "larsonraz",
@@ -276,7 +285,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very detailed",
                         reviewedAt: "Published 1 week ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "stevekaszycki",
@@ -284,7 +294,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "very nice portrait, very good quality.",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 2
+                        rate: 2,
+                        _id: utilService.makeId()
                     }
                 ]
             },
@@ -328,7 +339,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ec.png",
                         review: "the work was beautifully done, and in a timely manner.",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "swspencer",
@@ -336,7 +348,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very easy to work with and got the drawing to me quickly!",
                         reviewedAt: "Published 1 month ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "merisoo",
@@ -344,7 +357,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1ee.png",
                         review: "Very talented artist. Will definitely hire again!",
                         reviewedAt: "Published 2 months ago",
-                        rate: 4
+                        rate: 4,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "edwarden",
@@ -352,7 +366,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant as always. Super happy!",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "edwarden",
@@ -360,7 +375,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant work again. Thanks!",
                         reviewedAt: "Published 1 week ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     }
                 ]
             },
@@ -401,7 +417,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very professional and friendly. Completed the job efficiently and the result was exactly what I wanted.",
                         reviewedAt: "Published 1 month ago",
-                        rate: 3
+                        rate: 3,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "carynkingsley",
@@ -409,7 +426,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Great communication and very quick turnaround. Exactly what I wanted, thank you!",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 3
+                        rate: 3,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "shaneo587",
@@ -417,7 +435,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1fa.png",
                         review: "Great communication and excellent work.",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 4
+                        rate: 4,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "jackson_dixon",
@@ -425,7 +444,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Great work and fast turnaround.",
                         reviewedAt: "Published 1 month ago",
-                        rate: 4
+                        rate: 4,
+                        _id: utilService.makeId()
                     },
                     {
                         name: "katelynboston",
@@ -433,7 +453,8 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
                         review: "Amazing work, exactly what I was looking for. Highly recommended!",
                         reviewedAt: "Published 1 month ago",
-                        rate: 5
+                        rate: 5,
+                        _id: utilService.makeId()
                     }
                 ]
             }

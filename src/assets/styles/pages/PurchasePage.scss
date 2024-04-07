@@ -1,18 +1,22 @@
 .gig-purchase {
-    margin-top: 150px;
+    margin-block-start: 150px;
+    margin-block-end: 20px;
+    margin-inline: auto;
+    width: min(100%, 1400px);
+    padding: 0 32px;
 
     .header {
         font-size: 1.2em;
+        text-align: center;
     }
 
     .payment-section {
         background-color: $clr12;
         border: 1px solid $clr7;
-        width: 70%;
-        margin-inline: auto;
-        margin-block: 20px;
+        margin-inline-end: 50px;
 
         .credit-debit-card-container {
+            padding-inline: 20px;
             gap: 10px;
         }
 
@@ -58,14 +62,12 @@
     }
 
     .package-container {
-        margin-inline: auto;
-        min-width: 350px;
         flex: 1;
-        width: 50%;
+        max-width: 50%;
         background-color: $clr1;
         position: sticky;
-        align-self: flex-start;
         top: 53px;
+        height: 100%;
         overflow-y: auto;
 
         .order-details {
