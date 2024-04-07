@@ -1,27 +1,24 @@
 .explore-page {
     margin-top: 120px;
+    margin-inline: auto;
+    width: min(100%, 1400px);
+    padding: 0 32px;
 
     .services-container {
-        padding: 0 32px;
         width: 100%;
-      .available-services {
-        padding: 8px 0;
-        // padding: 0 32px;
-        margin-inline: 126px;
-    }  
+
+        .available-services {
+        }
     }
-    
+
 
     .index-nav-bar {
-        margin: 0 auto;
-        max-width: 1400px;
-        padding: 32px 32px 0;
+        padding-top: 32px;
         color: #404145;
         font-size: 14px;
         font-weight: 400;
         line-height: 22px;
         text-transform: none;
-        margin-inline: 126px;
 
         nav {
             padding: 0 0 12px;
@@ -45,6 +42,7 @@
                 margin-bottom: -2px;
                 width: 14px;
             }
+
             .category-link {
                 &:hover {
                     text-decoration: underline;
@@ -53,11 +51,11 @@
         }
 
         .index-category-titles {
-            padding-bottom: 32px;
             margin-bottom: 16px;
+            padding-bottom: 32px;
             border-bottom: 1px solid #efeff0;
 
-             .index-category-title {
+            .index-category-title {
                 color: #222325;
                 font-size: 32px;
                 line-height: 36px;
@@ -74,15 +72,5 @@
             }
         }
 
-    }
-
-    .gig-index {
-        // margin-block-start: 24px;
-        // margin-left: auto;
-        // margin-right: auto;
-        margin: 0 124px;
-        max-width: 1400px;
-        flex-flow: row wrap;
-        padding: 0 32px 0;
     }
 }

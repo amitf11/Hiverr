@@ -6,16 +6,13 @@
         justify-content: space-between;
         gap: 12px;
         margin-top: 24px;
-        padding-left: 32px;
         align-items: center;
-        margin-inline: 126px;
 
         .inner-filer-container {
             gap: 12px;
         }
 
         .gig-filter {
-            box-sizing: border-box;
             padding: 0.6875em 1em;
             font-weight: 600;
 
@@ -36,13 +33,6 @@
 }
 
 .gig-sort-container {
-    padding: 0 32px;
     max-width: 1400px;
-    // margin: 0 auto;
     justify-content: flex-end;
-
-    .results {
-        color: #74767e;
-        padding: 8px 0;
-    }
 }
