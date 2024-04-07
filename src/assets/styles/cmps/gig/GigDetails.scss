@@ -113,10 +113,6 @@
 
     }
 
-    &.gig-details {
-        width: 100%;
-    }
-
     .gig-layout {
         max-width: 100%;
     }
@@ -180,6 +176,26 @@
 
     .folio {
         margin-top: 2em;
+
+        .arrow {
+            opacity: 1;
+            top: 40%;
+            cursor: pointer;
+        }
+    }
+}
+
+.carousle-imgs {
+    display: flex !important;
+    justify-content: space-around;
+
+    li {
+        a {
+            height: 100px;
+            width: 100px;
+
+            cursor: pointer;
+        }
     }
 }
 

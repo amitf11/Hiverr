@@ -88,20 +88,19 @@
     opacity: 0;
     height: 32px;
     width: 32px;
+
+    top: 50%;
+    transform: translateY(-50%);
     background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/basic-carousel-arrows.dfd3090.svg);
 }
 
 .next-arrow {
     right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
     background-position: 100% 0;
 }
 
 .prev-arrow {
     left: 5px;
-    top: 50%;
-    transform: translateY(-50%);
     background-position: 0 100%;
 }
 
@@ -118,7 +117,6 @@
 
         button::before {
             font-size: 9px;
-
             color: #fff;
             opacity: .5;
         }
