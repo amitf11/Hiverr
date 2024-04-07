@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Hero } from '../cmps/Hero'
 import { HeroFilter } from '../cmps/HeroFilter'
 import { LoginSignup } from '../cmps/LoginSignup'
-import { PopularServices } from '../cmps/PopularServices'
+// import { PopularServices } from '../cmps/PopularServices'
 import { CategoriesNav } from '../cmps/CategoriesNav'
 
 
@@ -28,7 +28,7 @@ export function HomePage() {
                 </div>
                 <LoginSignup />
 
-                <PopularServices />
+                {/* <PopularServices /> */}
                 <CategoriesNav />
             </section >
         </>
