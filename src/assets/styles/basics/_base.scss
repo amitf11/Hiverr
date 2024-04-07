@@ -11,13 +11,9 @@ body {
     margin: 0;
     color: $clr5;
     background-color: $clr1;
-    font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font: 400 16px / 24px macan-regular;
     position: relative;
     width: 100%;
-
-    .arrow {
-        color: white;
-    }
 }
 
 button {

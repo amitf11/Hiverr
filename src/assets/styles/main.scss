@@ -22,12 +22,19 @@
 @import "cmps/gig/GigPreview";
 @import "cmps/gig/GigList";
 
+//review list + preview
+@import "cmps/Review.scss";
+
 // Hero cmps
 @import "cmps/hero/Hero";
 
 // Pages
 @import "pages/GigIndex";
 @import "views/HomePage";
-@import "pages/PurchasePage.scss"
+@import "pages/PurchasePage.scss";
 // @import "views/ReviewIndex";
 // @import "views/UserDetails";
+
+// Libs
+// @import "slick-carousel/slick/slick.css";
+// @import "slick-carousel/slick/slick-theme.css";

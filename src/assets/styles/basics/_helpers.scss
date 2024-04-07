@@ -24,11 +24,38 @@
   }
 
   &.center {
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
+    width: min(100%, 1400px);
+    padding: 0 32px;
   }
 }
+
+>*.full {
+  flex: 1;
+}
+
+&.column {
+  flex-direction: column;
+}
+
+&.justify-center {
+  justify-content: center;
+}
+
+&.align-center {
+  align-items: center;
+}
+
+&.space-between {
+  justify-content: space-between;
+}
+
+&.center {
+  margin-inline: auto;
+  width: min(100%, 1400px);
+  padding: 0 32px;
+}
+
 
 .bold {
   font-weight: 600;
@@ -43,6 +70,7 @@
 .clean-link {
   text-decoration: none;
 }
+
 
 // Order status
 .pending {
