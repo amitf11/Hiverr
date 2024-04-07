@@ -11,9 +11,10 @@ export function orderReducer(state = initialState, action) {
     switch (action.type) {
         case SET_ORDERS:
             newState = { ...state, orders: action.orders }
-            break
+            return newState
         case ADD_ORDER:
-            newState = { ...state, orders: [...state.orders, action.order] }
+            newState = { ...state, orders: [...state.orders, action.savedOrder] }
+            return newState
         default:
             return state
     }
