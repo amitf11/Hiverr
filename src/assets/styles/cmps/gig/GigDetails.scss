@@ -277,8 +277,9 @@
         align-content: center;
         margin-bottom: 8px;
 
-        svg {
-            float: left;
+        div {
+            display: flex;
+            align-items: center;
         }
 
         span {
