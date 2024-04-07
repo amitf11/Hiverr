@@ -19,6 +19,17 @@
     transition: 0.5s;
 }
 
+.main-nav {
+    li {
+        cursor: pointer;
+    }
+
+    .orders-btn {
+        position: relative;
+        pad: 0 10px;
+    }
+}
+
 .join-btn {
     font-weight: 700;
     font-size: 0.875em;

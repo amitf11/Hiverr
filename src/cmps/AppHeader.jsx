@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import { LoginSignup } from "./LoginSignup"
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { loadOrders } from "../store/actions/order.actions"
+import { OrderModal } from "./OrderModal"
 
 export function AppHeader() {
     const navigate = useNavigate()
@@ -9,7 +12,20 @@ export function AppHeader() {
     const [isShown, setIsShown] = useState(false)
     const [windowSize, setWindowSize] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
     const [headerClassName, setHeaderClassName] = useState('')
+    const orders = useSelector(storeState => storeState.orderModule.orders)
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize(window.innerWidth)
+        }
+        window.addEventListener("resize", handleResize)
+        handleResize()
+
+        loadOrders()
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
 
     function handleChange({ target }) {
         const value = target.value
@@ -20,15 +36,6 @@ export function AppHeader() {
         ev.preventDefault()
         navigate(`/gig?search=${search}`)
     }
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowSize(window.innerWidth)
-        }
-        window.addEventListener("resize", handleResize)
-        handleResize()
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
 
     useEffect(() => {
 
@@ -52,6 +59,14 @@ export function AppHeader() {
 
     function onCloseModal() {
         setIsModalOpen(false)
+    }
+
+    function onOpenOrderModal() {
+        setIsOrderModalOpen(true)
+    }
+
+    function onCloseOrderModal() {
+        setIsOrderModalOpen(false)
     }
 
     return (
@@ -82,11 +97,16 @@ export function AppHeader() {
                         <ul className="flex clean-list bold">
                             <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                             <li><NavLink className="clean-link">Become a Seller</NavLink></li>
+                            <li className="orders-btn"><a onClick={onOpenOrderModal}>Orders</a></li>
                             <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
                             <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
                         </ul>
                     </nav>
                 </div>
+                <OrderModal
+                    orders={orders}
+                    isOrderModalOpen={isOrderModalOpen}
+                    onCloseOrderModal={onCloseOrderModal} />
                 <LoginSignup
                     isModalOpen={isModalOpen}
                     onCloseModal={onCloseModal} />
