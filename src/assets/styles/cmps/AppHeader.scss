@@ -19,6 +19,17 @@
     transition: 0.5s;
 }
 
+.main-nav {
+    li {
+        cursor: pointer;
+    }
+
+    .orders-btn {
+        position: relative;
+        pad: 0 10px;
+    }
+}
+
 .join-btn {
     font-weight: 700;
     font-size: 0.875em;
@@ -129,13 +140,10 @@ ul>*:not(:last-child) {
 
     .categories-menu {
         position: relative;
-        box-sizing: border-box;
 
-        margin: 0 auto;
+        width: min(100%, 1400px);
+        margin-inline: auto;
         padding: 0 32px;
-
-        width: 100%;
-        max-width: 1400px;
 
         transition: transform .5s;
 

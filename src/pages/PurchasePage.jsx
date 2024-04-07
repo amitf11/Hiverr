@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 import { gigService } from "../services/gig.service"
+import { addOrder } from "../store/actions/order.actions"
 
 export function PurchasePage() {
     const { gigId } = useParams()
@@ -20,8 +21,39 @@ export function PurchasePage() {
             navigate('/gig')
         }
     }
+
+    async function onPurchase(ev) {
+        ev.preventDefault()
+
+        const order = {
+            // buyer: {
+            //     _id: user._id,
+            //     fullname: user.fullname
+            // },
+            seller: {
+                _id: gig.owner._id,
+                fullname: gig.owner.fullname,
+            },
+            gig: {
+                _id: gig._id,
+                title: gig.title,
+                price: gig.price,
+                imgUrl: gig.imgUrl
+            },
+            status: "pending"
+        }
+        
+        try {
+            await addOrder(order)
+            navigate('/')
+        }
+        catch (err) {
+            console.log("cant add order", err)
+        }
+    }
+
     return (
-        <section className="gig-purchase">
+        <section className="gig-purchase flex justify-center">
             <section className="payment-section flex align-center justify-center">
 
                 <form className="payment-form flex column align-center justify-center">
@@ -126,7 +158,11 @@ export function PurchasePage() {
                             <p className="flex space-between"><span className="bold">Total</span><span className="bold">${gig.price + 15.00 + 9.00}</span></p>
                             <p className="flex space-between"><span className="bold">Total delivery time</span><span>{gig.daysToMake} days</span></p>
                         </div>
-                        <button type="submit">Confirm & Pay</button>
+                        <button
+                            onClick={onPurchase}
+                            type="submit">
+                            Confirm & Pay
+                        </button>
                     </div>
                 </section>
             </section>

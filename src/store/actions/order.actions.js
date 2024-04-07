@@ -1,5 +1,5 @@
 import { store } from '../store'
-import { ADD_ORDER, SET_ORDERS } from './order.reducer'
+import { ADD_ORDER, SET_ORDERS } from '../reducers/order.reducer.js'
 
 import { orderService } from '../../services/order.service'
 

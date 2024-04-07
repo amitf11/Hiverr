@@ -1,6 +1,11 @@
 import { storageService } from "./async-storage.service"
 import { utilService } from "./util.service"
 
+export const orderService = {
+    query,
+    save
+}
+
 const STORAGE_KEY = 'orderDB'
 
 async function query() {
