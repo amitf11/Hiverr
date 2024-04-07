@@ -113,10 +113,6 @@
 
     }
 
-    &.gig-details {
-        width: 100%;
-    }
-
     .gig-layout {
         max-width: 100%;
     }
@@ -180,23 +176,45 @@
 
     .folio {
         margin-top: 2em;
+
+        .arrow {
+            opacity: 1;
+            top: 40%;
+            cursor: pointer;
+        }
+    }
+}
+
+.carousle-imgs {
+    display: flex !important;
+    justify-content: space-around;
+
+    li {
+        a {
+            height: 100px;
+            width: 100px;
+
+            cursor: pointer;
+        }
     }
 }
 
 .sidebar {
-    width: 33.6%;
-    height: 100%;
-    padding: 0 0 32px;
     position: sticky;
+    align-items: center;
+
+    width: 33.3%;
+    height: 100%;
+    
     top: 150px;
+    padding: 0 0 32px;
 }
 
 .packages-tabs {
-
+    width: 100%;
     border: 1px solid #DADBDD;
     margin-bottom: 16px;
 
-    width: 410px;
     display: flex;
     flex-direction: column;
 
@@ -381,7 +399,7 @@
             background-color: #404145;
         }
 
-        .arrow {
+        svg {
             position: absolute;
             right: 15px;
             fill: white;
@@ -392,6 +410,7 @@
 
 .continue-container {
     padding: 0 24px 20px;
+    width: 100%;
 }
 
 .contact-plans-btn {
@@ -416,6 +435,7 @@
 }
 
 .contact-container {
+    width: 100%;
     margin: 0 0 16px;
     padding: 24px;
 }

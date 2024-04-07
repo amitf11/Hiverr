@@ -1,0 +1,59 @@
+.homepage-slider-container {
+    gap: 32px;
+    padding: 40px 0;
+
+    .homepage-slider-cards-container {
+        column-gap: 16px;
+
+        .slider-card-container {
+            margin: 12px 4px;
+            padding: 25px 6px 6px;
+
+            width: 200px;
+            min-height: 266px;
+
+            border-radius: 16px;
+            color: #fbfdfc;
+
+            .slider-card {
+                height: 100%;
+
+                a {
+                    height: 100%;
+                }
+
+                h3 {
+                    position: relative;
+
+                    font-size: 18px;
+                    line-height: 28px;
+
+                    margin: 0;
+                    padding: 0 10px;
+
+                    z-index: 1;
+                    color: #fff;
+                }
+
+                img {
+                    height: 172px;
+                    width: 100%;
+                    border-radius: 12px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .homepage-slider-title {
+        font-size: 48px;
+        font-weight: 400;
+
+        margin: 0;
+        max-width: 720px;
+
+        line-height: 105%;
+        letter-spacing: -1.44px;
+        color: #404145;
+    }
+}

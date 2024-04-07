@@ -14,6 +14,7 @@
     .review-stats {
         display: flex;
         flex-direction: column;
+        width:100%;
 
         .stat-title {
             font-size: 20px;
@@ -23,6 +24,9 @@
         }
 
         .count {
+            display: flex;
+            width:100%;
+            flex-direction: row;
             font-weight: 700;
             font-size: 16px;
             color: #404145;
@@ -36,17 +40,18 @@
             padding-bottom: 24px;
         }
 
-        .progress {
-            flex-grow: 1;
-        }
 
         .bars {
             padding: 0 16px;
 
             .progress-bar-container{
                 padding: 10px 10px 0 6px;
+                margin: auto;
                 height: 8px;
-                flex-grow: 1;
+                width: 227px;
+                .progress {
+                    width: 100%;
+                }
             }
 
             .active {
@@ -62,6 +67,7 @@
 
         .rating-breakdown {
             padding: 0 16px;
+            width:50%;
             h6 {
                 font-weight: 600;
                 font-size: 16px;
@@ -77,14 +83,16 @@
                 font-size: 16px;
                 color: #95979d;
                 font-weight: 400;
-                padding-bottom: 8px;
+                padding: 0 0 8px;
+                display: flex;
+                justify-content: space-between;
             }
         }
     }
 
     .review {
         padding: 40px 0;
-        border-bottom: 1px solid $clr10;
+        border-bottom: 1px solid #DADBDD;
 
         .review-first {
             display: flex;
