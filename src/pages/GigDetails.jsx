@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { ReviewList } from '../cmps/reviews/ReviewList'
+import Slider from "react-slick";
 
 export function GigDetails() {
 
@@ -23,6 +24,46 @@ export function GigDetails() {
             //   navigate('/gig')
         }
     }
+
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className="arrow next-arrow"
+                onClick={onClick}
+            />
+        );
+    }
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className="arrow prev-arrow"
+                onClick={onClick}
+            />
+        );
+    }
+
+
+    
+    const settings = {
+        customPaging: function (i) {
+            return (
+                <a>
+                    <img src={gig.imgs[i + 1]} alt="" />
+                </a>
+            );
+        },
+        nextArrow: <SampleNextArrow/>,
+        prevArrow: <SamplePrevArrow/>,
+        dots: true,
+        dotsClass: "clean-list flex carousle-imgs",
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
 
 
 
@@ -60,7 +101,13 @@ export function GigDetails() {
 
                     </div>
                     <div className="folio">
-                        <img src="https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp"></img>
+                        <Slider {...settings}>
+                            <img src="https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp"></img>
+                            <img src="https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp"></img>
+                            <img src="https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp"></img>
+                            <img src="https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp"></img>
+                            <img src="https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp"></img>
+                        </Slider>
                     </div>
 
                 </div>
@@ -71,7 +118,7 @@ export function GigDetails() {
                 {/* <div className="about-the-seller">
                     <h2>About the Seller</h2>
                 </div> */}
-                <ReviewList reviews={gig.reviews}/>
+                <ReviewList reviews={gig.reviews} />
             </section>
             <aside className="sidebar">
                 <div className="packages-tabs">

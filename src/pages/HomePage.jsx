@@ -6,6 +6,7 @@ import { TrustedBy } from '../cmps/TrustedBy'
 import { HeroFilter } from '../cmps/HeroFilter'
 import { LoginSignup } from '../cmps/LoginSignup'
 import { CategoriesNav } from '../cmps/CategoriesNav'
+import { HomePageSlider } from '../cmps/HomePageSlider'
 // import { PopularServices } from '../cmps/PopularServices'
 
 
@@ -19,6 +20,7 @@ export function HomePage() {
                 <LoginSignup />
 
                 {/* <PopularServices /> */}
+                <HomePageSlider />
                 <CategoriesNav />
             </section >
         </>
