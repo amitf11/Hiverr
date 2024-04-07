@@ -24,7 +24,7 @@ export function GigDetails() {
         }
     }
 
-
+    
 
     if (!gig) return <div>Loading...</div>
     return (
@@ -82,9 +82,9 @@ export function GigDetails() {
             <aside className="sidebar">
                 <div className="packages-tabs">
                     <div className="tab">
-                        <button class="tablinks" >Basic</button>
-                        <button class="tablinks" >Standard</button>
-                        <button class="tablinks" >Premium</button>
+                        <button className="tablinks" >Basic</button>
+                        <button className="tablinks" >Standard</button>
+                        <button className="tablinks" >Premium</button>
                     </div>
                     <div className='package-main'>
                         <div className='package-content'>
