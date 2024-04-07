@@ -120,7 +120,7 @@ export function GigDetails() {
                 </div> */}
                 <ReviewList reviews={gig.reviews} />
             </section>
-            <aside className="sidebar">
+            <aside className="sidebar flex column">
                 <div className="packages-tabs">
                     <div className="tab">
                         <button className="tablinks" >Basic</button>
