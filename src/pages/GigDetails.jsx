@@ -68,11 +68,9 @@ export function GigDetails() {
                     <h2>About This Gig</h2>
                     <p>{gig.description}</p>
                 </div>
-                <hr />
-                <div className="about-the-seller">
+                {/* <div className="about-the-seller">
                     <h2>About the Seller</h2>
-                    {/* <SellerInfo seller={gig.owner} reviews={reviews} /> */}
-                </div>
+                </div> */}
                 <ReviewList reviews={gig.reviews}/>
             </section>
             <aside className="sidebar">
