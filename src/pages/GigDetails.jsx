@@ -24,7 +24,7 @@ export function GigDetails() {
         }
     }
 
-    
+
 
     if (!gig) return <div>Loading...</div>
     return (
