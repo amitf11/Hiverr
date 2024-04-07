@@ -9,17 +9,16 @@
             font-weight: 400;
             margin-bottom: 0;
         }
+
         &:hover {
             text-decoration: underline;
         }
     }
 
-
     img {
         width: 100%;
         overflow: clip;
         border-radius: 8px;
-        // padding-block-end: 60%;
         position: relative;
     }
 
@@ -56,7 +55,6 @@
         line-height: 24px;
         padding-top: 8px;
         margin-top: 5px;
-        // padding-block-start: 8px;
     }
 
     .gig-owner-details {
@@ -80,5 +78,54 @@
             width: 24px;
             border-radius: 50%;
         }
+    }
+}
+
+.arrow {
+    position: absolute;
+    z-index: 1;
+
+    opacity: 0;
+    height: 32px;
+    width: 32px;
+    background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/basic-carousel-arrows.dfd3090.svg);
+}
+
+.next-arrow {
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-position: 100% 0;
+}
+
+.prev-arrow {
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-position: 0 100%;
+}
+
+.gig-preview a:hover .arrow {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.slick-dots {
+    bottom: 10px;
+
+    &>li {
+        margin: 0;
+
+        button::before {
+            font-size: 9px;
+
+            color: #fff;
+            opacity: .5;
+        }
+    }
+
+    li.slick-active button::before {
+        color: #fff;
+        opacity: 1;
     }
 }
