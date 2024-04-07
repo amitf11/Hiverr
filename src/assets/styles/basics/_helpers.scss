@@ -43,3 +43,17 @@
 .clean-link {
   text-decoration: none;
 }
+
+
+// Order status
+.pending {
+  color: $clr5;
+}
+
+.rejected {
+  color: $clr16;
+}
+
+.approved {
+  color: $clr3;
+}

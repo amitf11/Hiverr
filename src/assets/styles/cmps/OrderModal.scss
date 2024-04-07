@@ -1,0 +1,76 @@
+.order-modal {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    min-height: 435px;
+    max-height: 75vh;
+    width: 400px;
+    padding: 5px 5px 5px 0;
+    transform: translate(-27%, 12px);
+    z-index: 10000;
+    border-radius: 4px;
+    border: 1px solid $clr7;
+    background-color: $clr1;
+    color: $clr5;
+
+    .close-btn{
+        background: none;
+        border: none;
+        position: absolute;
+        left: 93%;
+    }
+
+    .orders-wrapper {
+        overflow-y: auto;
+        max-height: 70vh;
+        min-height: 500px;
+
+        .order-container {
+            border-bottom: 1px solid $clr7;
+            padding: 0 0 10px;
+
+            &:hover {
+                border-bottom-color: $clr3;
+            }
+
+            a {
+                color: $clr5;
+
+                .img-container {
+                    width: 70px;
+                    height: 54px;
+                    margin-inline-end: 10px;
+
+                    img {
+                        margin: 10px 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    margin-block-end: 5px;
+                    color: $clr6;
+                    font-weight: 500;
+                }
+            }
+
+            .seller-status {
+                width: 80%;
+                color: $clr5;
+                margin-block-start: -10px;
+                font-weight: 500;
+
+                span {
+                    font-size: 12px;
+                }
+
+                span.order-status {
+                    margin-inline-start: 10px;
+                }
+            }
+        }
+    }
+}
