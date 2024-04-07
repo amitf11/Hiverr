@@ -5,9 +5,81 @@
     h1,
     h2,
     h3,
-    p {
+    h6,
+    ul p {
         margin: 0;
         padding: 0;
+    }
+
+    .review-stats {
+        display: flex;
+        flex-direction: column;
+
+        .stat-title {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #404145;
+            font-weight: 700;
+        }
+
+        .count {
+            font-weight: 700;
+            font-size: 16px;
+            color: #404145;
+            padding-bottom: 16px;
+        }
+
+        .review-layout {
+            display: flex;
+            flex-direction: row;
+            margin: 0 -16px;
+            padding-bottom: 24px;
+        }
+
+        .progress {
+            flex-grow: 1;
+        }
+
+        .bars {
+            padding: 0 16px;
+
+            .progress-bar-container{
+                padding: 10px 10px 0 6px;
+                height: 8px;
+                flex-grow: 1;
+            }
+
+            .active {
+                color: #222325;
+                font-weight: 600;
+            }
+
+            .disabled {
+                color: #95979d;
+                font-weight: 400;
+            }
+        }
+
+        .rating-breakdown {
+            padding: 0 16px;
+            h6 {
+                font-weight: 600;
+                font-size: 16px;
+                padding-bottom: 16px;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                font-size: 16px;
+                color: #95979d;
+                font-weight: 400;
+                padding-bottom: 8px;
+            }
+        }
     }
 
     .review {
@@ -112,6 +184,7 @@
         .thumbs {
             display: flex;
             align-content: center;
+
             .m-g-12 {
                 margin-right: 12px;
                 display: flex;
