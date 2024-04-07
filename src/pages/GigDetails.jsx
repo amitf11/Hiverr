@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { ReviewList } from '../cmps/ReviewList'
+import { ReviewList } from '../cmps/reviews/ReviewList'
 
 export function GigDetails() {
 
@@ -73,11 +73,7 @@ export function GigDetails() {
                     <h2>About the Seller</h2>
                     {/* <SellerInfo seller={gig.owner} reviews={reviews} /> */}
                 </div>
-                <div>
-                    <h1>What people loved about this seller</h1>
-                    {gig.reviews[0].review}
-                </div>
-
+                <ReviewList reviews={gig.reviews}/>
             </section>
             <aside className="sidebar">
                 <div className="packages-tabs">
