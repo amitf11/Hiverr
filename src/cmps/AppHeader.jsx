@@ -34,6 +34,7 @@ export function AppHeader() {
 
     function onSearch(ev) {
         ev.preventDefault()
+        setSearch('')
         navigate(`/gig?search=${search}`)
     }
 
@@ -98,6 +99,7 @@ export function AppHeader() {
                             <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                             <li><NavLink className="clean-link">Become a Seller</NavLink></li>
                             <li className="orders-btn"><a onClick={onOpenOrderModal}>Orders</a></li>
+                            <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
                             <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
                             <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
                         </ul>
