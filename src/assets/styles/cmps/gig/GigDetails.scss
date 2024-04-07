@@ -126,11 +126,18 @@
 
         .level {
             display: flex;
+            align-items: center;
             gap: 4px;
             font-weight: bold;
 
             .number {
                 font-weight: 600;
+            }
+
+            .diamonds {
+                svg {
+                    margin-left: 2pxs;
+                }
             }
         }
 
