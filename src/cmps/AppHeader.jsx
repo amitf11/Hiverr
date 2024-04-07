@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
-import { LoginSignup } from "./LoginSignup"
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
+import { useEffect, useState } from "react"
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
+
 import { loadOrders } from "../store/actions/order.actions"
+
+import { SubHeader } from "./SubHeader"
 import { OrderModal } from "./OrderModal"
+import { LoginSignup } from "./LoginSignup"
 
 export function AppHeader() {
     const navigate = useNavigate()
@@ -12,8 +15,8 @@ export function AppHeader() {
     const [isShown, setIsShown] = useState(false)
     const [windowSize, setWindowSize] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
     const [headerClassName, setHeaderClassName] = useState('')
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
     const orders = useSelector(storeState => storeState.orderModule.orders)
 
     useEffect(() => {
@@ -50,6 +53,7 @@ export function AppHeader() {
         window.addEventListener("scroll", handleScroll)
         handleScroll()
         return () => window.removeEventListener("scroll", handleScroll)
+        
     }, [location.pathname, setWindowSize])
 
 
@@ -112,18 +116,7 @@ export function AppHeader() {
                     onCloseModal={onCloseModal} />
             </header>
             <section className="sub-header flex align-center" style={{ opacity: isShown ? 1 : 0 }}>
-                <ul className="categories-menu flex space-between clean-list">
-                    <li><Link to="/gig?category=graphics-design">Graphics & Design</Link></li>
-                    <li><Link to="/gig?category=programming-tech">Programming & Tech</Link></li>
-                    <li><Link to="/gig?category=digital-marketing">Digital Marketing</Link></li>
-                    <li><Link to="/gig?category=video-animation">Video & Animation</Link></li>
-                    <li><Link to="/gig?category=writing-translation">Writing & Translation</Link></li>
-                    <li><Link to="/gig?category=music">Music & Audio</Link></li>
-                    <li><Link to="/gig?category=business">Business</Link></li>
-                    <li><Link to="/gig?category=consulting">Consulting</Link></li>
-                    <li><Link to="/gig?category=data">Data</Link></li>
-                    <li><Link to="/gig?category=ai-services">Ai Services</Link></li>
-                </ul>
+                <SubHeader />
             </section>
         </>
     )
