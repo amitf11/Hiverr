@@ -11,6 +11,7 @@ export function ReviewList({ reviews }) {
             <section className="review-container">
                 {reviews.map((review) => (
                     <ReviewPreview
+                        key={review._id}
                         className="review"
                         review={review} />
                 ))}
