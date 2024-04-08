@@ -5,18 +5,10 @@
 
 .gigs-container{
     display: grid;
-    grid-row-gap: 40px;
-    grid-column-gap: 24px;
+    grid-row-gap: em(40px);
+    grid-column-gap: em(24px);
     grid-template-columns: repeat(4, 1fr);
-    // grid-template-columns: minmax(0, 1fr);
+
     width: 100%;
-    margin: 16px 0 0;
-    // display: flex;
-    // // gap: 24px;
-    // // column-gap: 24px;
-    // justify-items: center;
-    // // align-items: center;
-    // max-width: 1400px;
-    // margin-right: auto;
-    // margin-left: auto;
+    margin: em(16px) 0 0;
 }

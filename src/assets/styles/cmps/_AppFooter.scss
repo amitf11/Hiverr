@@ -3,27 +3,26 @@
     min-width: 100%;
 
     &::before {
+        content: '';
+        position: absolute;
+
         margin-inline: auto;
         width: min(100%, 1400px);
         padding: 0 32px;
-        content: '';
-        position: absolute;
+
+        height: .5px;
         right: 50%;
         transform: translateX(50%);
-        // width: 81%;
-        height: .5px;
         background-color: #ebe5e5;
     }
 }
 
 .app-footer {
-    margin: 0 auto;
-    padding: 16px 32px;
     flex-wrap: wrap;
-    min-width: 0;
+    
     margin-inline: auto;
     width: min(100%, 1400px);
-    padding: 0 32px;
+    padding: 16px 32px;
 }
 
 .left {
@@ -40,7 +39,7 @@
         color: $clr14;
 
         span {
-            margin-left: 24px;
+            margin-left: em(24px);
             margin-top: 0;
             min-width: 0;
             white-space: nowrap;

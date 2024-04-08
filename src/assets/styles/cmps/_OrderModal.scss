@@ -44,7 +44,7 @@
                 }
 
                 p {
-                    font-size: 14px;
+                    font-size: em(14px);
                     margin-block-end: 5px;
                     color: $clr6;
                     font-weight: 500;
@@ -58,7 +58,7 @@
                 font-weight: 500;
 
                 span {
-                    font-size: 12px;
+                    font-size: em(12px);
                 }
 
                 span.order-status {
