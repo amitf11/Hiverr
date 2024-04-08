@@ -43,16 +43,15 @@
 
         .review-layout {
             width: 100%;
-            display: flex;
-            flex-direction: row;
-
-            margin: 0 -16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             padding-bottom: 24px;
+
         }
 
 
         .bars {
-            padding: 0 16px;
+            // padding: 0 16px;
 
             .progress-bar-container {
                 padding: 10px 10px 0 6px;
@@ -77,8 +76,8 @@
         }
 
         .rating-breakdown {
-            padding: 0 16px;
-            width: 50%;
+            // padding: 0 16px;
+            width: 100%;
 
             h6 {
                 font-weight: 600;
@@ -103,6 +102,10 @@
 
                 span {
                     margin-left: 12px;
+                }
+                b {
+                    font-size: em(14px);
+                    color: $clr4;
                 }
             }
         }

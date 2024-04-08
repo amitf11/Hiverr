@@ -96,11 +96,19 @@
             color: #404145;
         }
 
-        p {
-            font-size: em(16px);
-            font-weight: 400;
-            overflow-wrap: break-word;
+        div {
+            overflow: auto;
+            pre {
+                font: 400 16px / 24px macan-regular;
+                font-size: em(16px);
+                font-weight: 400;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
         }
+
+
 
     }
 
@@ -205,7 +213,7 @@
 
     width: 33.3%;
     height: 100%;
-    
+
     top: em(150px);
     padding: 0 0 em(32px);
 }
@@ -389,10 +397,10 @@
         margin-top: em(20px);
         margin-bottom: em(30px);
         padding: em(12px) em(24px);
-        
+
         font-size: em(16px);
         font-weight: bold;
-        
+
         color: white;
         background-color: #000;
         border: 1px solid transparent;
@@ -422,7 +430,7 @@
 
     width: 100%;
     padding: em(12px) em(24px);
-    
+
     color: #404145;
     border-radius: 4px;
     background-color: $clr1;

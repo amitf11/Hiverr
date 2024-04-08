@@ -113,11 +113,10 @@ export function GigDetails() {
                 </div>
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
-                    {/* <pre>{gig.description}</pre> */}
+                    <div>
+                     <pre>{gig.description}</pre>   
+                    </div>         
                 </div>
-                {/* <div className='about-the-seller'>
-                    <h2>About the Seller</h2>
-                </div> */}
                 <ReviewList reviews={gig.reviews} />
             </section>
             <aside className='sidebar flex column'>
