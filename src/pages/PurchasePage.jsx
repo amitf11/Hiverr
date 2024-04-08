@@ -38,7 +38,7 @@ export function PurchasePage() {
                 _id: gig._id,
                 title: gig.title,
                 price: gig.price,
-                imgUrl: gig.imgUrl
+                imgUrl: gig.imgs[0]
             },
             status: "pending"
         }

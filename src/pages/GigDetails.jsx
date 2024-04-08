@@ -114,11 +114,9 @@ export function GigDetails() {
                     </div>
                     <div className='folio'>
                         <Slider {...settings}>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
+                            {gig.imgs.map(img => (
+                                <img src={img} />
+                            ))}
                         </Slider>
                     </div>
 
