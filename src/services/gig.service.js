@@ -11,9 +11,10 @@ export const gigService = {
 const STORAGE_KEY = 'gigDB'
 _createGigs()
 
-async function query(filterBy = { search: '', category: '' }) {
+async function query(filterBy = { search: '', category: '', minPrice: -Infinity, maxPrice: Infinity }) {
     const gigs = await storageService.query(STORAGE_KEY)
     let filteredGigs = gigs
+
     if (filterBy.search) {
         const regex = new RegExp(filterBy.search, 'i')
         filteredGigs = filteredGigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
@@ -23,9 +24,13 @@ async function query(filterBy = { search: '', category: '' }) {
         filteredGigs = filteredGigs.filter(gig => gig.tags.some(tag => {
             return filterBy.category === tag
         }))
-
     }
 
+    filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
+    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : -Infinity
+
+    filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
+    
     return filteredGigs
 }
 
@@ -55,8 +60,6 @@ function getEmptyGig() {
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
 }
-
-
 
 function _createGigs() {
     let gigs = utilService.loadFromStorage(STORAGE_KEY)
@@ -179,7 +182,7 @@ function _createGigs() {
                         reviewedAt: "Published 2 weeks ago",
                         rate: 5,
                         _id: utilService.makeId()
-                    
+
                     },
                     {
                         name: "swspencer",
@@ -315,7 +318,7 @@ function _createGigs() {
                 description: "Hey ! Thanks for visiting my gig :)\nIn this gig i'm offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i'll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black and White or colored realistic pictures.\nPlease provide me clear reference photo as much as possible.\nThe material I used for creating pencil sketches are:\nDrawing materials : graphite pencil, charcoal, Bristol paper, mono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can provide me anything:\nPortrait photos\nFamily photos\nPet photos\nAny object photos\nScenery photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order ! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
                 imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/205987196/original/f85061c75149b8c4c87ebc890bfcbece1246ec43.jpg",
                 imgs: [
-                   "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
