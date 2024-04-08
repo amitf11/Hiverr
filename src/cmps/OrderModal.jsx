@@ -29,7 +29,9 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
     if (!isOrderModalOpen) return null
 
     return (
-        <section className="order-modal" style={{ left: modalPosition.left, top: modalPosition.top }}>
+        <section className="order-modal" 
+        // style={{ left: modalPosition.left, top: modalPosition.top }}
+        >
             <div ref={modalRef} className="modal-content">
                 <section className="orders-wrapper">
                     {!orders || !orders.length ? (

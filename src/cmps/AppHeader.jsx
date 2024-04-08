@@ -3,10 +3,12 @@ import { useEffect, useState } from "react"
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
 
 import { loadOrders } from "../store/actions/order.actions"
+import { logout } from "../store/actions/user.actions"
 
 import { SubHeader } from "./SubHeader"
 import { OrderModal } from "./OrderModal"
 import { LoginSignup } from "./LoginSignup"
+import { UserImg } from "./UserImg"
 
 export function AppHeader() {
     const navigate = useNavigate()
@@ -71,17 +73,19 @@ export function AppHeader() {
     function onOpenOrderModal(ev) {
         const { target } = ev
         const ordersButtonRect = target.getBoundingClientRect()
-        // const position = target.getBoundingClientRect()
         const modalLeft = ordersButtonRect.left
         const modalTop = ordersButtonRect.bottom + '15px'
 
-        // console.log(position);
         setIsOrderModalOpen(true)
         setModalPosition({ left: modalLeft, top: modalTop })
     }
 
     function onCloseOrderModal() {
         setIsOrderModalOpen(false)
+    }
+
+    function onLogout() {
+        logout()
     }
 
     return (
@@ -109,13 +113,24 @@ export function AppHeader() {
                         </div>
                     </div>
                     <nav className="main-nav">
-                        <ul className="flex clean-list bold">
+                        <ul className="flex clean-list bold align-center">
                             <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                             <li><NavLink className="clean-link">Become a Seller</NavLink></li>
-                            <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders</a></li>
-                            <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
-                            <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
-                            <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
+                            {loggedinUser ? (
+                                <>
+                                    <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders</a></li>
+                                    <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
+                                    <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
+                                    <li><UserImg imgUrl={loggedinUser.imgUrl} size={32} /></li>
+
+                                </>
+
+                            ) : (
+                                <>
+                                    <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
+                                    <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
+                                </>
+                            )}
                         </ul>
                     </nav>
                 </div>
