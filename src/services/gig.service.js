@@ -6,6 +6,7 @@ export const gigService = {
     getById,
     remove,
     save,
+    getCategoryDesc
 }
 
 const STORAGE_KEY = 'gigDB'
@@ -179,7 +180,7 @@ function _createGigs() {
                         reviewedAt: "Published 2 weeks ago",
                         rate: 5,
                         _id: utilService.makeId()
-                    
+
                     },
                     {
                         name: "swspencer",
@@ -315,7 +316,7 @@ function _createGigs() {
                 description: "Hey ! Thanks for visiting my gig :)\nIn this gig i'm offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i'll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black and White or colored realistic pictures.\nPlease provide me clear reference photo as much as possible.\nThe material I used for creating pencil sketches are:\nDrawing materials : graphite pencil, charcoal, Bristol paper, mono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can provide me anything:\nPortrait photos\nFamily photos\nPet photos\nAny object photos\nScenery photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order ! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
                 imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/205987196/original/f85061c75149b8c4c87ebc890bfcbece1246ec43.jpg",
                 imgs: [
-                   "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
@@ -464,3 +465,44 @@ function _createGigs() {
     utilService.saveToStorage(STORAGE_KEY, gigs)
     return gigs
 }
+
+function getCategoryDesc(category) {
+    return categories[category]
+}
+
+
+const categories = {
+    'Graphic & Design': 'Create logos, illustrations, and layouts to make things look good and easy to use.',
+    'Programming & Tech': 'Build websites, apps, and cool tech stuff using coding and computer skills.',
+    'Digital Marketing': 'Promote businesses online with social media, ads, and clever content.',
+    'Video & Animation': 'Make videos and animations that tell stories and grab attention.',
+    'Writing & Translation': 'Write and translate words to convey messages clearly and effectively.',
+    'Music & Audio': 'Make music and sound effects for movies, games, and podcasts.',
+    'Business': 'Run companies and make them successful by planning and managing everything.',
+    'Consulting': 'Help businesses solve problems and improve by giving expert advice.',
+    'Data': 'Use information to understand trends and make smart decisions. ',
+    'Ai & Service': 'Use smart computer programs to automate tasks and make things easier.'
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
