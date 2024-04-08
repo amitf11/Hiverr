@@ -1,7 +1,7 @@
 import { store } from '../store'
-import { ADD_ORDER, SET_ORDERS } from '../reducers/order.reducer.js'
+import { ADD_ORDER, SET_ORDERS, SET_ORDER_STATUS } from '../reducers/order.reducer.js'
 
-import { orderService } from '../../services/order.service'
+import { orderService } from '../../services/order.service.js'
 
 export async function loadOrders() {
     try {
@@ -20,6 +20,16 @@ export async function addOrder(order) {
         return savedOrder
     } catch (err) {
         console.log('Cannot add order', err)
+        throw err
+    }
+}
+
+export async function setOrderStatus(order) {
+    try {
+        const updatedOrder = await orderService.updateStatus(order)
+        store.dispatch({ type: SET_ORDER_STATUS, order: updatedOrder })
+    } catch (err) {
+        console.error('Error updating order status:', err)
         throw err
     }
 }

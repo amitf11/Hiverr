@@ -27,30 +27,34 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal }) {
     }
 
     if (!isOrderModalOpen) return null
-    if (!orders || !orders.length) return <div>Loading...</div>
+    // if (!orders || !orders.length) return <div>Loading...</div>
 
     return (
         <section className="order-modal">
             <div ref={modalRef} className="modal-content">
                 <section className="orders-wrapper">
-                    {orders.map(order => (
-                        <article key={order._id} className="order-container flex space-between align-center">
-                            <a className="clean-link" href={`/gig/${order.gig._id}`}>
-                                <div className="img-container">
-                                    <img src={order.gig.imgUrl} alt="gig-img" />
-                                </div>
-                            </a>
-                            <div className="gig-details">
+                    {!orders || !orders.length ? (
+                        <div>No orders yet</div>
+                    ) : (
+                        orders.map(order => (
+                            <article key={order._id} className="order-container flex space-between align-center">
                                 <a className="clean-link" href={`/gig/${order.gig._id}`}>
-                                    <p>{order.gig.title}</p>
+                                    <div className="img-container">
+                                        <img src={order.gig.imgUrl} alt="gig-img" />
+                                    </div>
                                 </a>
-                                <div className="seller-status flex space-between">
-                                    <span>by {order.seller.fullname}</span>
-                                    <span className={`${getStatusClass(order)} order-status`}>{order.status}</span>
+                                <div className="gig-details">
+                                    <a className="clean-link" href={`/gig/${order.gig._id}`}>
+                                        <p>{order.gig.title}</p>
+                                    </a>
+                                    <div className="seller-status flex space-between">
+                                        <span>by {order.seller.fullname}</span>
+                                        <span className={`${getStatusClass(order)} order-status`}>{order.status}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                    ))}
+                            </article>
+                        )))}
+
                 </section>
             </div>
         </section>
