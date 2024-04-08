@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
-export function GigIndexNavBar() {
+export function GigIndexNavBar({category}) {
+    console.log(category)
     return (
         <section className='index-nav-bar flex column'>
             <nav>

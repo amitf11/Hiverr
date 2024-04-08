@@ -2,6 +2,17 @@
     min-width: 245px;
     width: 100%;
     margin-inline-end: em(24px);
+    position: relative;
+
+    .slider-container {
+        position: relative;
+        .heart {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+    }
+
 
     .gig-title {
         h3 {
@@ -83,7 +94,7 @@
             .diamonds {
                 display: flex;
                 justify-content: center;
-                gap:2px;
+                gap: 2px;
             }
         }
 
@@ -94,6 +105,10 @@
             border-radius: 50%;
         }
     }
+}
+
+.slick-slider {
+    position: relative;
 }
 
 .arrow {
