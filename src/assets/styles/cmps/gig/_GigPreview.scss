@@ -1,11 +1,11 @@
 .gig-preview {
     min-width: 245px;
     width: 100%;
-    margin-inline-end: 24px;
+    margin-inline-end: em(24px);
 
     .gig-title {
         h3 {
-            font-size: 16px;
+            font-size: em(16px);
             font-weight: 400;
             margin-bottom: 0;
         }
@@ -18,7 +18,7 @@
     img {
         width: 100%;
         overflow: clip;
-        border-radius: 8px;
+        border-radius: em(8px);
         position: relative;
     }
 
@@ -29,7 +29,7 @@
     }
 
     .gig-rating {
-        min-height: 24px;
+        min-height: em24px;
         margin-block-start: 8px;
 
         .inner-rating-container {

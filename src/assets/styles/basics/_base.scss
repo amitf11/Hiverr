@@ -4,7 +4,6 @@
 
 html {
     font-family: macan-regular;
-    height: 150%;
 }
 
 body {
@@ -14,6 +13,10 @@ body {
     font: 400 16px / 24px macan-regular;
     position: relative;
     width: 100%;
+}
+
+main {
+    padding-bottom: 100px;
 }
 
 button {

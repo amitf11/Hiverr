@@ -1,20 +1,26 @@
 .flex {
   display: flex;
+
   >*.full {
     flex: 1;
   }
+
   &.column {
     flex-direction: column;
   }
+
   &.justify-center {
     justify-content: center;
   }
+
   &.align-center {
     align-items: center;
   }
+
   &.space-between {
     justify-content: space-between;
   }
+
   &.center {
     margin-inline: auto;
     width: min(100%, 1400px);
@@ -25,21 +31,26 @@
 .bold {
   font-weight: 600;
 }
+
 .clean-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 .clean-link {
   text-decoration: none;
 }
+
 // Order status
 .pending {
   color: $clr5;
 }
+
 .rejected {
   color: $clr16;
 }
+
 .approved {
   color: $clr3;
 }
