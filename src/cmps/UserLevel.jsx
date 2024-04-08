@@ -1,5 +1,6 @@
 
 export function UserLevel({ level }) {
+
     const svgs = []
 
     for (let i = 0; i < 3; i++) {
@@ -9,5 +10,5 @@ export function UserLevel({ level }) {
             </path></svg>
         )
     }
-    return <div className='diamonds'>{svgs}</div>
+    return <div className='flex diamonds'>{svgs}</div>
 }
