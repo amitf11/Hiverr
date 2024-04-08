@@ -1,0 +1,14 @@
+.content{
+    max-width: 100%;
+    width: 100%;
+}
+
+.gigs-container{
+    display: grid;
+    grid-row-gap: em(40px);
+    grid-column-gap: em(24px);
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 100%;
+    margin: em(16px) 0 0;
+}

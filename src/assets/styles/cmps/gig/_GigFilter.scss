@@ -1,15 +1,12 @@
 .filter-sort {
-    margin-block-end: 24px;
+    margin-block-end: em(24px);
 
     .gig-filter-container {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-top: 24px;
-        align-items: center;
+        gap: em(12px);
+        margin-top: em(24px);
 
         .inner-filer-container {
-            gap: 12px;
+            gap: em(12px);
         }
 
         .gig-filter {
@@ -19,9 +16,9 @@
             border-radius: .5em;
             border: 1px solid #dadbdd;
 
-            line-height: 24px;
-            min-width: 50px;
-            min-height: 48px;
+            line-height: em(24px);
+            min-width: em(50px);
+            min-height: em(48px);
 
             color: #222325;
             cursor: pointer;

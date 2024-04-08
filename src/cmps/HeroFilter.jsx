@@ -18,7 +18,7 @@ export function HeroFilter() {
     return (
         <div className="hero-filter">
             <h1 className='header-title'>
-                Find the right <span style={{ textDecoration: 'italic'}}>freelance</span> service, right away
+                Find the right <span style={{ fontStyle: 'italic'}}>freelance</span> service, right away
             </h1>
             <form className="flex" onSubmit={onSearch}>
                 <input

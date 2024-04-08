@@ -1,6 +1,6 @@
-import { gigService } from "../../services/gig.service.js"
-import { store } from "../store.js"
-import { SET_CATEGORY, SET_FILTER, SET_GIGS, SET_SEARCH } from "../reducers/gig.reducer.js"
+import { gigService } from '../../services/gig.service.js'
+import { store } from '../store.js'
+import { SET_CATEGORY, SET_FILTER, SET_GIGS, SET_SEARCH } from '../reducers/gig.reducer.js'
 
 export async function loadGigs() {
     try {

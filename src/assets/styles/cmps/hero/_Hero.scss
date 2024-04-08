@@ -3,12 +3,15 @@
     height: 760px;
 
     .hero-backgrounds {
-        padding-top: 80px;
+        padding-top: em(80px);
         height: 100%;
     }
 
     .hero-background {
+        display: flex;
         position: absolute;
+        align-items: flex-end;
+        justify-content: flex-end;
         background-repeat: no-repeat;
         background-size: auto 100%;
 
@@ -17,16 +20,13 @@
         left: 0;
         right: 0;
         top: 0;
+
         transition: opacity .9s;
         animation: fade 2s linear;
-        background-position: bottom;
         -webkit-transition: opacity .9s;
-        -webkit-animation: fade 2s linear;
-        justify-content: flex-end;
-        padding: 0 32px 32px;
-        align-items: flex-end;
         background-position: 100% 100%;
-        display: flex;
+        -webkit-animation: fade 2s linear;
+        padding: 0 32px 32px;
     }
 
     .hero-jenny {
@@ -59,7 +59,6 @@
 .max-width-container {
     display: flex;
     align-items: center;
-
     position: absolute;
 
     margin: 0 auto;
@@ -87,26 +86,6 @@
     }
 }
 
-// .hero-container {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     z-index: 1;
-
-//     .hero-title {
-//         position: absolute;
-//         top: 240px;
-//         color: $clr1;
-//         padding-block-end: 24px;
-//         font-size: 1.67em;
-//         line-height: 48px;
-//         margin: 0 auto;
-//         padding-inline-start: 32px;
-//     }
-// }
-
 .hero-filter {
 
     input {
@@ -123,7 +102,6 @@
         border-right: 0;
 
         &:focus-visible {
-            // outline-offset: none;
             outline: none;
             border: none;
         }
@@ -150,10 +128,10 @@
     }
 
     .popular-filter {
-        font-size: 14px;
+        font-size: em(14px);
         font-weight: 600;
         line-height: 27px;
-        padding-top: 24px;
+        padding-top: em(24px);
         color: white;
 
         .popular-list {
@@ -175,6 +153,4 @@
             }
         }
     }
-
-
 }
