@@ -153,9 +153,9 @@
                 }
 
                 img {
-                    width: 20px;
-                    height: 20px;
-                    margin-top: -3px;
+                    width: em(20px);
+                    height: em(20px);
+                    margin-top: em(-3px);
                 }
 
                 .country-name {
