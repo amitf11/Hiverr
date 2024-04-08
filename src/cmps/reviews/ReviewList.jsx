@@ -1,5 +1,6 @@
-import { ReviewPreview } from './ReviewPreview'
-import { ReviewStats } from './ReviewStats'
+
+import { ReviewPreview } from "./ReviewPreview"
+import { ReviewStats } from "./ReviewStats"
 
 export function ReviewList({ reviews }) {
 

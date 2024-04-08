@@ -1,9 +1,9 @@
 .gig-purchase {
-    margin-block-start: 150px;
-    margin-block-end: 20px;
+    margin-block-start: em(150px);
+    margin-block-end: em(20px);
     margin-inline: auto;
     width: min(100%, 1400px);
-    padding: 0 32px;
+    padding: 0 em(32px);
 
     .header {
         font-size: 1.2em;
@@ -13,25 +13,25 @@
     .payment-section {
         background-color: $clr12;
         border: 1px solid $clr7;
-        margin-inline-end: 50px;
+        margin-inline-end: em(50px);
 
         .credit-debit-card-container {
-            padding-inline: 20px;
-            gap: 10px;
+            padding-inline: em(20px);
+            gap: em(10px);
         }
 
         input {
-            padding-inline-start: 15px;
-            min-width: 100px;
-            height: 40px;
+            padding-inline-start: em(15px);
+            min-width: em(100px);
+            height: em(40px);
             border-radius: 3px;
             border: 1px solid $clr7;
-            font-size: 18px;
+            font-size: em(18px);
             color: $clr5;
         }
 
         .short-inputs {
-            gap: 10px;
+            gap: em(10px);
         }
 
         form {
@@ -40,9 +40,9 @@
             }
 
             p {
-                margin-top: 40px;
-                font-size: 14px;
-                margin-bottom: 15px;
+                margin-top: em(40px);
+                font-size: em(14px);
+                margin-bottom: em(15px);
                 font-weight: 700;
             }
         }
@@ -51,13 +51,13 @@
             flex-wrap: wrap;
 
             .short {
-                max-width: 110px;
+                max-width: em(110px);
             }
         }
 
         .buyer-details {
             flex-wrap: wrap;
-            margin-block: 10px;
+            margin-block: em(10px);
         }
     }
 
@@ -66,19 +66,19 @@
         max-width: 50%;
         background-color: $clr1;
         position: sticky;
-        top: 53px;
+        top: em(53px);
         height: 100%;
         overflow-y: auto;
 
         .order-details {
             border-radius: 3px;
-            padding: 32px 24px;
+            padding: em(32px) em(24px);
             border: 1px solid $clr7;
-            margin-block-end: 16px;
+            margin-block-end: em(16px);
 
             .img-container {
-                height: 70px;
-                margin-inline-end: 10px;
+                height: em(70px);
+                margin-inline-end: em(10px);
                 margin-block-start: 5px;
 
                 img {
@@ -91,30 +91,30 @@
 
             p {
                 color: $clr5;
-                font-size: 16px;
-                line-height: 24px;
+                font-size: em(16px);
+                line-height: em(24px);
             }
 
             .pricing {
-                margin-block: 15px;
+                margin-block: em(15px);
 
                 .package-list {
-                    margin-block-start: 15px;
+                    margin-block-start: em(15px);
 
                     li {
                         gap: 10px;
 
                         .list-txt {
-                            font-size: 14px;
-                            line-height: 24px;
+                            font-size: em(14px);
+                            line-height: em(24px);
                             color: $clr10;
                         }
                     }
                 }
 
                 .price {
-                    font-size: 20px;
-                    line-height: 30px;
+                    font-size: em(20px);
+                    line-height: em(30px);
                     color: $clr9;
 
                 }
@@ -128,9 +128,9 @@
                 background-color: $clr6;
                 color: $clr1;
                 border: 1px solid transparent;
-                border-radius: 4px;
-                font-size: 16px;
-                padding: 12px 24px;
+                border-radius: em(4px);
+                font-size: em(16px);
+                padding: em(12px) em(24px);
                 text-align: center;
                 cursor: pointer;
                 transition: cubic-bezier(.75, 0, .25, 1);
