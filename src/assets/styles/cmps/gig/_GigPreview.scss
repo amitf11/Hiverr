@@ -26,6 +26,7 @@
     .price {
         color: $clr9;
         font-size: 1em;
+        margin-top: 8px;
     }
 
     .gig-rating {
@@ -68,10 +69,24 @@
             min-width: 0;
         }
 
-        .level {
-            justify-self: center;
-            flex-shrink: 0;
+        .level-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4px;
+
+            .level {
+                justify-self: center;
+                flex-shrink: 0;
+            }
+
+            .diamonds {
+                display: flex;
+                justify-content: center;
+                gap:2px;
+            }
         }
+
 
         .owner-profile {
             height: 24px;
