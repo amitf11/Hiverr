@@ -103,6 +103,7 @@
                 span {
                     margin-left: 12px;
                 }
+
                 b {
                     font-size: em(14px);
                     color: $clr4;
@@ -146,6 +147,7 @@
                 display: flex;
                 flex-direction: column;
             }
+
             .country {
                 display: flex;
                 flex-direction: row;
@@ -182,6 +184,13 @@
                 display: flex;
                 margin: 20px 0;
 
+                .ReactStars {
+                    display: flex;
+                }
+
+                .stars {
+                    align-items: flex-start;
+                }
 
                 .inline-divider {
                     margin: 2px 8px;
@@ -189,6 +198,7 @@
                 }
 
                 .time {
+                    align-self: center;
                     font-size: em(14px);
                     line-height: 21px;
                     font-weight: 400;
@@ -232,6 +242,63 @@
                 display: flex;
                 justify-content: center;
             }
+        }
+    }
+}
+
+.review-add {
+
+    padding-bottom: em(20px);
+    padding-top: em(20px);
+    border-bottom: 1px solid #DADBDD;
+
+    button {
+        font-size: em(16px);
+        font-weight: bold;
+
+        padding: em(12px) em(24px);
+
+        color: #404145;
+        border-radius: 4px;
+        background-color: $clr1;
+        border: 1px solid #000;
+    }
+
+    .add-form {
+        padding: em(12px) 0;
+
+        .close-btn {
+            padding: 0;
+            margin: 0;
+            border: none;
+            color: #95979d;
+        }
+
+        .header {
+            width: 100%;
+            justify-content: space-between;
+            padding: em(24px) 0;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            font: 400 16px / 24px macan-regular;
+            margin-top: 8px;
+            padding: em(12px) em(12px);
+            outline: none;
+            border: 1px solid $clr14;
+            resize: none;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        button {
+            padding: em(10px);
+            font-size: em(16px);
+            margin-top: em(8px);
         }
     }
 }
