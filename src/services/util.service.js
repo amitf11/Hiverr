@@ -6,7 +6,6 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    getAvgRating
 }
 
 function makeId(length = 6) {
@@ -63,10 +62,6 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
-function getAvgRating(reviews) {
-    let summedRating = reviews.reduce((acc, review) => review.rate + acc, 0)
-    return +(summedRating / reviews.length).toFixed(1)
-}
 
 function getExploreTitle(category) {
     switch (category) {

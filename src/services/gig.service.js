@@ -181,7 +181,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ec.png",
                         review: "the work was beautifully done, and in a timely manner.",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5,
+                        rate: 3,
                         _id: utilService.makeId()
 
                     },
@@ -191,7 +191,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very easy to work with and got the drawing to me quickly!",
                         reviewedAt: "Published 1 month ago",
-                        rate: 5,
+                        rate: 1,
                         _id: utilService.makeId()
                     },
                     {
@@ -200,7 +200,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1ee.png",
                         review: "Very talented artist. Will definitely hire again!",
                         reviewedAt: "Published 2 months ago",
-                        rate: 4,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -209,7 +209,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant as always. Super happy!",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -218,7 +218,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant work again. Thanks!",
                         reviewedAt: "Published 1 week ago",
-                        rate: 5,
+                        rate: 2,
                         _id: utilService.makeId()
                     }
                 ]
@@ -271,7 +271,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "I requested a slightly earlier delivery on this and once again Frederick came through and provided a fantastic delivery. Thanks so much!",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 4,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -280,7 +280,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 5,
+                        rate: 4,
                         _id: utilService.makeId()
                     },
                     {
@@ -289,7 +289,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very detailed",
                         reviewedAt: "Published 1 week ago",
-                        rate: 5,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -312,7 +312,7 @@ function _createGigs() {
                     fullname: "vividstore",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg",
                     level: "basic/premium",
-                    rate: 4
+                    rate: 2
                 },
                 country: "Bangladesh",
                 daysToMake: 24,
@@ -343,7 +343,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ec.png",
                         review: "the work was beautifully done, and in a timely manner.",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5,
+                        rate: 2,
                         _id: utilService.makeId()
                     },
                     {
@@ -352,7 +352,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                         review: "Very easy to work with and got the drawing to me quickly!",
                         reviewedAt: "Published 1 month ago",
-                        rate: 5,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -361,7 +361,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1ee.png",
                         review: "Very talented artist. Will definitely hire again!",
                         reviewedAt: "Published 2 months ago",
-                        rate: 4,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -370,7 +370,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant as always. Super happy!",
                         reviewedAt: "Published 2 weeks ago",
-                        rate: 5,
+                        rate: 2,
                         _id: utilService.makeId()
                     },
                     {
@@ -379,7 +379,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Brilliant work again. Thanks!",
                         reviewedAt: "Published 1 week ago",
-                        rate: 5,
+                        rate: 1,
                         _id: utilService.makeId()
                     }
                 ]
@@ -393,7 +393,7 @@ function _createGigs() {
                     fullname: "achinthyadesign",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/18bdf465e9b2445224d5b96098c71e3e-1631471792037/9da79f12-2432-450e-bfb7-ffae92427b9b.jpg",
                     level: "basic/premium",
-                    rate: 5
+                    rate: 3
                 },
                 country: "Sri Lanka",
                 daysToMake: 25,

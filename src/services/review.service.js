@@ -1,11 +1,15 @@
 import { utilService } from './util.service'
 
-export const ReviewService = {
-    getEmptyReview
+export const reviewService = {
+    getEmptyReview,
+    getAvgRating
 }
 
 
-
+function getAvgRating(reviews) {
+    let summedRating = reviews.reduce((acc, review) => review.rate + acc, 0)
+    return +(summedRating / reviews.length).toFixed(1)
+}
 
 
 

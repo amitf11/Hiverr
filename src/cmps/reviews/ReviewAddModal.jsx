@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { ReviewService } from '../../services/review.service'
+import { reviewService } from '../../services/review.service'
 import ReactStars from 'react-stars'
 
 export function ReviewAddModal({ addReview }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [reviewToEdit, setReviewToEdit] = useState(ReviewService.getEmptyReview())
+    const [reviewToEdit, setReviewToEdit] = useState(reviewService.getEmptyReview())
 
     function onAdd(ev) {
         ev.preventDefault()
         addReview(reviewToEdit)
-        setReviewToEdit(ReviewService.getEmptyReview())
+        setReviewToEdit(reviewService.getEmptyReview())
         setIsModalOpen(false)
     }
 
