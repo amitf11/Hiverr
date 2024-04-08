@@ -3,7 +3,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { ReviewList } from '../cmps/reviews/ReviewList'
-import Slider from 'react-slick';
+import Slider from 'react-slick'
+import { UserLevel } from '../cmps/UserLevel'
 
 export function GigDetails() {
 
@@ -93,12 +94,8 @@ export function GigDetails() {
                             <div className='info-first'>
                                 <h2>{gig.owner.fullname} </h2>
                                 <div className='level'>
-                                    <p className='number'>Level 2</p>
-                                    <p className='diamonds'>
-                                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='10' height='10' fill='currentColor'><path d='M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z'></path></svg>
-                                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='10' height='10' fill='currentColor'><path d='M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z'></path></svg>
-                                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='10' height='10' fill='currentColor'><path d='M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z'></path></svg>
-                                    </p>
+                                    <div className='flex number'>Level {gig.owner.rate}</div>
+                                    <UserLevel level={gig.owner.rate}/>
                                 </div>
                             </div >
 

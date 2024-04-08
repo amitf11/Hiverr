@@ -19,6 +19,15 @@
         margin: 0;
         padding: 0;
     }
+
+        .black {
+            fill: $clr9;
+        }
+
+        .grey {
+            fill: $clr14;
+        }
+
 }
 
 
@@ -98,6 +107,7 @@
 
         div {
             overflow: auto;
+
             pre {
                 font: 400 16px / 24px macan-regular;
                 color: $clr5;
@@ -154,6 +164,7 @@
                     margin-left: 2px;
                 }
             }
+
         }
 
         p {

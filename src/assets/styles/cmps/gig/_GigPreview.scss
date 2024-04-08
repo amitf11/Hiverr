@@ -6,10 +6,12 @@
 
     .slider-container {
         position: relative;
+
         .heart {
             position: absolute;
             top: 16px;
             right: 16px;
+
             svg {
                 fill: #fff;
             }
@@ -95,9 +97,16 @@
             }
 
             .diamonds {
-                display: flex;
                 justify-content: center;
                 gap: 2px;
+
+                .black {
+                    fill: $clr9;
+                }
+
+                .grey {
+                    fill: $clr14;
+                }
             }
         }
 
