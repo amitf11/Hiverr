@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
 
@@ -9,9 +9,11 @@ import { SubHeader } from "./SubHeader"
 import { OrderModal } from "./OrderModal"
 import { LoginSignup } from "./LoginSignup"
 import { UserImg } from "./UserImg"
+import { CLEAR_NEW_ORDERS } from "../store/reducers/order.reducer"
 
 export function AppHeader() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const location = useLocation()
     const loggedinUser = useSelector(storeState => storeState.userModule.user)
     const [search, setSearch] = useState('')
@@ -21,6 +23,7 @@ export function AppHeader() {
     const [headerClassName, setHeaderClassName] = useState('')
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
     const [orders, newOrders] = useSelector(storeState => [storeState.orderModule.orders, storeState.orderModule.newOrders])
+    const [isNewOrder, setIsNewOrder] = useState(false)
     const [modalPosition, setModalPosition] = useState({ left: 0, top: 0 })
 
     useEffect(() => {
@@ -33,6 +36,12 @@ export function AppHeader() {
         loadOrders()
         return () => window.removeEventListener("resize", handleResize)
     }, [])
+
+    useEffect(() => {
+        if (newOrders.length > 0) {
+            setIsNewOrder(true)
+        }
+    })
 
     function handleChange({ target }) {
         const value = target.value
@@ -80,12 +89,28 @@ export function AppHeader() {
         setModalPosition({ left: modalLeft, top: modalTop })
     }
 
+    useEffect(() => {
+        if (isOrderModalOpen) {
+            handleViewNewOrders()
+        }
+    }, [isOrderModalOpen])
+
     function onCloseOrderModal() {
         setIsOrderModalOpen(false)
     }
 
     function onLogout() {
         logout()
+    }
+
+    function getNewOrderClass() {
+        if (isNewOrder) return 'new'
+        else return ''
+    }
+
+    function handleViewNewOrders() {
+        dispatch({ type: CLEAR_NEW_ORDERS })
+        setIsNewOrder(false)
     }
 
     return (
@@ -118,7 +143,9 @@ export function AppHeader() {
                             <li><NavLink className="clean-link">Become a Seller</NavLink></li>
                             {loggedinUser ? (
                                 <>
-                                    <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders</a></li>
+                                    <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders
+                                        <div className={`${getNewOrderClass()} new-order`}></div>
+                                    </a></li>
                                     <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
                                     <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
                                     <li><UserImg imgUrl={loggedinUser.imgUrl} size={32} /></li>

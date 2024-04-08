@@ -1,6 +1,7 @@
 export const SET_ORDERS = 'SET_ORDERS'
 export const ADD_ORDER = 'ADD_ORDER'
 export const SET_ORDER_STATUS = 'SET_ORDER_STATUS'
+export const CLEAR_NEW_ORDERS = 'CLEAR_NEW_ORDERS'
 
 const initialState = {
     orders: [],
@@ -22,6 +23,8 @@ export function orderReducer(state = initialState, action) {
             newState = state.orders
             newState.splice(orderIdx, 1, action.order)
             return { ...state, orders: [...newState] }
+        case CLEAR_NEW_ORDERS:
+            return { ...state, newOrders: [] }
         default:
             return state
     }
