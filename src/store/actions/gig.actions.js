@@ -20,7 +20,6 @@ export function setFilterBy(filterBy) {
 }
 
 export function setCategory(category) {
-    console.log(category);
     // return (dispatch) => {
     store.dispatch({ type: SET_CATEGORY, category })
     // }

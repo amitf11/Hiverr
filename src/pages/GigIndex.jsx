@@ -16,7 +16,6 @@ export function GigIndex() {
 
     useEffect(() => {
         const category = searchParams.get('category')
-        console.log(category)
         const search = searchParams.get('search')
         setCategory(category || '')
         setSearch(search || '')

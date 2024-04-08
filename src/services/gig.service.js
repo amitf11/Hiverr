@@ -472,17 +472,19 @@ function getCategoryDesc(category) {
 
 
 const categories = {
-    'Graphic & Design': 'Create logos, illustrations, and layouts to make things look good and easy to use.',
-    'Programming & Tech': 'Build websites, apps, and cool tech stuff using coding and computer skills.',
-    'Digital Marketing': 'Promote businesses online with social media, ads, and clever content.',
-    'Video & Animation': 'Make videos and animations that tell stories and grab attention.',
-    'Writing & Translation': 'Write and translate words to convey messages clearly and effectively.',
-    'Music & Audio': 'Make music and sound effects for movies, games, and podcasts.',
-    'Business': 'Run companies and make them successful by planning and managing everything.',
-    'Consulting': 'Help businesses solve problems and improve by giving expert advice.',
-    'Data': 'Use information to understand trends and make smart decisions. ',
-    'Ai & Service': 'Use smart computer programs to automate tasks and make things easier.'
+    'graphics-design': 'Create logos, illustrations, and layouts to make things look good and easy to use.',
+    'programming-tech': 'Build websites, apps, and cool tech stuff using coding and computer skills.',
+    'digital-marketing': 'Promote businesses online with social media, ads, and clever content.',
+    'video-animation': 'Make videos and animations that tell stories and grab attention.',
+    'writing-translation': 'Write and translate words to convey messages clearly and effectively.',
+    'music': 'Make music and sound effects for movies, games, and podcasts.',
+    'business': 'Run companies and make them successful by planning and managing everything.',
+    'consulting': 'Help businesses solve problems and improve by giving expert advice.',
+    'data': 'Use information to understand trends and make smart decisions. ',
+    'ai-services': 'Use smart computer programs to automate tasks and make things easier.'
 }
+
+
 
 
 
