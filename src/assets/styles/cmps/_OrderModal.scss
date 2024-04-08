@@ -12,15 +12,9 @@
     border: 1px solid $clr7;
     background-color: $clr1;
     color: $clr5;
-
-    .close-btn{
-        background: none;
-        border: none;
-        position: absolute;
-        left: 93%;
-    }
-
+    
     .orders-wrapper {
+        margin: 15px;
         overflow-y: auto;
         max-height: 70vh;
         min-height: 500px;

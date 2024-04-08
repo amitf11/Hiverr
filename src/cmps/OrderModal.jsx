@@ -32,7 +32,6 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal }) {
     return (
         <section className="order-modal">
             <div ref={modalRef} className="modal-content">
-                <button className="close-btn" onClick={onCloseOrderModal}>X</button>
                 <section className="orders-wrapper">
                     {orders.map(order => (
                         <article key={order._id} className="order-container flex space-between align-center">
