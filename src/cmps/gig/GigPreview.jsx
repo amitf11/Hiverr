@@ -3,6 +3,7 @@ import { utilService } from "../../services/util.service"
 
 import Slider from "react-slick";
 import StarIcon from "@mui/icons-material/Star"
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 export function GigPreview({ gig }) {
 
@@ -39,6 +40,7 @@ export function GigPreview({ gig }) {
 
     return (
         <article className="gig-preview flex column justify-center">
+            
             <Link className="clean-link" to={`/gig/${gig._id}`}>
                 <Slider {...settings}>
                     <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
