@@ -4,7 +4,7 @@ export function ReviewPreview({ review }) {
         <li key={review._id} className="clean-list review" >
             <div>
                 <div className="review-first">
-                    {/* <img src='https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg'></img> */}
+                    <img src='https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg'></img>
                     <strong>{review.name}</strong>
                     <div className='country'>
                         <div className='flag-div'>
