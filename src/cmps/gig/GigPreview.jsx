@@ -3,6 +3,7 @@ import { utilService } from "../../services/util.service"
 
 import Slider from "react-slick";
 import StarIcon from "@mui/icons-material/Star"
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 export function GigPreview({ gig }) {
 
@@ -27,8 +28,8 @@ export function GigPreview({ gig }) {
     }
 
     const settings = {
-        nextArrow: <SampleNextArrow/>,
-        prevArrow: <SamplePrevArrow/>,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
         dots: true,
         infinite: true,
         speed: 500,
@@ -39,19 +40,32 @@ export function GigPreview({ gig }) {
 
     return (
         <article className="gig-preview flex column justify-center">
+
             <Link className="clean-link" to={`/gig/${gig._id}`}>
-                <Slider {...settings}>
-                    <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
-                    <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
-                    <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
-                    <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
-                </Slider>
+                <div className='slider-container'>
+                    <Slider {...settings}>
+                        <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
+                        <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
+                        <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
+                        <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt="" />
+                    </Slider>
+                    <div className="heart">
+                        <FavoriteBorderIcon />
+                    </div>
+                </div>
                 <div className="gig-owner-details flex space-between align-center">
                     <div className="owner-details flex align-center space-between">
                         <img src={gig.owner.imgUrl} className="owner-profile" />
                         <span>Ad by <span className="bold">{gig.owner.fullname}</span></span>
                     </div>
-                    <p className="level bold">Level 2</p>
+                    <div className="level-container">
+                        <p className="level bold">Level 2</p>
+                        <div className="diamonds">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10" fill="currentColor"><path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10" fill="currentColor"><path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10" fill="currentColor"><path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z"></path></svg>
+                        </div>
+                    </div>
                 </div>
                 <a className="gig-title clean-link">
                     <h3>{gig.title}</h3>

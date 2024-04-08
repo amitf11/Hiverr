@@ -2,6 +2,20 @@
     min-width: 245px;
     width: 100%;
     margin-inline-end: em(24px);
+    position: relative;
+
+    .slider-container {
+        position: relative;
+        .heart {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+
 
     .gig-title {
         h3 {
@@ -26,6 +40,7 @@
     .price {
         color: $clr9;
         font-size: 1em;
+        margin-top: 8px;
     }
 
     .gig-rating {
@@ -68,10 +83,24 @@
             min-width: 0;
         }
 
-        .level {
-            justify-self: center;
-            flex-shrink: 0;
+        .level-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4px;
+
+            .level {
+                justify-self: center;
+                flex-shrink: 0;
+            }
+
+            .diamonds {
+                display: flex;
+                justify-content: center;
+                gap: 2px;
+            }
         }
+
 
         .owner-profile {
             height: 24px;
@@ -79,6 +108,10 @@
             border-radius: 50%;
         }
     }
+}
+
+.slick-slider {
+    position: relative;
 }
 
 .arrow {

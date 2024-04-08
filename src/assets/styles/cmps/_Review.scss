@@ -14,7 +14,7 @@
     .review-stats {
         display: flex;
         flex-direction: column;
-        width:100%;
+        width: 100%;
 
         .stat-title {
             font-size: em(20px);
@@ -27,10 +27,10 @@
             display: flex;
             justify-content: space-between;
             flex-direction: row;
-            
+
             width: 100%;
             padding-bottom: 16px;
-            
+
             font-weight: 700;
             font-size: 16px;
             color: #404145;
@@ -43,23 +43,22 @@
 
         .review-layout {
             width: 100%;
-            display: flex;
-            flex-direction: row;
-
-            margin: 0 -16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             padding-bottom: 24px;
+
         }
 
 
         .bars {
-            padding: 0 16px;
+            // padding: 0 16px;
 
-            .progress-bar-container{
+            .progress-bar-container {
                 padding: 10px 10px 0 6px;
                 margin: auto;
                 height: 8px;
                 width: 227px;
-            
+
                 .progress {
                     width: 100%;
                 }
@@ -77,8 +76,9 @@
         }
 
         .rating-breakdown {
-            padding: 0 16px;
-            width:50%;
+            // padding: 0 16px;
+            width: 100%;
+
             h6 {
                 font-weight: 600;
                 font-size: em(16px);
@@ -93,15 +93,19 @@
             li {
                 display: flex;
                 justify-content: space-between;
-                
+
                 font-size: em(16px);
                 font-weight: 400;
-                
+
                 color: #95979d;
                 padding: 0 0 8px;
 
                 span {
                     margin-left: 12px;
+                }
+                b {
+                    font-size: em(14px);
+                    color: $clr4;
                 }
             }
         }
@@ -113,13 +117,22 @@
 
         .review-first {
             display: flex;
-            flex-direction: column;
-            margin: 20px 0 0 64px;
+            // flex-direction: row;
+            align-items: center;
+            // margin: 20px 0 0 64px;
 
-            .img {
+            .user-img-container {
                 border-radius: 50%;
-                width: 100%;
-                height: 100%;
+                width: em(48px);
+                height: em(48px);
+                margin-right: em(16px);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+
             }
 
             strong {
@@ -129,8 +142,13 @@
                 margin-bottom: 8px;
             }
 
+            .user-info {
+                display: flex;
+                flex-direction: column;
+            }
             .country {
                 display: flex;
+                flex-direction: row;
 
                 .flag-div {
                     display: flex;
@@ -138,18 +156,18 @@
                 }
 
                 img {
-                    width: 20px;
-                    height: 20px;
-                    margin-top: -3px;
+                    width: em(20px);
+                    height: em(20px);
+                    margin-top: em(-3px);
                 }
 
                 .country-name {
                     display: flex;
                     align-items: flex-start;
-                    
+
                     font-weight: 400;
                     font-size: em(14px);
-                    
+
                     margin: 0;
                     outline: 0;
                     padding: 0 0 0 8px;
@@ -181,7 +199,7 @@
                 font-size: em(16px);
                 font-weight: 400;
                 margin-bottom: 12px;
-                
+
                 color: #404145;
                 word-wrap: break-word;
             }

@@ -19,9 +19,6 @@ export function Hero() {
         if (counter > 4) setCounter(0)
     }, [counter])
 
-    // counterHandle()
-
-
     return (
         <>
             <div className="hero-wrapper">

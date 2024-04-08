@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { gigService } from '../../services/gig.service'
 
-export function GigIndexNavBar() {
+export function GigIndexNavBar({category}) {
+    const desc = gigService.getCategoryDesc(category)
+
     return (
         <section className='index-nav-bar flex column'>
             <nav>
@@ -9,13 +12,13 @@ export function GigIndexNavBar() {
                 </Link>
                 <span className='divider'> / </span>
                 <Link className='clean-link category-link' to={'/'}>
-                    Graphics & Design
+                    {category ? category : 'search'}
                 </Link>
             </nav>
 
             <div className='index-category-titles'>
-                <h2 className='index-category-title'>Category Name</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, doloribus possimus.</p>
+                <h2 className='index-category-title'>{category ? category : 'explore'}</h2>
+                <p>{desc ? desc : 'Use Hiverr to find any service your heart desires.'}</p>
             </div>
 
         </section>
