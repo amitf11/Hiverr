@@ -1,3 +1,5 @@
+import { ReviewFilter } from "./ReviewFilter"
+
 export function ReviewPreview({ review }) {
 
     return (
