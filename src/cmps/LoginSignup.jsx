@@ -1,13 +1,30 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { login, signup } from "../store/actions/user.actions"
 
 export function LoginSignup({ isModalOpen, onCloseModal }) {
+    const modalRef = useRef(null)
     const [isOnSignup, setIsOnSignup] = useState()
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
         fullName: "",
     })
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                onCloseModal()
+            }
+        }
+
+        if (isModalOpen) {
+            document.addEventListener('mousedown', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [isModalOpen, onCloseModal])
 
     function handleChange({ target }) {
         const { value, name: field } = target
@@ -17,7 +34,6 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
     function onSignUp(ev) {
         ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullName) return
-        console.log(credentials);
         signup(credentials)
         onCloseModal()
     }
@@ -32,7 +48,7 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
 
     if (!isModalOpen) return <div></div>
     return (
-        <div className="login-signup-container flex column">
+        <div ref={modalRef} className="login-signup-container flex column">
             <section className="modal-content-body flex justify-center">
                 <div className="identification-form flex column">
                     <section className="identification-step flex">
