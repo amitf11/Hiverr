@@ -1,12 +1,12 @@
 .order-modal {
-    position: absolute;
-    top: 60px;
-    right: 50px;
+    position: fixed;
+    // top: 60px;
+    // right: 50px;
     min-height: 435px;
     max-height: 75vh;
     width: 400px;
     padding: 5px 5px 5px 0;
-    transform: translate(-27%, 12px);
+    // transform: translate(-27%, 12px);
     z-index: 10000;
     border-radius: 4px;
     border: 1px solid $clr7;

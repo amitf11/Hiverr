@@ -3,7 +3,8 @@ export const ADD_ORDER = 'ADD_ORDER'
 export const SET_ORDER_STATUS = 'SET_ORDER_STATUS'
 
 const initialState = {
-    orders: []
+    orders: [],
+    newOrders: []
 }
 
 export function orderReducer(state = initialState, action) {
@@ -14,7 +15,7 @@ export function orderReducer(state = initialState, action) {
             newState = { ...state, orders: action.orders }
             return newState
         case ADD_ORDER:
-            newState = { ...state, orders: [...state.orders, action.savedOrder] }
+            newState = { ...state, orders: [...state.orders, action.savedOrder], newOrders: [...state.newOrders, action.savedOrder] }
             return newState
         case SET_ORDER_STATUS:
             const orderIdx = state.orders.findIndex(order => order._id === action.order._id)

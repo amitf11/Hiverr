@@ -11,13 +11,15 @@ import { LoginSignup } from "./LoginSignup"
 export function AppHeader() {
     const navigate = useNavigate()
     const location = useLocation()
+    const loggedinUser = useSelector(storeState => storeState.userModule.user)
     const [search, setSearch] = useState('')
     const [isShown, setIsShown] = useState(false)
     const [windowSize, setWindowSize] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [headerClassName, setHeaderClassName] = useState('')
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
-    const orders = useSelector(storeState => storeState.orderModule.orders)
+    const [orders, newOrders] = useSelector(storeState => [storeState.orderModule.orders, storeState.orderModule.newOrders])
+    const [modalPosition, setModalPosition] = useState({ left: 0, top: 0 })
 
     useEffect(() => {
         function handleResize() {
@@ -54,7 +56,7 @@ export function AppHeader() {
         window.addEventListener("scroll", handleScroll)
         handleScroll()
         return () => window.removeEventListener("scroll", handleScroll)
-        
+
     }, [location.pathname, setWindowSize])
 
 
@@ -66,8 +68,16 @@ export function AppHeader() {
         setIsModalOpen(false)
     }
 
-    function onOpenOrderModal() {
+    function onOpenOrderModal(ev) {
+        const { target } = ev
+        const ordersButtonRect = target.getBoundingClientRect()
+        // const position = target.getBoundingClientRect()
+        const modalLeft = ordersButtonRect.left
+        const modalTop = ordersButtonRect.bottom + '15px'
+
+        // console.log(position);
         setIsOrderModalOpen(true)
+        setModalPosition({ left: modalLeft, top: modalTop })
     }
 
     function onCloseOrderModal() {
@@ -102,7 +112,7 @@ export function AppHeader() {
                         <ul className="flex clean-list bold">
                             <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                             <li><NavLink className="clean-link">Become a Seller</NavLink></li>
-                            <li className="orders-btn"><a onClick={onOpenOrderModal}>Orders</a></li>
+                            <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders</a></li>
                             <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
                             <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
                             <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
@@ -112,7 +122,8 @@ export function AppHeader() {
                 <OrderModal
                     orders={orders}
                     isOrderModalOpen={isOrderModalOpen}
-                    onCloseOrderModal={onCloseOrderModal} />
+                    onCloseOrderModal={onCloseOrderModal}
+                    modalPosition={modalPosition} />
                 <LoginSignup
                     isModalOpen={isModalOpen}
                     onCloseModal={onCloseModal} />
