@@ -13,12 +13,11 @@ export function GigDetails() {
 
     useEffect(() => {
         loadGig()
-    }, [gigId])
+    }, [gigId, gig])
 
     async function loadGig() {
         try {
             const gig = await gigService.getById(gigId)
-            console.log(gig)
             setGig(gig)
         } catch (err) {
             showErrorMsg('Cant load gig')
@@ -46,14 +45,20 @@ export function GigDetails() {
         );
     }
 
-
-    function addReview(newReview) {
-        console.log(newReview)
-        gig.reviews.unshift(newReview)
-        gigService.save(gig)
+    async function addReview(newReview) {
+        try {
+            setGig(prevGig => {
+                const updatedGig = {
+                    ...prevGig,
+                    reviews: [newReview, ...prevGig.reviews],
+                }
+                gigService.save(updatedGig)
+                return updatedGig
+            })
+        } catch (err) {
+            console.log('Problem with saving the review:', err)
+        }
     }
-
-
     const settings = {
         customPaging: function (i) {
             return (

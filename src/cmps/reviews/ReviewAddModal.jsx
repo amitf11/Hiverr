@@ -10,6 +10,8 @@ export function ReviewAddModal({ addReview }) {
     function onAdd(ev) {
         ev.preventDefault()
         addReview(reviewToEdit)
+        setReviewToEdit(ReviewService.getEmptyReview())
+        setIsModalOpen(false)
     }
 
     function handelChange({ target }) {
@@ -17,6 +19,7 @@ export function ReviewAddModal({ addReview }) {
         if (type === 'number') value = +value
 
         setReviewToEdit(prevReviewToEdit => ({ ...prevReviewToEdit, [field]: value }))
+        console.log(reviewToEdit)
     }
 
 
@@ -30,7 +33,7 @@ export function ReviewAddModal({ addReview }) {
                             type='number'
                             id='rate'
                             name='rate'
-                            for='rate'
+                            htmlFor='rate'
                             min='1'
                             max='5'
                             value={reviewToEdit.rate}>
@@ -40,7 +43,7 @@ export function ReviewAddModal({ addReview }) {
                         <input onChange={handelChange} type='text'
                             id='review'
                             name='review'
-                            for='review'
+                            htmlFor='review'
                             placeholder={reviewToEdit.review}>
                         </input>
                     </label>

@@ -21,7 +21,7 @@ export function ReviewStats({ reviews }) {
     const avgRating = reviews.reduce((acc, review) => {
         acc += review.rate
         return acc
-    }, 0) / reviews.length
+    }, 0) / reviews.length.toFixed(1)
 
     return (
         <section className='review-stats'>
