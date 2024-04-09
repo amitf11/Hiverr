@@ -59,6 +59,7 @@
 
     .info-second {
         gap: em(24px);
+        justify-content: space-between;
 
         h3 {
             font-size: em(16px);
@@ -130,6 +131,7 @@
     .info-first {
         gap: em(24px);
         color: $clr4;
+        padding-bottom: em(8px);
 
         .level {
             gap: 4px;
@@ -150,10 +152,6 @@
         p {
             align-self: flex-start;
             font-size: em(14px);
-        }
-
-        h2 {
-            padding-bottom: em(8px);
         }
 
         .count {
@@ -258,6 +256,7 @@
             .price {
                 font-size: em(24px);
                 font-weight: 400;
+                color:$clr4;
                 align-content: flex-start;
 
                 span {

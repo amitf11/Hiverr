@@ -91,7 +91,7 @@ export function GigDetails() {
                             <img src={gig.owner.imgUrl}></img>
                         </div>
                         <div className='user-info'>
-                            <div className='flex info-first'>
+                            <div className='flex space-between info-first'>
                                 <h2>{gig.owner.fullname} </h2>
                                 <div className='flex align-center level'>
                                     <div className='flex number'>Level {gig.owner.rate}</div>

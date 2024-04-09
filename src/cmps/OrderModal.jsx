@@ -29,9 +29,10 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
     if (!isOrderModalOpen) return null
 
     return (
-        <section className="order-modal" 
+        <section className="order-modal"
         // style={{ left: modalPosition.left, top: modalPosition.top }}
         >
+            <div className="modal-tip"></div>
             <div ref={modalRef} className="modal-content">
                 <section className="orders-wrapper">
                     {!orders || !orders.length ? (
@@ -44,7 +45,7 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
                                         <img src={order.gig.imgUrl} alt="gig-img" />
                                     </div>
                                 </a>
-                                <div className="gig-details">
+                                <div>
                                     <a className="clean-link" href={`/gig/${order.gig._id}`}>
                                         <p>{order.gig.title}</p>
                                     </a>
