@@ -28,6 +28,7 @@
 
 //Review list + preview
 @import "cmps/Review";
+@import "cmps/Review";
 
 // Hero cmps
 @import "cmps/hero/Hero";
@@ -35,6 +36,8 @@
 // Pages
 @import "pages/GigIndex";
 @import "views/HomePage";
+@import "pages/PurchasePage";
+@import "pages/Dashboard";
 @import "pages/PurchasePage";
 @import "pages/Dashboard";
 // @import "views/ReviewIndex";

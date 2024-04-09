@@ -69,8 +69,11 @@
 }
 
 .regular-header {
-    background-color: #fff;
     color: #74767e;
+    background-color: #fff;
+    border-bottom: 1px solid lightgray;
+    transition: 0.5s;
+
 
     .join-btn {
         color: #1dbf73;
@@ -140,27 +143,24 @@ ul>*:not(:last-child) {
 
 .sub-header {
     position: fixed;
-    margin-top: 80px;
+    margin-top: 81px;
 
     width: 100%;
     height: 40px;
     z-index: 998;
 
     background-color: #fff;
-    border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
 
     transition: 0.5s;
-
+    
     .categories-menu {
         position: relative;
-
+        
         width: min(100%, 1400px);
         margin-inline: auto;
         padding: 0 32px;
-
-        transition: transform .5s;
-
+        
         li {
             display: inline-block;
             flex-shrink: 0;

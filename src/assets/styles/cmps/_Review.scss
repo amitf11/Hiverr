@@ -12,8 +12,6 @@
     }
 
     .review-stats {
-        display: flex;
-        flex-direction: column;
         width: 100%;
 
         .stat-title {
@@ -24,10 +22,6 @@
         }
 
         .count {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-
             width: 100%;
             padding-bottom: 16px;
 
@@ -91,9 +85,6 @@
             }
 
             li {
-                display: flex;
-                justify-content: space-between;
-
                 font-size: em(16px);
                 font-weight: 400;
 
@@ -107,6 +98,7 @@
                 b {
                     font-size: em(14px);
                     color: $clr4;
+                    padding-left: 4px;
                 }
             }
         }
@@ -117,10 +109,6 @@
         border-bottom: 1px solid #DADBDD;
 
         .review-first {
-            display: flex;
-            // flex-direction: row;
-            align-items: center;
-            // margin: 20px 0 0 64px;
 
             .user-img-container {
                 border-radius: 50%;
@@ -143,19 +131,8 @@
                 margin-bottom: 8px;
             }
 
-            .user-info {
-                display: flex;
-                flex-direction: column;
-            }
 
             .country {
-                display: flex;
-                flex-direction: row;
-
-                .flag-div {
-                    display: flex;
-                    align-items: center;
-                }
 
                 img {
                     width: em(20px);
@@ -164,7 +141,6 @@
                 }
 
                 .country-name {
-                    display: flex;
                     align-items: flex-start;
 
                     font-weight: 400;
@@ -181,12 +157,7 @@
             margin: 20px 0 0 64px;
 
             .review-rate {
-                display: flex;
                 margin: 20px 0;
-
-                .ReactStars {
-                    display: flex;
-                }
 
                 .stars {
                     align-items: flex-start;
@@ -217,8 +188,6 @@
     }
 
     footer {
-        display: flex;
-        align-items: center;
 
         color: #404145;
         line-height: 25px;
@@ -234,13 +203,9 @@
         }
 
         .thumbs {
-            display: flex;
-            align-content: center;
 
             .m-g-12 {
                 margin-right: 12px;
-                display: flex;
-                justify-content: center;
             }
         }
     }

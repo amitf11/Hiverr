@@ -7,7 +7,7 @@ export const SET_SEARCH = 'SET_SEARCH'
 
 const initialState = {
     gigs: [],
-    filterBy: { search: "", category: "", maxPrice: Infinity, minPrice: -Infinity },
+    filterBy: gigService.getDefaultFilter(),
     sortBy: { by: '', asc: true }
 }
 
@@ -18,17 +18,22 @@ export function gigReducer(state = initialState, action) {
     let search
 
     switch (action.type) {
+
         case SET_GIGS:
             return { ...state, gigs: action.gigs }
 
         case SET_FILTER:
-            search = state.filterBy.search
-            category = state.filterBy.category
-            filterBy = { ...action.filterBy, category, search}
-            return { ...state, filterBy: action.filterBy }
+            // search = state.filterBy.search
+            // category = state.filterBy.category
+            // filterBy = { ...action.filterBy, category, search }
+            // return { ...state, filterBy: action.filterBy }
+
+        return { ...state, filterBy: { ...state.filterBy, ...action.filterBy }}
 
         case SET_CATEGORY:
+            console.log('action.category:', action.category)
             filterBy = { ...state.filterBy, category: action.category }
+            console.log('filterBy:', filterBy)
             return { ...state, filterBy }
 
         case SET_SEARCH:
