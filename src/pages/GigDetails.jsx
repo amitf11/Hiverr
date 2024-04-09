@@ -144,7 +144,7 @@ export function GigDetails() {
 
 
                             <p className='package'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At iusto tempora officia totam accusantium!
+                                {gig.title}
                             </p>
 
                             <div className='flex second-row'>
