@@ -1,5 +1,5 @@
 .main-details {
-    width: min(100%, 1400px);
+    width: min(100%, 1304px);
     padding: em(32px) em(32px) 0;
 
     margin-inline: auto;
@@ -228,10 +228,10 @@
         cursor: pointer;
         width: 100%;
         padding: em(16px);
-    }
 
-    .tab button.active {
-        border-bottom: 1px solid black;
+        &.selected {
+            border-bottom: 3px solid black;
+        }
     }
 
     .package-main {
@@ -375,33 +375,37 @@
     width: 100%;
 }
 
-.contact-plans-btn {
-    font-size: em(16px);
-    font-weight: bold;
-
-    width: 100%;
-    padding: em(12px) em(24px);
-
-    color: #404145;
-    border-radius: 4px;
-    background-color: $clr1;
-    border: 1px solid #000;
-
-    &:hover {
-        background-color: #74767E;
-        border: 1px transparent;
-        color: white;
-    }
-
-    span {
-        margin-left: em(8px);
-    }
-}
-
 .contact-container {
+
     width: 100%;
     margin: 0 0 em(16px);
     padding: em(24px);
+    background-color: #F9F9F9;
+
+    .contact-plans-btn {
+        font-size: em(16px);
+        font-weight: bold;
+
+        width: 100%;
+        padding: em(12px) em(24px);
+
+        color: #404145;
+        border-radius: 4px;
+        background-color: $clr1;
+        border: 1px solid #000;
+
+        &:hover {
+            background-color: #74767E;
+            border: 1px transparent;
+            color: white;
+        }
+
+        span {
+            margin-left: em(8px);
+        }
+    }
+
+
 }
 
 

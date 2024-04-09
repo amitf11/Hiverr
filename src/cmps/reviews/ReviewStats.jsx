@@ -92,7 +92,7 @@ export function ReviewStats({ reviews }) {
 
                             <tr>
                                 <td className={oneCount ? 'active' : 'disabled'}>
-                                    1 Stars
+                                    1 Star
                                 </td>
                                 <td className='progress-bar-container' >
                                     <LinearProgress className='progress' variant='determinate' value={oneCount / reviews.length * 100}
