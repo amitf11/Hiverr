@@ -14,12 +14,6 @@ export function GigIndex() {
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
 
-    // useEffect(() => {
-    //     loadGigs()
-
-    // }, [filterBy])
-
-
     useEffect(() => {
         window.scrollTo(0, 0)
         const search = searchParams.get('search')

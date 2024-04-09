@@ -1,6 +1,5 @@
 .homepage-slider-container {
-    gap: em(32px);
-    padding: 40px 0;
+    padding: 24px 0;
 
     .homepage-slider-cards-container {
         column-gap: 16px;
@@ -49,14 +48,26 @@
     }
 
     .homepage-slider-title {
-        font-size: em(48px);
-        font-weight: 400;
-
+        //OLD FIVERR
+        font-size: 32px;
+        line-height: 120%;
+        font-weight: 700;
+        padding-bottom: 24px;
         margin: 0;
-        max-width: 720px;
-
-        line-height: 105%;
-        letter-spacing: -1.44px;
         color: #404145;
+
+
+
+        //NEW FIVERR
+
+        // font-size: em(48px);
+        // font-weight: 400;
+
+        // margin: 0;
+        // max-width: 720px;
+
+        // line-height: 105%;
+        // letter-spacing: -1.44px;
+        // color: #404145;
     }
 }
