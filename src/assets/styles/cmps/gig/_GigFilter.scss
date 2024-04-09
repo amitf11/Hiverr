@@ -22,12 +22,20 @@
 
             color: $clr6;
             cursor: pointer;
+
+            .arrow-down {
+                width: 12px;
+                fill: #222325;
+                margin-left: 12px;
+                position: relative;
+            }
+
             &:hover {
-                border: 1px solid rgb(34,35,37)
+                border: 1px solid rgb(34, 35, 37)
             }
         }
 
-        input.gig-filter  {
+        input.gig-filter {
             margin-right: 1em;
         }
     }
@@ -36,4 +44,17 @@
 .gig-sort-container {
     max-width: 1400px;
     justify-content: flex-end;
+
+    .gig-sort {
+        .sort-by-txt {
+            padding: 10px 8px;
+        }
+    }
+    
+    .arrow-down {
+        width: 12px;
+        fill: #222325;
+        margin-left: 12px;
+        position: relative;
+    }
 }
