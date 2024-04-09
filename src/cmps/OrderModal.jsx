@@ -26,6 +26,12 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
         else if (order.status === 'approved') return 'approved'
     }
 
+    function getStatusTitle(order) {
+        if (order.status === 'pending') return 'Pending'
+        else if (order.status === 'rejected') return 'Canceled'
+        else if (order.status === 'approved') return 'In progress'
+    }
+
     if (!isOrderModalOpen) return null
 
     return (
@@ -51,7 +57,7 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
                                     </a>
                                     <div className="seller-status flex space-between">
                                         <span>by {order.seller.fullname}</span>
-                                        <span className={`${getStatusClass(order)} order-status`}>{order.status}</span>
+                                        <span className={`${getStatusClass(order)} order-status`}>{getStatusTitle(order)}</span>
                                     </div>
                                 </div>
                             </article>

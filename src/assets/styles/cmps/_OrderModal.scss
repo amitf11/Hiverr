@@ -2,7 +2,7 @@
     position: fixed;
     top: 60px;
     right: 50px;
-    min-height: 435px;
+    // min-height: 435px;
     max-height: 75vh;
     width: 400px;
     padding: 5px 5px 5px 0;
@@ -29,11 +29,15 @@
         margin-inline: 15px;
         overflow-y: auto;
         max-height: 70vh;
-        min-height: 500px;
+        height: fit-content;
+        
+        // min-height: 500px;
 
         .order-container {
             border-bottom: 1px solid $clr7;
             padding: 0 0 10px;
+            margin-block: 10px;
+            overflow-y: hidden;
 
             &:hover {
                 border-bottom-color: $clr3;
