@@ -83,7 +83,7 @@ export function AppHeader() {
         const { target } = ev
         const ordersButtonRect = target.getBoundingClientRect()
         const modalLeft = ordersButtonRect.left
-        const modalTop = ordersButtonRect.bottom + '15px'
+        const modalTop = ordersButtonRect.bottom
 
         setIsOrderModalOpen(true)
         setModalPosition({ left: modalLeft, top: modalTop })
