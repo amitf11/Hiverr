@@ -8,6 +8,7 @@ import { LoginSignup } from '../cmps/LoginSignup'
 import { CategoriesNav } from '../cmps/CategoriesNav'
 import { HomePageSlider } from '../cmps/HomePageSlider'
 import { JoinPoster } from '../cmps/JoinPoster'
+import { TheBestPart } from '../cmps/TheBestPart'
 // import { PopularServices } from '../cmps/PopularServices'
 
 
@@ -23,6 +24,7 @@ export function HomePage() {
                 {/* <PopularServices /> */}
                 <HomePageSlider />
                 <CategoriesNav />
+                <TheBestPart />
                 <JoinPoster />
             </section >
         </>

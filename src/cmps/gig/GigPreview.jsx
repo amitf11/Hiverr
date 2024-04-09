@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import StarIcon from '@mui/icons-material/Star'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { UserLevel } from '../UserLevel'
+import { UserImg } from '../UserImg'
 
 export function GigPreview({ gig }) {
 
@@ -48,6 +49,7 @@ export function GigPreview({ gig }) {
                     <Slider {...settings}>
                         {gig.imgs.map(img=> (
                             <img src={img} alt='img' />
+
                         ))}
                         {/* <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt='' />
                         <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt='' />
@@ -59,7 +61,8 @@ export function GigPreview({ gig }) {
                 </div>
                 <div className='gig-owner-details flex space-between align-center'>
                     <div className='owner-details flex align-center space-between'>
-                        <img src={gig.owner.imgUrl} className='owner-profile' />
+                        <UserImg imgUrl={gig.owner.imgUrl} size={24}/>
+                        {/* <img src={gig.owner.imgUrl} className='owner-profile' /> */}
                         <span>Ad by <span className='bold'>{gig.owner.fullname}</span></span>
                     </div>
                     <div className='level-container'>
