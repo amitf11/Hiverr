@@ -443,7 +443,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1fa.png",
                         review: "Great communication and excellent work.",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 4,
+                        rate: 3,
                         _id: utilService.makeId()
                     },
                     {
@@ -461,7 +461,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
                         review: "Amazing work, exactly what I was looking for. Highly recommended!",
                         reviewedAt: "Published 1 month ago",
-                        rate: 5,
+                        rate: 2,
                         _id: utilService.makeId()
                     }
                 ]
