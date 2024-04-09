@@ -19,6 +19,15 @@
         margin: 0;
         padding: 0;
     }
+
+        .black {
+            fill: $clr9;
+        }
+
+        .grey {
+            fill: $clr14;
+        }
+
 }
 
 
@@ -73,17 +82,12 @@
         }
     }
 
-
-
     .rate {
         padding: 0 0 0 4px;
     }
 
     hr {
         margin: em(30px) 0;
-        // display: flex;
-        // font-size: .75em;
-        // margin-top: 1em;
     }
 
     & .about-this-gig {
@@ -96,10 +100,18 @@
             color: #404145;
         }
 
-        p {
-            font-size: em(16px);
-            font-weight: 400;
-            overflow-wrap: break-word;
+        div {
+            overflow: auto;
+
+            pre {
+                font: 400 16px / 24px macan-regular;
+                color: $clr5;
+                font-size: em(16px);
+                font-weight: 400;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
         }
 
     }
@@ -145,6 +157,7 @@
                     margin-left: 2px;
                 }
             }
+
         }
 
         p {
@@ -189,10 +202,13 @@
     display: flex !important;
     justify-content: space-around;
 
+    li:last-of-type {
+        padding: 0;
+
+    }
+
     li {
         a {
-            height: 100px;
-            width: 100px;
 
             cursor: pointer;
         }
@@ -205,7 +221,7 @@
 
     width: 33.3%;
     height: 100%;
-    
+
     top: em(150px);
     padding: 0 0 em(32px);
 }
@@ -389,10 +405,10 @@
         margin-top: em(20px);
         margin-bottom: em(30px);
         padding: em(12px) em(24px);
-        
+
         font-size: em(16px);
         font-weight: bold;
-        
+
         color: white;
         background-color: #000;
         border: 1px solid transparent;
@@ -422,7 +438,7 @@
 
     width: 100%;
     padding: em(12px) em(24px);
-    
+
     color: #404145;
     border-radius: 4px;
     background-color: $clr1;

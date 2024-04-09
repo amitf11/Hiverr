@@ -3,7 +3,8 @@ import { utilService } from "./util.service"
 
 export const orderService = {
     query,
-    save
+    save,
+    updateStatus
 }
 
 const STORAGE_KEY = 'orderDB'
@@ -21,6 +22,17 @@ async function save(order) {
         savedOrder = await storageService.post(STORAGE_KEY, order)
     }
     return savedOrder
+}
+
+async function updateStatus(order) {
+    try {
+        const savedOrder = await storageService.put(STORAGE_KEY, order)
+        console.log('savedOrder:', savedOrder)
+        return savedOrder
+    } catch (err) {
+        console.error('Error updating order status:', err);
+        throw err
+    }
 }
 
 function _createOrders() {

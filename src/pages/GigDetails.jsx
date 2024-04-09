@@ -3,7 +3,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { ReviewList } from '../cmps/reviews/ReviewList'
-import Slider from 'react-slick';
+import Slider from 'react-slick'
+import { UserLevel } from '../cmps/UserLevel'
 
 export function GigDetails() {
 
@@ -13,7 +14,7 @@ export function GigDetails() {
 
     useEffect(() => {
         loadGig()
-    }, [gigId])
+    }, [gigId, gig])
 
     async function loadGig() {
         try {
@@ -45,8 +46,20 @@ export function GigDetails() {
         );
     }
 
-
-    
+    async function addReview(newReview) {
+        try {
+            setGig(prevGig => {
+                const updatedGig = {
+                    ...prevGig,
+                    reviews: [newReview, ...prevGig.reviews],
+                }
+                gigService.save(updatedGig)
+                return updatedGig
+            })
+        } catch (err) {
+            console.log('Problem with saving the review:', err)
+        }
+    }
     const settings = {
         customPaging: function (i) {
             return (
@@ -55,8 +68,8 @@ export function GigDetails() {
                 </a>
             );
         },
-        nextArrow: <SampleNextArrow/>,
-        prevArrow: <SamplePrevArrow/>,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
         dots: true,
         dotsClass: 'clean-list flex carousle-imgs',
         infinite: true,
@@ -81,12 +94,8 @@ export function GigDetails() {
                             <div className='info-first'>
                                 <h2>{gig.owner.fullname} </h2>
                                 <div className='level'>
-                                    <p className='number'>Level 2</p>
-                                    <p className='diamonds'>
-                                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='10' height='10' fill='currentColor'><path d='M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z'></path></svg>
-                                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='10' height='10' fill='currentColor'><path d='M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z'></path></svg>
-                                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='10' height='10' fill='currentColor'><path d='M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z'></path></svg>
-                                    </p>
+                                    <div className='flex number'>Level {gig.owner.rate}</div>
+                                    <UserLevel level={gig.owner.rate}/>
                                 </div>
                             </div >
 
@@ -102,23 +111,20 @@ export function GigDetails() {
                     </div>
                     <div className='folio'>
                         <Slider {...settings}>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
-                            <img src='https://res.cloudinary.com/dippyaafg/image/upload/v1712227355/j6r691lenv3jk6cxtbnq.webp'></img>
+                            {gig.imgs.map(img => (
+                                <img src={img} />
+                            ))}
                         </Slider>
                     </div>
 
                 </div>
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
-                    {/* <pre>{gig.description}</pre> */}
+                    <div>
+                        <pre>{gig.description}</pre>
+                    </div>
                 </div>
-                {/* <div className='about-the-seller'>
-                    <h2>About the Seller</h2>
-                </div> */}
-                <ReviewList reviews={gig.reviews} />
+                <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
             <aside className='sidebar flex column'>
                 <div className='packages-tabs'>
@@ -165,8 +171,8 @@ export function GigDetails() {
                         </div>
                         <div className='continue-container'>
                             <Link className='clean-link' to={`/gig/payment/${gig._id}`}>
-                                <button className='continue'>Continue 
-                                <svg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><path d='M9.92332 2.96885C9.63854 2.66807 9.1768 2.66807 8.89202 2.96885C8.60723 3.26963 8.60723 3.75729 8.89202 4.05807L11.6958 7.01931H1.48616C1.08341 7.01931 0.756918 7.36413 0.756918 7.7895C0.756918 8.21487 1.08341 8.5597 1.48616 8.5597H11.8436L8.89202 11.677C8.60723 11.9778 8.60723 12.4654 8.89202 12.7662C9.1768 13.067 9.63854 13.067 9.92332 12.7662L14.0459 8.41213C14.3307 8.11135 14.3307 7.62369 14.0459 7.32291L13.977 7.25011C13.9737 7.24661 13.9704 7.24315 13.9671 7.23972L9.92332 2.96885Z'></path></svg>
+                                <button className='continue'>Continue
+                                    <svg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><path d='M9.92332 2.96885C9.63854 2.66807 9.1768 2.66807 8.89202 2.96885C8.60723 3.26963 8.60723 3.75729 8.89202 4.05807L11.6958 7.01931H1.48616C1.08341 7.01931 0.756918 7.36413 0.756918 7.7895C0.756918 8.21487 1.08341 8.5597 1.48616 8.5597H11.8436L8.89202 11.677C8.60723 11.9778 8.60723 12.4654 8.89202 12.7662C9.1768 13.067 9.63854 13.067 9.92332 12.7662L14.0459 8.41213C14.3307 8.11135 14.3307 7.62369 14.0459 7.32291L13.977 7.25011C13.9737 7.24661 13.9704 7.24315 13.9671 7.23972L9.92332 2.96885Z'></path></svg>
                                 </button>
                             </Link>
                         </div>

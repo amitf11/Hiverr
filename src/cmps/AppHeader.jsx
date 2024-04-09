@@ -1,23 +1,30 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
 
 import { loadOrders } from "../store/actions/order.actions"
+import { logout } from "../store/actions/user.actions"
 
 import { SubHeader } from "./SubHeader"
 import { OrderModal } from "./OrderModal"
 import { LoginSignup } from "./LoginSignup"
+import { UserImg } from "./UserImg"
+import { CLEAR_NEW_ORDERS } from "../store/reducers/order.reducer"
 
 export function AppHeader() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const location = useLocation()
+    const loggedinUser = useSelector(storeState => storeState.userModule.user)
     const [search, setSearch] = useState('')
     const [isShown, setIsShown] = useState(false)
     const [windowSize, setWindowSize] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [headerClassName, setHeaderClassName] = useState('')
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
-    const orders = useSelector(storeState => storeState.orderModule.orders)
+    const [orders, newOrders] = useSelector(storeState => [storeState.orderModule.orders, storeState.orderModule.newOrders])
+    const [isNewOrder, setIsNewOrder] = useState(false)
+    const [modalPosition, setModalPosition] = useState({ left: 0, top: 0 })
 
     useEffect(() => {
         function handleResize() {
@@ -29,6 +36,12 @@ export function AppHeader() {
         loadOrders()
         return () => window.removeEventListener("resize", handleResize)
     }, [])
+
+    useEffect(() => {
+        if (newOrders.length > 0) {
+            setIsNewOrder(true)
+        }
+    })
 
     function handleChange({ target }) {
         const value = target.value
@@ -54,7 +67,7 @@ export function AppHeader() {
         window.addEventListener("scroll", handleScroll)
         handleScroll()
         return () => window.removeEventListener("scroll", handleScroll)
-        
+
     }, [location.pathname, setWindowSize])
 
 
@@ -66,12 +79,38 @@ export function AppHeader() {
         setIsModalOpen(false)
     }
 
-    function onOpenOrderModal() {
+    function onOpenOrderModal(ev) {
+        const { target } = ev
+        const ordersButtonRect = target.getBoundingClientRect()
+        const modalLeft = ordersButtonRect.left
+        const modalTop = ordersButtonRect.bottom + '15px'
+
         setIsOrderModalOpen(true)
+        setModalPosition({ left: modalLeft, top: modalTop })
     }
+
+    useEffect(() => {
+        if (isOrderModalOpen) {
+            handleViewNewOrders()
+        }
+    }, [isOrderModalOpen])
 
     function onCloseOrderModal() {
         setIsOrderModalOpen(false)
+    }
+
+    function onLogout() {
+        logout()
+    }
+
+    function getNewOrderClass() {
+        if (isNewOrder) return 'new'
+        else return ''
+    }
+
+    function handleViewNewOrders() {
+        dispatch({ type: CLEAR_NEW_ORDERS })
+        setIsNewOrder(false)
     }
 
     return (
@@ -99,20 +138,34 @@ export function AppHeader() {
                         </div>
                     </div>
                     <nav className="main-nav">
-                        <ul className="flex clean-list bold">
+                        <ul className="flex clean-list bold align-center">
                             <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
                             <li><NavLink className="clean-link">Become a Seller</NavLink></li>
-                            <li className="orders-btn"><a onClick={onOpenOrderModal}>Orders</a></li>
-                            <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
-                            <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
-                            <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
+                            {loggedinUser ? (
+                                <>
+                                    <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders
+                                        <div className={`${getNewOrderClass()} new-order`}></div>
+                                    </a></li>
+                                    <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
+                                    <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
+                                    <li><UserImg imgUrl={loggedinUser.imgUrl} size={32} /></li>
+
+                                </>
+
+                            ) : (
+                                <>
+                                    <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
+                                    <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
+                                </>
+                            )}
                         </ul>
                     </nav>
                 </div>
                 <OrderModal
                     orders={orders}
                     isOrderModalOpen={isOrderModalOpen}
-                    onCloseOrderModal={onCloseOrderModal} />
+                    onCloseOrderModal={onCloseOrderModal}
+                    modalPosition={modalPosition} />
                 <LoginSignup
                     isModalOpen={isModalOpen}
                     onCloseModal={onCloseModal} />
