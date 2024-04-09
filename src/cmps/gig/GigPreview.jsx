@@ -43,19 +43,20 @@ export function GigPreview({ gig }) {
 
     return (
         <article className='gig-preview flex column space-between'>
+            <div>
+                <Link className='clean-link' to={`/gig/${gig._id}`} target="_blank">
+                    <div className='slider-container'>
+                        <Slider {...settings}>
+                            {gig.imgs.map((img, idx) => (
+                                <img src={img} alt='img' key={idx} />
 
-            <Link className='clean-link' to={`/gig/${gig._id}`} target="_blank">
-                <div className='slider-container'>
-                    <Slider {...settings}>
-                        {gig.imgs.map((img, idx) => (
-                            <img src={img} alt='img' key={idx} />
-
-                        ))}
-                    </Slider>
-                    <div className='heart'>
-                        <FavoriteBorderIcon />
+                            ))}
+                        </Slider>
+                        <div className='heart'>
+                            <FavoriteBorderIcon />
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <div className='gig-owner-details flex space-between align-center'>
                     <div className='owner-details flex align-center space-between'>
                         <UserImg imgUrl={gig.owner.imgUrl} size={24} />
@@ -66,10 +67,13 @@ export function GigPreview({ gig }) {
                         <UserLevel level={gig.owner.rate} />
                     </div>
                 </div>
-                <a className='gig-title clean-link'>
+
+                <Link className='clean-link gig-title' to={`/gig/${gig._id}`} target="_blank">
+                    {/* <a className='gig-title clean-link'> */}
                     <h3>{gig.title}</h3>
-                </a>
-            </Link>
+                    {/* </a> */}
+                </Link>
+            </div>
             <div className='gig-rating flex column'>
                 <div className='inner-rating-container flex align-center'>
                     <StarIcon className='flex star' />
