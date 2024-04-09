@@ -128,7 +128,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
                         review: "Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
                         reviewedAt: "Published 3 weeks ago",
-                        rate: 4
+                        rate: 5
                     },
                     {
                         name: "larsonraz",

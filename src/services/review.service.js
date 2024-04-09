@@ -5,13 +5,11 @@ export const reviewService = {
     getAvgRating
 }
 
-
 function getAvgRating(reviews) {
     let summedRating = reviews.reduce((acc, review) => review.rate + acc, 0)
-    return +(summedRating / reviews.length).toFixed(1)
+    const avgRating = summedRating / reviews.length
+    return avgRating.toFixed(1)
 }
-
-
 
 function getEmptyReview() {
     return {

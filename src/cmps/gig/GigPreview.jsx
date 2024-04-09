@@ -47,8 +47,8 @@ export function GigPreview({ gig }) {
             <Link className='clean-link' to={`/gig/${gig._id}`} target="_blank">
                 <div className='slider-container'>
                     <Slider {...settings}>
-                        {gig.imgs.map(img => (
-                            <img src={img} alt='img' />
+                        {gig.imgs.map((img, idx) => (
+                            <img src={img} alt='img' key={idx} />
 
                         ))}
                     </Slider>
