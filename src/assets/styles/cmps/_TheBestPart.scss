@@ -6,12 +6,11 @@
     background-color: #f1fdf7;
 
     .the-best-part-inner-container {
-        padding: 96px 0;
+        padding: 96px 32px;
 
         .the-best-part-left-container {
             height: 475px;
             padding-right: 11%;
-            padding-left: 16px;
 
             h2 {
                 font-size: 32px;
@@ -26,8 +25,10 @@
             div {
                 margin: 0;
                 padding: 0;
+
                 div {
                     padding-bottom: 24px;
+
                     div {
                         padding-bottom: 8px;
 
@@ -66,8 +67,6 @@
                 }
             }
         }
-        .img-container {
-           padding: 0 16px; 
-        }
+
     }
 }
