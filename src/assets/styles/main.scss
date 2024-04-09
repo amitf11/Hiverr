@@ -12,11 +12,12 @@
 // Components
 @import "cmps/AppHeader";
 @import "cmps/AppFooter";
-@import 'cmps/LoginSignup.scss';
-@import "cmps/CategoriesNav.scss";
-@import "cmps/HomePageSlider.scss";
-@import "cmps/OrderModal.scss";
-@import "cmps/JoinPoster.scss";
+@import 'cmps/LoginSignup';
+@import "cmps/CategoriesNav";
+@import "cmps/HomePageSlider";
+@import "cmps/OrderModal";
+@import "cmps/JoinPoster";
+@import "cmps/TheBestPart";
 
 // Gig cmps
 @import "cmps/gig/GigFilter";
@@ -25,7 +26,7 @@
 @import "cmps/gig/GigList";
 
 //Review list + preview
-@import "cmps/Review.scss";
+@import "cmps/Review";
 
 // Hero cmps
 @import "cmps/hero/Hero";
@@ -33,7 +34,7 @@
 // Pages
 @import "pages/GigIndex";
 @import "views/HomePage";
-@import "pages/PurchasePage.scss";
-@import "pages/Dashboard.scss";
+@import "pages/PurchasePage";
+@import "pages/Dashboard";
 // @import "views/ReviewIndex";
 // @import "views/UserDetails";

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export function SubHeader() {
-    return <ul className="categories-menu flex space-between clean-list">
+    return <ul className="flex space-between clean-list categories-menu">
         <li><Link to="/gig?category=graphics-design">Graphics & Design</Link></li>
         <li><Link to="/gig?category=programming-tech">Programming & Tech</Link></li>
         <li><Link to="/gig?category=digital-marketing">Digital Marketing</Link></li>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { gigService } from '../../services/gig.service'
 
-export function GigIndexNavBar({category}) {
+export function GigIndexNavBar({ category }) {
     const desc = gigService.getCategoryDesc(category)
 
     return (
@@ -12,15 +12,14 @@ export function GigIndexNavBar({category}) {
                 </Link>
                 <span className='divider'> / </span>
                 <Link className='clean-link category-link' to={'/'}>
-                    {category ? category : 'search'}
+                    {category}
                 </Link>
             </nav>
 
             <div className='index-category-titles'>
-                <h2 className='index-category-title'>{category ? category : 'explore'}</h2>
+                <h2 className='index-category-title'>{category}</h2>
                 <p>{desc ? desc : 'Use Hiverr to find any service your heart desires.'}</p>
             </div>
-
         </section>
     )
 }
