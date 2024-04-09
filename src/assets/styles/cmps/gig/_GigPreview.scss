@@ -54,7 +54,6 @@
             font-size: 1em;
 
             .star {
-                display: flex;
                 padding-block-end: 4px;
             }
 
@@ -86,9 +85,6 @@
         }
 
         .level-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
             gap: 4px;
 
             .level {

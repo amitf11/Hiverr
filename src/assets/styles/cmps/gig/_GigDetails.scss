@@ -1,8 +1,4 @@
 .main-details {
-    display: flex;
-    flex-direction: column;
-
-    // padding: 0 em(32px);
     width: min(100%, 1400px);
     padding: em(32px) em(32px) 0;
 
@@ -20,20 +16,18 @@
         padding: 0;
     }
 
-        .black {
-            fill: $clr9;
-        }
+    .black {
+        fill: $clr9;
+    }
 
-        .grey {
-            fill: $clr14;
-        }
+    .grey {
+        fill: $clr14;
+    }
 
 }
 
 
 .gig-details {
-    display: flex;
-    flex-direction: column;
     margin-left: 0;
     margin-right: 9.15%;
     width: 57.42%;
@@ -64,7 +58,6 @@
     }
 
     .info-second {
-        display: flex;
         gap: em(24px);
 
         h3 {
@@ -118,7 +111,6 @@
 
     & .about-the-seller {
         h2 {
-            display: flex;
             margin-bottom: em(30px);
             padding-bottom: em(8px);
         }
@@ -130,21 +122,16 @@
     }
 
     .about-user {
-        display: flex;
         width: 100%;
         gap: em(20px);
-        flex-direction: row;
         margin-top: em(12px);
     }
 
     .info-first {
-        display: flex;
         gap: em(24px);
         color: $clr4;
 
         .level {
-            display: flex;
-            align-items: center;
             gap: 4px;
             font-weight: bold;
 
@@ -231,19 +218,6 @@
     border: 1px solid #DADBDD;
     margin-bottom: em(16px);
 
-    display: flex;
-    flex-direction: column;
-
-    header {
-        height: em(24px);
-        display: flex;
-    }
-
-    .tab {
-        display: flex;
-        flex-direction: row;
-    }
-
 
     .tab button {
         border: 1px solid #DADBDD;
@@ -262,57 +236,46 @@
         border-bottom: 1px solid black;
     }
 
-
-    svg {
-        margin-right: 8px;
-        // margin-left: 8px;
-    }
-
-    h3 {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-
-        b {
-            font-size: em(16px);
-            margin-right: em(16px);
-        }
-    }
-
-    .price {
-        font-size: em(24px);
-        font-weight: bold;
-        align-content: flex-start;
-
-        span {
-            padding: 0 0 0 em(8px);
-        }
-
-    }
-
     .package-main {
         padding: em(32px) 0 0;
+
+        svg {
+            margin-right: 8px;
+        }
+
+        .package-content {
+            padding: 0 em(24px);
+
+            h3 {
+                align-items: flex-end;
+
+                b {
+                    font-size: em(16px);
+                    margin-right: em(16px);
+                }
+            }
+
+            .price {
+                font-size: em(24px);
+                font-weight: 400;
+                align-content: flex-start;
+
+                span {
+                    padding: 0 0 0 em(8px);
+                }
+
+            }
+
+        }
+
     }
 
-    .package-content {
-        display: flex;
-        flex-direction: column;
-        padding: 0 em(24px);
-    }
 
     .package {
         padding: em(24px) 0 em(10px);
     }
 
-    header {
-        border: 0.5px solid #DADBDD;
-        height: 4em;
-        display: flex;
-        align-items: center;
-    }
-
     .second-row {
-        display: flex;
 
         svg,
         p,
@@ -324,14 +287,8 @@
     }
 
     .delivery {
-        display: flex;
         align-content: center;
         margin-bottom: em(8px);
-
-        div {
-            display: flex;
-            align-items: center;
-        }
 
         span {
             margin-left: em(8px);
@@ -339,7 +296,6 @@
     }
 
     .revisions {
-        display: flex;
         margin-left: em(16px);
     }
 
@@ -360,25 +316,15 @@
 
     h3 {
         font-size: em(14px);
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
     }
 
     ul {
         padding: 0;
         margin: 0;
-
-        div {
-            display: flex;
-            align-items: center;
-        }
     }
 
     li {
         margin: 0;
-        display: flex;
-        align-content: center;
         color: #95979d;
         font-weight: 400;
         font-size: em(14px);
@@ -394,10 +340,8 @@
 
 
     .continue {
-        display: flex;
         position: relative;
         justify-content: center;
-        align-items: center;
         text-align: center;
         align-self: center;
 
