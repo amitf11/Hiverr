@@ -2,9 +2,8 @@ import { gigService } from '../../services/gig.service.js'
 import { store } from '../store.js'
 import { SET_CATEGORY, SET_FILTER, SET_GIGS, SET_SEARCH } from '../reducers/gig.reducer.js'
 
-export async function loadGigs() {
+export async function loadGigs(filterBy) {
     try {
-        const { filterBy } = store.getState().gigModule
         const gigs = await gigService.query(filterBy)
         store.dispatch({ type: SET_GIGS, gigs })
     } catch (err) {

@@ -20,11 +20,15 @@
             min-width: em(50px);
             min-height: em(48px);
 
-            color: #222325;
+            color: $clr6;
             cursor: pointer;
             &:hover {
                 border: 1px solid rgb(34,35,37)
             }
+        }
+
+        input.gig-filter  {
+            margin-right: 1em;
         }
     }
 }
