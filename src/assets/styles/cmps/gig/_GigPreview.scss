@@ -13,6 +13,11 @@
             position: absolute;
             top: 16px;
             right: 16px;
+            width: em(34px);
+            height: em(32px);
+            background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/hearts.e6208a0.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
 
             svg {
                 fill: #fff;

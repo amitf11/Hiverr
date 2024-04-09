@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { StatusModal } from "../cmps/StatusModal"
 import { loadOrders, setOrderStatus } from "../store/actions/order.actions"
+import { UserImg } from "../cmps/UserImg"
 
 export function Dashboard() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -45,9 +46,9 @@ export function Dashboard() {
                 ) : (
                     <div className="order-table flex column">
                         <div className="table-head flex align-center">
-                            {/* <div class="buyer-col">
-                            <h4>Buyer</h4>
-                        </div> */}
+                            <div class="buyer-col">
+                                <h4>Buyer</h4>
+                            </div>
                             <div className="gig-col col">
                                 <h4>Gig</h4>
                             </div>
@@ -67,9 +68,9 @@ export function Dashboard() {
                             {orders.map(order => (
                                 <section key={order._id} className="table-row flex align-center space-between">
                                     {/* <div className=""> */}
-                                    {/* <div>
-                                        <img src="" alt="" />
-                                    </div> */}
+                                    <div className="buyer-col">
+                                        <img src="https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png" alt="" />
+                                    </div>
                                     <div className="flex gig-col">
                                         <span>{order.gig.title}</span>
                                     </div>

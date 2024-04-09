@@ -22,9 +22,9 @@ export function StatusModal({ isModalOpen, onChangeStatus, onCloseModal }) {
     if (!isModalOpen) return null
     return (
         <div ref={modalRef} className="flex column set-status">
-            <div onClick={() => onChangeStatus('approved')} className="flex align-center justify-center status approved">Approved</div>
+            <div onClick={() => onChangeStatus('approved')} className="flex align-center justify-center status approved">Approve</div>
             <div onClick={() => onChangeStatus('pending')} className="flex align-center justify-center status pending">Pending</div>
-            <div onClick={() => onChangeStatus('rejected')} className="flex align-center justify-center status rejected">Rejected</div>
+            <div onClick={() => onChangeStatus('rejected')} className="flex align-center justify-center status rejected">Reject</div>
         </div>
     )
 }
