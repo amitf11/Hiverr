@@ -12,30 +12,30 @@ export function GigIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
-    
-    const search = searchParams.get('search')
-    const category = searchParams.get('category')
+
     
     useEffect (() => {
         loadGigs()
-
+        
     }, [filterBy])
-
+    
     
     useEffect(() => {
-        setSearch(search || '')
-        setCategory(category || '')
-
+        const search = searchParams.get('search')
+        const category = searchParams.get('category')
+        setSearch(search)
+        setCategory(category)
+        console.log('category:', category)
     }, [searchParams])
-
-
+    
+    
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
 
     return (
         <section className='explore-page'>
-            <GigIndexNavBar category={filterBy.category} />
+            <GigIndexNavBar category={filterBy.category || 'Explore'} />
             
             <GigFilter
                 filterBy={filterBy}

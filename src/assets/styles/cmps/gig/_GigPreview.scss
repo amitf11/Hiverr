@@ -1,8 +1,10 @@
 .gig-preview {
-    min-width: 245px;
-    width: 100%;
-    margin-inline-end: em(24px);
     position: relative;
+
+
+    width: 100%;
+    min-width: 245px;
+    margin-inline-end: em(24px);
 
     .slider-container {
         position: relative;
@@ -110,7 +112,6 @@
             }
         }
 
-
         .owner-profile {
             height: 24px;
             width: 24px;
@@ -134,6 +135,7 @@
     top: 50%;
     transform: translateY(-50%);
     background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/basic-carousel-arrows.dfd3090.svg);
+
 }
 
 .next-arrow {
@@ -145,6 +147,7 @@
     left: 5px;
     background-position: 0 100%;
 }
+
 
 .gig-preview a:hover .arrow {
     opacity: 1;

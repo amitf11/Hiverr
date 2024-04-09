@@ -6,13 +6,14 @@ export const gigService = {
     getById,
     remove,
     save,
-    getCategoryDesc
+    getCategoryDesc,
+    getDefaultFilter
 }
 
 const STORAGE_KEY = 'gigDB'
 _createGigs()
 
-async function query(filterBy = { search: '', category: '', minPrice: -Infinity, maxPrice: Infinity }) {
+async function query(filterBy) {
     const gigs = await storageService.query(STORAGE_KEY)
     let filteredGigs = gigs
 
@@ -28,7 +29,7 @@ async function query(filterBy = { search: '', category: '', minPrice: -Infinity,
     }
 
     filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
-    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : -Infinity
+    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
 
     filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
 
@@ -60,6 +61,11 @@ function getEmptyGig() {
         title: '',
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
+}
+
+
+function getDefaultFilter() {
+    return { search: "", category: "", maxPrice: Infinity, minPrice: '' }
 }
 
 function _createGigs() {
