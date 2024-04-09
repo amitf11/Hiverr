@@ -7,7 +7,8 @@ export const gigService = {
     remove,
     save,
     getCategoryDesc,
-    getDefaultFilter
+    getDefaultFilter,
+    getCategoryDesc,
 }
 
 const STORAGE_KEY = 'gigDB'
@@ -29,6 +30,7 @@ async function query(filterBy) {
     }
 
     filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
+    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
     filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
 
     filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
@@ -62,7 +64,6 @@ function getEmptyGig() {
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
 }
-
 
 function getDefaultFilter() {
     return { search: "", category: "", maxPrice: Infinity, minPrice: '' }
@@ -461,6 +462,7 @@ function _createGigs() {
                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
                         review: "Amazing work, exactly what I was looking for. Highly recommended!",
                         reviewedAt: "Published 1 month ago",
+                        rate: 2,
                         rate: 2,
                         _id: utilService.makeId()
                     }
