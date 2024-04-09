@@ -14,7 +14,7 @@ export async function loadGigs() {
 }
 
 export function setFilterBy(filterBy) {
-        store.dispatch({ type: SET_FILTER, filterBy })
+    store.dispatch({ type: SET_FILTER, filterBy })
 }
 
 export function setCategory(category) {

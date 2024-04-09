@@ -1,22 +1,24 @@
-import { useSearchParams } from "react-router-dom"
-import { useDispatch, useSelector } from 'react-redux'
-
 import { useEffect, useState } from "react"
 
 export function GigFilter({ onSetFilter, filterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-    
+
     useEffect(() => {
+        console.log('filterByToEdit:', filterByToEdit)
         onSetFilter(filterByToEdit)
     }, [filterByToEdit])
 
+    
     function handleChange({ target }) {
         let { value, type, name: field } = target
         value = type === 'number' ? +value : value
-        setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [field]: value }))
+        setFilterByToEdit((prevFilterBy) => {
+            console.log('prevFilterBy:', prevFilterBy)
+            return { ...prevFilterBy, [field]: value }
+        })
     }
 
-    
+
     return (
         <section className="filter-sort">
             <section className="flex space-between align-center gig-filter-container">
@@ -26,7 +28,7 @@ export function GigFilter({ onSetFilter, filterBy }) {
                     <div className="gig-filter">Budget ∨</div>
                     <div className="gig-filter">Delivery time ∨</div>
                     <form action="">
-                        <input 
+                        <input
                             type="number"
                             name="minPrice"
                             placeholder="minPrice"

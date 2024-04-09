@@ -108,7 +108,7 @@ export function ReviewStats({ reviews }) {
                         </tbody>
                     </table>
                 </div>
-                <div className='rating-breakdown'>
+                <div className='space-between rating-breakdown'>
                     <h6>Rating breakdown</h6>
                     <ul>
                         <li key="1" className='clean-list flex space-between'>Seller communication level

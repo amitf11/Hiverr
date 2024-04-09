@@ -48,7 +48,7 @@ export function HomePageSlider() {
                 <section className="homepage-slider-cards-container flex">
                     {
                         cards.map(card => {
-                            return <article className="slider-card-container" style={{backgroundColor: card.backgroundColor }}>
+                            return <article className="slider-card-container" style={{backgroundColor: card.backgroundColor }} key={card.title}>
                             <div className="slider-card">
                                 <Link to={card.filterUrl} className="flex column space-between">
                                     <h3>{card.title}</h3>
