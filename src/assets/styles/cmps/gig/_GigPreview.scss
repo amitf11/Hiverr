@@ -1,7 +1,7 @@
 .gig-preview {
     position: relative;
 
-
+    height: 330px;
     width: 100%;
     min-width: 245px;
     margin-inline-end: em(24px);
@@ -26,6 +26,7 @@
             font-size: em(16px);
             font-weight: 400;
             margin-bottom: 0;
+            margin-top: 5px;
         }
 
         &:hover {
@@ -35,7 +36,8 @@
 
     img {
         width: 100%;
-        overflow: clip;
+        aspect-ratio: 1.653;
+        object-fit: fillr;
         border-radius: em(8px);
         position: relative;
     }
