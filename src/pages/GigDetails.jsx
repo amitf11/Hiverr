@@ -26,8 +26,7 @@ export function GigDetails() {
         }
     }
 
-    function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
+    function SampleNextArrow({ onClick }) {
         return (
             <div
                 className='arrow next-arrow'
@@ -36,8 +35,7 @@ export function GigDetails() {
         );
     }
 
-    function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
+    function SamplePrevArrow({ onClick }) {
         return (
             <div
                 className='arrow prev-arrow'
@@ -64,7 +62,7 @@ export function GigDetails() {
         customPaging: function (i) {
             return (
                 <a>
-                    <img src={gig.imgs[i + 1]} alt='' />
+                    <img src={gig.imgs[i]} alt='' />
                 </a>
             );
         },
@@ -95,7 +93,7 @@ export function GigDetails() {
                                 <h2>{gig.owner.fullname} </h2>
                                 <div className='flex align-center level'>
                                     <div className='flex number'>Level {gig.owner.rate}</div>
-                                    <UserLevel level={gig.owner.rate}/>
+                                    <UserLevel level={gig.owner.rate} />
                                 </div>
                             </div >
 
