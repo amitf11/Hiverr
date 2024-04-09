@@ -16,6 +16,11 @@ export function GigDetails() {
         loadGig()
     }, [gigId, gig])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+
+    }, [])
+
     async function loadGig() {
         try {
             const gig = await gigService.getById(gigId)
