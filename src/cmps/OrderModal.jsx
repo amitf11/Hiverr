@@ -30,7 +30,7 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
 
     return (
         <section className="order-modal"
-        // style={{ left: modalPosition.left, top: modalPosition.top }}
+            style={{ left: modalPosition.left, top: modalPosition.top }}
         >
             <div className="modal-tip"></div>
             <div ref={modalRef} className="modal-content">

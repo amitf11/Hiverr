@@ -29,6 +29,7 @@ export function AppHeader() {
     useEffect(() => {
         function handleResize() {
             setWindowSize(window.innerWidth)
+            // console.log(window.innerWidth);
         }
         window.addEventListener("resize", handleResize)
         handleResize()
@@ -80,12 +81,14 @@ export function AppHeader() {
     }
 
     function onOpenOrderModal(ev) {
-        const { target } = ev
-        const ordersButtonRect = target.getBoundingClientRect()
-        const modalLeft = ordersButtonRect.left
-        const modalTop = ordersButtonRect.bottom
-
+        onSetModalPosition(ev)
         setIsOrderModalOpen(true)
+    }
+
+    function onSetModalPosition({ target }) {
+        const ordersButtonRect = target.getBoundingClientRect()
+        const modalLeft = ordersButtonRect.left - 330
+        const modalTop = ordersButtonRect.bottom + 12
         setModalPosition({ left: modalLeft, top: modalTop })
     }
 

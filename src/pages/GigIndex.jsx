@@ -21,6 +21,7 @@ export function GigIndex() {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         const search = searchParams.get('search')
         const category = searchParams.get('category')
         const minPrice = searchParams.get('minPrice')

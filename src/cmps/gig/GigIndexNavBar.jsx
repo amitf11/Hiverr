@@ -5,7 +5,7 @@ export function GigIndexNavBar({ category }) {
     const desc = gigService.getCategoryDesc(category)
 
     function getModifiedCategoryTitle(category) {
-        const modifiedCat = category.replace(/-/g, ' ')
+        const modifiedCat = category.replace(/-/g, ' & ')
         return modifiedCat.charAt(0).toUpperCase() + modifiedCat.slice(1)
     }
 

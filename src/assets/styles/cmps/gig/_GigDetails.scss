@@ -184,6 +184,7 @@
 .carousle-imgs {
     display: flex !important;
     justify-content: space-around;
+    gap: em(5px);
 
     li:last-of-type {
         display: none;
@@ -192,6 +193,7 @@
 
     li {
         padding-right: 0;
+
         a {
             cursor: pointer;
         }

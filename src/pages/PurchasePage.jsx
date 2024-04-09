@@ -10,6 +10,7 @@ export function PurchasePage() {
 
     useEffect(() => {
         loadGig()
+        window.scrollTo(0, 0)
     }, [gigId])
 
     async function loadGig() {
