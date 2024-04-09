@@ -228,10 +228,10 @@
         cursor: pointer;
         width: 100%;
         padding: em(16px);
-    }
 
-    .tab button.active {
-        border-bottom: 1px solid black;
+        &.selected {
+            border-bottom: 4px solid black;
+        }
     }
 
     .package-main {
