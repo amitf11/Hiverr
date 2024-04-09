@@ -4,6 +4,11 @@ import { gigService } from '../../services/gig.service'
 export function GigIndexNavBar({ category }) {
     const desc = gigService.getCategoryDesc(category)
 
+    function getModifiedCategoryTitle(category) {
+        const modifiedCat = category.replace(/-/g, ' ')
+        return modifiedCat.charAt(0).toUpperCase() + modifiedCat.slice(1)
+    }
+
     return (
         <section className='index-nav-bar flex column'>
             <nav>
@@ -12,12 +17,12 @@ export function GigIndexNavBar({ category }) {
                 </Link>
                 <span className='divider'> / </span>
                 <Link className='clean-link category-link' to={'/'}>
-                    {category}
+                    {getModifiedCategoryTitle(category)}
                 </Link>
             </nav>
 
             <div className='index-category-titles'>
-                <h2 className='index-category-title'>{category}</h2>
+                <h2 className='index-category-title'>{getModifiedCategoryTitle(category)}</h2>
                 <p>{desc ? desc : 'Use Hiverr to find any service your heart desires.'}</p>
             </div>
         </section>

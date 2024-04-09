@@ -28,7 +28,6 @@ export function GigIndex() {
         console.log('category:', category)
     }, [searchParams])
     
-    
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
