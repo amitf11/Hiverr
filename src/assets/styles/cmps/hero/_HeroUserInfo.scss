@@ -1,0 +1,30 @@
+.info-container {
+    border-radius: 1600px;
+    padding: em(12px) em(24px) em(12px) em(12px);
+    position: relative;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 100%, .14);
+    border: 1px solid hsla(0, 0%, 100%, .4);
+    gap: 10px;
+    color: $clr1;
+
+    img {
+        display: block;
+        height: 40px;
+        width: 40px;
+    }
+
+    .inner-container {
+        gap: 3px;
+        .name-container {
+            font-size: em(12px);
+            line-height: em(12px);
+            font-weight: 600;
+        }
+
+        .job-container {
+            line-height: em(16px);
+        }
+    }
+}

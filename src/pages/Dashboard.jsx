@@ -8,9 +8,9 @@ export function Dashboard() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedOrder, setSelectedOrder] = useState(null)
 
-    // useEffect(() => {
-    //     console.log(selectedOrder);
-    // }, [selectedOrder])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     function geStatusBgc(order) {
         if (order.status === 'pending') return '#ffbe5b'
@@ -19,9 +19,7 @@ export function Dashboard() {
     }
 
     function onOpenStatusModal(order) {
-        // console.log(order);
         setSelectedOrder(order)
-        // console.log(selectedOrder);
         setIsModalOpen(true)
     }
 
