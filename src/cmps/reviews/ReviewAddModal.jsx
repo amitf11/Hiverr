@@ -23,7 +23,6 @@ export function ReviewAddModal({ addReview }) {
 
     function handelStarChange(value) {
         let field = 'rate'
-        console.log(value)
         setReviewToEdit(prevReviewToEdit => ({ ...prevReviewToEdit, [field]: value }))
     }
 
