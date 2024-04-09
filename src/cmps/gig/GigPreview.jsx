@@ -41,12 +41,12 @@ export function GigPreview({ gig }) {
 
 
     return (
-        <article className='gig-preview flex column justify-center'>
+        <article className='gig-preview flex column space-between'>
 
             <Link className='clean-link' to={`/gig/${gig._id}`}>
                 <div className='slider-container'>
                     <Slider {...settings}>
-                        {gig.imgs.map(img=> (
+                        {gig.imgs.map(img => (
                             <img src={img} alt='img' />
                         ))}
                         {/* <img src='https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg' alt='' />
@@ -64,21 +64,21 @@ export function GigPreview({ gig }) {
                     </div>
                     <div className='flex row align-center level-container'>
                         <p className='level bold'>Level {gig.owner.rate}</p>
-                        <UserLevel level={gig.owner.rate}/>
+                        <UserLevel level={gig.owner.rate} />
                     </div>
                 </div>
                 <a className='gig-title clean-link'>
                     <h3>{gig.title}</h3>
                 </a>
             </Link>
-            <div className='gig-rating flex align-center'>
+            <div className='gig-rating flex column'>
                 <div className='inner-rating-container flex align-center'>
                     <StarIcon className='flex star' />
                     <strong>{gig.reviews.length ? reviewService.getAvgRating(gig.reviews) : 0}</strong>
                     <span className='rating-count'>({gig.reviews.length})</span>
                 </div>
+                <strong className='price'>From ${gig.price}</strong>
             </div>
-            <strong className='price'>From ${gig.price}</strong>
 
         </article>
     )
