@@ -58,7 +58,8 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png'
+    console.log(userCred);
+    if (!userCred.imgUrl) userCred.imgUrl = 'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     return saveLocalUser(user)
