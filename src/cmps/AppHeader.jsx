@@ -15,34 +15,34 @@ export function AppHeader() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const location = useLocation()
-    const loggedinUser = useSelector(storeState => storeState.userModule.user)
+    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const [search, setSearch] = useState('')
     const [isShown, setIsShown] = useState(false)
+    const [isSignUp, setIsSignUp] = useState(null)
     const [windowSize, setWindowSize] = useState(null)
+    const [isNewOrder, setIsNewOrder] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [headerClassName, setHeaderClassName] = useState('')
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
-    const [orders, newOrders] = useSelector(storeState => [storeState.orderModule.orders, storeState.orderModule.newOrders])
-    const [isNewOrder, setIsNewOrder] = useState(false)
     const [modalPosition, setModalPosition] = useState({ left: 0, top: 0 })
+    const [orders, newOrders] = useSelector(storeState => [storeState.orderModule.orders, storeState.orderModule.newOrders])
 
-    useEffect(() => {
-        function handleResize() {
-            setWindowSize(window.innerWidth)
-            // console.log(window.innerWidth);
-        }
-        window.addEventListener("resize", handleResize)
-        handleResize()
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setWindowSize(window.innerWidth)
+    //     }
+    //     window.addEventListener("resize", handleResize)
+    //     handleResize()
 
-        loadOrders()
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
+    //     loadOrders()
+    //     return () => window.removeEventListener("resize", handleResize)
+    // }, [])
 
     useEffect(() => {
         if (newOrders.length > 0) {
             setIsNewOrder(true)
         }
-    })
+    }, [])
 
     function handleChange({ target }) {
         const value = target.value
@@ -116,6 +116,16 @@ export function AppHeader() {
         setIsNewOrder(false)
     }
 
+    function handleSignIn() {
+        setIsSignUp(false)
+        onOpenModal()
+    }
+
+    function handleJoin() {
+        setIsSignUp(true)
+        onOpenModal()
+    }
+
     return (
         <>
             <header className={`main-header ${headerClassName}`}>
@@ -151,14 +161,15 @@ export function AppHeader() {
                                     </a></li>
                                     <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
                                     <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
-                                    <li><UserImg imgUrl={loggedinUser.imgUrl} size={32} /></li>
-
+                                    <li><Link to={`user/${loggedinUser._id}`} className="flex">
+                                        <UserImg imgUrl={loggedinUser.imgUrl} size={32} /></Link>
+                                    </li>
                                 </>
 
                             ) : (
                                 <>
-                                    <li><a className="clean-link" onClick={onOpenModal}>Sign In</a></li>
-                                    <li><a className="clean-link join-btn" onClick={onOpenModal}>Join</a></li>
+                                    <li><a className="clean-link" onClick={handleSignIn}>Sign In</a></li>
+                                    <li><a className="clean-link join-btn" onClick={handleJoin}>Join</a></li>
                                 </>
                             )}
                         </ul>
@@ -171,7 +182,8 @@ export function AppHeader() {
                     modalPosition={modalPosition} />
                 <LoginSignup
                     isModalOpen={isModalOpen}
-                    onCloseModal={onCloseModal} />
+                    onCloseModal={onCloseModal}
+                    isSignUp={isSignUp} />
             </header>
             <section className="sub-header flex align-center" style={{ opacity: isShown ? 1 : 0 }}>
                 <SubHeader />

@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { login, signup } from "../store/actions/user.actions"
 
-export function LoginSignup({ isModalOpen, onCloseModal }) {
+export function LoginSignup({ isModalOpen, onCloseModal, isSignUp }) {
     const modalRef = useRef(null)
-    const [isOnSignup, setIsOnSignup] = useState()
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
@@ -43,7 +42,10 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
         if (!credentials.username || !credentials.password) return
         login(credentials)
         onCloseModal()
+    }
 
+    function handleSubmit(ev) {
+        isSignUp ? onSignUp(ev) : onLogin(ev)
     }
 
     if (!isModalOpen) return <div></div>
@@ -68,67 +70,68 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
                                             <h1>Success <span>starts</span> <br /> here.</h1>
                                             <form
                                                 className="login-signup-form flex column align-center"
-                                                onSubmit={onSignUp}
-                                            // onSubmit={isSignup ? handleSubmit : handleLogin
-                                            >
+                                                onSubmit={handleSubmit}
+                                                    >
+                                                    <div className="flex align-center justify-center input-container">
+                                                        <label htmlFor="username"></label>
+                                                        <input
+                                                            name="username"
+                                                            type="text"
+                                                            required
+                                                            placeholder="Enter user name"
+                                                            value={credentials.username}
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+
+                                                {isSignUp && (
+                                                    <div className="flex align-center justify-center input-container">
+                                                        <label htmlFor="fullName"></label>
+                                                        <input
+                                                            name="fullName"
+                                                            type="text"
+                                                            required
+                                                            placeholder="Enter full Name"
+                                                            value={credentials.fullName}
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                )}
+
                                                 <div className="flex align-center justify-center input-container">
-                                                    <label htmlFor="username"></label>
-                                                    <input
-                                                        name="username"
-                                                        type="text"
-                                                        required
-                                                        placeholder="Enter user name"
-                                                        value={credentials.username}
-                                                        onChange={handleChange}
-                                                    />
-                                                </div>
-                                                {/* {isSignup && ( */}
-                                                <div className="flex align-center justify-center input-container">
-                                                    <label htmlFor="fullName"></label>
-                                                    <input
-                                                        name="fullName"
-                                                        type="text"
-                                                        required
-                                                        placeholder="Enter full Name"
-                                                        value={credentials.fullName}
-                                                        onChange={handleChange}
-                                                    />
-                                                </div>
-                                                {/* )} */}
-                                                <div className="flex align-center justify-center input-container">
-                                                    <label htmlFor="password"></label>
-                                                    <input
-                                                        name="password"
-                                                        type="password"
-                                                        required
-                                                        placeholder="Enter password"
-                                                        value={credentials.password}
-                                                        onChange={handleChange}
-                                                    />
-                                                </div>
+                                                <label htmlFor="password"></label>
+                                                <input
+                                                    name="password"
+                                                    type="password"
+                                                    required
+                                                    placeholder="Enter password"
+                                                    value={credentials.password}
+                                                    onChange={handleChange}
+                                                />
+                                            </div>
 
 
-                                                <div className="flex align-center justify-center">
-                                                    <button>Continue</button>
-                                                </div>
-                                            </form>
-                                        </section>
+                                            <div className="flex align-center justify-center">
+                                                <button>Continue</button>
+                                            </div>
+                                        </form>
                                     </section>
-                                    <section className="flex column terms-conditions">
-                                        <p class="tbody-7 co-text-medium S_brCsT">By joining, you agree to the Hiverr
-                                            Terms of Service
-                                            and to occasionally receive emails from us. Please read our
-                                            Privacy Policy
-                                            to learn how we use your personal data.</p>
-                                    </section>
-                                </div>
+                                </section>
+                                <section className="flex column terms-conditions">
+                                    <p className="tbody-7 co-text-medium S_brCsT">By joining, you agree to the Hiverr
+                                        Terms of Service
+                                        and to occasionally receive emails from us. Please read our
+                                        Privacy Policy
+                                        to learn how we use your personal data.</p>
+                                </section>
                             </div>
-                        </section>
                     </div>
-
                 </section>
-
             </div>
-        </div>
+
+        </section>
+
+            </div >
+        </div >
     )
 }

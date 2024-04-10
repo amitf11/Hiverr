@@ -58,8 +58,7 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-    console.log(userCred);
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    if (!userCred.imgUrl) userCred.imgUrl = 'https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png'
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     return saveLocalUser(user)
@@ -71,13 +70,14 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullName: user.fullName, imgUrl: user.imgUrl }
+    user = { _id: user._id, fullName: user.fullName, imgUrl: user.imgUrl, createdAt: user.createdAt }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    const user = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return user
 }
 
 
