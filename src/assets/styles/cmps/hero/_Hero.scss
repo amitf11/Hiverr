@@ -95,6 +95,10 @@
 
             margin: 0;
             padding-bottom: 24px;
+
+            @include for-mobile-layout {
+                font-size: em(32px);
+            }
         }
     }
 }
@@ -187,8 +191,5 @@
             display: none;
         }
 
-        .header-title {
-            font-size: em(40px);
-        }
     }
 }
