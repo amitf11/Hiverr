@@ -62,16 +62,16 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
                                         <button onClick={onCloseModal} className="close-btn" data-testid="close-navigation-button"><svg width="12" height="12" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" fill="#74767E"><path d="m8.485 7 4.487-4.487.926-.925a.35.35 0 0 0 0-.495l-.99-.99a.35.35 0 0 0-.495 0L7 5.515 1.588.102a.35.35 0 0 0-.495 0l-.99.99a.35.35 0 0 0 0 .495L5.514 7 .102 12.413a.35.35 0 0 0 0 .495l.99.99a.35.35 0 0 0 .495 0L7 8.485l4.487 4.487.926.926a.35.35 0 0 0 .495 0l.99-.99a.35.35 0 0 0 0-.495L8.485 7Z"></path></svg></button>
                                     </section>
                                 </div>
-                                <div>
-                                    <section className="flex column">
+                                <div className="flex column">
+                                    <section className="flex column form-section-container">
                                         <section className="form-section">
-                                            <h1>Success <span>starts</span> here.</h1>
+                                            <h1>Success <span>starts</span> <br /> here.</h1>
                                             <form
                                                 className="login-signup-form flex column align-center"
                                                 onSubmit={onSignUp}
                                             // onSubmit={isSignup ? handleSubmit : handleLogin
                                             >
-                                                <div className="flex align-center justify-center">
+                                                <div className="flex align-center justify-center input-container">
                                                     <label htmlFor="username"></label>
                                                     <input
                                                         name="username"
@@ -83,7 +83,7 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
                                                     />
                                                 </div>
                                                 {/* {isSignup && ( */}
-                                                <div className="flex align-center justify-center">
+                                                <div className="flex align-center justify-center input-container">
                                                     <label htmlFor="fullName"></label>
                                                     <input
                                                         name="fullName"
@@ -95,7 +95,7 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
                                                     />
                                                 </div>
                                                 {/* )} */}
-                                                <div className="flex align-center justify-center">
+                                                <div className="flex align-center justify-center input-container">
                                                     <label htmlFor="password"></label>
                                                     <input
                                                         name="password"
@@ -113,6 +113,13 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
                                                 </div>
                                             </form>
                                         </section>
+                                    </section>
+                                    <section className="flex column terms-conditions">
+                                        <p class="tbody-7 co-text-medium S_brCsT">By joining, you agree to the Hiverr
+                                            Terms of Service
+                                            and to occasionally receive emails from us. Please read our
+                                            Privacy Policy
+                                            to learn how we use your personal data.</p>
                                     </section>
                                 </div>
                             </div>

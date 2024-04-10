@@ -52,9 +52,9 @@ export function GigPreview({ gig }) {
 
                             ))}
                         </Slider>
-                        <div className='heart'>
+                        {/* <div className='heart'>
                             <FavoriteBorderIcon />
-                        </div>
+                        </div> */}
                     </div>
                 </Link>
                 <div className='gig-owner-details flex space-between align-center'>
