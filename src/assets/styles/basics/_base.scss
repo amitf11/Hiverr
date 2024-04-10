@@ -21,6 +21,7 @@ main {
 
     @include for-mobile-layout {
         padding-bottom: 60px;
+        overflow: hidden;
     }
 }
 
