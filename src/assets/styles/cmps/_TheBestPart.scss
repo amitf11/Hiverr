@@ -69,4 +69,31 @@
         }
 
     }
+
+
+    @include for-mobile-layout {
+
+
+        padding: 48px 24px;
+
+        .the-best-part-left-container {
+            h2 {
+                font-size: em(28px);
+            }
+        }
+
+
+        img {
+            padding-top: 48px;
+            width: 100%;
+        }
+
+        .the-best-part-inner-container {
+            flex-direction: column;
+            padding-top: 0;
+
+        }
+
+
+    }
 }
