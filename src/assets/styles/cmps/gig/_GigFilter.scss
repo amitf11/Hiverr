@@ -1,37 +1,257 @@
 .filter-sort {
-    margin-block-end: em(24px);
+    margin-block-end: 24px;
 
     .gig-filter-container {
-        gap: em(12px);
-        margin-top: em(24px);
+        gap: 12px;
+        margin-top: 24px;
 
-        .inner-filer-container {
-            gap: em(12px);
-        }
+        .inner-filter-container {
+            gap: 12px;
 
-        .gig-filter {
-            padding: 0.6875em 1em;
-            font-weight: 600;
-
-            border-radius: .5em;
-            border: 1px solid #dadbdd;
-
-            line-height: em(24px);
-            min-width: em(50px);
-            min-height: em(48px);
-
-            color: $clr6;
-            cursor: pointer;
-
-            .arrow-down {
-                width: 12px;
-                fill: #222325;
-                margin-left: 12px;
+            .floating-menu {
                 position: relative;
-            }
 
-            &:hover {
-                border: 1px solid rgb(34, 35, 37)
+                .gig-filter {
+                    background-color: $clr1;
+                    padding: 0.6875em 1em;
+                    font-weight: 600;
+
+                    border-radius: 8px;
+                    border: 1px solid $clr7;
+
+                    line-height: 24px;
+                    min-width: 50px;
+                    min-height: 48px;
+
+                    color: $clr6;
+                    cursor: pointer;
+                    user-select: none;
+                    transition: border-color .12s cubic-bezier(.215, .61, .355, 1);
+
+                    .arrow-down {
+                        width: 12px;
+                        height: 12px;
+                        fill: $clr6;
+                        margin-left: 12px;
+                        position: relative;
+                        transition: all .24s cubic-bezier(.215, .61, .355, 1), opacity .12s cubic-bezier(.215, .61, .355, 1);
+                        transition-delay: .12s;
+                    }
+
+                    .arrow-down.menu-open {
+                        transform: rotate(180deg);
+                    }
+
+                    &:hover {
+                        border: 1px solid rgb(34, 35, 37)
+                    }
+                }
+
+                .menu-content {
+                    margin-top: 10px;
+                    background-color: $clr1;
+                    border: 1px solid $clr7;
+                    border-radius: 8px;
+                    box-shadow: 0 12px 18px rgba(0, 0, 0, .14);
+                    font-size: 14px;
+                    line-height: 22px;
+                    position: absolute;
+                    top: 100%;
+                    z-index: 3;
+                    transition: all .24s cubic-bezier(.215, .61, .355, 1), display .12s cubic-bezier(.215, .61, .355, 1);
+                    transition-delay: .12s;
+                    opacity: 1;
+                    display: none;
+
+                    &.menu-open {
+                        margin-top: 8px;
+                        // opacity: 1;
+                        display: block;
+                        pointer-events: all;
+                    }
+
+                    .filter-actions {
+                        padding: 16px 24px;
+                        user-select: none;
+                        box-shadow: 0 12px 18px rgba(0, 0, 0, .14);
+                        border-top: 1px solid #e4e5e7;
+                        gap: 48px;
+
+                        button {
+                            border: none;
+                            line-height: 24px;
+                            cursor: pointer;
+                            display: inline-block;
+                            font-size: 16px;
+                            font-weight: 600;
+                            border-radius: 4px;
+                            text-align: center;
+                            text-decoration: none;
+                            position: relative;
+                            transition: 70ms cubic-bezier(.75, 0, .25, 1);
+                        }
+
+                        .clear-btn {
+                            width: max-content;
+                            padding: 0;
+                            background: none;
+                            color: $clr5;
+
+                            &:hover {
+                                background-color: $clr1;
+                                color: $clr10;
+                            }
+                        }
+
+                        .apply-btn {
+                            border: 1px solid transparent;
+                            background-color: #000;
+                            color: $clr1;
+
+                            &:hover {
+                                background: $clr4;
+                            }
+
+                        }
+                    }
+
+                    .content-scroll {
+                        max-height: 570px;
+                        opacity: 1;
+                        overflow-y: scroll;
+                        padding: 24px;
+                        position: relative;
+                        transition: all .24s cubic-bezier(.215, .61, .355, 1);
+                        transition-delay: .24s;
+
+                        .budget-filter {
+                            .price-buckets-wrapper {
+                                margin: 0 -12px;
+
+                                .radio-item-wrapper {
+                                    min-width: 214px;
+                                    // margin: 0 12px;
+
+                                    &:hover {
+                                        background-color: #f5f5f5;
+                                    }
+
+                                    label {
+                                        margin-bottom: 0;
+                                        border-radius: 8px;
+                                        color: $clr4;
+                                        cursor: pointer;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        line-height: 22px;
+                                        padding: 12px;
+                                        user-select: none;
+                                        width: 100%;
+                                        display: inline-flex;
+                                        flex-direction: row;
+                                        align-items: center;
+
+                                        input {
+                                            display: 0;
+                                        }
+
+                                        span::before {
+                                            border: 1px solid #b5b6ba;
+                                            height: 22px;
+                                            width: 22px;
+                                            border-radius: 50%;
+                                            display: inline-block;
+                                            cursor: pointer;
+                                            margin-right: 8px;
+                                            position: relative;
+
+                                            &.selected {
+                                                border: 2px solid $clr6;
+                                            }
+                                        }
+
+                                        .inner-radio {
+                                            span {
+                                                font-weight: 400;
+                                                font-size: 14px;
+                                                line-height: 21px;
+                                                margin-left: 8px;
+                                                color: $clr10;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .custom-price {
+
+                                .radio-item-wrapper {
+                                    margin: 0 12px;
+                                }
+
+                                &:hover {
+                                    background-color: #f5f5f5;
+                                }
+
+                                cursor: pointer;
+                                margin: 0 -12px;
+
+                                .price-range-filter {
+                                    display: inline-flex;
+                                    padding-left: 42px;
+                                    padding-right: 12px;
+                                    padding-bottom: 16px;
+
+                                    .input-wrapper {
+                                        position: relative;
+                                        flex: 1 1;
+                                        margin-right: 12px;
+
+                                        input {
+                                            min-width: 110px;
+                                            appearance: textfield;
+                                            border-color: $clr7;
+                                            box-shadow: none;
+                                            min-height: 36px;
+                                            transition: border-color .35s ease;
+                                            background-color: $clr1;
+                                            border: 1px solid #c5c6c9;
+                                            border-radius: 4px;
+                                            color: $clr4;
+                                            resize: none;
+                                            width: 100%;
+                                            padding: 8px 12px;
+
+                                            &:focus {
+                                                border-color: $clr10;
+                                            }
+
+                                            &:hover {
+                                                border-color: $clr10
+                                            }
+                                        }
+
+                                        i {
+                                            position: absolute;
+                                            top: 10px;
+                                            right: 8px;
+                                            z-index: 1;
+                                            color: #b5b6ba;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    .content-scroll.menu-open {
+                        opacity: 1;
+                        top: 0;
+                    }
+                }
+
+
             }
         }
 
@@ -39,6 +259,8 @@
             margin-right: 1em;
         }
     }
+
+
 }
 
 .gig-sort-container {
@@ -50,11 +272,86 @@
             padding: 10px 8px;
         }
     }
-    
+
     .arrow-down {
         width: 12px;
         fill: #222325;
         margin-left: 12px;
         position: relative;
+        transition: all .24s cubic-bezier(.215, .61, .355, 1), opacity .12s cubic-bezier(.215, .61, .355, 1);
+        transition-delay: .12s;
+    }
+
+    .arrow-down.menu-open {
+        transform: rotate(180deg);
+    }
+
+    .floating-menu {
+        position: relative;
+        padding: 10px 8px;
+
+        .menu-content {
+            width: 250px;
+            background-color: $clr1;
+            border: 1px solid $clr7;
+            border-radius: 8px;
+            box-shadow: 0 12px 18px rgba(0, 0, 0, .14);
+            font-size: 14px;
+            line-height: 22px;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            z-index: 3;
+            display: none;
+            transition: all .24s cubic-bezier(.215,.61,.355,1), display .12s cubic-bezier(.215,.61,.355,1);
+
+            &.menu-open {
+                margin-top: 8px;
+                // opacity: 1;
+                display: block;
+                pointer-events: all;
+            }
+
+            .content-scroll {
+                max-height: 380px;
+                opacity: 1;
+                overflow-y: scroll;
+                padding: 24px;
+                position: relative;
+                transition: all .24s cubic-bezier(.215, .61, .355, 1);
+                transition-delay: .24s;
+
+                .labels-list {
+                    margin: -8px 0;
+
+                    .label-item {
+                        border-radius: 8px;
+                        cursor: pointer;
+                        line-height: 22px;
+                        margin: 0 -16px;
+                        padding: 9px 16px;
+                        color: $clr6;
+
+                        &:hover {
+                            background-color: #f5f5f5;
+                        }
+
+                        span {
+                            margin-right: 16px;
+                            fill: $clr6;
+                            color: $clr4;
+                        }
+
+                        label {
+                            line-height: 24px;
+                            font-weight: 400;
+                            font-size: 16px;
+                            color: $clr4;
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }

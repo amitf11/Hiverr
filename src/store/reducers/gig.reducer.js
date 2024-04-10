@@ -2,13 +2,14 @@ import { gigService } from "../../services/gig.service"
 
 export const SET_GIGS = 'SET_GIGS'
 export const SET_FILTER = 'SET_FILTER'
+export const SET_SORT = 'SET_SORT'
 export const SET_CATEGORY = 'SET_CATEGORY'
 export const SET_SEARCH = 'SET_SEARCH'
 
 const initialState = {
     gigs: [],
     filterBy: gigService.getDefaultFilter(),
-    sortBy: { by: '', asc: true }
+    sortBy: 'recommended'
 }
 
 export function gigReducer(state = initialState, action) {
@@ -28,12 +29,12 @@ export function gigReducer(state = initialState, action) {
             // filterBy = { ...action.filterBy, category, search }
             // return { ...state, filterBy: action.filterBy }
 
-        return { ...state, filterBy: { ...state.filterBy, ...action.filterBy }}
+            return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
 
+        case SET_SORT:
+            return { ...state, sortBy: action.sortBy }
         case SET_CATEGORY:
-            console.log('action.category:', action.category)
             filterBy = { ...state.filterBy, category: action.category }
-            console.log('filterBy:', filterBy)
             return { ...state, filterBy }
 
         case SET_SEARCH:
