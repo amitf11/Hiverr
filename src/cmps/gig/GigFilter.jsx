@@ -139,7 +139,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                             <div className="flex align-center gig-filter">
                                 <div className="flex align-center">
                                     Budget
-                                    <span className="flex arrow-down"><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
+                                    <span className={`flex arrow-down ${isBudgetMenuOpen ? 'menu-open' : ''}`}><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
                             </div>
 
                             <div className={`menu-content ${isBudgetMenuOpen ? 'menu-open' : ''}`}>
@@ -228,7 +228,8 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                             <div className="flex align-center gig-filter">
                                 <div className="flex align-center">
                                     Delivery time
-                                    <span className="flex arrow-down"><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
+                                    <span className={`flex arrow-down ${isDeliveryMenuOpen ? 'menu-open' : ''}`}><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
+
                             </div>
 
                             <div className={`menu-content ${isDeliveryMenuOpen ? 'menu-open' : ''}`}>
@@ -321,7 +322,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                         <div onClick={toggleSortMenu} className="flex align-center bold floating-menu" ref={sortMenuRef}>
                             <div className="sort-menu-title flex align-center">
                                 {sortBy === 'recommended' ? 'Recommended' : 'Newest arrivals'}
-                                <span className="flex arrow-down"><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill">
+                                <span className={`flex arrow-down ${isSortMenuOpen ? 'menu-open' : ''}`}><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill">
                                     <path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z">
                                     </path>
                                 </svg>
