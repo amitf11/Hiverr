@@ -1,8 +1,11 @@
 .gig-purchase {
-    margin-block-start: em(150px);
-    margin-block-end: em(20px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    gap: 40px;
+    margin-block: em(150px);
     margin-inline: auto;
-    width: min(100%, 1400px);
+    width: min(80%, 1000px);
     padding: 0 em(32px);
 
     .header {
@@ -13,11 +16,9 @@
     .payment-section {
         background-color: $clr12;
         border: 1px solid $clr7;
-        margin-inline-end: em(50px);
 
         .credit-debit-card-container {
             padding-inline: em(20px);
-            gap: em(10px);
         }
 
         input {
@@ -40,9 +41,9 @@
             }
 
             p {
-                margin-top: em(40px);
+                // margin-top: em(40px);
                 font-size: em(14px);
-                margin-bottom: em(15px);
+                // margin-bottom: em(15px);
                 font-weight: 700;
             }
         }
@@ -51,7 +52,7 @@
             flex-wrap: wrap;
 
             .short {
-                max-width: em(110px);
+                max-width: em(100px);
             }
         }
 
@@ -63,7 +64,6 @@
 
     .package-container {
         flex: 1;
-        max-width: 50%;
         background-color: $clr1;
         position: sticky;
         top: em(53px);
