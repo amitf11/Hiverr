@@ -27,10 +27,10 @@ export function PurchasePage() {
         ev.preventDefault()
 
         const order = {
-            // buyer: {
-            //     _id: user._id,
-            //     fullname: user.fullname
-            // },
+            buyer: {
+                _id: 123,
+                // fullname: user.fullname
+            },
             seller: {
                 _id: gig.owner._id,
                 fullname: gig.owner.fullname,
@@ -43,10 +43,10 @@ export function PurchasePage() {
             },
             status: "pending"
         }
-        
+        console.log('order:', order)
         try {
             await addOrder(order)
-            navigate('/')
+            // navigate('/')
         }
         catch (err) {
             console.log("cant add order", err)

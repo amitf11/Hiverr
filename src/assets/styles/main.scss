@@ -26,6 +26,11 @@
 @import "cmps/gig/GigPreview";
 @import "cmps/gig/GigList";
 
+//User Profile cmps
+@import "cmps/user-profile/UserOrders";
+@import "cmps/user-profile/UserDashboard";
+
+
 //Review list + preview
 @import "cmps/Review";
 @import "cmps/Review";
@@ -35,11 +40,9 @@
 @import "cmps/hero/HeroUserInfo";
 
 // Pages
-@import "pages/GigIndex";
 @import "views/HomePage";
+@import "pages/GigIndex";
+@import "pages/UserProfile";
 @import "pages/PurchasePage";
-@import "pages/Dashboard";
-@import "pages/PurchasePage";
-@import "pages/Dashboard";
 // @import "views/ReviewIndex";
 // @import "views/UserDetails";

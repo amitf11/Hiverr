@@ -3,9 +3,11 @@ export const utilService = {
     makeLorem,
     getRandomIntInclusive,
     debounce,
+    getMonthName,
     randomPastTime,
     saveToStorage,
     loadFromStorage,
+
 }
 
 function makeId(length = 6) {
@@ -17,6 +19,12 @@ function makeId(length = 6) {
     }
 
     return txt
+}
+
+function getMonthName(createdAt) {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const month = months[createdAt.getMonth()]
+    return month
 }
 
 function makeLorem(size = 100) {

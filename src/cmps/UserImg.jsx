@@ -5,6 +5,6 @@ export function UserImg({ imgUrl, size }) {
             src={imgUrl}
             alt="user-image"
             title="user image"
-            style={{ height: `${size}px`, width: `${size}px` }} />
+            style={{ height: `${size}px` }} />
     )
 }

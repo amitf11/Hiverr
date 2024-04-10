@@ -1,5 +1,5 @@
-import { storageService } from "./async-storage.service"
 import { utilService } from "./util.service"
+import { storageService } from "./async-storage.service"
 
 export const orderService = {
     query,
@@ -9,8 +9,9 @@ export const orderService = {
 
 const STORAGE_KEY = 'orderDB'
 
-async function query() {
+async function query(userId) {
     const orders = await storageService.query(STORAGE_KEY)
+    const userOrders = orders.filter(order => order.buyer._id === userId)
     return orders
 }
 
@@ -41,8 +42,8 @@ function _createOrders() {
         orders = [
             {
                 _id: utilService.makeId(),
-                buyer: "mini-user",
-                seller: "mini-user",
+                buyer: { _id: 123, fullName: "mini-user"},
+                seller: { _id: 123, fullName: "mini-user"},
                 gig: {
                     _id: "i101",
                     name: "Design Logo",
@@ -52,7 +53,6 @@ function _createOrders() {
                 status: "pending/approved/rejected"
             }
         ]
-
     }
     utilService.saveToStorage(STORAGE_KEY, orders)
     return orders

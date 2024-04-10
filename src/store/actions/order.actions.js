@@ -3,9 +3,9 @@ import { ADD_ORDER, SET_ORDERS, SET_ORDER_STATUS } from '../reducers/order.reduc
 
 import { orderService } from '../../services/order.service.js'
 
-export async function loadOrders() {
+export async function loadOrders(userId) {
     try {
-        const orders = await orderService.query()
+        const orders = await orderService.query(userId)
         store.dispatch({ type: SET_ORDERS, orders })
     } catch (err) {
         console.log('Cannot load orders', err)

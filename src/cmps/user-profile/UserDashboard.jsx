@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { StatusModal } from "../cmps/StatusModal"
-import { loadOrders, setOrderStatus } from "../store/actions/order.actions"
-import { UserImg } from "../cmps/UserImg"
+import { UserImg } from "../../cmps/UserImg"
+import { StatusModal } from "../../cmps/StatusModal"
+import { loadOrders, setOrderStatus } from "../../store/actions/order.actions"
 
-export function Dashboard() {
+
+export function UserDashboard() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedOrder, setSelectedOrder] = useState(null)
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -38,9 +39,9 @@ export function Dashboard() {
     }
 
     return (
-        <section className="dashboard flex align-center justify-center">
+        <section className="dashboard flex column align-center justify-center">
+            <h2>Manage Your Services</h2>
             <section className="manage-orders flex column">
-                <h2>Manage Orders</h2>
                 {!orders || !orders.length ? (
                     <div>No orders yet</div>
                 ) : (
