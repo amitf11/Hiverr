@@ -151,7 +151,7 @@ export function AppHeader() {
                                     </a></li>
                                     <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
                                     <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
-                                    <li><UserImg imgUrl={loggedinUser.imgUrl} size={32} /></li>
+                                    <li><UserImg imgUrl={loggedinUser.imgUrl} size={35} /></li>
 
                                 </>
 

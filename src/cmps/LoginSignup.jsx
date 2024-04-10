@@ -115,7 +115,7 @@ export function LoginSignup({ isModalOpen, onCloseModal }) {
                                         </section>
                                     </section>
                                     <section className="flex column terms-conditions">
-                                        <p class="tbody-7 co-text-medium S_brCsT">By joining, you agree to the Hiverr
+                                        <p>By joining, you agree to the Hiverr
                                             Terms of Service
                                             and to occasionally receive emails from us. Please read our
                                             Privacy Policy
