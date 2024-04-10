@@ -1,4 +1,5 @@
 import { storageService } from "./async-storage.service"
+import { reviewService } from "./review.service"
 import { utilService } from "./util.service"
 
 export const gigService = {
@@ -14,7 +15,7 @@ export const gigService = {
 const STORAGE_KEY = 'gigDB'
 _createGigs()
 
-async function query(filterBy) {
+async function query(filterBy, sortBy = 'recommended') {
     const gigs = await storageService.query(STORAGE_KEY)
     let filteredGigs = gigs
 
@@ -31,9 +32,28 @@ async function query(filterBy) {
 
     filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
     filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
-    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
+    // filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
 
     filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
+
+    filterBy.deliveryTime = (+filterBy.deliveryTime) ? +filterBy.deliveryTime : Infinity
+    filteredGigs = filteredGigs.filter(gig => gig.daysToMake <= filterBy.deliveryTime)
+
+    if (sortBy === 'recommended') {
+        filteredGigs.sort((gig1, gig2) => {
+            const gig1ReviewsAvg = reviewService.getAvgRating(gig1.reviews)
+            const gig2ReviewsAvg = reviewService.getAvgRating(gig2.reviews)
+            return gig2ReviewsAvg - gig1ReviewsAvg
+        })
+    }
+
+    if (sortBy === 'newest') {
+        filteredGigs.sort((gig1, gig2) => gig1.createdAt - gig2.createdAt)
+    }
+
+    if (sortBy === 'mostReviewed') {
+        filteredGigs.sort((gig1, gig2) => gig2.reviews.length - gig1.reviews.length)
+    }
 
     return filteredGigs
 }
@@ -66,7 +86,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-    return { search: "", category: "", maxPrice: Infinity, minPrice: '' }
+    return { search: "", category: "", maxPrice: Infinity, minPrice: '', deliveryTime: Infinity }
 }
 
 function _createGigs() {
@@ -79,6 +99,7 @@ function _createGigs() {
                 title: "I will design 3 modern minimalist flat logo designs",
                 about: "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
                 price: 33,
+                createdAt: 1246355666,
                 owner: {
                     fullname: "frederickkessie",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
@@ -106,6 +127,14 @@ function _createGigs() {
                     "mini-user"
                 ],
                 reviews: [
+                    {
+                        name: "tobiaspille300",
+                        country: "Thailand",
+                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                        review: "frederickkessie ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
+                        reviewedAt: "Published 2 months ago",
+                        rate: 5
+                    },
                     {
                         name: "tobiaspille300",
                         country: "Thailand",
@@ -153,6 +182,7 @@ function _createGigs() {
                 title: "I will illustrate your childrens book",
                 about: "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
                 price: 151,
+                createdAt: 124634567355666,
                 owner: {
                     fullname: "vividstore",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg",
@@ -235,6 +265,7 @@ function _createGigs() {
                 title: "I will design elegant custom watercolor logo for you",
                 about: "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
                 price: 172,
+                createdAt: 2323546355666,
                 owner: {
                     fullname: "frederickkessie",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
@@ -313,6 +344,7 @@ function _createGigs() {
                 title: "I will create modern unique and creative logo design",
                 about: "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
                 price: 88,
+                createdAt: 12463456555666,
                 owner: {
                     fullname: "vividstore",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg",
@@ -394,6 +426,7 @@ function _createGigs() {
                 title: "I will do logo hyper realistic pencil sketch portrait by hand drawing",
                 about: "Hello, I am Achinthya from Sri Lanka. I am a professional graphic designer with more than 5 years of experience. I have completed a diploma in Graphic designing and I am currently following a degree in Graphic designing. I have a good knowledge of Adobe Illustrator, Adobe Photoshop, and other graphic designing software. I can create a unique and eye-catching logo, T-shirt design, poster design, and other graphic design works for you. Feel free to contact me anytime. I am available 24/7. Thank you.",
                 price: 151,
+                createdAt: 23435466666,
                 owner: {
                     fullname: "achinthyadesign",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
@@ -474,6 +507,7 @@ function _createGigs() {
                 title: "I will do data entry, copy paste and excel data entry work for you",
                 about: "Hello Fiverr Community, This is Kelly lewis. I am a professional LinkedIn Lead and B2B Lead Generation Specialist. My Service Area:- Lead Generation, B2B Lead Generation, LinkedIn lead Generation, Email list building, Data entry, Prospect List Building, Email List Building, lead prospecting and many more. I have more than 6 years experience in the sector. I am here to provide 100% accurate service to my clients & give 100% satisfaction. I am ready to do your job with great confidence and always try my level best to produce high-quality work for my clients. Thanks.",
                 price: 151,
+                createdAt: 324351246355666,
                 owner: {
                     fullname: "Kelly Lewis",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg",
@@ -552,6 +586,7 @@ function _createGigs() {
                 title: "I will develop full stack ruby on rails application",
                 about: "Self-directed and enthusiastic technology consultant experienced working with several successfully funded start-ups.",
                 price: 4847,
+                createdAt: 3454246355666,
                 owner: {
                     fullname: "Sohail",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg",
@@ -630,6 +665,7 @@ function _createGigs() {
                 title: "I will fix your disabled ad account and business manager ad account",
                 about: "Hello I'm Danyal, The focus of my main work is on Logo Design, Branding & Business Card. I have 4 Years of experience and professional team to support your project. Feel free to Message me. Let's discuss for an extraordinary project. Thanks!.",
                 price: 367,
+                createdAt: 234546355666,
                 owner: {
                     fullname: "Danny",
                     imgUrl: "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/1c9c2f19c94767182a311f193304408f-1706806959/jagem%20axcc/fix-your-disabled-ad-account-and-business-manager-ad-account-0f73.png",
@@ -654,6 +690,15 @@ function _createGigs() {
                 ],
                 likedByUsers: [],
                 reviews: [
+                    {
+                        name: "brandon_w99",
+                        country: "United States",
+                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        review: "Very professional and friendly. Completed the job efficiently and the result was exactly what I wanted.",
+                        reviewedAt: "Published 1 month ago",
+                        rate: 5,
+                        _id: utilService.makeId()
+                    },
                     {
                         name: "brandon_w99",
                         country: "United States",
@@ -707,6 +752,7 @@ function _createGigs() {
                 title: "I will create an eye catching whiteboard animation digital hand drawn",
                 about: "Online Marketing professional with 20 years of experience. After running websites, paid-ads, blogs, and e-shops, in 2012 it was clear that video was essential for Internet Marketing and I began creating whiteboard and animated explainers, which quickly became a passion.",
                 price: 367,
+                createdAt: 2343246355666,
                 owner: {
                     fullname: "etigalor",
                     imgUrl: "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/1c9c2f19c94767182a311f193304408f-1706806959/jagem%20axcc/fix-your-disabled-ad-account-and-business-manager-ad-account-0f73.png",
