@@ -10,7 +10,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const [isBudgetMenuOpen, setIsBudgetMenuOpen] = useState(false)
     const [isSortMenuOpen, setIsSortMenuOpen] = useState(false)
     const [isDeliveryMenuOpen, setIsDeliveryMenuOpen] = useState(false)
-    const [selectedValue, setSelectedValue] = useState(null);
+    const [selectedValue, setSelectedValue] = useState(null)
     const [selectedDeliveryValue, setSelectedDeliveryValue] = useState(null)
     const sortMenuRef = useRef(null)
     const budgetMenuRef = useRef(null)
@@ -57,15 +57,15 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                 case 'low-range':
                     minPrice = 0
                     maxPrice = 155
-                    break;
+                    break
                 case 'mid-range':
                     minPrice = 155
                     maxPrice = 233
-                    break;
+                    break
                 case 'high-range':
                     minPrice = 233
                     maxPrice = ''
-                    break;
+                    break
                 case 'custom':
                     minPrice = ''
                     maxPrice = customValue
@@ -84,7 +84,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     }
 
     function handleClick(ev, range, field) {
-        ev.stopPropagation();
+        ev.stopPropagation()
         setSelectedValue(range)
         if (field === 'deliveryTime') setSelectedDeliveryValue(range)
     }
@@ -185,7 +185,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                         name="budget"
                                                         checked={selectedValue === 'low-range'}
                                                     />
-                                                    <span className="radio circle"></span>
+                                                    <span className="radio-circle"></span>
                                                     <div className="inner-radio">Value <span>Under $155</span></div>
                                                 </label>
                                             </div>
@@ -197,7 +197,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                         name="budget"
                                                         checked={selectedValue === 'mid-range'}
                                                     />
-                                                    <span className="radio circle"></span>
+                                                    <span className="radio-circle"></span>
                                                     <div className="inner-radio">Mid-range <span>$155-$233</span></div>
                                                 </label>
                                             </div>
@@ -210,7 +210,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                         name="budget"
                                                         checked={selectedValue === 'high-range'}
                                                     />
-                                                    <span className="radio circle"></span>
+                                                    <span className="radio-circle"></span>
                                                     <div className="inner-radio">High-end <span>$233-$ Above</span></div>
                                                 </label>
                                             </div>
@@ -227,7 +227,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                         name="budget"
                                                         checked={selectedValue === 'custom'}
                                                     />
-                                                    <span className="radio circle"></span>
+                                                    <span className="radio-circle"></span>
                                                     <div className="inner-radio">Custom</div>
                                                 </label>
                                             </div>
@@ -276,7 +276,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                             name="deliveryTime"
                                                             checked={selectedDeliveryValue === 1}
                                                         />
-                                                        <span className="radio circle"></span>
+                                                        <span className="radio-circle"></span>
                                                         <div className="inner-radio">Express 24H</div>
                                                     </label>
                                                 </div>
@@ -287,7 +287,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                             name="deliveryTime"
                                                             checked={selectedDeliveryValue === 3}
                                                         />
-                                                        <span className="radio circle"></span>
+                                                        <span className="radio-circle"></span>
                                                         <div className="inner-radio">Up to 3 days</div>
                                                     </label>
                                                 </div>
@@ -298,7 +298,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                             name="deliveryTime"
                                                             checked={selectedDeliveryValue === 7}
                                                         />
-                                                        <span className="radio circle"></span>
+                                                        <span className={`radio-circle ${selectedValue === 'low-range' ? 'checked' : ''}`}></span>
                                                         <div className="inner-radio">Up to 7 days</div>
                                                     </label>
                                                 </div>
@@ -309,7 +309,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                             name="deliveryTime"
                                                             checked={selectedDeliveryValue === Infinity}
                                                         />
-                                                        <span className="radio circle"></span>
+                                                        <span className="radio-circle"></span>
                                                         <div className="inner-radio">Anytime</div>
                                                     </label>
                                                 </div>
