@@ -190,13 +190,13 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                             <div className="flex space-between align-center radio-item-wrapper"
                                                 onClick={(event) => handleClick(event, 'custom', 'budget')}
                                             >
-                                                <label className="flex align-center justify-center" htmlFor="budget">
+                                                <label className="flex align-center" style={{ padding: 0 }} htmlFor="budget">
                                                     <input type="radio"
                                                         name="budget"
                                                         checked={selectedValue === 'custom'}
                                                     />
                                                     <span className="radio circle"></span>
-                                                    <div>Custom</div>
+                                                    <div className="inner-radio">Custom</div>
                                                 </label>
                                             </div>
                                             <div className=" price-range-filter" id="custom-price-input">
@@ -230,91 +230,78 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                     Delivery time
                                     <span className={`flex arrow-down ${isDeliveryMenuOpen ? 'menu-open' : ''}`}><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
 
-                            </div>
 
-                            <div className={`menu-content ${isDeliveryMenuOpen ? 'menu-open' : ''}`}>
-                                <div className="content-scroll">
-                                    <div className="delivery-filter">
-                                        <div className="flex column delivery-buckets-wrapper">
+                                <div className={`menu-content ${isDeliveryMenuOpen ? 'menu-open' : ''}`}>
+                                    <div className="content-scroll">
+                                        <div className="delivery-filter flex align-center">
+                                            <div className="flex column delivery-buckets-wrapper">
 
 
-                                            <div className="flex align-center space-between radio-item-wrapper"
-                                                onClick={(event) => handleClick(event, 1, 'deliveryTime')}>
-                                                <label htmlFor="deliveryTime">
-                                                    <input type="radio"
-                                                        name="deliveryTime"
-                                                        checked={selectedDeliveryValue === 1}
-                                                    />
-                                                    <span className="radio circle"></span>
-                                                    <div className="inner-radio">Express 24H</div>
-                                                </label>
+                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                    onClick={(event) => handleClick(event, 1, 'deliveryTime')}>
+                                                    <label className="flex" htmlFor="deliveryTime">
+                                                        <input type="radio"
+                                                            name="deliveryTime"
+                                                            checked={selectedDeliveryValue === 1}
+                                                        />
+                                                        <span className="radio circle"></span>
+                                                        <div className="inner-radio">Express 24H</div>
+                                                    </label>
+                                                </div>
+                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                    onClick={(event) => handleClick(event, 3, 'deliveryTime')}>
+                                                    <label className="flex" htmlFor="deliveryTime">
+                                                        <input type="radio"
+                                                            name="deliveryTime"
+                                                            checked={selectedDeliveryValue === 3}
+                                                        />
+                                                        <span className="radio circle"></span>
+                                                        <div className="inner-radio">Up to 3 days</div>
+                                                    </label>
+                                                </div>
+                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                    onClick={(event) => handleClick(event, 7, 'deliveryTime')}>
+                                                    <label className="flex" htmlFor="deliveryTime">
+                                                        <input type="radio"
+                                                            name="deliveryTime"
+                                                            checked={selectedDeliveryValue === 7}
+                                                        />
+                                                        <span className="radio circle"></span>
+                                                        <div className="inner-radio">Up to 7 days</div>
+                                                    </label>
+                                                </div>
+                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                    onClick={(event) => handleClick(event, Infinity, 'deliveryTime')}>
+                                                    <label className="flex" htmlFor="deliveryTime">
+                                                        <input type="radio"
+                                                            name="deliveryTime"
+                                                            checked={selectedDeliveryValue === Infinity}
+                                                        />
+                                                        <span className="radio circle"></span>
+                                                        <div className="inner-radio">Anytime</div>
+                                                    </label>
+                                                </div>
+
+
                                             </div>
-                                            <div className="flex align-center space-between radio-item-wrapper"
-                                                onClick={(event) => handleClick(event, 3, 'deliveryTime')}>
-                                                <label htmlFor="deliveryTime">
-                                                    <input type="radio"
-                                                        name="deliveryTime"
-                                                        checked={selectedDeliveryValue === 3}
-                                                    />
-                                                    <span className="radio circle"></span>
-                                                    <div className="inner-radio">Up to 3 days</div>
-                                                </label>
-                                            </div>
-                                            <div className="flex align-center space-between radio-item-wrapper"
-                                                onClick={(event) => handleClick(event, 7, 'deliveryTime')}>
-                                                <label htmlFor="deliveryTime">
-                                                    <input type="radio"
-                                                        name="deliveryTime"
-                                                        checked={selectedDeliveryValue === 7}
-                                                    />
-                                                    <span className="radio circle"></span>
-                                                    <div className="inner-radio">Up to 7 days</div>
-                                                </label>
-                                            </div>
-                                            <div className="flex align-center space-between radio-item-wrapper"
-                                                onClick={(event) => handleClick(event, Infinity, 'deliveryTime')}>
-                                                <label htmlFor="deliveryTime">
-                                                    <input type="radio"
-                                                        name="deliveryTime"
-                                                        checked={selectedDeliveryValue === Infinity}
-                                                    />
-                                                    <span className="radio circle"></span>
-                                                    <div className="inner-radio">Anytime</div>
-                                                </label>
-                                            </div>
-
-
                                         </div>
                                     </div>
+                                    <div className="flex align-center space-between filter-actions">
+                                        <button className="clear-btn">Clear All</button>
+                                        <button className="apply-btn">Apply</button>
+                                    </div>
                                 </div>
+
                             </div>
 
                         </div>
 
-
-
-                        {/* <div className="flex align-center gig-filter">Delivery time <span className="flex arrow-down"><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div> */}
-                        {/* <form action="" className="flex">
-                            <input
-                                className="gig-filter"
-                                type="number"
-                                name="minPrice"
-                                placeholder="Min Price"
-                                value={filterByToEdit.minPrice}
-                                onChange={handleChange} />
-                            <input
-                                className="gig-filter"
-                                type="number"
-                                name="maxPrice"
-                                placeholder="Max Price"
-                                value={filterByToEdit.maxPrice}
-                                onChange={handleChange} />
-                        </form> */}
                     </div>
 
                 </section>
 
                 <section className="gig-sort-container flex">
+                    
                     <div className="flex align-center gig-sort">
                         <span>
                             Sort by:
