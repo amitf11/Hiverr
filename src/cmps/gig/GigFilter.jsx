@@ -84,9 +84,21 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     }
 
     function handleClick(ev, range, field) {
+        ev.stopPropagation();
         setSelectedValue(range)
         if (field === 'deliveryTime') setSelectedDeliveryValue(range)
-        handleChange(ev, range, field)
+    }
+
+    function applyFilters(ev, field) {
+        ev.stopPropagation()
+        if (field === 'budget') {
+            handleChange(ev, selectedValue, field)
+            setIsBudgetMenuOpen(prevIsOpen => !prevIsOpen)
+        }
+        else if (field === 'deliveryTime') {
+            handleChange(ev, selectedDeliveryValue, field)
+            setIsDeliveryMenuOpen(prevIsOpen => !prevIsOpen)
+        }
     }
 
     function handleInputClick(ev) {
@@ -238,7 +250,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
                                 <div className="flex align-center space-between filter-actions">
                                     <button onClick={() => onClearFilter('budget')} className="clear-btn">Clear All</button>
-                                    <button className="apply-btn">Apply</button>
+                                    <button onClick={(ev) => applyFilters(ev, 'budget')} className="apply-btn">Apply</button>
                                 </div>
                             </div>
 
@@ -308,7 +320,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                     </div>
                                     <div className="flex align-center space-between filter-actions">
                                         <button className="clear-btn" onClick={() => onClearFilter('deliveryTime')}>Clear All</button>
-                                        <button className="apply-btn">Apply</button>
+                                        <button onClick={(ev) => applyFilters(ev, 'deliveryTime')} className="apply-btn">Apply</button>
                                     </div>
                                 </div>
 
