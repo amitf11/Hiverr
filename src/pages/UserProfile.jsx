@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { useEffect, useState } from "react"
 import { utilService } from "../services/util.service"
 
 import SettingsIcon from '@mui/icons-material/Settings'
 import InboxRoundedIcon from '@mui/icons-material/InboxRounded'
-import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded'
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 
+import { loadOrders } from "../store/actions/order.actions"
 import { UserOrders } from "../cmps/user-profile/UserOrders"
 import { UserSettings } from "../cmps/user-profile/UsetSettings"
 import { UserDashboard } from "../cmps/user-profile/UserDashboard"
 import { UserStatistics } from "../cmps/user-profile/UserStatistics"
-import { loadOrders } from "../store/actions/order.actions"
 
 export function UserProfile() {
     const [chosenSection, setChosenSection] = useState('orders')
