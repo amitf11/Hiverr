@@ -19,7 +19,7 @@ export function gigReducer(state = initialState, action) {
     let gigs
     let filterBy
     let category
-    let search
+    let txt
 
     switch (action.type) {
         case ADD_GIG:
@@ -42,7 +42,7 @@ export function gigReducer(state = initialState, action) {
             return { ...state, filterBy }
 
         case SET_SEARCH:
-            filterBy = { ...state.filterBy, search: action.search }
+            filterBy = { ...state.filterBy, txt: action.txt }
             return { ...state, filterBy }
 
         default:

@@ -1,0 +1,44 @@
+.selected-filters-wrapper {
+    margin-block-start: 8px;
+    flex-flow: row wrap;
+
+    .selected-filters {
+        padding: 0;
+
+        p {
+            background-color: $clr15;
+            border: none;
+            border-radius: 56px;
+            color: $clr6;
+            margin: 0 10px 10px 0;
+            padding: 4px 16px;
+            -webkit-transition: border-color .35s ease;
+            transition: border-color .35s ease;
+            font-weight: 600;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 21px;
+
+            &:hover {
+                color: $clr10;
+            }
+
+            span {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                color: $clr5;
+                margin-left: 12px;
+                position: relative;
+
+                svg {
+                    fill: $clr10;
+                    float: left;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

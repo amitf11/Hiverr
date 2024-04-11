@@ -9,18 +9,30 @@ import { PackageModal } from '../cmps/PackageModal'
 
 export function GigDetails() {
 
+    const [screenWidth, setScreenWidth] = useState()
     const [gig, setGig] = useState(null)
     const { gigId } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadGig()
+
+        setScreenWidth(window.innerWidth)
+        window.removeEventListener('resize', onResize)
+        window.addEventListener('resize', onResize)
+        return () => window.removeEventListener('resize', onResize)
+
     }, [gigId, gig])
 
     useEffect(() => {
         window.scrollTo(0, 0)
 
     }, [])
+
+    const onResize = () => {
+        setScreenWidth(window.innerWidth)
+    }
+
 
     async function loadGig() {
         try {
@@ -118,7 +130,7 @@ export function GigDetails() {
                         </Slider>
                     </div>
                 </div>
-                
+                {(screenWidth < 900) && <PackageModal gig={gig} />}
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
@@ -127,7 +139,7 @@ export function GigDetails() {
                 </div>
                 <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
-            <PackageModal gig={gig} />
+            {(screenWidth > 900) && <PackageModal gig={gig} />}
         </section >
     )
 }

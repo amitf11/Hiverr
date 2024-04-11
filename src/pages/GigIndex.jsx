@@ -18,13 +18,13 @@ export function GigIndex() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        const search = searchParams.get('search')
+        const txt = searchParams.get('txt')
         const category = searchParams.get('category')
         const minPrice = searchParams.get('minPrice')
         const maxPrice = searchParams.get('maxPrice')
         const deliveryTime = searchParams.get('deliveryTime')
 
-        filterBy.search = search
+        filterBy.txt = txt
         filterBy.category = category
         filterBy.minPrice = +minPrice
         filterBy.maxPrice = +maxPrice

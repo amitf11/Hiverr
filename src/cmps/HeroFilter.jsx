@@ -12,7 +12,7 @@ export function HeroFilter() {
 
     function onSearch(ev) {
         ev.preventDefault()
-        navigate(`/gig?search=${search}`)
+        navigate(`/gig?txt=${search}`)
     }
 
     return (

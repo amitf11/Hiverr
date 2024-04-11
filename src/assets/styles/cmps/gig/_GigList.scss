@@ -1,19 +1,19 @@
-.content{
+.content {
     max-width: 100%;
     width: 100%;
 }
 
-.gigs-container{
+.gigs-container {
     display: grid;
     grid-row-gap: em(40px);
     grid-column-gap: em(24px);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     width: 100%;
     margin: em(16px) 0 0;
 
 
-    
+
     @include for-mobile-layout {
         margin: 0 16px;
         grid-template-columns: minmax(0, 1fr);
@@ -21,7 +21,16 @@
     }
 
     // @include for-narrow-layout {
-    //     grid-template-columns: repeat(2,1fr);
+    //     grid-template-columns: repeat(2, 1fr);
     //     grid-row-gap: 40px;
+    //     gap: 32px;
+    // }
+
+    // @include for-normal-layout {
+    //     grid-template-columns: repeat(3, 1fr);
+    // }
+
+    // @include for-wide-layout {
+    //     grid-template-columns: repeat(4, 1fr);
     // }
 }

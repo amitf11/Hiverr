@@ -21,8 +21,8 @@ async function query(filterBy, sortBy = 'recommended') {
     const gigs = await storageService.query(STORAGE_KEY)
     let filteredGigs = gigs
 
-    if (filterBy.search) {
-        const regex = new RegExp(filterBy.search, 'i')
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
         filteredGigs = filteredGigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
     }
 
@@ -154,7 +154,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-    return { search: "", category: "", maxPrice: Infinity, minPrice: '', deliveryTime: Infinity }
+    return { txt: "", category: "", maxPrice: Infinity, minPrice: '', deliveryTime: Infinity }
 }
 
 function _createGigs() {
