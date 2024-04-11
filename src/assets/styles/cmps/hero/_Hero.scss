@@ -56,15 +56,20 @@
 
     @include for-mobile-layout {
 
-        height: 500px;
+        height: 400px;
 
         .hero {
             background-color: #0f4926;
             justify-content: center;
         }
+
         .hero-backgrounds {
             display: none;
         }
+    }
+
+    @include for-narrow-layout {
+        height: 500px;
     }
 
 }
@@ -192,4 +197,7 @@
         }
 
     }
+
+
+
 }

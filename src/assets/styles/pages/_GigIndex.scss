@@ -77,4 +77,14 @@
     @include for-mobile-layout {
         padding: 0 32px;
     }
+
+    @include for-narrow-layout {
+        .index-nav-bar {
+            padding: 0;
+        }
+
+        .index-category-titles {
+            padding: 0;
+        }
+    }
 }

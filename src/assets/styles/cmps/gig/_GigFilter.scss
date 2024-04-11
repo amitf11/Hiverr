@@ -426,6 +426,16 @@
 
         }
     }
+
+
+    @include for-narrow-layout {
+        .filter-sort {
+            .gig-filter-container {
+                padding: 0 32px;
+                margin: 24px 0;
+            }
+        }
+    }
 }
 
 input[type="radio"] {

@@ -41,4 +41,13 @@
         }
     }
 
+    @include for-narrow-layout {
+        ul {
+            .paypal {
+                display: block;
+            }
+        }
+    }
+
+
 }

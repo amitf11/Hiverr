@@ -94,4 +94,22 @@
 
 
     }
+
+    @include for-narrow-layout {
+        img {
+            padding: 0 8px 48px;
+            width: 100%;
+        }
+
+        .the-best-part-inner-container {
+            flex-direction: row;
+        }
+    }
+
+    @include for-normal-layout {
+        img {
+            padding: 0;
+            width: auto;
+        }
+    }
 }

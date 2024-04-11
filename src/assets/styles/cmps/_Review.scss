@@ -210,6 +210,40 @@
             }
         }
     }
+
+    @include for-mobile-layout {
+        .review-stats {
+            .count {
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .review-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .review {
+            .review-second {
+                margin: 0;
+            }
+        }
+    }
+
+    @include for-narrow-layout {
+        .review-stats {
+            .review-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .review {
+            .review-second {
+                margin: 20px 0 0 64px;
+
+            }
+        }
+    }
 }
 
 .review-add {
