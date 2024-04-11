@@ -65,7 +65,6 @@
 
                     &.menu-open {
                         margin-top: 8px;
-                        // opacity: 1;
                         display: block;
                         pointer-events: all;
                     }
@@ -129,12 +128,6 @@
                                 margin: 0 -12px;
 
                                 .radio-item-wrapper {
-                                    min-width: 214px;
-                                    // margin: 0 12px;
-
-                                    &:hover {
-                                        background-color: #f5f5f5;
-                                    }
 
                                     label {
                                         margin-bottom: 0;
@@ -187,6 +180,13 @@
 
                                 .radio-item-wrapper {
                                     margin: 0 12px;
+
+                                    .inner-radio {
+                                        color: $clr4;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        line-height: 22px;
+                                    }
                                 }
 
                                 &:hover {
@@ -198,9 +198,9 @@
 
                                 .price-range-filter {
                                     display: inline-flex;
-                                    padding-left: 42px;
+                                    padding-left: 33px;
                                     padding-right: 12px;
-                                    padding-bottom: 16px;
+                                    padding-top: 16px;
 
                                     .input-wrapper {
                                         position: relative;
@@ -251,6 +251,30 @@
                     }
                 }
 
+                .radio-item-wrapper {
+                    min-width: 214px;
+                    // margin: 0 12px;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+
+                label {
+                    margin-bottom: 0;
+                    border-radius: 8px;
+                    color: #404145;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 22px;
+                    padding: 12px;
+                    user-select: none;
+                    width: 100%;
+                    display: inline-flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
 
             }
         }
@@ -289,6 +313,7 @@
     .floating-menu {
         position: relative;
         padding: 10px 8px;
+        cursor: pointer;
 
         .menu-content {
             width: 250px;
@@ -303,7 +328,7 @@
             right: 0;
             z-index: 3;
             display: none;
-            transition: all .24s cubic-bezier(.215,.61,.355,1), display .12s cubic-bezier(.215,.61,.355,1);
+            transition: all .24s cubic-bezier(.215, .61, .355, 1), display .12s cubic-bezier(.215, .61, .355, 1);
 
             &.menu-open {
                 margin-top: 8px;
