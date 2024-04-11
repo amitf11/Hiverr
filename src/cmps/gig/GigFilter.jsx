@@ -45,7 +45,6 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     function handleSortChange(value, ev) {
         ev.stopPropagation()
         setSortByToEdit(value)
-        // setIsSortMenuOpen(true)
     }
 
     function handleChange(ev, range, field) {
@@ -154,8 +153,6 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
             <section className="filter-sort">
                 <section className="flex space-between align-center gig-filter-container">
                     <div className="flex inner-filter-container">
-                        {/* <div className="flex align-center gig-filter">Service options <span className="flex arrow-down"><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
-                        <div className="flex align-center gig-filter">Seller details <span className="flex arrow-down"><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div> */}
 
                         <div onClick={toggleBudgetMenu} className="floating-menu" ref={budgetMenuRef}>
 
