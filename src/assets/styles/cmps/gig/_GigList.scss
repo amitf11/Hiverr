@@ -11,4 +11,17 @@
 
     width: 100%;
     margin: em(16px) 0 0;
+
+
+    
+    @include for-mobile-layout {
+        margin: 0 16px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 150px;
+    }
+
+    // @include for-narrow-layout {
+    //     grid-template-columns: repeat(2,1fr);
+    //     grid-row-gap: 40px;
+    // }
 }

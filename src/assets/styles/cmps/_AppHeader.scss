@@ -42,6 +42,10 @@
             opacity: 1;
         }
     }
+
+    @include for-mobile-layout {
+        display: none;
+    }
 }
 
 .join-btn {

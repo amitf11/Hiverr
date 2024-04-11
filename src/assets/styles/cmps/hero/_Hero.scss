@@ -54,6 +54,19 @@
         background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616497/christina-2x.jpg');
     }
 
+    @include for-mobile-layout {
+
+        height: 500px;
+
+        .hero {
+            background-color: #0f4926;
+            justify-content: center;
+        }
+        .hero-backgrounds {
+            display: none;
+        }
+    }
+
 }
 
 .max-width-container {
@@ -82,6 +95,10 @@
 
             margin: 0;
             padding-bottom: 24px;
+
+            @include for-mobile-layout {
+                font-size: em(32px);
+            }
         }
     }
 }
@@ -156,5 +173,23 @@
                 outline: none;
             }
         }
+    }
+
+    @include for-mobile-layout {
+
+        form {
+            flex-direction: column;
+        }
+
+        .btn-search {
+            width: 100%;
+            display: flex;
+            margin: 12px 0 0;
+        }
+
+        .popular-filter {
+            display: none;
+        }
+
     }
 }

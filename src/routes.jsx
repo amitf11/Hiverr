@@ -34,11 +34,6 @@ const routes = [
         label: 'gigPurchase'
     },
     {
-        path: 'dashboard',
-        component: <Dashboard />,
-        label: 'dashboard'
-    },
-    {
         path: 'user/:userId',
         component: <UserProfile />,
         label: 'profile'

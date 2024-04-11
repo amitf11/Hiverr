@@ -159,7 +159,6 @@ export function AppHeader() {
                                     <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders
                                         <div className={`${getNewOrderClass()} new-order`}></div>
                                     </a></li>
-                                    <li><NavLink to="/dashboard" className="clean-link">Dashboard</NavLink></li>
                                     <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
                                     <li><Link to={`user/${loggedinUser._id}`} className="flex">
                                         <UserImg imgUrl={loggedinUser.imgUrl} size={32} /></Link>
