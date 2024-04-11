@@ -42,6 +42,7 @@
                 }
             }
         }
+
         .slider-card-container:hover {
             opacity: .88;
         }
@@ -56,7 +57,10 @@
         margin: 0;
         color: #404145;
 
-
+        @include for-mobile-layout {
+            font-size: em(28px);
+            padding-bottom: 20px;
+        }
 
         //NEW FIVERR
 

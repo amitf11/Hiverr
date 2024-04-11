@@ -117,8 +117,8 @@ export function GigDetails() {
                             ))}
                         </Slider>
                     </div>
-
                 </div>
+                
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
