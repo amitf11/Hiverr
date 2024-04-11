@@ -5,10 +5,9 @@ import { StatusModal } from "../../cmps/StatusModal"
 import { loadOrders, setOrderStatus } from "../../store/actions/order.actions"
 
 
-export function UserDashboard() {
+export function UserDashboard({ sellerOrders }) {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedOrder, setSelectedOrder] = useState(null)
-    const orders = useSelector(storeState => storeState.orderModule.orders)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -42,12 +41,12 @@ export function UserDashboard() {
         <section className="dashboard flex column align-center justify-center">
             <h2>Manage Your Services</h2>
             <section className="manage-orders flex column">
-                {!orders || !orders.length ? (
+                {!sellerOrders || !sellerOrders.length ? (
                     <div>No orders yet</div>
                 ) : (
                     <div className="order-table flex column">
                         <div className="table-head flex align-center">
-                            <div class="buyer-col">
+                            <div className="buyer-col">
                                 <h4>Buyer</h4>
                             </div>
                             <div className="gig-col col">
@@ -65,9 +64,8 @@ export function UserDashboard() {
                         </div>
 
                         <div className="orders-container flex column">
-
-                            {orders.map(order => (
-                                <section key={order._id} className="table-row flex align-center space-between">
+                            {sellerOrders ? sellerOrders.map(order => (
+                                    <section key={order._id} className="table-row flex align-center space-between">
                                     {/* <div className=""> */}
                                     <div className="buyer-col">
                                         <img src="https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png" alt="" />
@@ -90,7 +88,8 @@ export function UserDashboard() {
                                         </div>
                                     </div>
                                 </section>
-                            ))}
+                            )) : ''
+                        }
                         </div>
                         <StatusModal
                             isModalOpen={isModalOpen}

@@ -1,15 +1,18 @@
 import { gigService } from "../../services/gig.service"
 
-export const SET_GIGS = 'SET_GIGS'
-export const SET_FILTER = 'SET_FILTER'
+export const ADD_GIG = 'ADD_GIG'
 export const SET_SORT = 'SET_SORT'
-export const SET_CATEGORY = 'SET_CATEGORY'
+export const SET_GIGS = 'SET_GIGS'
 export const SET_SEARCH = 'SET_SEARCH'
+export const SET_FILTER = 'SET_FILTER'
+export const SET_CATEGORY = 'SET_CATEGORY'
+export const SET_USER_GIGS = 'SET_USER_GIGS'
 
 const initialState = {
     gigs: [],
+    userGigs: [],
+    sortBy: 'recommended',
     filterBy: gigService.getDefaultFilter(),
-    sortBy: 'recommended'
 }
 
 export function gigReducer(state = initialState, action) {
@@ -19,20 +22,21 @@ export function gigReducer(state = initialState, action) {
     let txt
 
     switch (action.type) {
+        case ADD_GIG:
+            return { ...state, gigs: [...state.gigs, action.gig] }
 
         case SET_GIGS:
             return { ...state, gigs: action.gigs }
 
-        case SET_FILTER:
-            // search = state.filterBy.search
-            // category = state.filterBy.category
-            // filterBy = { ...action.filterBy, category, search }
-            // return { ...state, filterBy: action.filterBy }
+        case SET_USER_GIGS:
+            return { ...state, userGigs: action.userGigs }
 
+        case SET_FILTER:
             return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
 
         case SET_SORT:
             return { ...state, sortBy: action.sortBy }
+
         case SET_CATEGORY:
             filterBy = { ...state.filterBy, category: action.category }
             return { ...state, filterBy }
@@ -44,4 +48,5 @@ export function gigReducer(state = initialState, action) {
         default:
             return state
     }
+    console.log('state.gigs:', initialState.gigs)
 } 

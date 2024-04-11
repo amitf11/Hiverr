@@ -5,24 +5,33 @@ import { utilService } from "../services/util.service"
 import SettingsIcon from '@mui/icons-material/Settings'
 import InboxRoundedIcon from '@mui/icons-material/InboxRounded'
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded'
-import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
+import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded'
+import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded'
 
-import { loadOrders } from "../store/actions/order.actions"
+
+import { UserGigs } from "../cmps/user-profile/UserGigs"
 import { UserOrders } from "../cmps/user-profile/UserOrders"
 import { UserSettings } from "../cmps/user-profile/UsetSettings"
 import { UserDashboard } from "../cmps/user-profile/UserDashboard"
 import { UserStatistics } from "../cmps/user-profile/UserStatistics"
 
+import { addGig, loadUserGigs } from "../store/actions/gig.actions"
+import { loadOrders, loadSellerOrders } from "../store/actions/order.actions"
+
 export function UserProfile() {
     const [chosenSection, setChosenSection] = useState('orders')
+    const gigs = useSelector(storeState => storeState.gigModule.userGigs)
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
-    const orders = useSelector(storeState => storeState.orderModule.orders)
-
+    const buyerOrders = useSelector(storeState => storeState.orderModule.orders)
+    const sellerOrders = useSelector(storeState => storeState.orderModule.sellerOrders)
+    
     useEffect(() => {
-        loadOrders(123)
+        loadOrders(user._id)
+        loadSellerOrders(user._id)
+        loadUserGigs(user._id)
     }, [])
-
-
+    
+    console.log('gigs:', gigs)
     const chosenSectionStyle = {
         backgroundColor: '#a5e5c7',
         color: 'black',
@@ -32,6 +41,11 @@ export function UserProfile() {
 
     function handleSection(section) {
         setChosenSection(section)
+    }
+
+    function onAddGig(gig) {
+        addGig(gig)
+        console.log(gigs)
     }
 
     return (
@@ -54,6 +68,11 @@ export function UserProfile() {
                             <span className="flex align-center icon"><InboxRoundedIcon /></span>
                             My Orders</div>
                         <div className="flex align-center user-profile-nav-item"
+                            style={chosenSection === 'gigs' ? chosenSectionStyle : {}}
+                            onClick={() => handleSection('gigs')}>
+                            <span className="flex align-center icon"><FormatListBulletedRoundedIcon /></span>
+                            My Gigs</div>
+                        <div className="flex align-center user-profile-nav-item"
                             style={chosenSection === 'dashboard' ? chosenSectionStyle : {}}
                             onClick={() => handleSection('dashboard')}>
                             <span className="flex align-center icon"><DashboardRoundedIcon /></span>
@@ -75,8 +94,11 @@ export function UserProfile() {
 
             <article className="user-profile-right-container">
                 {chosenSection === 'orders' && <UserOrders
-                    orders={orders} />}
-                {chosenSection === 'dashboard' && <UserDashboard />}
+                    buyerOrders={buyerOrders} />}
+                {chosenSection === 'gigs' && <UserGigs
+                    gigs={gigs} onAddGig={onAddGig} />}
+                {chosenSection === 'dashboard' && <UserDashboard 
+                    sellerOrders={sellerOrders}/>}
                 {chosenSection === 'statistics' && <UserStatistics />}
                 {chosenSection === 'settings' && <UserSettings />}
             </article>

@@ -1,14 +1,11 @@
-export function UserOrders({ orders }) {
-    console.log('orders:', orders)
-
-    if (!orders || !orders.length) return <div> No orders to show...</div>
+export function UserOrders({ buyerOrders }) {
     return (
-
         <section className="user-orders">
             <h2>My Orders</h2>
+            {(!buyerOrders || !buyerOrders.length) ? <div> No orders to show...</div> : null}
             <section className="orders-container">
-                {orders.map(order => (
-                    <article className="flex column space-between order-card">
+                {buyerOrders.map(order => (
+                    <article className="flex column space-between order-card" key={order._id}>
                         <img src={order.gig.imgUrl} alt="" />
                         <div>{order.gig.title}</div>
                         <div>By: {order.seller.fullname}</div>

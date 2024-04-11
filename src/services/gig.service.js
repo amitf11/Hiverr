@@ -10,6 +10,8 @@ export const gigService = {
     getCategoryDesc,
     getDefaultFilter,
     getCategoryDesc,
+    getEmptyGig,
+    getByUserId
 }
 
 const STORAGE_KEY = 'gigDB'
@@ -58,6 +60,12 @@ async function query(filterBy, sortBy = 'recommended') {
     return filteredGigs
 }
 
+async function getByUserId(userId) {
+    const gigs = await storageService.query(STORAGE_KEY)
+    const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
+    return filteredGigs
+}
+
 function getById(gigId) {
     return storageService.get(STORAGE_KEY, gigId)
 }
@@ -81,7 +89,67 @@ async function save(gig) {
 function getEmptyGig() {
     return {
         title: '',
-        price: utilService.getRandomIntInclusive(1000, 9000),
+        about: '', 
+        description: '', 
+        tags: '',
+        price: '',
+        daysToMake: '',
+        imgs: [
+            "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs3/101044791/original/a0e4d038841826b306f94c43f099c548d2d0635e/develop-full-stack-ruby-on-rails-application.jpg",
+            "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101044791/original/85bf7d42ae18114e7e31900d07f37e9bf05e96c1/develop-full-stack-ruby-on-rails-application.jpg",
+            "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/101044791/original/11d70942cc115b08443e22d851db8d460a5a1a13/develop-full-stack-ruby-on-rails-application.jpg",
+            "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/3ff38d9278f19108234ccbaf545ca12d-1699346754/marcha/develop-full-stack-ruby-on-rails-application.png",
+            "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/db2106985b3e5864de20536c034fc31f-1611181736/caselogger/develop-full-stack-ruby-on-rails-application.png"
+          ],
+        reviews: [
+            {
+                name: "brandon_w99",
+                country: "United States",
+                flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                review: "Very professional and friendly. Completed the job efficiently and the result was exactly what I wanted.",
+                reviewedAt: "Published 1 month ago",
+                rate: 5,
+                _id: utilService.makeId()
+            },
+            {
+                name: "carynkingsley",
+                country: "United Kingdom",
+                flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                review: "Great communication and very quick turnaround. Exactly what I wanted, thank you!",
+                reviewedAt: "Published 2 weeks ago",
+                rate: 5,
+                _id: utilService.makeId()
+            },
+            {
+                name: "shaneo587",
+                country: "Australia",
+                flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1fa.png",
+                review: "Great communication and excellent work.",
+                reviewedAt: "Published 3 weeks ago",
+                rate: 5,
+                _id: utilService.makeId()
+            },
+            {
+                name: "jackson_dixon",
+                country: "United States",
+                flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                review: "Great work and fast turnaround.",
+                reviewedAt: "Published 1 month ago",
+                rate: 4,
+                _id: utilService.makeId()
+            },
+            {
+                name: "katelynboston",
+                country: "Canada",
+                flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
+                review: "Amazing work, exactly what I was looking for. Highly recommended!",
+                reviewedAt: "Published 1 month ago",
+                rate: 2,
+                rate: 2,
+                _id: utilService.makeId()
+            }
+
+        ]
     }
 }
 
@@ -91,7 +159,7 @@ function getDefaultFilter() {
 
 function _createGigs() {
     let gigs = utilService.loadFromStorage(STORAGE_KEY)
-    if (!gigs || !gigs.length) {
+    if (gigs.length < 12) {
 
         gigs = [
             {
@@ -101,6 +169,7 @@ function _createGigs() {
                 price: 33,
                 createdAt: 1246355666,
                 owner: {
+                    _id: '101',
                     fullname: "frederickkessie",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
                     level: "basic/premium",
@@ -184,6 +253,7 @@ function _createGigs() {
                 price: 151,
                 createdAt: 124634567355666,
                 owner: {
+                    _id: '102',
                     fullname: "vividstore",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg",
                     level: "basic/premium",
@@ -267,6 +337,7 @@ function _createGigs() {
                 price: 172,
                 createdAt: 2323546355666,
                 owner: {
+                    _id: '101', 
                     fullname: "frederickkessie",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
                     level: "basic/premium",
@@ -346,6 +417,7 @@ function _createGigs() {
                 price: 88,
                 createdAt: 12463456555666,
                 owner: {
+                    _id: '102',
                     fullname: "vividstore",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg",
                     level: "basic/premium",
@@ -428,6 +500,7 @@ function _createGigs() {
                 price: 151,
                 createdAt: 23435466666,
                 owner: {
+                    _id: '103',
                     fullname: "achinthyadesign",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
                     level: "basic/premium",
