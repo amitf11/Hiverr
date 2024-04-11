@@ -104,6 +104,7 @@ export function AppHeader() {
 
     function onLogout() {
         logout()
+        navigate('/')
     }
 
     function getNewOrderClass() {

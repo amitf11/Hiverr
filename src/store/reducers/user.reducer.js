@@ -4,6 +4,7 @@ export const SET_USER = 'SET_USER'
 export const SET_WATCHED_USER = 'SET_WATCHED_USER'
 export const REMOVE_USER = 'REMOVE_USER'
 export const SET_USERS = 'SET_USERS'
+export const SET_USER_GIGS = 'SET_USER_GIGS'
 
 const initialState = {
     loggedinUser: userService.getLoggedinUser(),
@@ -11,7 +12,6 @@ const initialState = {
     watchedUser: null
 }
 
-console.log('initialState.user:', initialState.loggedinUser)
 export function userReducer(state = initialState, action) {
     var newState = state
     switch (action.type) {

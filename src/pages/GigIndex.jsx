@@ -13,6 +13,8 @@ export function GigIndex() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const sortBy = useSelector(storeState => storeState.gigModule.sortBy)
+    
+    console.log('gigs:', gigs)
 
     useEffect(() => {
         window.scrollTo(0, 0)

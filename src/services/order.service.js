@@ -4,7 +4,8 @@ import { storageService } from "./async-storage.service"
 export const orderService = {
     query,
     save,
-    updateStatus
+    updateStatus,
+    sellerQuery
 }
 
 const STORAGE_KEY = 'orderDB'
@@ -12,7 +13,13 @@ const STORAGE_KEY = 'orderDB'
 async function query(userId) {
     const orders = await storageService.query(STORAGE_KEY)
     const userOrders = orders.filter(order => order.buyer._id === userId)
-    return orders
+    return userOrders
+}
+
+async function sellerQuery(userId) {
+    const orders = await storageService.query(STORAGE_KEY)
+    const filteredOrders = orders.filter(order => order.seller._id === userId)
+    return filteredOrders
 }
 
 async function save(order) {

@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 import { gigService } from "../services/gig.service"
@@ -5,8 +6,9 @@ import { addOrder } from "../store/actions/order.actions"
 
 export function PurchasePage() {
     const { gigId } = useParams()
-    const [gig, setGig] = useState({})
     const navigate = useNavigate()
+    const [gig, setGig] = useState({})
+    const user = useSelector(storeState => storeState.userModule.loggedinUser)
 
     useEffect(() => {
         loadGig()
@@ -29,7 +31,7 @@ export function PurchasePage() {
 
         const order = {
             buyer: {
-                _id: 123,
+                _id: user._id,
                 // fullname: user.fullname
             },
             seller: {
