@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { setFilterBy } from "../../store/actions/gig.actions"
+import { SelectedFilters } from "./SelectedFilters"
 
 export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -46,21 +47,6 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
         setSortByToEdit(value)
         // setIsSortMenuOpen(true)
     }
-    // function handleChange({ target }) {
-    //     const { value } = target;
-    //     setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, budget: value }));
-    // }
-
-    // function handleCustomBudget({ target }) {
-    //     const customPrice = target.value ? +target.value : '';
-    //     setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, maxPrice: customPrice }));
-    // }
-
-    // function applyFilter() {
-    //     const currentParams = Object.fromEntries(searchParams);
-    //     const { minPrice, maxPrice } = filterByToEdit;
-    //     setSearchParams({ ...currentParams, minPrice, maxPrice });
-    // }
 
     function handleChange(ev, range, field) {
         ev.stopPropagation()
@@ -124,6 +110,43 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
     function toggleDeliveryMenu() {
         setIsDeliveryMenuOpen(prevIsOpen => !prevIsOpen)
+    }
+
+    function onClearFilter(field) {
+        if (field === 'minPrice' || field === 'maxPrice') field = 'budget'
+        const currentParams = Object.fromEntries(searchParams)
+        let updatedParams = { ...currentParams }
+
+        switch (field) {
+            case 'budget':
+                updatedParams.minPrice = ''
+                updatedParams.maxPrice = Infinity
+                break
+            case 'deliveryTime':
+                updatedParams.deliveryTime = Infinity
+                break
+            default:
+                break
+        }
+
+        setSearchParams(updatedParams)
+        switch (field) {
+            case 'budget':
+                setFilterByToEdit(prevFilterBy => ({
+                    ...prevFilterBy,
+                    minPrice: '',
+                    maxPrice: Infinity
+                }))
+                break
+            case 'deliveryTime':
+                setFilterByToEdit(prevFilterBy => ({
+                    ...prevFilterBy,
+                    deliveryTime: Infinity
+                }))
+                break
+            default:
+                break
+        }
     }
 
     return (
@@ -217,7 +240,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                 </div>
 
                                 <div className="flex align-center space-between filter-actions">
-                                    <button className="clear-btn">Clear All</button>
+                                    <button onClick={() => onClearFilter('budget')} className="clear-btn">Clear All</button>
                                     <button className="apply-btn">Apply</button>
                                 </div>
                             </div>
@@ -287,7 +310,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                         </div>
                                     </div>
                                     <div className="flex align-center space-between filter-actions">
-                                        <button className="clear-btn">Clear All</button>
+                                        <button className="clear-btn" onClick={() => onClearFilter('deliveryTime')}>Clear All</button>
                                         <button className="apply-btn">Apply</button>
                                     </div>
                                 </div>
@@ -300,8 +323,10 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
                 </section>
 
+                <SelectedFilters filterBy={filterByToEdit} onClearFilter={onClearFilter} />
+
                 <section className="gig-sort-container flex">
-                    
+
                     <div className="flex align-center gig-sort">
                         <span>
                             Sort by:
