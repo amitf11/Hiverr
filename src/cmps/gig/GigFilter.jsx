@@ -18,10 +18,6 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const customPriceRef = useRef(null)
     const [budgetValueCustom, setBudgetValueCustom] = useState('')
     let customValue
-    console.log(selectedDeliveryValue);
-    console.log(selectedValue);
-
-    console.log(budgetValueCustom);
 
     useEffect(() => {
         onSetFilter(filterByToEdit)

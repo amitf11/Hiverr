@@ -85,7 +85,7 @@ function getLoggedinUser() {
 }
 
 function _createUsers() {
-    let users = utilService.loadFromStorage('users')
+    let users = utilService.loadFromStorage('users') || []
     if (users.length > 12) {
         users = [
             {
