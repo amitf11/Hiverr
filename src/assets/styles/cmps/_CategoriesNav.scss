@@ -1,6 +1,5 @@
 .main-categories {
     margin: 0 auto 24px;
-    padding: 24px 24px 0;
     width: 100%;
 
     h2 {
@@ -79,6 +78,7 @@
 @include for-narrow-layout {
     .main-categories {
         margin-bottom: 40px;
+        margin: 0 60px;
 
         h2 {
             padding-block-end: 20px;
@@ -87,7 +87,8 @@
         ul {
 
             li {
-                width: 20%;
+                // width: 20%;
+                padding: 0 10px 32px;
             }
         }
     }
@@ -96,5 +97,13 @@
 @include for-normal-layout {
     .main-categories {
         max-width: 1400px;
+        padding: 24px 24px 0;
+        
+        ul {
+            li {
+                padding: 0 10px 55px;
+            }
+        }
+
     }
 }

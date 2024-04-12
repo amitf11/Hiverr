@@ -21,15 +21,15 @@ export function HomePage() {
 
     return (
         <>
-            <section>
+            {/* <section> */}
                 <Hero />
                 <TrustedBy />
                 <LoginSignup />
-                <HomePageSlider />
+                {/* <HomePageSlider /> */}
                 <TheBestPart />
                 <CategoriesNav />
                 <JoinPoster />
-            </section >
+            {/* </section > */}
         </>
     )
 }

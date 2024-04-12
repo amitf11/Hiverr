@@ -57,7 +57,7 @@ export function PurchasePage() {
 
     if (!gig) return <div>Loading...</div>
     return (
-        <section className="gig-purchase">
+        <section className="grid gig-purchase">
             <section className="payment-section flex align-center justify-center">
 
                 <form className="payment-form flex column align-center justify-center">
