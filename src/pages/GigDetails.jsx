@@ -130,16 +130,16 @@ export function GigDetails() {
                         </Slider>
                     </div>
                 </div>
-                {/* {(screenWidth < 900) && <PackageModal gig={gig} />} */}
+                {(screenWidth < 900) && <PackageModal gig={gig} />}
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
                         <pre>{gig.description}</pre>
                     </div>
                 </div>
-                {/* <ReviewList reviews={gig.reviews} addReview={addReview} /> */}
+                <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
-            {/* {(screenWidth > 900) && <PackageModal gig={gig} />} */}
+            {(screenWidth > 900) && <PackageModal gig={gig} />}
         </section >
     )
 }
