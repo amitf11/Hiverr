@@ -1,6 +1,10 @@
 import { useState } from "react"
-import { utilService } from "../../services/util.service"
 import { gigService } from "../../services/gig.service"
+import { utilService } from "../../services/util.service"
+
+import { Add } from "@mui/icons-material"
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField';
 
 export function UserGigs({ gigs, onAddGig }) {
     const [gigToAdd, setGigToAdd] = useState(gigService.getEmptyGig())
@@ -18,40 +22,40 @@ export function UserGigs({ gigs, onAddGig }) {
     return (
         <section className="user-gigs">
             <h2>Manage Your Gigs</h2>
-            <button>Add Gig</button>
+            <Button
+            variant="outlined"
+            color="success"
+            startIcon={<Add />}>Add Gig</Button>
             <form className="flex column" onSubmit={handleSubmit}>
 
-                <label htmlFor="title">Title</label>
-                <input
+                <TextField id="outlined-basic"
+                    label="Title" 
+                    variant="outlined"
                     required
                     type="text"
                     name="title"
                     value={gigToAdd.title}
                     onChange={handleChange} />
 
-                <label htmlFor="about">About</label>
-                <input
-                    required
-                    type="text"
-                    name="about"
-                    value={gigToAdd.about}
-                    onChange={handleChange} />
 
-                <label htmlFor="about">Description</label>
-                <input
+                <TextField
+                    label="Description" 
+                    variant="outlined"
                     required
                     type="text"
                     name="description"
+                    multiline
+                    maxRows={4}
                     value={gigToAdd.description}
                     onChange={handleChange} />
 
-                <label htmlFor="tags">Tags</label>
+                {/* <label htmlFor="tags">Tags</label>
                 <input
                     required
                     type="text"
                     name="tags"
                     value={gigToAdd.tags}
-                    onChange={handleChange} />
+                    onChange={handleChange} /> */}
 
                 <label htmlFor="daystomake">Days to make</label>
                 <input

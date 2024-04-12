@@ -157,8 +157,8 @@ function getDefaultFilter() {
 }
 
 function _createGigs() {
-    let gigs = utilService.loadFromStorage(STORAGE_KEY) || []
-    if (gigs.length < 12) {
+    let gigs = utilService.loadFromStorage(STORAGE_KEY)
+    if (!gigs || gigs.length < 12) {
 
         gigs = [
             {
