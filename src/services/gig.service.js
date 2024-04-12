@@ -34,7 +34,6 @@ async function query(filterBy, sortBy = 'recommended') {
 
     filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
     filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
-    // filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
 
     filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
 
@@ -154,7 +153,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-    return { txt: "", category: "", maxPrice: Infinity, minPrice: '', deliveryTime: Infinity }
+    return { txt: '', category: '', maxPrice: Infinity, minPrice: '', deliveryTime: Infinity }
 }
 
 function _createGigs() {

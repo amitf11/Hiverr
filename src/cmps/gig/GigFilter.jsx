@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { setFilterBy } from "../../store/actions/gig.actions"
 import { SelectedFilters } from "./SelectedFilters"
 
 export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
@@ -96,6 +95,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
         if (field === 'budget') {
             handleChange(ev, selectedValue, field)
             setIsBudgetMenuOpen(false)
+            setBudgetValueCustom('')
         }
         else if (field === 'deliveryTime') {
             handleChange(ev, selectedDeliveryValue, field)
@@ -195,7 +195,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                 </div>
                                                 <div
                                                     className="flex align-center radio-item-wrapper"
-                                                    style={{marginInlineEnd: '12px'}}
+                                                    style={{ marginInlineEnd: '12px' }}
                                                     onClick={(event) => handleClick(event, 'high-range', 'budget')}>
                                                     <span className={`radio-circle ${selectedValue === 'high-range' ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">High-end <span>$233-$ Above</span></div>
