@@ -124,8 +124,9 @@ export function GigDetails() {
                     </div>
                     <div className='folio'>
                         <Slider {...settings}>
-                            {gig.imgs.map(img => (
-                                <img src={img} />
+                            {gig.imgs.map((img, idx) => (
+                                <img src={img}
+                                    key={idx} />
                             ))}
                         </Slider>
                     </div>
