@@ -16,6 +16,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const budgetMenuRef = useRef(null)
     const deliveryMenuRef = useRef(null)
     const customPriceRef = useRef(null)
+    const [budgetValueCustom, setBudgetValueCustom] = useState('')
     let customValue
 
     useEffect(() => {
@@ -68,7 +69,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                     break
                 case 'custom':
                     minPrice = ''
-                    maxPrice = customValue
+                    maxPrice = budgetValueCustom
             }
 
             setSearchParams({ ...currentParams, minPrice, maxPrice })
@@ -91,13 +92,14 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
     function applyFilters(ev, field) {
         ev.stopPropagation()
+        ev.preventDefault()
         if (field === 'budget') {
             handleChange(ev, selectedValue, field)
-            setIsBudgetMenuOpen(prevIsOpen => !prevIsOpen)
+            setIsBudgetMenuOpen(false)
         }
         else if (field === 'deliveryTime') {
             handleChange(ev, selectedDeliveryValue, field)
-            setIsDeliveryMenuOpen(prevIsOpen => !prevIsOpen)
+            setIsDeliveryMenuOpen(false)
         }
     }
 
@@ -175,83 +177,64 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                             </div>
 
                             <div className={`menu-content ${isBudgetMenuOpen ? 'menu-open' : ''}`}>
-                                <div className="content-scroll">
-                                    <div className="budget-filter">
-                                        <div className="flex column price-buckets-wrapper">
-                                            <div className="flex align-center space-between radio-item-wrapper"
-                                                onClick={(event) => handleClick(event, 'low-range', 'budget')}>
-                                                <label htmlFor="budget">
-                                                    <input type="radio"
-                                                        name="budget"
-                                                        checked={selectedValue === 'low-range'}
-                                                    />
-                                                    <span className="radio-circle"></span>
+                                <form onSubmit={(ev) => applyFilters(ev, 'budget')}>
+
+                                    <div className="content-scroll">
+                                        <div className="budget-filter">
+                                            <div className="flex column price-buckets-wrapper">
+                                                <div className="flex align-center radio-item-wrapper"
+                                                    onClick={(event) => handleClick(event, 'low-range', 'budget')}>
+                                                    <span className={`radio-circle ${selectedValue === 'low-range' ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">Value <span>Under $155</span></div>
-                                                </label>
-                                            </div>
-                                            <div className="flex align-center space-between radio-item-wrapper"
-                                                value="155"
-                                                onClick={(event) => handleClick(event, 'mid-range', 'budget')}>
-                                                <label htmlFor="budget">
-                                                    <input type="radio"
-                                                        name="budget"
-                                                        checked={selectedValue === 'mid-range'}
-                                                    />
-                                                    <span className="radio-circle"></span>
+                                                </div>
+                                                <div className="flex align-center radio-item-wrapper"
+                                                    value="155"
+                                                    onClick={(event) => handleClick(event, 'mid-range', 'budget')}>
+                                                    <span className={`radio-circle ${selectedValue === 'mid-range' ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">Mid-range <span>$155-$233</span></div>
-                                                </label>
-                                            </div>
-                                            <div
-                                                className="flex align-center space-between radio-item-wrapper"
-                                                value="233"
-                                                onClick={(event) => handleClick(event, 'high-range', 'budget')}>
-                                                <label htmlFor="budget">
-                                                    <input type="radio"
-                                                        name="budget"
-                                                        checked={selectedValue === 'high-range'}
-                                                    />
-                                                    <span className="radio-circle"></span>
+                                                </div>
+                                                <div
+                                                    className="flex align-center radio-item-wrapper"
+                                                    style={{marginInlineEnd: '12px'}}
+                                                    onClick={(event) => handleClick(event, 'high-range', 'budget')}>
+                                                    <span className={`radio-circle ${selectedValue === 'high-range' ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">High-end <span>$233-$ Above</span></div>
-                                                </label>
+                                                </div>
                                             </div>
-                                        </div>
 
 
 
-                                        <div className=" flex column space-between custom-price">
-                                            <div className="flex space-between align-center radio-item-wrapper"
-                                                onClick={(event) => handleClick(event, 'custom', 'budget')}
-                                            >
-                                                <label className="flex align-center" style={{ padding: 0 }} htmlFor="budget">
-                                                    <input type="radio"
-                                                        name="budget"
-                                                        checked={selectedValue === 'custom'}
-                                                    />
-                                                    <span className="radio-circle"></span>
+                                            <div className=" flex column space-between custom-price">
+                                                <div className="flex align-center radio-item-wrapper"
+                                                    onClick={(event) => handleClick(event, 'custom', 'budget')}
+                                                >
+
+                                                    <span className={`radio-circle ${selectedValue === 'custom' ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">Custom</div>
-                                                </label>
-                                            </div>
-                                            <div className=" price-range-filter" id="custom-price-input">
-                                                <div className="flex column input-wrapper">
-                                                    <input
-                                                        ref={customPriceRef}
-                                                        type="number"
-                                                        placeholder="Enter budget"
-                                                        value={customValue}
-                                                        onClick={handleInputClick}
-                                                        onChange={handleCustomValueChange}
-                                                    />
-                                                    <i>$</i>
+                                                </div>
+                                                <div className=" price-range-filter" id="custom-price-input">
+                                                    <div className="flex column input-wrapper">
+                                                        <input
+                                                            ref={customPriceRef}
+                                                            type="number"
+                                                            placeholder="Enter budget"
+                                                            value={budgetValueCustom}
+                                                            onClick={handleInputClick}
+                                                            onChange={(e) => setBudgetValueCustom(e.target.value)}
+                                                        />
+                                                        <i>$</i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="flex align-center space-between filter-actions">
-                                    <button onClick={() => onClearFilter('budget')} className="clear-btn">Clear All</button>
-                                    <button onClick={(ev) => applyFilters(ev, 'budget')} className="apply-btn">Apply</button>
-                                </div>
+                                    <div className="flex align-center space-between filter-actions">
+                                        <button onClick={() => onClearFilter('budget')} className="clear-btn">Clear All</button>
+                                        <button type="submit" className="apply-btn">Apply</button>
+                                    </div>
+                                </form>
+
                             </div>
 
                         </div>
@@ -262,56 +245,30 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                     Delivery time
                                     <span className={`flex arrow-down ${isDeliveryMenuOpen ? 'menu-open' : ''}`}><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg></span></div>
 
-
                                 <div className={`menu-content ${isDeliveryMenuOpen ? 'menu-open' : ''}`}>
                                     <div className="content-scroll">
                                         <div className="delivery-filter flex align-center">
                                             <div className="flex column delivery-buckets-wrapper">
 
-
-                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                <div className="flex align-center radio-item-wrapper"
                                                     onClick={(event) => handleClick(event, 1, 'deliveryTime')}>
-                                                    <label className="flex" htmlFor="deliveryTime">
-                                                        <input type="radio"
-                                                            name="deliveryTime"
-                                                            checked={selectedDeliveryValue === 1}
-                                                        />
-                                                        <span className="radio-circle"></span>
-                                                        <div className="inner-radio">Express 24H</div>
-                                                    </label>
+                                                    <span className={`radio-circle ${selectedDeliveryValue === 1 ? 'checked' : ''}`}></span>
+                                                    <div className="inner-radio">Express 24H</div>
                                                 </div>
-                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                <div className="flex align-center radio-item-wrapper"
                                                     onClick={(event) => handleClick(event, 3, 'deliveryTime')}>
-                                                    <label className="flex" htmlFor="deliveryTime">
-                                                        <input type="radio"
-                                                            name="deliveryTime"
-                                                            checked={selectedDeliveryValue === 3}
-                                                        />
-                                                        <span className="radio-circle"></span>
-                                                        <div className="inner-radio">Up to 3 days</div>
-                                                    </label>
+                                                    <span className={`radio-circle ${selectedDeliveryValue === 3 ? 'checked' : ''}`}></span>
+                                                    <div className="inner-radio">Up to 3 days</div>
                                                 </div>
-                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                <div className="flex align-center radio-item-wrapper"
                                                     onClick={(event) => handleClick(event, 7, 'deliveryTime')}>
-                                                    <label className="flex" htmlFor="deliveryTime">
-                                                        <input type="radio"
-                                                            name="deliveryTime"
-                                                            checked={selectedDeliveryValue === 7}
-                                                        />
-                                                        <span className={`radio-circle ${selectedValue === 'low-range' ? 'checked' : ''}`}></span>
-                                                        <div className="inner-radio">Up to 7 days</div>
-                                                    </label>
+                                                    <span className={`radio-circle ${selectedValue === 7 ? 'checked' : ''}`}></span>
+                                                    <div className="inner-radio">Up to 7 days</div>
                                                 </div>
-                                                <div className="flex column align-center space-between radio-item-wrapper"
+                                                <div className="flex align-center radio-item-wrapper"
                                                     onClick={(event) => handleClick(event, Infinity, 'deliveryTime')}>
-                                                    <label className="flex" htmlFor="deliveryTime">
-                                                        <input type="radio"
-                                                            name="deliveryTime"
-                                                            checked={selectedDeliveryValue === Infinity}
-                                                        />
-                                                        <span className="radio-circle"></span>
-                                                        <div className="inner-radio">Anytime</div>
-                                                    </label>
+                                                    <span className={`radio-circle ${selectedDeliveryValue === Infinity ? 'checked' : ''}`}></span>
+                                                    <div className="inner-radio">Anytime</div>
                                                 </div>
 
 
