@@ -1,6 +1,5 @@
 .hero-wrapper {
     position: relative;
-    height: 760px;
 
     .hero-backgrounds {
         padding-top: em(80px);
@@ -72,6 +71,10 @@
         height: 500px;
     }
 
+    @include for-normal-layout {
+        height: 760px;
+    }
+
 }
 
 .max-width-container {
@@ -103,6 +106,12 @@
 
             @include for-mobile-layout {
                 font-size: em(32px);
+                line-height: em(40px);
+            }
+
+            @include for-narrow-layout {
+                font-size: em(40px);
+                line-height: em(48px);
             }
         }
     }

@@ -9,6 +9,11 @@
         max-width: 1400px;
         padding: 0 2em;
 
+        .hamburger {
+            border: none;
+            background: none;
+        }
+
         .header-logo {
             height: auto;
             margin: 4px 0 0;
@@ -17,6 +22,13 @@
     }
 
     transition: 0.5s;
+
+
+    @include for-mobile-layout {
+        .header {
+            background-color: #fff;
+        }
+    }
 }
 
 .main-nav {
@@ -41,10 +53,6 @@
         .new {
             opacity: 1;
         }
-    }
-
-    @include for-mobile-layout {
-        display: none;
     }
 }
 
@@ -143,6 +151,10 @@ ul>*:not(:last-child) {
             background-color: #404145;
         }
     }
+
+    @include for-mobile-layout {
+        display: none;
+    }
 }
 
 .sub-header {
@@ -157,14 +169,14 @@ ul>*:not(:last-child) {
     border-bottom: 1px solid lightgray;
 
     transition: 0.5s;
-    
+
     .categories-menu {
         position: relative;
-        
+
         width: min(100%, 1400px);
         margin-inline: auto;
         padding: 0 32px;
-        
+
         li {
             display: inline-block;
             flex-shrink: 0;

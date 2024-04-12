@@ -25,7 +25,7 @@ export function ReviewStats({ reviews }) {
                     <b>{reviewService.getAvgRating(reviews)}</b>
                 </div>
             </span>
-            <section className='review-layout'>
+            <section className='grid review-layout'>
                 <div className='bars'>
                     <ul className='clean-list flex column'>
                         <li className='flex row'>

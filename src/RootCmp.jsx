@@ -11,9 +11,9 @@ import routes from './routes'
 export function RootCmp() {
 
     return (
-        <div className='flex column'>
-            <AppHeader />
-            <main>
+        <div className='grid main-container'>
+            <AppHeader/>
+            <main className='flex column'>
                 <Routes>
                     {routes.map(route => (
                         <Route

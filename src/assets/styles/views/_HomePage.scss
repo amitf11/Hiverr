@@ -15,16 +15,15 @@
     ul {
         padding: 0 em(24px);
 
-        &>*:not(:last-child) {
-            padding-right: em(60px);
-        }
+        // &>*:not(:last-child) {
+        //     padding-right: em(60px);
+        // }
     }
 
     @include for-mobile-layout {
 
-
         margin-bottom: 32px;
-        height: 70px;
+        // height: 70px;
 
         .trusted-by-txt {
             display: none;
@@ -34,10 +33,6 @@
             .paypal {
                 display: none;
             }
-
-            &>*:not(:last-child) {
-                padding-right: em(16px);
-            }
         }
     }
 
@@ -45,6 +40,18 @@
         ul {
             .paypal {
                 display: block;
+            }
+
+            li {
+                padding-right: 16px;
+            }
+        }
+    }
+
+    @include for-normal-layout {
+        ul {
+            &>*:not(:last-child) {
+                padding-right: em(16px);
             }
         }
     }
