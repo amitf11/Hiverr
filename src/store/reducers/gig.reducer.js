@@ -8,6 +8,7 @@ export const SET_FILTER = 'SET_FILTER'
 export const SET_CATEGORY = 'SET_CATEGORY'
 export const SET_USER_GIGS = 'SET_USER_GIGS'
 
+
 const initialState = {
     gigs: [],
     userGigs: [],
