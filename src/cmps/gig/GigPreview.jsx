@@ -44,17 +44,14 @@ export function GigPreview({ gig }) {
     return (
         <article className='gig-preview flex column space-between'>
             <div>
-                <Link className='clean-link' to={`/gig/${gig._id}`} target="_blank">
+                <Link className='clean-link' to={`/gig/${gig._id}`}>
                     <div className='slider-container'>
                         <Slider {...settings}>
-                            {gig.imgs.map((img, idx) => (
+                            {gig.imgs ? gig.imgs.map((img, idx) => (
                                 <img src={img} alt='img' key={idx} />
 
-                            ))}
+                            )) : ''}
                         </Slider>
-                        {/* <div className='heart'>
-                            <FavoriteBorderIcon />
-                        </div> */}
                     </div>
                 </Link>
                 <div className='gig-owner-details flex space-between align-center'>
@@ -74,14 +71,14 @@ export function GigPreview({ gig }) {
                     {/* </a> */}
                 </Link>
             </div>
-            <div className='gig-rating flex column'>
+            {gig.reviews.length ? <div className='gig-rating flex column'>
                 <div className='inner-rating-container flex align-center'>
                     <StarIcon className='flex star' />
                     <strong>{gig.reviews.length ? reviewService.getAvgRating(gig.reviews) : 0}</strong>
                     <span className='rating-count'>({gig.reviews.length})</span>
                 </div>
                 <strong className='price'>From ${gig.price}</strong>
-            </div>
+            </div> : ''}
 
         </article>
     )

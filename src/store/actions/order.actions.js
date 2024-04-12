@@ -1,5 +1,5 @@
 import { store } from '../store'
-import { ADD_ORDER, SET_ORDERS, SET_ORDER_STATUS } from '../reducers/order.reducer.js'
+import { ADD_ORDER, SET_ORDERS, SET_ORDER_STATUS, SET_SELLER_ORDERS } from '../reducers/order.reducer.js'
 
 import { orderService } from '../../services/order.service.js'
 
@@ -12,6 +12,17 @@ export async function loadOrders(userId) {
         throw err
     }
 }
+
+export async function loadSellerOrders(userId) {
+    try {
+        const sellerOrders = await orderService.sellerQuery(userId)
+        store.dispatch({ type: SET_SELLER_ORDERS, sellerOrders })
+    } catch (err) {
+        console.log('Cannot load orders', err)
+        throw err
+    }
+}
+
 
 export async function addOrder(order) {
     try {

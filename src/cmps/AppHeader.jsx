@@ -53,7 +53,7 @@ export function AppHeader() {
     function onSearch(ev) {
         ev.preventDefault()
         setSearch('')
-        navigate(`/gig?search=${search}`)
+        navigate(`/gig?txt=${search}`)
     }
 
     useEffect(() => {
@@ -105,6 +105,7 @@ export function AppHeader() {
 
     function onLogout() {
         logout()
+        navigate('/')
     }
 
     function getNewOrderClass() {
