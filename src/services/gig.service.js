@@ -42,6 +42,16 @@ async function query(filterBy, sortBy = 'recommended') {
     filterBy.deliveryTime = (+filterBy.deliveryTime) ? +filterBy.deliveryTime : Infinity
     filteredGigs = filteredGigs.filter(gig => gig.daysToMake <= filterBy.deliveryTime)
 
+    if (filterBy.sellerLevel) {
+        if (filterBy.sellerLevel === -Infinity) {
+            filteredGigs = filteredGigs.filter(gig => gig.owner.rate === 0)
+        }
+        else {
+            filteredGigs = filteredGigs.filter(gig => gig.owner.rate === filterBy.sellerLevel)
+        }
+    }
+
+
     if (sortBy === 'recommended') {
         filteredGigs.sort((gig1, gig2) => {
             const gig1ReviewsAvg = reviewService.getAvgRating(gig1.reviews)
@@ -161,7 +171,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', category: '', maxPrice: Infinity, minPrice: '', deliveryTime: Infinity }
+    return { txt: '', category: '', maxPrice: Infinity, minPrice: '', deliveryTime: Infinity, sellerLevel: null }
 }
 
 function _createGigs() {
