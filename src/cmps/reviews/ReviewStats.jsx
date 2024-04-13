@@ -33,11 +33,12 @@ export function ReviewStats({ reviews }) {
                                 5 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <LinearProgress className='progress' variant='determinate' value={fiveCount / reviews.length * 100} max={497}
+                                {/* <LinearProgress className='progress' variant='determinate' value={fiveCount / reviews.length * 100} max={497}
                                     sx={{
                                         bgcolor: '#e4e5e7', borderRadius: 999, height: 8,
                                         '& .MuiLinearProgress-bar': { bgcolor: '#222325', borderRadius: 999 }
-                                    }} />
+                                    }} /> */}
+                                    <progress id="file" max="100" value="70">70%</progress>
                             </div>
                             <span>
                                 ({fiveCount})

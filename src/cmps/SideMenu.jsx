@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux"
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
+import { useState, useRef } from "react"
 import { LoginSignup } from "./LoginSignup"
 
 
@@ -13,6 +13,7 @@ export function SideMenu({ setIsSideMenuOpen }) {
     const [isSignUp, setIsSignUp] = useState(null)
     const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const [isModalOpen, setIsModalOpen] = useState(false)
+
 
     function handleSignIn() {
         setIsSignUp(false)
@@ -35,15 +36,18 @@ export function SideMenu({ setIsSideMenuOpen }) {
 
 
     return (
-        <section className='side-nav'>
-            <button onClick={() => setIsSideMenuOpen(false)}>
-                X
-            </button>
-            <NavLink to="/gig" className="clean-link">
-                <button >
+        <section className='flex column side-nav'>
+            <div>
+                <button onClick={() => setIsSideMenuOpen(false)}>
+                    X
+                </button>
+            </div>
+            <div><NavLink to="/gig" className="clean-link">
+                <button onClick={() => setIsSideMenuOpen(false)}>
                     Explore
                 </button>
-            </NavLink>
+            </NavLink></div>
+
             {/* {loggedinUser ? (
                 <>
                     <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders
@@ -61,7 +65,6 @@ export function SideMenu({ setIsSideMenuOpen }) {
                     <li><a className="clean-link join-btn" onClick={handleJoin}>Join</a></li>
                 </>
             )} */}
-
         </section>
     )
 }

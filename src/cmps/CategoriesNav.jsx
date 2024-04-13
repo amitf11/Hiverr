@@ -1,6 +1,6 @@
 export function CategoriesNav() {
     return (
-        <div className="main-categories">
+        <div className="center main-categories">
             <h2>You need it, we've got it</h2>
             <ul className="clean-list flex">
                 <li>

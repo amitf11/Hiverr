@@ -68,11 +68,13 @@
             }
         }
 
-
-
         .join-image {
             display: none;
         }
 
+    }
+
+    @include for-normal-layout {
+        padding-bottom: 120px;
     }
 }

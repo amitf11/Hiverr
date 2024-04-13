@@ -1,6 +1,6 @@
 .the-best-part-container {
     position: relative;
-    width: 100%;
+    // width: 100%;
     // height: 667px;
 
     background-color: #f1fdf7;
@@ -9,7 +9,8 @@
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         // padding: 96px 32px;
         // padding: 64px 32px;
-        margin: 0 60px;
+        // margin: 0 60px;
+        // padding: 0;
         gap: 50px;
 
         img {
@@ -83,6 +84,6 @@
     }
 
     @include for-normal-layout {
-        padding: 64px 32px;
+        margin-bottom: $normal-margin-bottom;
     }
 }
