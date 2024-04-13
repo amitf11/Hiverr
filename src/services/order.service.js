@@ -1,5 +1,6 @@
 import { utilService } from "./util.service"
 import { storageService } from "./async-storage.service"
+import { httpService } from "./http.service"
 
 export const orderService = {
     query,
@@ -9,11 +10,13 @@ export const orderService = {
 }
 
 const STORAGE_KEY = 'orderDB'
+const BASE_URL = 'order'
 
 async function query(userId) {
     const orders = await storageService.query(STORAGE_KEY)
     const userOrders = orders.filter(order => order.buyer._id === userId)
     return userOrders
+    // return httpService.get(BASE_URL, { params: userId })
 }
 
 async function sellerQuery(userId) {
@@ -26,8 +29,10 @@ async function save(order) {
     let savedOrder
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
+        // savedOrder = await httpService.put(`${BASE_URL}/${order._id}`, order)
     } else {
         savedOrder = await storageService.post(STORAGE_KEY, order)
+        // savedOrder = await httpService.post(BASE_URL, order)
     }
     return savedOrder
 }
@@ -35,6 +40,7 @@ async function save(order) {
 async function updateStatus(order) {
     try {
         const savedOrder = await storageService.put(STORAGE_KEY, order)
+        // const savedOrder = await httpService.put(BASE_URL)
         console.log('savedOrder:', savedOrder)
         return savedOrder
     } catch (err) {
@@ -49,8 +55,8 @@ function _createOrders() {
         orders = [
             {
                 _id: utilService.makeId(),
-                buyer: { _id: 123, fullName: "mini-user"},
-                seller: { _id: 123, fullName: "mini-user"},
+                buyer: { _id: 123, fullName: "mini-user" },
+                seller: { _id: 123, fullName: "mini-user" },
                 gig: {
                     _id: "i101",
                     name: "Design Logo",

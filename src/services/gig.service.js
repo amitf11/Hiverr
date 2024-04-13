@@ -1,6 +1,7 @@
 import { storageService } from "./async-storage.service"
 import { reviewService } from "./review.service"
 import { utilService } from "./util.service"
+import { httpService } from "./http.service"
 
 export const gigService = {
     query,
@@ -15,6 +16,7 @@ export const gigService = {
 }
 
 const STORAGE_KEY = 'gigDB'
+const BASE_URL = 'gig'
 _createGigs()
 
 async function query(filterBy, sortBy = 'recommended') {
@@ -57,6 +59,7 @@ async function query(filterBy, sortBy = 'recommended') {
     }
 
     return filteredGigs
+    // return httpService.get(BASE_URL, { params: { filterBy, sortBy } })
 }
 
 async function getByUserId(userId) {
@@ -67,20 +70,25 @@ async function getByUserId(userId) {
 
 function getById(gigId) {
     return storageService.get(STORAGE_KEY, gigId)
+    // return httpService.get(`${BASE_URL}/${gigId}`)
+
 }
 
 async function remove(gigId) {
     await storageService.remove(STORAGE_KEY, gigId)
+    // return httpService.delete(`${BASE_URL}/${gigId}`)
 }
 
 async function save(gig) {
     var savedGig
     if (gig._id) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
+        // savedGig = await httpService.put(`${BASE_URL}/${gig._id}`, gig)
     } else {
         // Later, owner is set by the backend
         gig.owner = userService.getLoggedinUser()
         savedGig = await storageService.post(STORAGE_KEY, gig)
+        // savedGig = await httpService.post(BASE_URL, gig)
     }
     return savedGig
 }
@@ -88,8 +96,8 @@ async function save(gig) {
 function getEmptyGig() {
     return {
         title: '',
-        about: '', 
-        description: '', 
+        about: '',
+        description: '',
         tags: '',
         price: '',
         daysToMake: '',
@@ -99,7 +107,7 @@ function getEmptyGig() {
             "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/101044791/original/11d70942cc115b08443e22d851db8d460a5a1a13/develop-full-stack-ruby-on-rails-application.jpg",
             "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/3ff38d9278f19108234ccbaf545ca12d-1699346754/marcha/develop-full-stack-ruby-on-rails-application.png",
             "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/db2106985b3e5864de20536c034fc31f-1611181736/caselogger/develop-full-stack-ruby-on-rails-application.png"
-          ],
+        ],
         reviews: [
             {
                 name: "brandon_w99",
@@ -177,7 +185,6 @@ function _createGigs() {
                 country: "Ghana",
                 daysToMake: 26,
                 description: "Hello ! Much obliged for visiting my gig logo :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
-                // imgUrl: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                 imgs: [
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670539022/samples/higherr/PDF_yudyhd_e3zm8f.jpg",
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670539022/samples/higherr/2e0ec728de7ea45a1cdd28e76a1dad9cddf71ed3_vlcq8u.webp",
@@ -261,7 +268,6 @@ function _createGigs() {
                 country: "Bangladesh",
                 daysToMake: 24,
                 description: "Hey ! Thanks for visiting my gig :)\nIn this gig i'm offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i'll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black and White or colored realistic pictures.\nPlease provide me clear reference photo as much as possible.\nThe material I used for creating pencil sketches are:\nDrawing materials : graphite pencil, charcoal, Bristol paper, mono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can provide me anything:\nPortrait photos\nFamily photos\nPet photos\nAny object photos\nScenery photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order ! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
-                // imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/205987196/original/f85061c75149b8c4c87ebc890bfcbece1246ec43.jpg",
                 imgs: [
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670578209/samples/higherr/073e5e5186f8111e93229af39371ba025f40fb27_nbyzrl.webp",
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670578209/samples/higherr/ninja_pengiuns_and_McDonalds_njjxtq.webp",
@@ -336,7 +342,7 @@ function _createGigs() {
                 price: 172,
                 createdAt: 2323546355666,
                 owner: {
-                    _id: '101', 
+                    _id: '101',
                     fullname: "frederickkessie",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
                     level: "basic/premium",
@@ -345,7 +351,6 @@ function _createGigs() {
                 country: "Japan",
                 daysToMake: 3,
                 description: "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
-                // imgUrl: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165484082/original/47e541c51577641a483a717dc51e15694a9468f8/create-a-winning-product-label-packaging-and-box-design.jpg",
                 imgs: [
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670579156/samples/higherr/8e6ace9686e7b2426f762a300de621680e0b3e09_tbiesi.webp",
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670579156/samples/higherr/INVERSO_coloring_book_az7nef.webp",
@@ -425,7 +430,6 @@ function _createGigs() {
                 country: "Canada",
                 daysToMake: 2,
                 description: "Hey ! Thanks for visiting my gig :)\nIn this gig i'm offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i'll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black and White or colored realistic pictures.\nPlease provide me clear reference photo as much as possible.\nThe material I used for creating pencil sketches are:\nDrawing materials : graphite pencil, charcoal, Bristol paper, mono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can provide me anything:\nPortrait photos\nFamily photos\nPet photos\nAny object photos\nScenery photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order ! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
-                // imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/205987196/original/f85061c75149b8c4c87ebc890bfcbece1246ec43.jpg",
                 imgs: [
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670540143/samples/higherr/1-compressed_vg23so_s96mig.jpg",
                     "https://res.cloudinary.com/dja6gjgcd/image/upload/v1670540142/samples/higherr/938935726cecfb3a833dacb6ef74dd64c5ad2dbb_kez7p3.webp",
@@ -668,7 +672,6 @@ function _createGigs() {
                 country: "Pakistan",
                 daysToMake: 3,
                 description: "I provide exceptional services and guaranteed quality work. I provide end-to-end services like Discovery workshop, UI/UX design, full-stack development, testing, security, deployments and growth hacking consultancy..",
-                // imgUrl: ,
                 imgs: [
                     "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs3/101044791/original/a0e4d038841826b306f94c43f099c548d2d0635e/develop-full-stack-ruby-on-rails-application.jpg",
                     "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101044791/original/85bf7d42ae18114e7e31900d07f37e9bf05e96c1/develop-full-stack-ruby-on-rails-application.jpg",
@@ -747,7 +750,6 @@ function _createGigs() {
                 country: "Pakistan",
                 daysToMake: 3,
                 description: "I have 3 years of experience in Facebook. I'll re-activate your (Personal or business manager ad account) in a few hours depending on what problem you're facing.I can also activate your pixel & and verify your domain. Don't worry I'll fix any issues you're facing regarding Facebook or Instagram.Just text me and here I am.",
-                // imgUrl: ,
                 imgs: [
                     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/330989206/original/f92ac2fbe0b475369e488f19c99147df37e2da0f/fix-your-disabled-ad-account-and-business-manager-ad-account-0f73.png",
                     "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/46b6d709cfb973cd7083973a69068f42-1712423938/south/fix-your-disabled-ad-account-and-business-manager-ad-account-0f73.png",
