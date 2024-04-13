@@ -5,6 +5,7 @@ export const SET_GIGS = 'SET_GIGS'
 export const SET_FILTER = 'SET_FILTER'
 export const SET_USER_GIGS = 'SET_USER_GIGS'
 
+
 const initialState = {
     gigs: [],
     userGigs: [],

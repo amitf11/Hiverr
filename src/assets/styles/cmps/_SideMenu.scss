@@ -1,0 +1,10 @@
+.side-nav {
+    width: 50vw;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    color: black;
+}

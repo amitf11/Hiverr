@@ -9,7 +9,7 @@ import { PackageModal } from '../cmps/PackageModal'
 
 export function GigDetails() {
 
-    // const [screenWidth, setScreenWidth] = useState()
+    const [screenWidth, setScreenWidth] = useState()
     const [gig, setGig] = useState(null)
     const { gigId } = useParams()
     const navigate = useNavigate()
@@ -17,10 +17,10 @@ export function GigDetails() {
     useEffect(() => {
         loadGig()
 
-        // setScreenWidth(window.innerWidth)
-        // window.removeEventListener('resize', onResize)
-        // window.addEventListener('resize', onResize)
-        // return () => window.removeEventListener('resize', onResize)
+        setScreenWidth(window.innerWidth)
+        window.removeEventListener('resize', onResize)
+        window.addEventListener('resize', onResize)
+        return () => window.removeEventListener('resize', onResize)
 
     }, [gigId, gig])
 
@@ -29,9 +29,9 @@ export function GigDetails() {
 
     }, [])
 
-    // const onResize = () => {
-    //     setScreenWidth(window.innerWidth)
-    // }
+    const onResize = () => {
+        setScreenWidth(window.innerWidth)
+    }
 
 
     async function loadGig() {
@@ -131,16 +131,16 @@ export function GigDetails() {
                         </Slider>
                     </div>
                 </div>
-                {/* {(screenWidth < 900) && <PackageModal gig={gig} />} */}
+                {(screenWidth < 920) && <PackageModal gig={gig} />}
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
                         <pre>{gig.description}</pre>
                     </div>
                 </div>
-                {/* <ReviewList reviews={gig.reviews} addReview={addReview} /> */}
+                <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
-            {/* {(screenWidth > 900) && <PackageModal gig={gig} />} */}
+            {(screenWidth > 920) && <PackageModal gig={gig} />}
         </section >
     )
 }

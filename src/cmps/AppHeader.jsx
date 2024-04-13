@@ -28,6 +28,9 @@ export function AppHeader() {
     const [modalPosition, setModalPosition] = useState({ left: 0, top: 0 })
     const newOrders = useSelector(storeState => storeState.orderModule.newOrders)
     const orders = useSelector(storeState => storeState.orderModule.orders)
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+
+
     useEffect(() => {
         if (newOrders.length > 0) {
             setIsNewOrder(true)
@@ -119,10 +122,11 @@ export function AppHeader() {
 
     return (
         <>
+            {isSideMenuOpen && <SideMenu setIsSideMenuOpen={setIsSideMenuOpen}/>}
             <header className={`main-header ${headerClassName}`}>
                 <div className="header flex align-center space-between">
                     <div className="flex">
-                        <button className='hamburger'>
+                        <button onClick={()=> setIsSideMenuOpen(true)} className='hamburger'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg>
                         </button>
                         <Link to="/" className="header-logo clean-link">

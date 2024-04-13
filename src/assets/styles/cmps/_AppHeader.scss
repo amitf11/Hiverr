@@ -24,9 +24,15 @@
     transition: 0.5s;
 
 
-    @include for-mobile-layout {
-        .header {
-            background-color: #fff;
+    // @include for-mobile-layout {
+    //     .header {
+    //         background-color: #fff;
+    //     }
+    // }
+
+    @include for-normal-layout {
+        .hamburger {
+            display: none;
         }
     }
 }
