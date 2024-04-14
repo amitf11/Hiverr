@@ -29,7 +29,6 @@ export function GigIndex() {
         filterBy.deliveryTime = +deliveryTime
         filterBy.sellerLevel = +sellerLevel
 
-        console.log(filterBy);
         loadGigs(filterBy, sortBy)
     }, [searchParams, filterBy])
 

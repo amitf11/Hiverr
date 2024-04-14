@@ -1,8 +1,10 @@
 import { httpService } from './http.service'
 import { utilService } from './util.service'
 import { storageService } from './async-storage.service'
+import { showUserMsg } from './event-bus.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const BASE_URL = 'auth/'
 
 export const userService = {
     login,
@@ -16,7 +18,50 @@ export const userService = {
     update,
 }
 
-_createUsers()
+async function signup({ username, password, fullname }) {
+    const user = { username, password, fullname }
+    if (!user.imgUrl) user.imgUrl = 'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
+    user.rate = 0
+    try {
+        const registeredUser = await httpService.post(BASE_URL + 'signup', user)
+
+        if (registeredUser) {
+            return _setLoggedinUser(registeredUser)
+        }
+    } catch (err) {
+        console.log('Had issues in signup', err)
+        showUserMsg('Cannot sign up')
+    }
+    // const user = await httpService.post('auth/signup', userCred)
+    // return saveLocalUser(user)
+}
+
+async function login({ username, password }) {
+    try {
+        const user = await httpService.post(BASE_URL + 'login', { username, password })
+        if (user) {
+            return _setLoggedinUser(user)
+        }
+    } catch (err) {
+        console.log('Had issues in login', err)
+        // showErrorMsg('Cannot login')
+    }
+}
+
+function _setLoggedinUser(user) {
+    console.log('user from front service:', user)
+    const userToSave = { _id: user._id, fullname: user.fullname, isAdmin: user.isAdmin, imgUrl: user.imgUrl }
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(userToSave))
+    console.log('userToSave:', userToSave)
+    return userToSave
+}
+
+async function logout() {
+    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+    return await httpService.post('auth/logout')
+}
+
+// _createUsers()
 
 window.userService = userService
 
@@ -60,30 +105,6 @@ async function update({ _id }) {
 //     if (user) return saveLocalUser(user)
 // }
 
-async function signup({ username, password, fullname }) {
-    // console.log(userCred);
-    const user = { username, password, fullname }
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
-    // const user = await storageService.post('users', userCred)
-    try {
-        const registeredUser = await httpService.post(BASE_URL + 'signup', user)
-
-        if (registeredUser) {
-            return _setLoggedinUser(registeredUser)
-        }
-    } catch (err) {
-        console.log('Had issues in signup', err)
-        showErrorMsg('Cannot sign up')
-    }
-    // const user = await httpService.post('auth/signup', userCred)
-    // return saveLocalUser(user)
-}
-function _setLoggedinUser(user) {
-    const userToSave = { _id: user._id, fullname: user.fullname, isAdmin: user.isAdmin }
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
-    console.log('userToSave:', userToSave)
-    return userToSave
-}
 
 // async function signup({ username, password, fullname }) {
 //     const user = { username, password, fullname, score: 10000 }
@@ -100,25 +121,9 @@ function _setLoggedinUser(user) {
 //     }
 // }
 
-async function login({ username, password }) {
-    try {
-        const user = await httpService.post(BASE_URL + 'login', { username, password })
-        if (user) {
-            return _setLoggedinUser(user)
-        }
-    } catch (err) {
-        console.log('Had issues in login', err)
-        // showErrorMsg('Cannot login')
-    }
-}
-
-async function logout() {
-    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    return await httpService.post('auth/logout')
-}
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullName: user.fullName, imgUrl: user.imgUrl, createdAt: user.createdAt }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, createdAt: user.createdAt }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

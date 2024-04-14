@@ -32,7 +32,7 @@ export function PurchasePage() {
         const order = {
             buyer: {
                 _id: user._id,
-                // fullname: user.fullname
+                fullname: user.fullname
             },
             seller: {
                 _id: gig.owner._id,

@@ -34,7 +34,7 @@ export function UserProfile() {
 
     useEffect(() => {
         loadOrders(user._id)
-    }, [buyerOrders])
+    }, [])
 
     useEffect(() => {
         loadUserGigs(user._id)
