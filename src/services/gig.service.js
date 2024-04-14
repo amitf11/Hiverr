@@ -17,59 +17,61 @@ export const gigService = {
 
 const STORAGE_KEY = 'gigDB'
 const BASE_URL = 'gig'
-_createGigs()
+// _createGigs()
 
 async function query(filterBy, sortBy = 'recommended') {
-    const gigs = await storageService.query(STORAGE_KEY)
-    let filteredGigs = gigs
+    // const gigs = await storageService.query(STORAGE_KEY)
+    // let filteredGigs = gigs
 
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        filteredGigs = filteredGigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-    }
+    // if (filterBy.txt) {
+    //     const regex = new RegExp(filterBy.txt, 'i')
+    //     filteredGigs = filteredGigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
+    // }
 
-    if (filterBy.category) {
-        filteredGigs = filteredGigs.filter(gig => gig.tags.some(tag => {
-            return filterBy.category === tag
-        }))
-    }
+    // if (filterBy.category) {
+    //     filteredGigs = filteredGigs.filter(gig => gig.tags.some(tag => {
+    //         return filterBy.category === tag
+    //     }))
+    // }
 
-    filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
-    filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
+    // filterBy.maxPrice = (+filterBy.maxPrice) ? +filterBy.maxPrice : Infinity
+    // filterBy.minPrice = (+filterBy.minPrice) ? +filterBy.minPrice : ''
 
-    filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
+    // filteredGigs = filteredGigs.filter(gig => (gig.price <= filterBy.maxPrice) && (gig.price >= filterBy.minPrice))
 
-    filterBy.deliveryTime = (+filterBy.deliveryTime) ? +filterBy.deliveryTime : Infinity
-    filteredGigs = filteredGigs.filter(gig => gig.daysToMake <= filterBy.deliveryTime)
+    // filterBy.deliveryTime = (+filterBy.deliveryTime) ? +filterBy.deliveryTime : Infinity
+    // filteredGigs = filteredGigs.filter(gig => gig.daysToMake <= filterBy.deliveryTime)
 
-    if (filterBy.sellerLevel) {
-        if (filterBy.sellerLevel === -Infinity) {
-            filteredGigs = filteredGigs.filter(gig => gig.owner.rate === 0)
-        }
-        else {
-            filteredGigs = filteredGigs.filter(gig => gig.owner.rate === filterBy.sellerLevel)
-        }
-    }
+    // if (filterBy.sellerLevel) {
+    //     if (filterBy.sellerLevel === -Infinity) {
+    //         filteredGigs = filteredGigs.filter(gig => gig.owner.rate === 0)
+    //     }
+    //     else {
+    //         filteredGigs = filteredGigs.filter(gig => gig.owner.rate === filterBy.sellerLevel)
+    //     }
+    // }
 
 
-    if (sortBy === 'recommended') {
-        filteredGigs.sort((gig1, gig2) => {
-            const gig1ReviewsAvg = reviewService.getAvgRating(gig1.reviews)
-            const gig2ReviewsAvg = reviewService.getAvgRating(gig2.reviews)
-            return gig2ReviewsAvg - gig1ReviewsAvg
-        })
-    }
+    // if (sortBy === 'recommended') {
+    //     filteredGigs.sort((gig1, gig2) => {
+    //         const gig1ReviewsAvg = reviewService.getAvgRating(gig1.reviews)
+    //         const gig2ReviewsAvg = reviewService.getAvgRating(gig2.reviews)
+    //         return gig2ReviewsAvg - gig1ReviewsAvg
+    //     })
+    // }
 
-    if (sortBy === 'newest') {
-        filteredGigs.sort((gig1, gig2) => gig1.createdAt - gig2.createdAt)
-    }
+    // if (sortBy === 'newest') {
+    //     filteredGigs.sort((gig1, gig2) => gig1.createdAt - gig2.createdAt)
+    // }
 
-    if (sortBy === 'mostReviewed') {
-        filteredGigs.sort((gig1, gig2) => gig2.reviews.length - gig1.reviews.length)
-    }
+    // if (sortBy === 'mostReviewed') {
+    //     filteredGigs.sort((gig1, gig2) => gig2.reviews.length - gig1.reviews.length)
+    // }
 
-    return filteredGigs
-    // return httpService.get(BASE_URL, { params: { filterBy, sortBy } })
+    // return filteredGigs
+    console.log('filterBy:', filterBy)
+    console.log('sortBy:', sortBy)
+    return httpService.get(BASE_URL, { params: { filterBy, sortBy } })
 }
 
 async function getByUserId(userId) {
@@ -79,26 +81,26 @@ async function getByUserId(userId) {
 }
 
 function getById(gigId) {
-    return storageService.get(STORAGE_KEY, gigId)
-    // return httpService.get(`${BASE_URL}/${gigId}`)
+    // return storageService.get(STORAGE_KEY, gigId)
+    return httpService.get(`${BASE_URL}/${gigId}`)
 
 }
 
 async function remove(gigId) {
-    await storageService.remove(STORAGE_KEY, gigId)
-    // return httpService.delete(`${BASE_URL}/${gigId}`)
+    // await storageService.remove(STORAGE_KEY, gigId)
+    return httpService.delete(`${BASE_URL}/${gigId}`)
 }
 
 async function save(gig) {
     var savedGig
     if (gig._id) {
-        savedGig = await storageService.put(STORAGE_KEY, gig)
-        // savedGig = await httpService.put(`${BASE_URL}/${gig._id}`, gig)
+        // savedGig = await storageService.put(STORAGE_KEY, gig)
+        savedGig = await httpService.put(`${BASE_URL}/${gig._id}`, gig)
     } else {
         // Later, owner is set by the backend
         gig.owner = userService.getLoggedinUser()
-        savedGig = await storageService.post(STORAGE_KEY, gig)
-        // savedGig = await httpService.post(BASE_URL, gig)
+        // savedGig = await storageService.post(STORAGE_KEY, gig)
+        savedGig = await httpService.post(BASE_URL, gig)
     }
     return savedGig
 }
@@ -171,7 +173,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', category: '', maxPrice: Infinity, minPrice: '', deliveryTime: Infinity, sellerLevel: null }
+    return { txt: '', category: '', maxPrice: Infinity, minPrice: '', deliveryTime: Infinity, sellerLevel: 0 }
 }
 
 function _createGigs() {

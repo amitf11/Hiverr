@@ -21,19 +21,19 @@ _createUsers()
 window.userService = userService
 
 function getUsers() {
-    return storageService.query('users')
-    // return httpService.get(`user`)
+    // return storageService.query('users')
+    return httpService.get(`user`)
 }
 
 async function getById(userId) {
-    const user = await storageService.get('users', userId)
-    // const user = await httpService.get(`user/${userId}`)
+    // const user = await storageService.get('users', userId)
+    const user = await httpService.get(`user/${userId}`)
     return user
 }
 
 async function getUserReviews(userId) {
-    const user = await storageService.get('users', userId)
-    // const user = await httpService.get(`user/${userId}`)
+    // const user = await storageService.get('users', userId)
+    const user = await httpService.get(`user/${userId}`)
     return user.reviews
 }
 
@@ -53,24 +53,68 @@ async function update({ _id }) {
     return user
 }
 
-async function login(userCred) {
-    const users = await storageService.query('users')
-    const user = users.find(user => user.username === userCred.username)
-    // const user = await httpService.post('auth/login', userCred)
-    if (user) return saveLocalUser(user)
+// async function login(userCred) {
+//     // const users = await storageService.query('users')
+//     // const user = users.find(user => user.username === userCred.username)
+//     const user = await httpService.post('auth/login', userCred)
+//     if (user) return saveLocalUser(user)
+// }
+
+async function signup({ username, password, fullname }) {
+    // console.log(userCred);
+    const user = { username, password, fullname }
+    if (!userCred.imgUrl) userCred.imgUrl = 'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
+    // const user = await storageService.post('users', userCred)
+    try {
+        const registeredUser = await httpService.post(BASE_URL + 'signup', user)
+
+        if (registeredUser) {
+            return _setLoggedinUser(registeredUser)
+        }
+    } catch (err) {
+        console.log('Had issues in signup', err)
+        showErrorMsg('Cannot sign up')
+    }
+    // const user = await httpService.post('auth/signup', userCred)
+    // return saveLocalUser(user)
+}
+function _setLoggedinUser(user) {
+    const userToSave = { _id: user._id, fullname: user.fullname, isAdmin: user.isAdmin }
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
+    console.log('userToSave:', userToSave)
+    return userToSave
 }
 
-async function signup(userCred) {
-    console.log(userCred);
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
-    const user = await storageService.post('users', userCred)
-    // const user = await httpService.post('auth/signup', userCred)
-    return saveLocalUser(user)
+// async function signup({ username, password, fullname }) {
+//     const user = { username, password, fullname, score: 10000 }
+
+//     try {
+//         const registeredUser = await httpService.post(BASE_URL + 'signup', user)
+
+//         if (registeredUser) {
+//             return _setLoggedinUser(registeredUser)
+//         }
+//     } catch (err) {
+//         console.log('Had issues in signup', err)
+//         showErrorMsg('Cannot sign up')
+//     }
+// }
+
+async function login({ username, password }) {
+    try {
+        const user = await httpService.post(BASE_URL + 'login', { username, password })
+        if (user) {
+            return _setLoggedinUser(user)
+        }
+    } catch (err) {
+        console.log('Had issues in login', err)
+        // showErrorMsg('Cannot login')
+    }
 }
 
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // return await httpService.post('auth/logout')
+    return await httpService.post('auth/logout')
 }
 
 function saveLocalUser(user) {
