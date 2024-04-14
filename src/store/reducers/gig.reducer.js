@@ -3,6 +3,7 @@ import { gigService } from "../../services/gig.service"
 export const ADD_GIG = 'ADD_GIG'
 export const SET_SORT = 'SET_SORT'
 export const SET_GIGS = 'SET_GIGS'
+export const REMOVE_GIG = 'REMOVE_GIG'
 export const SET_SEARCH = 'SET_SEARCH'
 export const SET_FILTER = 'SET_FILTER'
 export const SET_CATEGORY = 'SET_CATEGORY'
@@ -14,7 +15,6 @@ const initialState = {
     sortBy: 'recommended',
     filterBy: gigService.getDefaultFilter(),
 }
-
 export function gigReducer(state = initialState, action) {
     let gigs
     let filterBy
@@ -23,7 +23,12 @@ export function gigReducer(state = initialState, action) {
 
     switch (action.type) {
         case ADD_GIG:
+            console.log('action.gig:', action.gig)
             return { ...state, gigs: [...state.gigs, action.gig] }
+
+        case REMOVE_GIG:
+            gigs = state.gigs.filter(gig => gig._id !== action.gigId)
+            return { ...state, gigs }
 
         case SET_GIGS:
             return { ...state, gigs: action.gigs }
@@ -48,5 +53,4 @@ export function gigReducer(state = initialState, action) {
         default:
             return state
     }
-    console.log('state.gigs:', initialState.gigs)
 } 

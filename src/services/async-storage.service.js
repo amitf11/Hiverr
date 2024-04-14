@@ -23,6 +23,7 @@ function post(entityType, newEntity) {
     newEntity = JSON.parse(JSON.stringify(newEntity))    
     newEntity._id = _makeId()
     newEntity.createdAt = new Date(Date.now())
+    newEntity.price = +newEntity.price
     return query(entityType).then(entities => {
         entities.push(newEntity)
         _save(entityType, entities)

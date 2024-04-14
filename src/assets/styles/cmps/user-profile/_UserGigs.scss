@@ -1,4 +1,42 @@
 .user-gigs {
+    position: relative;
     width: 90%;
     margin-inline: auto;
+    
+    .add-gig-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .add-gig-form {
+        position: relative;
+        width: 90%;
+        margin: 24px 0;
+        margin-inline: auto;
+        padding: 30px;
+
+        border-radius: 8px;
+        border: 1px lightgrey solid;
+
+        &>* {
+            margin: 8px 0;
+        }
+
+        .close-modal-icon {
+            position: absolute;
+            top: 0;
+            right: 5px;
+
+            cursor: pointer;
+        }
+
+        .number-inputs {
+            justify-content: space-between;
+
+        }
+
+        .number-input:first-child {
+            margin-left: 14px;
+        }
+    }
 }
