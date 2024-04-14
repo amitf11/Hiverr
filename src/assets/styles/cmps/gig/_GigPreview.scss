@@ -10,6 +10,10 @@
         display: block;
     }
 
+    a:hover~.gig-title{
+        text-decoration: underline;
+    }
+
     .slider-container {
         position: relative;
 
@@ -27,6 +31,7 @@
                 fill: #fff;
             }
         }
+
     }
 
     img.user-image {
@@ -41,14 +46,6 @@
             margin-top: 5px;
             line-height: 24px;
         }
-    }
-
-    img:hover h3 {
-        text-decoration: underline;
-    }
-
-    .price:hover h3 {
-        text-decoration: underline;
 
     }
 

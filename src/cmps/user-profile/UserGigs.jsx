@@ -138,7 +138,7 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig }) {
                         <td>{gig.title}</td>
                         <td>${gig.price}</td>
                         <td>{gig.daysToMake}</td>
-                        <td><button>Edit</button> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
+                        <td> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
                     </tr>
                 ))}
         </table>
