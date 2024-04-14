@@ -51,8 +51,9 @@
     .categories-container {
         justify-content: space-between;
 
-
-
+        svg {
+            margin-inline-end: 5px;
+        }
 
         .close {
             transform: rotate(90deg);

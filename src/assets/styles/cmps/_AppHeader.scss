@@ -85,6 +85,12 @@
         border: 1px #fff solid;
     }
 
+    svg {
+        rect {
+            fill: #fff;
+        }
+    }
+
     .join-btn:hover {
         transition: all .2s ease;
         background-color: #1dbf73;
@@ -137,9 +143,9 @@
         transition: all .2s ease;
     }
 
-    // .sign-in-btn {
-    //     opacity: 0;
-    // }
+    .sign-in-btn {
+        opacity: 0;
+    }
 
     g:first-child {
         fill: #404145;

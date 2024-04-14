@@ -1,5 +1,6 @@
 .hero-wrapper {
     position: relative;
+    height: 760px;
 
     .hero-backgrounds {
         padding-top: em(80px);
@@ -7,6 +8,7 @@
     }
 
     .hero-background {
+
         display: flex;
         position: absolute;
         align-items: flex-end;
@@ -54,8 +56,7 @@
     }
 
     @include for-mobile-layout {
-
-        height: 400px;
+        height: 500px;
 
         .hero {
             background-color: #0f4926;
@@ -71,9 +72,7 @@
         height: 500px;
     }
 
-    @include for-normal-layout {
-        height: 760px;
-    }
+    // @include for-normal-layout {}
 
 }
 
@@ -127,7 +126,7 @@
     }
 
     @include for-mobile-layout {
-        padding:0 24px;
+        padding: 0 24px;
     }
 }
 
