@@ -79,7 +79,7 @@ async function getByUserId(userId) {
 }
 
 function getById(gigId) {
-    // return storageService.get(STORAGE_KEY, gigId)
+    //  return storageService.get(STORAGE_KEY, gigId)
     return httpService.get(`${BASE_URL}/${gigId}`)
 
 }

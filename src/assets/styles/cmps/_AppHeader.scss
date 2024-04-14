@@ -12,6 +12,7 @@
         .hamburger {
             border: none;
             background: none;
+            padding-left: 0;
         }
 
         .header-logo {
@@ -84,6 +85,12 @@
         border: 1px #fff solid;
     }
 
+    svg {
+        rect {
+            fill: #fff;
+        }
+    }
+
     .join-btn:hover {
         transition: all .2s ease;
         background-color: #1dbf73;
@@ -116,6 +123,35 @@
 
 
 }
+
+.mobile-header {
+    justify-content: space-between;
+    color: #74767e;
+    background-color: #fff;
+    border-bottom: 1px solid lightgray;
+    transition: 0.5s;
+
+
+    .join-btn {
+        color: #1dbf73;
+        border: 1px #1dbf73 solid;
+    }
+
+    .join-btn:hover {
+        color: #fff;
+        background-color: #1dbf73;
+        transition: all .2s ease;
+    }
+
+    .sign-in-btn {
+        opacity: 0;
+    }
+
+    g:first-child {
+        fill: #404145;
+    }
+}
+
 
 ul>*:not(:last-child) {
     padding-right: 20px;

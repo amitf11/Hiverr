@@ -29,13 +29,19 @@ export function AppHeader() {
     const newOrders = useSelector(storeState => storeState.orderModule.newOrders)
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         if (newOrders.length > 0) {
             setIsNewOrder(true)
         }
+        
+
     }, [newOrders])
+
+    const onResize = () => {
+        setScreenWidth(window.innerWidth)
+    }
 
     function handleChange({ target }) {
         const value = target.value
@@ -51,6 +57,10 @@ export function AppHeader() {
     useEffect(() => {
 
         function handleScroll() {
+            if (window.innerWidth < 600) {
+                setHeaderClassName('mobile-header')
+                return
+            }
             if (window.scrollY < 100 && location.pathname === '/') setHeaderClassName('homepage-header')
             else setHeaderClassName('regular-header')
 
@@ -120,12 +130,12 @@ export function AppHeader() {
         onOpenModal()
     }
 
-    function openSideMenu(){
+    function openSideMenu() {
         setIsSideMenuOpen(true)
         document.body.style.overflow = 'hidden'
     }
 
-    function closeSideMenu(){
+    function closeSideMenu() {
         setIsSideMenuOpen(false)
         document.body.style.overflow = 'auto'
     }
