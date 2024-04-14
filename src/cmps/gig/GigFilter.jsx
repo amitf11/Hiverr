@@ -18,6 +18,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const budgetMenuRef = useRef(null)
     const deliveryMenuRef = useRef(null)
     const customPriceRef = useRef(null)
+    const sellerMenuRef = useRef(null)
     const [budgetValueCustom, setBudgetValueCustom] = useState('')
 
     useEffect(() => {
@@ -36,13 +37,16 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
             if (isDeliveryMenuOpen && deliveryMenuRef.current && !deliveryMenuRef.current.contains(event.target)) {
                 setIsDeliveryMenuOpen(false)
             }
+            if (isSellerMenuOpen && sellerMenuRef.current && !sellerMenuRef.current.contains(event.target)) {
+                setIsSellerMenuOpen(false)
+            }
         }
 
         document.addEventListener("mousedown", handleClickOutside)
         return () => {
             document.removeEventListener("mousedown", handleClickOutside)
         }
-    }, [isSortMenuOpen, isBudgetMenuOpen, isDeliveryMenuOpen])
+    }, [isSortMenuOpen, isBudgetMenuOpen, isDeliveryMenuOpen, isSellerMenuOpen])
 
     function handleSortChange(value, ev) {
         ev.stopPropagation()
@@ -150,8 +154,8 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                 updatedParams.deliveryTime = Infinity
                 break
             case 'sellerLevel':
-                updatedParams.sellerLevel = null
-                setSelectedLevelValue(null)
+                updatedParams.sellerLevel = 0
+                setSelectedLevelValue(0)
             default:
                 break
         }
@@ -174,7 +178,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
             case 'sellerLevel':
                 setFilterByToEdit(prevFilterBy => ({
                     ...prevFilterBy,
-                    sellerLevel: null
+                    sellerLevel: 0
                 }))
             default:
                 break
@@ -318,7 +322,8 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                             applyFilters={applyFilters}
                             selectedLevelValue={selectedLevelValue}
                             isSellerMenuOpen={isSellerMenuOpen}
-                            toggleSellerMenu={toggleSellerMenu} />
+                            toggleSellerMenu={toggleSellerMenu}
+                            sellerMenuRef={sellerMenuRef} />
 
                     </div>
 

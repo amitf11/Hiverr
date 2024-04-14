@@ -13,23 +13,23 @@ export function GigIndex() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const [sortBy, setSortBy] = useState('recommended')
-
     useEffect(() => {
         window.scrollTo(0, 0)
         const txt = searchParams.get('txt')
         const category = searchParams.get('category')
         const minPrice = searchParams.get('minPrice')
-        const maxPrice = searchParams.get('maxPrice')
-        const deliveryTime = searchParams.get('deliveryTime')
+        const maxPrice = searchParams.get('maxPrice') || Infinity
+        const deliveryTime = searchParams.get('deliveryTime') || Infinity
         const sellerLevel = searchParams.get('sellerLevel')
 
         filterBy.txt = txt
         filterBy.category = category
-        filterBy.minPrice = +minPrice
+        filterBy.minPrice = +minPrice === 0 ? '' : +minPrice
         filterBy.maxPrice = +maxPrice
         filterBy.deliveryTime = +deliveryTime
-        filterBy.sellerLevel = (sellerLevel) ? +sellerLevel : null
+        filterBy.sellerLevel = +sellerLevel
 
+        console.log(filterBy);
         loadGigs(filterBy, sortBy)
     }, [searchParams, filterBy])
 

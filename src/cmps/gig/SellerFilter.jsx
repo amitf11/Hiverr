@@ -1,7 +1,6 @@
 import { useRef } from "react"
 
-export function SellerFilter({ handleClick, onClearFilter, applyFilters, selectedLevelValue, isSellerMenuOpen, toggleSellerMenu }) {
-    const sellerMenuRef = useRef(null)
+export function SellerFilter({ handleClick, onClearFilter, applyFilters, selectedLevelValue, isSellerMenuOpen, toggleSellerMenu, sellerMenuRef }) {
 
     return (
         <div onClick={toggleSellerMenu} className="floating-menu" ref={sellerMenuRef}>
@@ -35,12 +34,12 @@ export function SellerFilter({ handleClick, onClearFilter, applyFilters, selecte
                                     <span className={`radio-circle ${selectedLevelValue === 1 ? 'checked' : ''}`}></span>
                                     <div className="inner-radio">Level 1</div>
                                 </div>
-                                <div
+                                {/* <div
                                     className="flex align-center radio-item-wrapper"
                                     onClick={(event) => handleClick(event, -Infinity, 'sellerLevel')}>
                                     <span className={`radio-circle ${selectedLevelValue === -Infinity ? 'checked' : ''}`}></span>
                                     <div className="inner-radio">New Seller</div>
-                                </div>
+                                </div> */}
                             </div>
 
                         </div>
