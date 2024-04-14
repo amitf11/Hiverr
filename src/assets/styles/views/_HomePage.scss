@@ -38,6 +38,7 @@
 
     @include for-narrow-layout {
         margin-bottom: $narrow-margin-bottom;
+
         ul {
             .paypal {
                 display: block;
@@ -50,10 +51,13 @@
     }
 
     @include for-normal-layout {
-        ul {
-            &>*:not(:last-child) {
-                padding-right: em(16px);
+        .trusted-by {
+            ul {
+                &>*:not(:last-child) {
+                    padding-right: em(16px);
+                }
             }
         }
+
     }
 }
