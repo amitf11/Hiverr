@@ -33,7 +33,6 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
     }
 
     if (!isOrderModalOpen) return null
-
     return (
         <section className="order-modal"
             style={{ left: modalPosition.left, top: modalPosition.top }}

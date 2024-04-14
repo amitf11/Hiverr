@@ -45,15 +45,3 @@ export async function removeGig(gigId) {
 export function setFilterBy(filterBy) {
     store.dispatch({ type: SET_FILTER, filterBy })
 }
-
-export function setSortBy(sortBy) {
-    store.dispatch({ type: SET_SORT, sortBy })
-}
-
-export function setCategory(category) {
-    store.dispatch({ type: SET_CATEGORY, category })
-}
-
-export function setSearch(search) {
-    store.dispatch({ type: SET_SEARCH, search })
-}

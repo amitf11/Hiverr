@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Hero } from '../cmps/Hero'
@@ -9,12 +9,14 @@ import { TheBestPart } from '../cmps/TheBestPart'
 import { LoginSignup } from '../cmps/LoginSignup'
 import { CategoriesNav } from '../cmps/CategoriesNav'
 import { HomePageSlider } from '../cmps/HomePageSlider'
+import { SideMenu } from '../cmps/SideMenu'
 // import { PopularServices } from '../cmps/PopularServices'
 
 
 
 export function HomePage() {
 
+    
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])

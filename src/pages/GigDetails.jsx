@@ -124,13 +124,14 @@ export function GigDetails() {
                     </div>
                     <div className='folio'>
                         <Slider {...settings}>
-                            {gig.imgs.map(img => (
-                                <img src={img} />
+                            {gig.imgs.map((img, idx) => (
+                                <img src={img}
+                                    key={idx} />
                             ))}
                         </Slider>
                     </div>
                 </div>
-                {(screenWidth < 900) && <PackageModal gig={gig} />}
+                {(screenWidth < 920) && <PackageModal gig={gig} />}
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
@@ -139,7 +140,7 @@ export function GigDetails() {
                 </div>
                 <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
-            {(screenWidth > 900) && <PackageModal gig={gig} />}
+            {(screenWidth > 920) && <PackageModal gig={gig} />}
         </section >
     )
 }

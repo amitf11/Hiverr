@@ -28,6 +28,12 @@
   }
 }
 
+.center {
+  margin-inline: auto;
+  width: min(100%, 1400px);
+  padding: 0 32px;
+}
+
 .bold {
   font-weight: 600;
 }
@@ -53,4 +59,8 @@
 
 .approved {
   color: $clr3;
+}
+
+.grid {
+  display: grid;
 }

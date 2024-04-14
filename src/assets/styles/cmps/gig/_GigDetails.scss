@@ -200,7 +200,6 @@
     }
 
     .sidebar {
-        position: sticky;
         align-items: center;
 
         width: 33.3%;
@@ -414,6 +413,7 @@
 
         .sidebar {
             width: 100%;
+            padding-top: 40px;
 
             .packages-tabs {
                 width: 100%;
@@ -429,6 +429,14 @@
                 }
             }
 
+        }
+    }
+
+
+    @include for-normal-layout {
+        .sidebar {
+            position: sticky;
+            padding-top: 0;
         }
     }
 }

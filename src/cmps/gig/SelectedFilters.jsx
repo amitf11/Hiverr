@@ -2,8 +2,8 @@ export function SelectedFilters({ filterBy, onClearFilter }) {
     const filtersToDisplay = Object.entries(filterBy)
         .filter(([filterType, filterValue]) => {
             return (
-                (filterType === 'minPrice' || filterType === 'maxPrice' || filterType === 'deliveryTime') &&
-                ((typeof filterValue === 'number' && !isNaN(filterValue) && filterValue !== Infinity) ||
+                (filterType === 'minPrice' || filterType === 'maxPrice' || filterType === 'deliveryTime' || filterType === 'sellerLevel') &&
+                ((typeof filterValue === 'number' && !isNaN(filterValue) && filterValue !== Infinity ) ||
                     (typeof filterValue === 'string' && filterValue.trim().length > 0))
             )
         })
@@ -42,6 +42,17 @@ export function SelectedFilters({ filterBy, onClearFilter }) {
                         return 'Up to 7 days'
                     default:
                         return ''
+                }
+            case 'sellerLevel':
+                switch (filterValue) {
+                    case -Infinity:
+                        return 'New Seller'
+                    case 1:
+                        return 'Level 1'
+                    case 2:
+                        return 'Level 2'
+                    case 3:
+                        return 'Top Rated Seller'
                 }
             default:
                 return ''

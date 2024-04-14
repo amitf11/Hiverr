@@ -1,7 +1,7 @@
 export function TheBestPart() {
     return <article className="the-best-part-container">
         
-        <div className="flex center align-center space-between the-best-part-inner-container">
+        <div className="grid center the-best-part-inner-container">
             <div className="the-best-part-left-container">
                 <div>
                     <h2>The best part? Everything.</h2>

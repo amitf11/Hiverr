@@ -1,0 +1,18 @@
+.side-nav {
+    width: 50vw;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    padding: 24px 12px;
+    
+
+    button {
+        background: none;
+        border: none;
+        padding: 8px 12px;
+        font-size: em(16px);
+        font: 400 16px / 24px macan-regular;
+    }
+
+}

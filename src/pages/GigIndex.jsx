@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from "react-router-dom"
 
-import { loadGigs, setCategory, setFilterBy, setSearch, setSortBy } from '../store/actions/gig.actions.js'
+import { loadGigs, setFilterBy } from '../store/actions/gig.actions.js'
 
 import { GigList } from '../cmps/gig/GigList'
 import { GigFilter } from '../cmps/gig/GigFilter'
@@ -12,8 +12,8 @@ export function GigIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
-    const sortBy = useSelector(storeState => storeState.gigModule.sortBy)
-    
+    const [sortBy, setSortBy] = useState('recommended')
+
     useEffect(() => {
         window.scrollTo(0, 0)
         const txt = searchParams.get('txt')
@@ -21,13 +21,14 @@ export function GigIndex() {
         const minPrice = searchParams.get('minPrice')
         const maxPrice = searchParams.get('maxPrice')
         const deliveryTime = searchParams.get('deliveryTime')
+        const sellerLevel = searchParams.get('sellerLevel')
 
         filterBy.txt = txt
         filterBy.category = category
         filterBy.minPrice = +minPrice
         filterBy.maxPrice = +maxPrice
         filterBy.deliveryTime = +deliveryTime
-
+        filterBy.sellerLevel = (sellerLevel) ? +sellerLevel : null
 
         loadGigs(filterBy, sortBy)
     }, [searchParams, filterBy])
@@ -49,7 +50,6 @@ export function GigIndex() {
                 sortBy={sortBy}
                 onSetFilter={onSetFilter}
                 onSetSort={onSetSort}
-            // setSearchParams={setSearchParams}
             />
 
             <div className='services-container'>

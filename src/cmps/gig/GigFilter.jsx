@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { setFilterBy } from "../../store/actions/gig.actions"
 import { SelectedFilters } from "./SelectedFilters"
+import { SellerFilter } from "./SellerFilter"
 
 export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -9,15 +9,16 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const [sortByToEdit, setSortByToEdit] = useState(sortBy)
     const [isBudgetMenuOpen, setIsBudgetMenuOpen] = useState(false)
     const [isSortMenuOpen, setIsSortMenuOpen] = useState(false)
+    const [isSellerMenuOpen, setIsSellerMenuOpen] = useState(false)
     const [isDeliveryMenuOpen, setIsDeliveryMenuOpen] = useState(false)
     const [selectedValue, setSelectedValue] = useState(null)
     const [selectedDeliveryValue, setSelectedDeliveryValue] = useState(null)
+    const [selectedLevelValue, setSelectedLevelValue] = useState(null)
     const sortMenuRef = useRef(null)
     const budgetMenuRef = useRef(null)
     const deliveryMenuRef = useRef(null)
     const customPriceRef = useRef(null)
     const [budgetValueCustom, setBudgetValueCustom] = useState('')
-    let customValue
 
     useEffect(() => {
         onSetFilter(filterByToEdit)
@@ -46,6 +47,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     function handleSortChange(value, ev) {
         ev.stopPropagation()
         setSortByToEdit(value)
+        onSetSort(value)
     }
 
     function handleChange(ev, range, field) {
@@ -82,12 +84,18 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
             setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, deliveryTime: range }))
 
         }
+
+        else if (field === 'sellerLevel') {
+            setSearchParams({ ...currentParams, sellerLevel: range })
+            setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, sellerLevel: range }))
+        }
     }
 
     function handleClick(ev, range, field) {
         ev.stopPropagation()
-        setSelectedValue(range)
-        if (field === 'deliveryTime') setSelectedDeliveryValue(range)
+        if (field === 'budget') setSelectedValue(range)
+        else if (field === 'deliveryTime') setSelectedDeliveryValue(range)
+        else if (field === 'sellerLevel') setSelectedLevelValue(range)
     }
 
     function applyFilters(ev, field) {
@@ -96,21 +104,20 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
         if (field === 'budget') {
             handleChange(ev, selectedValue, field)
             setIsBudgetMenuOpen(false)
+            setBudgetValueCustom('')
         }
         else if (field === 'deliveryTime') {
             handleChange(ev, selectedDeliveryValue, field)
             setIsDeliveryMenuOpen(false)
         }
+        else if (field === 'sellerLevel') {
+            handleChange(ev, selectedLevelValue, field)
+            setIsSellerMenuOpen(false)
+        }
     }
 
     function handleInputClick(ev) {
         ev.stopPropagation()
-    }
-
-    function handleCustomValueChange(ev) {
-        let { value } = ev.target
-        customValue = value
-        handleChange(ev, 'custom', 'budget')
     }
 
     function toggleSortMenu() {
@@ -123,6 +130,10 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
     function toggleDeliveryMenu() {
         setIsDeliveryMenuOpen(prevIsOpen => !prevIsOpen)
+    }
+
+    function toggleSellerMenu() {
+        setIsSellerMenuOpen(prevIsOpen => !prevIsOpen)
     }
 
     function onClearFilter(field) {
@@ -138,6 +149,9 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
             case 'deliveryTime':
                 updatedParams.deliveryTime = Infinity
                 break
+            case 'sellerLevel':
+                updatedParams.sellerLevel = null
+                setSelectedLevelValue(null)
             default:
                 break
         }
@@ -157,8 +171,21 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                     deliveryTime: Infinity
                 }))
                 break
+            case 'sellerLevel':
+                setFilterByToEdit(prevFilterBy => ({
+                    ...prevFilterBy,
+                    sellerLevel: null
+                }))
             default:
                 break
+        }
+    }
+
+    function getSortTitle() {
+        if (sortBy === 'recommended') {
+            return 'Recommended'
+        } else {
+            return sortBy === 'newest' ? 'Newest arrivals' : 'Most reviewed'
         }
     }
 
@@ -195,7 +222,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                 </div>
                                                 <div
                                                     className="flex align-center radio-item-wrapper"
-                                                    style={{marginInlineEnd: '12px'}}
+                                                    style={{ marginInlineEnd: '12px' }}
                                                     onClick={(event) => handleClick(event, 'high-range', 'budget')}>
                                                     <span className={`radio-circle ${selectedValue === 'high-range' ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">High-end <span>$233-$ Above</span></div>
@@ -262,7 +289,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                                                 </div>
                                                 <div className="flex align-center radio-item-wrapper"
                                                     onClick={(event) => handleClick(event, 7, 'deliveryTime')}>
-                                                    <span className={`radio-circle ${selectedValue === 7 ? 'checked' : ''}`}></span>
+                                                    <span className={`radio-circle ${selectedDeliveryValue === 7 ? 'checked' : ''}`}></span>
                                                     <div className="inner-radio">Up to 7 days</div>
                                                 </div>
                                                 <div className="flex align-center radio-item-wrapper"
@@ -285,6 +312,14 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
                         </div>
 
+                        <SellerFilter
+                            handleClick={handleClick}
+                            onClearFilter={onClearFilter}
+                            applyFilters={applyFilters}
+                            selectedLevelValue={selectedLevelValue}
+                            isSellerMenuOpen={isSellerMenuOpen}
+                            toggleSellerMenu={toggleSellerMenu} />
+
                     </div>
 
                 </section>
@@ -299,7 +334,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
                         </span>
                         <div onClick={toggleSortMenu} className="flex align-center bold floating-menu" ref={sortMenuRef}>
                             <div className="sort-menu-title flex align-center">
-                                {sortBy === 'recommended' ? 'Recommended' : 'Newest arrivals'}
+                                {getSortTitle()}
                                 <span className={`flex arrow-down ${isSortMenuOpen ? 'menu-open' : ''}`}><svg width="16" height="16" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentFill">
                                     <path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z">
                                     </path>
