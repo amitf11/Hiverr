@@ -35,7 +35,7 @@ export function AppHeader() {
         if (newOrders.length > 0) {
             setIsNewOrder(true)
         }
-    }, [])
+    }, [newOrders])
 
     function handleChange({ target }) {
         const value = target.value

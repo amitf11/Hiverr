@@ -15,7 +15,7 @@ import { UserSettings } from "../cmps/user-profile/UsetSettings"
 import { UserDashboard } from "../cmps/user-profile/UserDashboard"
 import { UserStatistics } from "../cmps/user-profile/UserStatistics"
 
-import { addGig, loadUserGigs } from "../store/actions/gig.actions"
+import { addGig, loadUserGigs, removeGig } from "../store/actions/gig.actions"
 import { loadOrders, loadSellerOrders } from "../store/actions/order.actions"
 
 export function UserProfile() {
@@ -24,20 +24,21 @@ export function UserProfile() {
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
     const buyerOrders = useSelector(storeState => storeState.orderModule.orders)
     const sellerOrders = useSelector(storeState => storeState.orderModule.sellerOrders)
-    
-    useEffect(() => {
-        loadOrders(user._id)
-        loadSellerOrders(user._id)
-        loadUserGigs(user._id)
-    }, [])
-    
-    console.log('gigs:', gigs)
+
     const chosenSectionStyle = {
         backgroundColor: '#a5e5c7',
         color: 'black',
         borderBottomRightRadius: '20px',
         borderTopRightRadius: '20px',
     }
+
+    useEffect(() => {
+        loadOrders(user._id)
+    }, [buyerOrders])
+
+    useEffect(() => {
+        loadUserGigs(user._id)
+    }, [gigs])
 
     function handleSection(section) {
         setChosenSection(section)
@@ -46,6 +47,10 @@ export function UserProfile() {
     function onAddGig(gig) {
         addGig(gig)
         console.log(gigs)
+    }
+
+    function onRemoveGig(gigId) {
+        removeGig(gigId)
     }
 
     return (
@@ -96,9 +101,9 @@ export function UserProfile() {
                 {chosenSection === 'orders' && <UserOrders
                     buyerOrders={buyerOrders} />}
                 {chosenSection === 'gigs' && <UserGigs
-                    gigs={gigs} onAddGig={onAddGig} />}
-                {chosenSection === 'dashboard' && <UserDashboard 
-                    sellerOrders={sellerOrders}/>}
+                    gigs={gigs} onAddGig={onAddGig} onRemoveGig={onRemoveGig} />}
+                {chosenSection === 'dashboard' && <UserDashboard
+                    sellerOrders={sellerOrders} />}
                 {chosenSection === 'statistics' && <UserStatistics />}
                 {chosenSection === 'settings' && <UserSettings />}
             </article>
