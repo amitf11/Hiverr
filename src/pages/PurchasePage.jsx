@@ -50,7 +50,7 @@ export function PurchasePage() {
         console.log('order:', order)
         try {
             await addOrder(order)
-            // navigate('/')
+            navigate('/')
         }
         catch (err) {
             console.log("cant add order", err)
