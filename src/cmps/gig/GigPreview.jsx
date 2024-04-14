@@ -7,6 +7,7 @@ import StarIcon from '@mui/icons-material/Star'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { UserLevel } from '../UserLevel'
 import { UserImg } from '../UserImg'
+import { AboutThisSeller } from '../AboutThisSeller'
 
 export function GigPreview({ gig }) {
 
@@ -65,7 +66,7 @@ export function GigPreview({ gig }) {
                     </div>
                 </div>
 
-                <Link className='clean-link gig-title' to={`/gig/${gig._id}`} target="_blank">
+                <Link className='clean-link gig-title' to={`/gig/${gig._id}`}>
                     {/* <a className='gig-title clean-link'> */}
                     <h3>{gig.title}</h3>
                     {/* </a> */}

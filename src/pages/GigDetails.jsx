@@ -6,6 +6,7 @@ import { ReviewList } from '../cmps/reviews/ReviewList'
 import Slider from 'react-slick'
 import { UserLevel } from '../cmps/UserLevel'
 import { PackageModal } from '../cmps/PackageModal'
+import { AboutThisSeller } from '../cmps/AboutThisSeller'
 
 export function GigDetails() {
 
@@ -138,6 +139,7 @@ export function GigDetails() {
                         <pre>{gig.description}</pre>
                     </div>
                 </div>
+                <AboutThisSeller gig={gig}/>
                 <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
             {(screenWidth > 920) && <PackageModal gig={gig} />}
