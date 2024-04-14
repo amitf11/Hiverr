@@ -61,6 +61,7 @@
     }
 
     @include for-narrow-layout {
+        margin-bottom: $narrow-margin-bottom;
         ul {
             grid-template-columns: repeat(3, 1fr)
         }
@@ -72,5 +73,8 @@
         ul {
             grid-template-columns: repeat(5, 1fr)
         }
+    }
+    @include for-mobile-layout {
+        margin-bottom: $mobile-margin-bottom;
     }
 }

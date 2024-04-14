@@ -122,11 +122,11 @@ export function AppHeader() {
 
     return (
         <>
-            {isSideMenuOpen && <SideMenu setIsSideMenuOpen={setIsSideMenuOpen}/>}
+            {isSideMenuOpen && <SideMenu setIsSideMenuOpen={setIsSideMenuOpen} />}
             <header className={`main-header ${headerClassName}`}>
                 <div className="header flex align-center space-between">
                     <div className="flex">
-                        <button onClick={()=> setIsSideMenuOpen(true)} className='flex align-center hamburger'>
+                        <button onClick={() => setIsSideMenuOpen(true)} className='flex align-center hamburger'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg>
                         </button>
                         <Link to="/" className="header-logo clean-link">
@@ -150,8 +150,10 @@ export function AppHeader() {
                     </div>
                     <nav className="main-nav">
                         <ul className="flex clean-list bold align-center">
-                            <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
-                            <li><NavLink className="clean-link">Become a Seller</NavLink></li>
+                            <div className='row hidden-for-mobile'>
+                                <li><NavLink to="/gig" className="clean-link">Explore</NavLink></li>
+                                <li><NavLink className="clean-link">Become a Seller</NavLink></li>
+                            </div>
                             {loggedinUser ? (
                                 <>
                                     <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders
@@ -165,7 +167,7 @@ export function AppHeader() {
 
                             ) : (
                                 <>
-                                    <li><a className="clean-link" onClick={handleSignIn}>Sign In</a></li>
+                                    <li className='sign-in-btn'><a className="clean-link" onClick={handleSignIn}>Sign In</a></li>
                                     <li><a className="clean-link join-btn" onClick={handleJoin}>Join</a></li>
                                 </>
                             )}

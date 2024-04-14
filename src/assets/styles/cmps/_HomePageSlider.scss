@@ -78,4 +78,31 @@
     @include for-normal-layout {
         margin-bottom: $normal-margin-bottom;
     }
+
+    // @include for-narrow-layout {
+    //     .slider-card-container {
+    //         &:nth-child(n + 4) {
+    //             display: none;
+    //         }
+    //     }
+    // }
+
+    @include for-mobile-layout {
+       margin-bottom: $mobile-margin-bottom;
+        .slider-card-container {
+            &:nth-child(n + 3) {
+                display: none;
+            }
+        }
+    }
+
+    @include for-narrow-layout {
+        margin-bottom: $narrow-margin-bottom;
+
+        .slider-card-container {
+            &:nth-child(4) {
+                display: block;
+            }
+        }
+    }
 }

@@ -30,7 +30,7 @@
                 color: #404145;
 
                 @include for-mobile-layout {
-                    font-size: em(28px);
+                    font-size: 28px;
                 }
 
             }
@@ -51,6 +51,11 @@
 
                             font-size: 18px;
                             margin: 0;
+
+
+                            @include for-mobile-layout {
+                                font-size: 16px;
+                            }
                         }
 
                         svg {
@@ -85,5 +90,21 @@
 
     @include for-normal-layout {
         margin-bottom: $normal-margin-bottom;
+    }
+    @include for-narrow-layout {
+        margin-bottom: $narrow-margin-bottom;
+    }
+    @include for-mobile-layout {
+        margin-bottom: $mobile-margin-bottom;
+
+        .the-best-part-inner-container { 
+            gap:20px;
+        }
+
+        .the-best-part-left-container {
+            div {
+                font-size: em(18px);
+            }
+        }
     }
 }

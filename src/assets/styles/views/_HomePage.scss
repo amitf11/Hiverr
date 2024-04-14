@@ -22,7 +22,7 @@
 
     @include for-mobile-layout {
 
-        margin-bottom: 32px;
+        margin-bottom: 12px;
         // height: 70px;
 
         .trusted-by-txt {
@@ -37,6 +37,7 @@
     }
 
     @include for-narrow-layout {
+        margin-bottom: $narrow-margin-bottom;
         ul {
             .paypal {
                 display: block;
@@ -55,6 +56,4 @@
             }
         }
     }
-
-
 }

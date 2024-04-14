@@ -1,7 +1,7 @@
 
 export function TrustedBy() {
     return (
-        <div className='full trusted-by flex align-center'>
+        <div className='trusted-by flex align-center'>
             <div className='trusted-by-txt'>
                 Trusted by:
             </div>

@@ -24,12 +24,6 @@
     transition: 0.5s;
 
 
-    // @include for-mobile-layout {
-    //     .header {
-    //         background-color: #fff;
-    //     }
-    // }
-
     @include for-normal-layout {
         .hamburger {
             display: none;
@@ -40,6 +34,11 @@
 .main-nav {
     li {
         cursor: pointer;
+    }
+
+    .hidden-for-mobile {
+        display: none;
+        gap: 20px;
     }
 
     .orders-btn {
@@ -60,6 +59,13 @@
             opacity: 1;
         }
     }
+
+    @include for-normal-layout {
+        .hidden-for-mobile {
+            display: flex;
+        }
+    }
+
 }
 
 .join-btn {
@@ -166,6 +172,9 @@ ul>*:not(:last-child) {
 .sub-header {
     position: fixed;
     margin-top: 80px;
+    display: none;
+
+
 
     width: 100%;
     height: 40px;
@@ -225,5 +234,9 @@ ul>*:not(:last-child) {
             left: 0;
             background: #1dbf73;
         }
+    }
+
+    @include for-normal-layout {
+        display: flex;
     }
 }
