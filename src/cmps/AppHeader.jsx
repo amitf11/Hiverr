@@ -140,8 +140,6 @@ export function AppHeader() {
         document.body.style.overflow = 'auto'
     }
 
-    console.log(window.innerWidth)
-
     return (
         <>
             {isSideMenuOpen && <SideMenu closeSideMenu={closeSideMenu} />}
