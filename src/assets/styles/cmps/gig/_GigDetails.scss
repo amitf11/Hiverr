@@ -1,7 +1,7 @@
 .main-details {
     width: min(100%, 1304px);
     padding: em(32px) em(32px) 0;
-
+    height: 100%;
     margin-inline: auto;
     margin-top: em(132px);
     margin-bottom: em(100px);
@@ -200,12 +200,12 @@
     }
 
     .sidebar {
+        position: sticky;
+        top: 150px;
         align-items: center;
-
         width: 33.3%;
         height: 100%;
 
-        top: em(150px);
         padding: 0 0 em(32px);
     }
 
@@ -435,8 +435,12 @@
 
     @include for-normal-layout {
         .sidebar {
+            align-items: center;
+            width: 33.3%;
+            height: 100%;
+            top: em(150px); /* Adjust as needed */
+            padding: 0 0 em(32px);
             position: sticky;
-            padding-top: 0;
         }
     }
 }

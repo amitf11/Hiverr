@@ -73,7 +73,8 @@ async function query(filterBy, sortBy = 'recommended') {
 }
 
 async function getByUserId(userId) {
-    const gigs = await storageService.query(STORAGE_KEY)
+    // const gigs = httpService.get(BASE_URL, { params: { filterBy, sortBy } })
+    // const gigs = await storageService.query(STORAGE_KEY)
     const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
     return filteredGigs
 }
