@@ -120,13 +120,23 @@ export function AppHeader() {
         onOpenModal()
     }
 
+    function openSideMenu(){
+        setIsSideMenuOpen(true)
+        document.body.style.overflow = 'hidden'
+    }
+
+    function closeSideMenu(){
+        setIsSideMenuOpen(false)
+        document.body.style.overflow = 'auto'
+    }
+
     return (
         <>
-            {isSideMenuOpen && <SideMenu setIsSideMenuOpen={setIsSideMenuOpen} />}
+            {isSideMenuOpen && <SideMenu closeSideMenu={closeSideMenu} />}
             <header className={`main-header ${headerClassName}`}>
                 <div className="header flex align-center space-between">
                     <div className="flex">
-                        <button onClick={() => setIsSideMenuOpen(true)} className='flex align-center hamburger'>
+                        <button onClick={() => openSideMenu()} className='flex align-center hamburger'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg>
                         </button>
                         <Link to="/" className="header-logo clean-link">
