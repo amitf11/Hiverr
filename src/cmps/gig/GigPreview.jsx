@@ -58,7 +58,7 @@ export function GigPreview({ gig }) {
                 <div className='gig-owner-details flex space-between align-center'>
                     <div className='owner-details flex align-center space-between'>
                         <UserImg imgUrl={gig.owner.imgUrl} size={24} />
-                        <span>Ad by <span className='bold'>{gig.owner.fullname}</span></span>
+                        <span className='bold'>{gig.owner.fullname}</span>
                     </div>
                     <div className='flex row align-center level-container'>
                         <p className='level bold'>Level {gig.owner.rate}</p>
