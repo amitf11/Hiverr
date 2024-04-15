@@ -35,7 +35,8 @@ export async function addGig(gig) {
 export async function removeGig(gigId) {
     try {
         await gigService.remove(gigId)
-        store.dispatch({ type: REMOVE_GIG, gig })
+        const gig = await gigService.getById(gigId)
+        store.dispatch({ type: REMOVE_GIG, gigId })
     } catch (err) {
         console.log('cannot remove gig, here\'s why:', err)
         throw err
