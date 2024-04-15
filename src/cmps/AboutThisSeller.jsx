@@ -45,11 +45,11 @@ export function AboutThisSeller({ gig }) {
                             {gig.country}
                         </b>
                         </li>
-                        <li>Member since</li>
-                        <li className="flex column">Avg. response time <b>2 hours</b></li>
+                        <li className="flex column">Member since <b>April 2020</b></li>
+                        <li className="flex column">Avg. response time <b>30 minutes</b></li>
                         <li className="flex column">Last delivery <b>about 1 hour
                         </b></li>
-                        <li><p>Languages</p></li>
+                        <li className="flex column">Languages <b>English, Hebrew</b></li>
                     </ul>
 
                 </div>

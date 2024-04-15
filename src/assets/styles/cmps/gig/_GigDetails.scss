@@ -247,21 +247,23 @@
 
                     b {
                         font-size: em(16px);
-                        margin-right: em(16px);
+                        line-height: 24px;
+                        color: $clr4;
+                    }
+
+                    .price {
+                        font-size: em(22px);
+                        font-weight: 400;
+                        color: $clr4;
+                        align-content: flex-start;
+
+                        span {
+                            padding: 0 0 0 em(8px);
+                        }
+
                     }
                 }
 
-                .price {
-                    font-size: em(24px);
-                    font-weight: 400;
-                    color: $clr4;
-                    align-content: flex-start;
-
-                    span {
-                        padding: 0 0 0 em(8px);
-                    }
-
-                }
 
             }
 
@@ -312,7 +314,7 @@
         }
 
         h3 {
-            font-size: em(14px);
+            font-size: em(16px);
         }
 
         ul {
@@ -438,7 +440,8 @@
             align-items: center;
             width: 33.3%;
             height: 100%;
-            top: em(150px); /* Adjust as needed */
+            top: em(150px);
+            /* Adjust as needed */
             padding: 0 0 em(32px);
             position: sticky;
         }
