@@ -35,7 +35,7 @@ export function ReviewStats({ reviews }) {
                             <div className='progress-bar-container'>
                                 <LinearProgress variant='determinate' value={fiveCount / reviews.length * 100}
                                     sx={{
-                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8,
+                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8, width: 220,
                                         '& .MuiLinearProgress-bar': { bgcolor: '#222325', borderRadius: 999 }
                                     }}
                                 />
@@ -49,7 +49,12 @@ export function ReviewStats({ reviews }) {
                                 4 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <LinearProgress variant="determinate" value={fourCount / reviews.length * 100} style={{ display: 'flex', alignItems: 'center', width: '212px', height: '8px', borderRadius: '4px', backgroundColor: '#e4e5e7', barColor: '#222325' }} />
+                                <LinearProgress variant='determinate' value={fourCount / reviews.length * 100}
+                                    sx={{
+                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8, width: 220,
+                                        '& .MuiLinearProgress-bar': { bgcolor: '#222325', borderRadius: 999 }
+                                    }}
+                                />
                             </div>
                             <span>
                                 ({fourCount})
@@ -60,7 +65,12 @@ export function ReviewStats({ reviews }) {
                                 3 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <LinearProgress variant="determinate" value={threeCount / reviews.length * 100} style={{ display: 'flex', alignItems: 'center', width: '212px', height: '8px', borderRadius: '4px', backgroundColor: '#e4e5e7', barColor: '#222325' }} />
+                                <LinearProgress variant='determinate' value={threeCount / reviews.length * 100}
+                                    sx={{
+                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8, width: 220,
+                                        '& .MuiLinearProgress-bar': { bgcolor: '#222325', borderRadius: 999 }
+                                    }}
+                                />
                             </div>
                             <span>
                                 ({threeCount})
@@ -71,11 +81,12 @@ export function ReviewStats({ reviews }) {
                                 2 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <LinearProgress className='progress' variant='determinate' value={twoCount / reviews.length * 100} height={8}
+                                <LinearProgress variant='determinate' value={twoCount / reviews.length * 100}
                                     sx={{
-                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8,
+                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8, width: 220,
                                         '& .MuiLinearProgress-bar': { bgcolor: '#222325', borderRadius: 999 }
-                                    }} />
+                                    }}
+                                />
                             </div>
                             <span>
                                 ({twoCount})
@@ -87,7 +98,12 @@ export function ReviewStats({ reviews }) {
                                 1 Star<span className='s'>s </span>
                             </span>
                             <div className='progress-bar-container' >
-                                <LinearProgress variant="determinate" value={oneCount / reviews.length * 100} style={{ display: 'flex', alignItems: 'center', width: '212px', height: '8px', borderRadius: '4px', backgroundColor: '#e4e5e7' }} />
+                                <LinearProgress variant='determinate' value={oneCount / reviews.length * 100}
+                                    sx={{
+                                        bgcolor: '#e4e5e7', borderRadius: 999, height: 8, width: 220,
+                                        '& .MuiLinearProgress-bar': { bgcolor: '#222325', borderRadius: 999 }
+                                    }}
+                                />
                             </div>
                             <span className='one-count'>
                                 ({oneCount})
