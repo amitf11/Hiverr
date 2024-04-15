@@ -287,9 +287,31 @@
 
 }
 
+.fixed-filter {
+    position: fixed;
+    top: 100px;
+    background-color: salmon;
+    padding: 0 32px;
+    z-index: 13;
+    width: 100%;
+    height: 50px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+    }
+}
+
 .gig-sort-container {
     max-width: 1400px;
     margin-block-end: .5em;
+
+
 
     .gig-sort {
         white-space: nowrap;
@@ -378,7 +400,6 @@
 
         }
     }
-
 
     @include for-narrow-layout {
         .filter-sort {
