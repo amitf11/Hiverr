@@ -1,13 +1,17 @@
 .homepage-slider-container {
     padding: 24px 0;
 
+    .carousle-imgs {
+        display: flex !important;
+        // justify-content: space-around;
+    }
+
     // .carousle-imgs {
     //     display: flex !important;
-    //     justify-content: space-around;
     //     gap: em(5px);
 
     //     li:last-of-type {
-    //         display: none;
+    //         // display: none;
     //         padding: 0;
     //     }
 
@@ -38,23 +42,31 @@
 
                 a {
                     height: 100%;
+                    position: relative;
                 }
 
-                h3 {
+                h4 {
                     position: relative;
 
-                    font-size: em(18px);
-                    line-height: 28px;
+                    font-size: em(24px);
+                    line-height: 130%;
 
                     margin: 0;
-                    padding: 0 10px;
+                    padding: 0 16px;
 
                     z-index: 1;
-                    color: #fff;
+                    color: $clr1;
+
+                    small {
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
                 }
 
                 img {
-                    height: 172px;
+                    height: 345px;
                     width: 100%;
                     border-radius: 12px;
                     object-fit: cover;
@@ -76,10 +88,10 @@
         margin: 0;
         color: #404145;
 
-        @include for-mobile-layout {
-            font-size: em(28px);
-            padding-bottom: 20px;
-        }
+        // @include for-mobile-layout {
+        //     font-size: em(28px);
+        //     padding-bottom: 20px;
+        // }
 
         //NEW FIVERR
 
@@ -94,8 +106,8 @@
         // color: #404145;
     }
 
-    @include for-normal-layout {
-        margin-bottom: $normal-margin-bottom;
-    }
+    // @include for-normal-layout {
+    //     margin-bottom: $normal-margin-bottom;
+    // }
 
 }
