@@ -46,7 +46,7 @@ export function UserProfile() {
 
     // useEffect(() => {
     // }, [])
-
+    console.log('gigs:', gigs)
     function handleSection(section) {
         setChosenSection(section)
     }

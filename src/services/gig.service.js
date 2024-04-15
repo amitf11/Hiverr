@@ -74,7 +74,7 @@ async function query(filterBy, sortBy = 'recommended') {
 
 async function getByUserId(userId) {
     const gigs = await httpService.get(BASE_URL + '/usergigs')
-    console.log('gigs:', gigs)
+    return gigs
     // const gigs = await storageService.query(STORAGE_KEY)
     // const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
     // return filteredGigs
