@@ -6,7 +6,7 @@ export function LoginSignup({ isModalOpen, onCloseModal, isSignUp }) {
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
-        fullName: "",
+        fullname: "",
     })
 
     useEffect(() => {
@@ -32,7 +32,7 @@ export function LoginSignup({ isModalOpen, onCloseModal, isSignUp }) {
 
     function onSignUp(ev) {
         ev.preventDefault()
-        if (!credentials.username || !credentials.password || !credentials.fullName) return
+        if (!credentials.username || !credentials.password || !credentials.fullname) return
         signup(credentials)
         onCloseModal()
     }
@@ -86,13 +86,13 @@ export function LoginSignup({ isModalOpen, onCloseModal, isSignUp }) {
 
                                                 {isSignUp && (
                                                     <div className="flex align-center justify-center input-container">
-                                                        <label htmlFor="fullName"></label>
+                                                        <label htmlFor="fullname"></label>
                                                         <input
-                                                            name="fullName"
+                                                            name="fullname"
                                                             type="text"
                                                             required
                                                             placeholder="Enter full Name"
-                                                            value={credentials.fullName}
+                                                            value={credentials.fullname}
                                                             onChange={handleChange}
                                                         />
                                                     </div>

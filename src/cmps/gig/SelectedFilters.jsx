@@ -1,23 +1,4 @@
 export function SelectedFilters({ filterBy, onClearFilter }) {
-    // const filtersToDisplay = Object.entries(filterBy)
-    //     .filter(([filterType, filterValue]) => {
-    //         return (
-    //             (filterType === 'minPrice' || filterType === 'maxPrice' || filterType === 'deliveryTime' || filterType === 'sellerLevel') &&
-    //             ((typeof filterValue === 'number' && !isNaN(filterValue) && filterValue !== Infinity && filterValue !== 0) ||
-    //                 (typeof filterValue === 'string' && filterValue.trim().length > 0))
-    //         )
-    //     })
-    //     .reduce((acc, [filterType, filterValue]) => {
-    //         if (filterType === 'minPrice' || filterType === 'maxPrice') {
-    //             acc.budget = { ...acc.budget, [filterType]: filterValue }
-    //         } else {
-    //             acc[filterType] = filterValue
-    //         }
-    //         return acc
-    //     }, {})
-
-    // const filters = Object.entries(filtersToDisplay).map(([filterType, filterValue]) => ({ filterType, filterValue }))
-
     const filtersToDisplay = Object.entries(filterBy)
         .filter(([filterType, filterValue]) => {
             return (
@@ -37,8 +18,6 @@ export function SelectedFilters({ filterBy, onClearFilter }) {
         }, {})
 
     const filters = Object.entries(filtersToDisplay).map(([filterType, filterValue]) => ({ filterType, filterValue }))
-    console.log(filters);
-    console.log(filters);
     function getFilterTitle(filterType, filterValue) {
         switch (filterType) {
             case 'budget': {

@@ -69,13 +69,12 @@ async function query(filterBy, sortBy = 'recommended') {
     // }
 
     // return filteredGigs
-    console.log('filterBy:', filterBy)
-    console.log('sortBy:', sortBy)
     return httpService.get(BASE_URL, { params: { filterBy, sortBy } })
 }
 
 async function getByUserId(userId) {
-    const gigs = await storageService.query(STORAGE_KEY)
+    // const gigs = httpService.get(BASE_URL, { params: { filterBy, sortBy } })
+    // const gigs = await storageService.query(STORAGE_KEY)
     const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
     return filteredGigs
 }
@@ -98,7 +97,7 @@ async function save(gig) {
         savedGig = await httpService.put(`${BASE_URL}/${gig._id}`, gig)
     } else {
         // Later, owner is set by the backend
-        gig.owner = userService.getLoggedinUser()
+        // gig.owner = userService.getLoggedinUser()
         // savedGig = await storageService.post(STORAGE_KEY, gig)
         savedGig = await httpService.post(BASE_URL, gig)
     }

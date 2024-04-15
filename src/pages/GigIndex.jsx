@@ -29,7 +29,6 @@ export function GigIndex() {
         filterBy.deliveryTime = +deliveryTime
         filterBy.sellerLevel = +sellerLevel
 
-        console.log(filterBy);
         loadGigs(filterBy, sortBy)
     }, [searchParams, filterBy])
 
@@ -45,16 +44,16 @@ export function GigIndex() {
         <section className='explore-page'>
             <GigIndexNavBar category={filterBy.category || 'Explore'} />
 
-            <GigFilter
-                filterBy={filterBy}
-                sortBy={sortBy}
-                onSetFilter={onSetFilter}
-                onSetSort={onSetSort}
-            />
+                <GigFilter
+                    filterBy={filterBy}
+                    sortBy={sortBy}
+                    onSetFilter={onSetFilter}
+                    onSetSort={onSetSort}
+                />
 
-            <div className='services-container'>
-                <span className='available-services'>{gigs.length} services available</span>
-            </div>
+                <div className='services-container'>
+                    <span className='available-services'>{gigs.length} services available</span>
+                </div>
 
             <section className='gig-index flex column justify-center'>
                 <GigList
