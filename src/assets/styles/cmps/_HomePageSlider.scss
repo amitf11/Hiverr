@@ -1,13 +1,16 @@
 .homepage-slider-container {
     padding: 24px 0;
 
+    .carousle-imgs {
+        display: flex !important;
+    }
     // .carousle-imgs {
     //     display: flex !important;
     //     justify-content: space-around;
     //     gap: em(5px);
 
     //     li:last-of-type {
-    //         display: none;
+    //         // display: none;
     //         padding: 0;
     //     }
 
@@ -40,7 +43,7 @@
                     height: 100%;
                 }
 
-                h3 {
+                h4 {
                     position: relative;
 
                     font-size: em(18px);
@@ -54,7 +57,7 @@
                 }
 
                 img {
-                    height: 172px;
+                    height: 345px;
                     width: 100%;
                     border-radius: 12px;
                     object-fit: cover;
