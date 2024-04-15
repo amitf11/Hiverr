@@ -1,6 +1,4 @@
 .filter-sort {
-    margin-block-end: 24px;
-
     .gig-filter-container {
         gap: 12px;
         margin-top: 24px;
@@ -291,9 +289,10 @@
 
 .gig-sort-container {
     max-width: 1400px;
-    justify-content: flex-end;
+    margin-block-end: .5em;
 
     .gig-sort {
+        white-space: nowrap;
         .sort-by-txt {
             padding: 10px 8px;
         }

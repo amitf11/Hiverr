@@ -49,11 +49,8 @@ export function GigIndex() {
                     sortBy={sortBy}
                     onSetFilter={onSetFilter}
                     onSetSort={onSetSort}
+                    gigs={gigs}
                 />
-
-                <div className='services-container'>
-                    <span className='available-services'>{gigs.length} services available</span>
-                </div>
 
             <section className='gig-index flex column justify-center'>
                 <GigList

@@ -128,9 +128,9 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig, handleSection }) {
 
             {(!gigs || !gigs.length) ?
                 !isFormOpen && <div className="become-a-seller flex column align-center justify-center">
-                    <FavoriteIcon 
-                    fontSize='large'
-                    style={{color: '#e64f4f'}}/>
+                    <FavoriteIcon
+                        fontSize='large'
+                        style={{ color: '#e64f4f' }} />
                     <h3>What's Your Skill?</h3>
                     <button
                         onClick={() => setIsFormOpen(!isFormOpen)}>
@@ -139,22 +139,32 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig, handleSection }) {
                 <section className="user-gigs-table-container flex justify-center">
                     <table className="user-gigs-table">
                         <thead>
-                            <tr>
+                            <tr className="table-row">
                                 <td>Title</td>
                                 <td>Price</td>
                                 <td>Days to make</td>
                                 <td>Actions</td>
                             </tr>
                         </thead>
-                        {gigs.map((gig, idx) => (
-                            <tr key={idx}>
-                                <td>{gig.title}</td>
-                                <td>${gig.price}</td>
-                                <td>{gig.daysToMake}</td>
-                                <td> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
-                            </tr>
+                        <tbody>
+                            {gigs.map((gig, idx) => (
+                                <tr className="table-row" key={idx}>
+                                    <td className="title">{gig.title}</td>
+                                    <td>${gig.price}</td>
+                                    <td>{gig.daysToMake}</td>
+                                    <td>
+                                        <Button
+                                            size="small"
+                                            color="error"
+                                            onClick={() => onRemoveGig(gig._id)}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </td>
+                                </tr>
 
-                        ))}
+                            ))}
+                        </tbody>
                     </table>
                 </section>
 

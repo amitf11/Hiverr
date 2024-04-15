@@ -55,7 +55,7 @@ export function PurchasePage() {
         console.log('order:', order)
         try {
             await addOrder(order)
-            navigate('/')
+            navigate(`/user/${user._id}`)
         }
         catch (err) {
             console.log("cant add order", err)

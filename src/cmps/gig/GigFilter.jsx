@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom"
 import { SelectedFilters } from "./SelectedFilters"
 import { SellerFilter } from "./SellerFilter"
 
-export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
+export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort, gigs }) {
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
     const [sortByToEdit, setSortByToEdit] = useState(sortBy)
@@ -351,8 +351,10 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
 
                 <SelectedFilters filterBy={filterByToEdit} onClearFilter={onClearFilter} />
 
-                <section className="gig-sort-container flex">
-
+                <section className="gig-sort-container flex align-center">
+                    <div className='services-container'>
+                        <span className='available-services'>{gigs.length} services available</span>
+                    </div>
                     <div className="flex align-center gig-sort">
                         <span>
                             Sort by:
