@@ -20,11 +20,31 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     const customPriceRef = useRef(null)
     const sellerMenuRef = useRef(null)
     const [budgetValueCustom, setBudgetValueCustom] = useState('')
+    const [windowSize, setWindowSize] = useState(null)
+    const [filerClassName, setFilterClassName] = useState('')
 
     useEffect(() => {
         onSetFilter(filterByToEdit)
         onSetSort(sortByToEdit)
     }, [filterByToEdit, sortByToEdit])
+
+
+    useEffect(() => {
+
+        function handleScroll() {
+
+            if (window.scrollY > 150) {
+                console.log('hi hi hello yeah whatsapp...')
+                setFilterClassName('fixed-filter')
+            }
+            else setFilterClassName('')
+        }
+
+        window.addEventListener("scroll", handleScroll)
+        handleScroll()
+        return () => window.removeEventListener("scroll", handleScroll)
+
+    }, [setWindowSize])
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -196,7 +216,7 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     return (
         <div className="sticky-wrapper">
             <section className="filter-sort">
-                <section className="flex space-between align-center gig-filter-container">
+                <section className={`flex space-between align-center gig-filter-container ${filerClassName}`}>
                     <div className="flex inner-filter-container">
 
                         <div onClick={toggleBudgetMenu} className="floating-menu" ref={budgetMenuRef}>

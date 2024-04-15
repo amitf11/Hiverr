@@ -74,7 +74,7 @@ export function HomePageSlider() {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         dots: true,
-        dotsClass: 'clean-list carousle-imgs',
+        // dotsClass: 'clean-list carousle-imgs',
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -89,7 +89,7 @@ export function HomePageSlider() {
                 <h2 className="homepage-slider-title">Popular services</h2>
                 <section className="homepage-slider-cards-container flex">
 
-                    <Slider {...settings}>
+                    {/* <Slider {...settings}>  */}
                         {cards.map(card => {
                             return <article className="slider-card-container" style={{ backgroundColor: card.backgroundColor }} key={card.title}>
                                 <div className="slider-card" key={card.title}>
@@ -100,7 +100,7 @@ export function HomePageSlider() {
                                 </div>
                             </article>
                         })}
-                    </Slider>
+                    {/* </Slider> */}
                 </section>
             </section>
         </div>
