@@ -23,7 +23,7 @@ export function GigDetails() {
         window.addEventListener('resize', onResize)
         return () => window.removeEventListener('resize', onResize)
 
-    }, [gigId, gig])
+    }, [gigId])
 
     useEffect(() => {
         window.scrollTo(0, 0)
