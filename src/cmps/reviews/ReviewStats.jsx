@@ -33,54 +33,54 @@ export function ReviewStats({ reviews }) {
                                 5 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress className='progress-bar' id="five" max={reviews.length} value={fiveCount}></progress>
+                            <LinearProgress variant="determinate" value={fiveCount} style={{ width: '212px', height: '8px', borderRadius: '4px', backgroundColor: '#e4e5e7', color: '#222325'   }} />
                             </div>
                             <span>
                                 ({fiveCount})
                             </span>
                         </li>
-                        <li className='flex row progress-container'>
+                        <li className='flex row align-center progress-container'>
                             <span className={fourCount ? 'active' : 'disabled'}>
                                 4 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress className='progress-bar' id="four" max={reviews.length} value={fourCount}></progress>
+                                <LinearProgress variant="determinate" value={fourCount / reviews.length * 100} style={{ width: '212px', height: '8px', borderRadius: '4px' ,backgroundColor: '#e4e5e7' , barColor: '#222325' }} />
                             </div>
                             <span>
                                 ({fourCount})
                             </span>
                         </li>
-                        <li className='flex row progress-container'>
+                        <li className='flex row align-center progress-container'>
                             <span className={threeCount ? 'active' : 'disabled'}>
                                 3 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress className='progress-bar' id="three" max={reviews.length} value={threeCount}></progress>
+                                <LinearProgress variant="determinate" value={threeCount / reviews.length * 100} style={{ width: '212px', height: '8px', borderRadius: '4px' , backgroundColor: '#e4e5e7' , barColor: '#222325' }} />
                             </div>
                             <span>
                                 ({threeCount})
                             </span>
                         </li>
-                        <li className='flex row progress-container'>
+                        <li className='flex row align-center progress-container'>
                             <span className={twoCount ? 'active' : 'disabled'}>
                                 2 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress className='progress-bar' id="two" max={reviews.length} value={twoCount}></progress>
+                                <LinearProgress variant="determinate" value={twoCount / reviews.length * 100} style={{ width: '212px', height: '8px', borderRadius: '4px', backgroundColor: '#e4e5e7', barColor: '#222325' }} />
                             </div>
                             <span>
                                 ({twoCount})
                             </span>
                         </li>
 
-                        <li className='flex row progress-container'>
+                        <li className='flex row align-center progress-container'>
                             <span className={oneCount ? 'active' : 'disabled'}>
-                                1 Star<span className='s'>s</span> 
+                                1 Star<span className='s'>s </span>
                             </span>
                             <div className='progress-bar-container' >
-                                <progress className='progress-bar' id="one" max={reviews.length} value={oneCount}></progress>
+                                <LinearProgress variant="determinate" value={oneCount / reviews.length * 100} style={{ width: '212px', height: '8px', borderRadius: '4px', backgroundColor: '#e4e5e7'}} />
                             </div>
-                            <span>
+                            <span className='one-count'>
                                 ({oneCount})
                             </span>
                         </li>

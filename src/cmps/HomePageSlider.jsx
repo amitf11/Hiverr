@@ -41,42 +41,66 @@ export function HomePageSlider() {
         },
     ]
 
-    // const settings = {
-    //     customPaging: function (i) {
-    //         return (
-    //             <a>
-    //                 <img src={gig.imgs[i]} alt='' />
-    //             </a>
-    //         );
-    //     },
-    //     nextArrow: <SampleNextArrow />,
-    //     prevArrow: <SamplePrevArrow />,
-    //     dots: true,
-    //     dotsClass: 'clean-list flex carousle-imgs',
-    //     infinite: true,
-    //     speed: 500,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1
-    // }
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className='arrow next-arrow'
+                onClick={onClick}
+            />
+        );
+    }
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className='arrow prev-arrow'
+                onClick={onClick}
+            />
+        );
+    }
+
+    const settings = {
+        customPaging: function (i) {
+            return (
+                <a>
+                    {cards[i] && (
+                        <img src={cards[i].imgUrl} alt='' />
+                    )}
+                </a>
+            )
+        },
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        dots: true,
+        dotsClass: 'clean-list carousle-imgs',
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
+    }
 
     return (
         <div className="flex center">
+
             <section className="homepage-slider-container flex column">
 
                 <h2 className="homepage-slider-title">Popular services</h2>
                 <section className="homepage-slider-cards-container flex">
-                    {
-                        cards.map(card => {
+
+                    <Slider {...settings}>
+                        {cards.map(card => {
                             return <article className="slider-card-container" style={{ backgroundColor: card.backgroundColor }} key={card.title}>
-                                <div className="slider-card">
+                                <div className="slider-card" key={card.title}>
                                     <Link to={card.filterUrl} className="flex column space-between">
                                         <h3>{card.title}</h3>
                                         <img src={card.imgUrl} alt="" />
                                     </Link>
                                 </div>
                             </article>
-                        })
-                    }
+                        })}
+                    </Slider>
                 </section>
             </section>
         </div>
