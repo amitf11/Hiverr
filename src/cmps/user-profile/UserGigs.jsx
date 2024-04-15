@@ -6,6 +6,7 @@ import { Add } from "@mui/icons-material"
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export function UserGigs({ gigs, onAddGig, onRemoveGig, handleSection }) {
     const [isFormOpen, setIsFormOpen] = useState(false)
@@ -126,26 +127,36 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig, handleSection }) {
             }
 
             {(!gigs || !gigs.length) ?
-                !isFormOpen && <div> Become a seller!</div> :
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Title</td>
-                            <td>Price</td>
-                            <td>Days to make</td>
-                            <td>Actions</td>
-                        </tr>
-                    </thead>
-                    {gigs.map((gig, idx) => (
-                        <tr className="" key={idx}>
-                            <td>{gig.title}</td>
-                            <td>${gig.price}</td>
-                            <td>{gig.daysToMake}</td>
-                            <td> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
-                        </tr>
+                !isFormOpen && <div className="become-a-seller flex column align-center justify-center">
+                    <FavoriteIcon 
+                    fontSize='large'
+                    style={{color: '#e64f4f'}}/>
+                    <h3>What's Your Skill?</h3>
+                    <button
+                        onClick={() => setIsFormOpen(!isFormOpen)}>
+                        Become a Seller</button></div>
+                :
+                <section className="user-gigs-table-container flex justify-center">
+                    <table className="user-gigs-table">
+                        <thead>
+                            <tr>
+                                <td>Title</td>
+                                <td>Price</td>
+                                <td>Days to make</td>
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                        {gigs.map((gig, idx) => (
+                            <tr key={idx}>
+                                <td>{gig.title}</td>
+                                <td>${gig.price}</td>
+                                <td>{gig.daysToMake}</td>
+                                <td> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
+                            </tr>
 
-                    ))}
-                </table>
+                        ))}
+                    </table>
+                </section>
 
             }
         </section >

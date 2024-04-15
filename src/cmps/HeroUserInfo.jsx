@@ -2,9 +2,7 @@ export function HeroUserInfo({ userName, job, imgUrl }) {
     return (
         <div className="flex align-center info-container">
             <div>
-                <img
-                    //  srcSet="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_40,dpr_1.0/v1/attachments/generic_asset/asset/7539ee9d7a6ab02e3d23069ebefb32c8-1690386499432/colin-2x.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_40,dpr_2.0/v1/attachments/generic_asset/asset/7539ee9d7a6ab02e3d23069ebefb32c8-1690386499432/colin-2x.png 2x"
-                    src={imgUrl} />
+                <img src={imgUrl} />
             </div>
             <div className="flex column inner-container" >
                 <div className="flex space-between name-container">
