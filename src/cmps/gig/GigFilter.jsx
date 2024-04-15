@@ -29,22 +29,21 @@ export function GigFilter({ filterBy, sortBy, onSetFilter, onSetSort }) {
     }, [filterByToEdit, sortByToEdit])
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        function handleScroll() {
+    //     function handleScroll() {
 
-            if (window.scrollY > 150) {
-                console.log('hi hi hello yeah whatsapp...')
-                setFilterClassName('fixed-filter')
-            }
-            else setFilterClassName('')
-        }
+    //         if (window.scrollY > 200) {
+    //             setFilterClassName('fixed-filter')
+    //         }
+    //         else setFilterClassName('')
+    //     }
 
-        window.addEventListener("scroll", handleScroll)
-        handleScroll()
-        return () => window.removeEventListener("scroll", handleScroll)
+    //     window.addEventListener("scroll", handleScroll)
+    //     handleScroll()
+    //     return () => window.removeEventListener("scroll", handleScroll)
 
-    }, [setWindowSize])
+    // }, [setWindowSize])
 
     useEffect(() => {
         function handleClickOutside(event) {
