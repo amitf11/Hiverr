@@ -18,7 +18,6 @@ export function gigReducer(state = initialState, action) {
 
     switch (action.type) {
         case ADD_GIG:
-            console.log('action.gig:', action.gig)
             return { ...state, gigs: [...state.gigs, action.gig] }
 
         case REMOVE_GIG:

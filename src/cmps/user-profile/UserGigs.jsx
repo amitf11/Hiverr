@@ -126,24 +126,24 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig }) {
             {(!gigs || !gigs.length) ?
                 !isFormOpen && <div> Become a seller!</div> :
                 < table >
-                    <thead>
-                        <tr>
-                            <td>Title</td>
-                            <td>Price</td>
-                            <td>Days to make</td>
-                            <td>Actions</td>
-                        </tr>
-                    </thead>
-                    {gigs.map(gig => (
-                        <tr className="" key={gig._id}>
-                            <td>{gig.title}</td>
-                            <td>${gig.price}</td>
-                            <td>{gig.daysToMake}</td>
-                            <td><button>Edit</button> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
-                        </tr>
-                    ))}
-                </table>
-
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Price</td>
+                        <td>Days to make</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                {gigs.map(gig => (
+                    <tr className="" key={gig._id}>
+                        <td>{gig.title}</td>
+                        <td>${gig.price}</td>
+                        <td>{gig.daysToMake}</td>
+                        <td> <button onClick={() => onRemoveGig(gig._id)}>Delete</button></td>
+                    </tr>
+                ))}
+        </table>
+            
             }
         </section >
     )
