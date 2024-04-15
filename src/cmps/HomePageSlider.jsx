@@ -112,13 +112,6 @@ export function HomePageSlider() {
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161248/data-entry-2x.png',
             filterUrl: '/gig?category=data'
         },
-        {
-            small: 'Showcase your story',
-            title: 'Book Covers',
-            backgroundColor: '#421300',
-            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161238/book-covers-2x.png',
-            filterUrl: '/gig?category=graphics-design'
-        },
     ]
 
     function SampleNextArrow(props) {
@@ -154,7 +147,7 @@ export function HomePageSlider() {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         dots: true,
-        dotsClass: 'clean-list carousle-imgs',
+        // dotsClass: 'clean-list carousle-imgs',
         infinite: true,
         speed: 500,
         slidesToShow: 5,
@@ -169,27 +162,21 @@ export function HomePageSlider() {
             <section className="homepage-slider-container flex column">
 
                 <h2 className="homepage-slider-title">Popular services</h2>
-                {/* <section className="homepage-slider-cards-container flex"> */}
+                 <section className="homepage-slider-cards-container flex"> 
 
-                <Slider {...settings}>
-                    {cards.map(card => {
-                        return (
-                            <article className="slider-card-container" key={card.title}>
-                                {/* <div className="slider-card" key={card.title}> */}
-                                <Link to={card.filterUrl} className="flex column space-between">
-                                    <div >
-                                        <h4>
-                                            <small>{card.small}</small>
-                                            {card.title}
-                                        </h4>
-                                        <img src={card.imgUrl} />
-                                    </div>
-                                </Link>
-                                {/* </div> */}
+                    {/* <Slider {...settings}>  */}
+                        {cards.map(card => {
+                            return <article className="slider-card-container" style={{ backgroundColor: card.backgroundColor }} key={card.title}>
+                                <div className="slider-card" key={card.title}>
+                                    <Link to={card.filterUrl} className="flex column space-between">
+                                        <h3>{card.title}</h3>
+                                        <img src={card.imgUrl} alt="" />
+                                    </Link>
+                                </div>
                             </article>
-                        )
-                    })}
-                </Slider>
+                        })}
+                    {/* </Slider> */}
+                </section>
             </section>
             {/* </section> */}
         </div>

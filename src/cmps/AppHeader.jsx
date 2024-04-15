@@ -29,7 +29,6 @@ export function AppHeader() {
     const newOrders = useSelector(storeState => storeState.orderModule.newOrders)
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         if (newOrders.length > 0) {
@@ -38,10 +37,6 @@ export function AppHeader() {
         
 
     }, [newOrders])
-
-    const onResize = () => {
-        setScreenWidth(window.innerWidth)
-    }
 
     function handleChange({ target }) {
         const value = target.value
