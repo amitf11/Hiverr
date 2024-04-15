@@ -2,12 +2,13 @@
     position: relative;
     width: 90%;
     margin-inline: auto;
-    
+
     .add-gig-button {
         position: absolute;
         top: 0;
         right: 0;
     }
+
     .add-gig-form {
         position: relative;
         width: 90%;
@@ -38,5 +39,52 @@
         .number-input:first-child {
             margin-left: 14px;
         }
+    }
+
+    .user-gigs-table-container {
+        width: 100%;
+
+        .user-gigs-table {
+            width: 90%;
+            padding: 0.5em;
+            border: 1px solid lightgray;
+            border-radius: 16px;
+
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+        }
+
+    }
+}
+
+
+.become-a-seller {
+    height: 305px;
+    width: 270px;
+    background-color: #eeeeee;
+    margin-top: 120px;
+    margin-inline: auto;
+
+    h3 {
+        text-align: center;
+        font-size: 32px;
+        line-height: 34px;
+        font-weight: 400;
+        color: #555;
+    }
+
+    button {
+        background-color: #1dbf73;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 700;
+        color: #fff;
+        border: 1px solid transparent;
+        padding: 15px 35px;
+        margin: 0;
+        display: inline-block;
+        border-radius: 3px;
     }
 }

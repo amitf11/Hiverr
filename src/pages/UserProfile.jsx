@@ -40,14 +40,6 @@ export function UserProfile() {
         loadUserGigs(user._id)
     }, [])
 
-    // useEffect(() => {
-    // }, [])
- 
-    // console.log('buyerOrders:', buyerOrders)
-
-    // useEffect(() => {
-    // }, [])
-    console.log('gigs:', gigs)
     function handleSection(section) {
         setChosenSection(section)
     }
