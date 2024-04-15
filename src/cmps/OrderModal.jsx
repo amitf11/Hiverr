@@ -44,7 +44,7 @@ export function OrderModal({ orders, isOrderModalOpen, onCloseOrderModal, modalP
                         <div>No orders yet</div>
                     ) : (
                         orders.map(order => (
-                            <article key={order._id} className="order-container flex space-between align-center">
+                            <article key={order._id} className="order-container flex align-center">
                                 <a className="clean-link" href={`/gig/${order.gig._id}`}>
                                     <div className="img-container">
                                         <img src={order.gig.imgUrl} alt="gig-img" />
