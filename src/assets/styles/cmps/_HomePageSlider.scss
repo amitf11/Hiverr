@@ -1,6 +1,25 @@
 .homepage-slider-container {
     padding: 24px 0;
 
+    // .carousle-imgs {
+    //     display: flex !important;
+    //     justify-content: space-around;
+    //     gap: em(5px);
+
+    //     li:last-of-type {
+    //         display: none;
+    //         padding: 0;
+    //     }
+
+    //     li {
+    //         padding-right: 0;
+
+    //         a {
+    //             cursor: pointer;
+    //         }
+    //     }
+    // }
+
     .homepage-slider-cards-container {
         column-gap: 16px;
 
@@ -79,23 +98,4 @@
         margin-bottom: $normal-margin-bottom;
     }
 
-
-    @include for-mobile-layout {
-       margin-bottom: $mobile-margin-bottom;
-        .slider-card-container {
-            &:nth-child(n + 3) {
-                display: none;
-            }
-        }
-    }
-
-    @include for-narrow-layout {
-        margin-bottom: $narrow-margin-bottom;
-
-        .slider-card-container {
-            &:nth-child(4) {
-                display: block;
-            }
-        }
-    }
 }
