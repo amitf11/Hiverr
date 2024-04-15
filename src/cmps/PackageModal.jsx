@@ -6,7 +6,7 @@ export function PackageModal({ gig }) {
     // const selectedPackage = gig.packages[plan]
 
     return (
-        <aside className='flex column sidebar'>
+        <aside className='sidebar'>
             <div className='flex column packages-tabs'>
                 <div className='flex row tab'>
                     <button onClick={() => setPlan('basic')}
