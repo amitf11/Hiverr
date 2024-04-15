@@ -9,18 +9,10 @@
     max-width: 1400px;
     width: 100%;
     margin: em(100px) auto;
-    // padding: 0 em(32px);
     min-height: calc(100vh - 160px);
 
     .inner-container {
-        // margin-left: -16px;
-        // margin-right: -16px;
         gap: 96px;
-    }
-
-    .header {
-        font-size: 1.2em;
-        text-align: center;
     }
 
     .payment-section {
@@ -32,6 +24,11 @@
         flex-basis: 66.66%;
         padding: 0 16px;
         border-radius: 4px;
+
+        .header {
+            font-size: 1.2em;
+            text-align: center;
+        }
 
         .credit-debit-card-container {
             padding-inline: em(20px);
@@ -45,7 +42,7 @@
             border: 1px solid $clr7;
             font-size: em(18px);
             color: $clr5;
-            
+
         }
 
         .short-inputs {
