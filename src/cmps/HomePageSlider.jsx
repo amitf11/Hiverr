@@ -6,12 +6,18 @@ export function HomePageSlider() {
         {
             small: 'Add talent to AI',
             title: 'AI Artist',
+            small: 'Add talent to AI',
+            title: 'AI Artist',
             backgroundColor: '#00732e',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161247/ai-artists-2x.png',
+            filterUrl: '/gig?category=ai-services'
+
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161247/ai-artists-2x.png',
             filterUrl: '/gig?category=ai-services'
 
         },
         {
+            small: 'Build your brand',
             small: 'Build your brand',
             title: 'Logo Design',
             backgroundColor: '#ff7640',
@@ -20,18 +26,28 @@ export function HomePageSlider() {
         {
             small: 'Customize your site',
             title: 'WordPress',
+            small: 'Customize your site',
+            title: 'WordPress',
             backgroundColor: '#003912',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161257/wordpress-2x.png',
+            filterUrl: '/gig?category=word-press'
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161257/wordpress-2x.png',
             filterUrl: '/gig?category=word-press'
         },
         {
             small: 'Share your message',
             title: 'Voice Over',
+            small: 'Share your message',
+            title: 'Voice Over',
             backgroundColor: '#4d1727',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161253/voice-over-2x.png',
+            filterUrl: '/gig?category=music'
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161253/voice-over-2x.png',
             filterUrl: '/gig?category=music'
         },
         {
+            small: 'Engage your audience',
+            title: 'Video Explainer',
             small: 'Engage your audience',
             title: 'Video Explainer',
             backgroundColor: '#687200',
@@ -114,10 +130,13 @@ export function HomePageSlider() {
             backgroundColor: '#421300',
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161238/book-covers-2x.png',
             filterUrl: '/gig?category=graphics-design'
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161238/book-covers-2x.png',
+            filterUrl: '/gig?category=graphics-design'
         },
     ]
 
     function SampleNextArrow(props) {
+        const { className, style, onClick } = props
         const { className, style, onClick } = props
         return (
             <div
@@ -128,6 +147,7 @@ export function HomePageSlider() {
     }
 
     function SamplePrevArrow(props) {
+        const { className, style, onClick } = props
         const { className, style, onClick } = props
         return (
             <div
