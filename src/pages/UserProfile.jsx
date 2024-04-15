@@ -35,11 +35,17 @@ export function UserProfile() {
 
     useEffect(() => {
         loadOrders(user._id)
+        loadSellerOrders(user._id)
+        loadUserGigs(user._id)
     }, [])
 
-    useEffect(() => {
-        loadUserGigs(user._id)
-    }, [gigs])
+    // useEffect(() => {
+    // }, [])
+ 
+    // console.log('buyerOrders:', buyerOrders)
+
+    // useEffect(() => {
+    // }, [])
 
     function handleSection(section) {
         setChosenSection(section)
@@ -51,6 +57,7 @@ export function UserProfile() {
     }
 
     function onRemoveGig(gigId) {
+        console.log('gigId:', gigId)
         removeGig(gigId)
     }
 
@@ -102,7 +109,8 @@ export function UserProfile() {
                 {chosenSection === 'orders' && <UserOrders
                     buyerOrders={buyerOrders} />}
                 {chosenSection === 'gigs' && <UserGigs
-                    gigs={gigs} onAddGig={onAddGig} onRemoveGig={onRemoveGig} />}
+                    gigs={gigs} onAddGig={onAddGig} onRemoveGig={onRemoveGig}
+                    handleSection={handleSection} />}
                 {chosenSection === 'dashboard' && <UserDashboard
                     sellerOrders={sellerOrders} />}
                 {chosenSection === 'statistics' && <UserStatistics />}

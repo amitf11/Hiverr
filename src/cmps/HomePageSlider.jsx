@@ -16,7 +16,6 @@ export function HomePageSlider() {
             title: 'Logo Design',
             backgroundColor: '#ff7640',
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161257/logo-design-2x.png',
-            filterUrl: '/gig?category=logo-design'
         },
         {
             small: 'Customize your site',
@@ -68,8 +67,43 @@ export function HomePageSlider() {
             filterUrl: '/gig?category=translation'
         },
         {
+            small: 'Reach more customers',
+            title: 'Social Media',
+            backgroundColor: '#421300',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161249/social-2x.png',
+            filterUrl: '/gig?category=social-media'
+        },
+        {
+            small: 'Unlock growth online',
+            title: 'SEO',
+            backgroundColor: '#421300',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/27f914ed7984fdd2d55aa1fb5e74bd6a-1690384243592/seo-2x.png',
+            filterUrl: '/gig?category=seo-services'
+        },
+        {
+            small: 'Color your dreams',
+            title: 'Illustration',
+            backgroundColor: '#421300',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161236/illustration-2x.png',
+            filterUrl: '/gig?category=graphics-design'
+        },
+        {
+            small: 'Go global',
+            title: 'Translation',
+            backgroundColor: '#421300',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161247/translation-2x.png',
+            filterUrl: '/gig?category=translation'
+        },
+        {
             small: 'Learn your business',
             title: 'Data Entry',
+            backgroundColor: '#421300',
+            imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161248/data-entry-2x.png',
+            filterUrl: '/gig?category=data'
+        },
+        {
+            small: 'Showcase your story',
+            title: 'Book Covers',
             backgroundColor: '#421300',
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161248/data-entry-2x.png',
             filterUrl: '/gig?category=data'

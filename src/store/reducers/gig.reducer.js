@@ -18,11 +18,13 @@ export function gigReducer(state = initialState, action) {
 
     switch (action.type) {
         case ADD_GIG:
-            return { ...state, gigs: [...state.gigs, action.gig] }
+            return { ...state, userGigs: [...state.userGigs, action.gig] }
+            // return { ...state, gigs: [...state.gigs, action.gig] }
 
         case REMOVE_GIG:
-            gigs = state.gigs.filter(gig => gig._id !== action.gigId)
-            return { ...state, gigs }
+            // gigs = state.gigs.filter(gig => gig._id !== action.gigId)
+            let userGigs = state.userGigs.filter(gig => gig._id !== action.gigId)
+            return { ...state, userGigs }
 
         case SET_GIGS:
             return { ...state, gigs: action.gigs }

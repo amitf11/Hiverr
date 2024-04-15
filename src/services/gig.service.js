@@ -1,7 +1,7 @@
-import { storageService } from "./async-storage.service"
-import { reviewService } from "./review.service"
 import { utilService } from "./util.service"
 import { httpService } from "./http.service"
+import { reviewService } from "./review.service"
+import { storageService } from "./async-storage.service"
 
 export const gigService = {
     query,
@@ -73,7 +73,8 @@ async function query(filterBy, sortBy = 'recommended') {
 }
 
 async function getByUserId(userId) {
-    const gigs = httpService.get(BASE_URL, { params: { filterBy, sortBy } })
+    const gigs = await httpService.get(BASE_URL + '/usergigs')
+    console.log('gigs:', gigs)
     // const gigs = await storageService.query(STORAGE_KEY)
     // const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
     // return filteredGigs
