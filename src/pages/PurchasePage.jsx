@@ -3,12 +3,17 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 import { gigService } from "../services/gig.service"
 import { addOrder } from "../store/actions/order.actions"
+import { useLocation } from "react-router-dom"
 
 export function PurchasePage() {
+    const location = useLocation()
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState({})
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
+    const selectedPackage = location.state ? location.state.selectedPackage : null
+    console.log('location:', location)
+    console.log('location.state:', location.state)
 
     useEffect(() => {
         loadGig()
@@ -32,7 +37,7 @@ export function PurchasePage() {
         const order = {
             buyer: {
                 _id: user._id,
-                // fullname: user.fullname
+                fullname: user.fullname
             },
             seller: {
                 _id: gig.owner._id,

@@ -3,7 +3,6 @@ import { gigService } from "../../services/gig.service"
 export const ADD_GIG = 'ADD_GIG'
 export const SET_GIGS = 'SET_GIGS'
 export const REMOVE_GIG = 'REMOVE_GIG'
-export const SET_SEARCH = 'SET_SEARCH'
 export const SET_FILTER = 'SET_FILTER'
 export const SET_USER_GIGS = 'SET_USER_GIGS'
 

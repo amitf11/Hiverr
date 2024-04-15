@@ -29,13 +29,19 @@ export function AppHeader() {
     const newOrders = useSelector(storeState => storeState.orderModule.newOrders)
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         if (newOrders.length > 0) {
             setIsNewOrder(true)
         }
+        
+
     }, [newOrders])
+
+    const onResize = () => {
+        setScreenWidth(window.innerWidth)
+    }
 
     function handleChange({ target }) {
         const value = target.value
@@ -51,6 +57,10 @@ export function AppHeader() {
     useEffect(() => {
 
         function handleScroll() {
+            if (window.innerWidth < 600) {
+                setHeaderClassName('mobile-header')
+                return
+            }
             if (window.scrollY < 100 && location.pathname === '/') setHeaderClassName('homepage-header')
             else setHeaderClassName('regular-header')
 
@@ -120,13 +130,23 @@ export function AppHeader() {
         onOpenModal()
     }
 
+    function openSideMenu() {
+        setIsSideMenuOpen(true)
+        document.body.style.overflow = 'hidden'
+    }
+
+    function closeSideMenu() {
+        setIsSideMenuOpen(false)
+        document.body.style.overflow = 'auto'
+    }
+
     return (
         <>
-            {isSideMenuOpen && <SideMenu setIsSideMenuOpen={setIsSideMenuOpen} />}
+            {isSideMenuOpen && <SideMenu closeSideMenu={closeSideMenu} />}
             <header className={`main-header ${headerClassName}`}>
                 <div className="header flex align-center space-between">
                     <div className="flex">
-                        <button onClick={() => setIsSideMenuOpen(true)} className='flex align-center hamburger'>
+                        <button onClick={() => openSideMenu()} className='flex align-center hamburger'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg>
                         </button>
                         <Link to="/" className="header-logo clean-link">

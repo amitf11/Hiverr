@@ -2,7 +2,7 @@ import { store } from '../store.js'
 import { gigService } from '../../services/gig.service.js'
 import { ADD_GIG, REMOVE_GIG, SET_FILTER, SET_GIGS, SET_USER_GIGS } from '../reducers/gig.reducer.js'
 
-export async function loadGigs(filterBy, sortBy) {
+export async function loadGigs(filterBy, sortBy = 'recommended') {
     try {
         const gigs = await gigService.query(filterBy, sortBy)
         store.dispatch({ type: SET_GIGS, gigs })

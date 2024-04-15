@@ -2,8 +2,9 @@ export function SelectedFilters({ filterBy, onClearFilter }) {
     const filtersToDisplay = Object.entries(filterBy)
         .filter(([filterType, filterValue]) => {
             return (
-                (filterType === 'minPrice' || filterType === 'maxPrice' || filterType === 'deliveryTime' || filterType === 'sellerLevel') &&
-                ((typeof filterValue === 'number' && !isNaN(filterValue) && filterValue !== Infinity ) ||
+                (filterType === 'minPrice' || filterType === 'maxPrice' || filterType === 'deliveryTime' ||
+                    (filterType === 'sellerLevel' && filterValue !== 0)) && // Exclude sellerLevel filter with value 0
+                ((typeof filterValue === 'number' && !isNaN(filterValue) && filterValue !== Infinity && filterValue !== 0) ||
                     (typeof filterValue === 'string' && filterValue.trim().length > 0))
             )
         })
@@ -17,7 +18,6 @@ export function SelectedFilters({ filterBy, onClearFilter }) {
         }, {})
 
     const filters = Object.entries(filtersToDisplay).map(([filterType, filterValue]) => ({ filterType, filterValue }))
-
     function getFilterTitle(filterType, filterValue) {
         switch (filterType) {
             case 'budget': {
@@ -45,8 +45,8 @@ export function SelectedFilters({ filterBy, onClearFilter }) {
                 }
             case 'sellerLevel':
                 switch (filterValue) {
-                    case -Infinity:
-                        return 'New Seller'
+                    // case 0:
+                    //     return 'New Seller'
                     case 1:
                         return 'Level 1'
                     case 2:

@@ -28,59 +28,61 @@ export function ReviewStats({ reviews }) {
             <section className='grid review-layout'>
                 <div className='bars'>
                     <ul className='clean-list flex column'>
-                        <li className='flex row'>
+                        <li className='flex row progress-container'>
                             <span className={fiveCount ? 'active' : 'disabled'}>
                                 5 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress id="five" max={reviews.length} value={fiveCount}></progress>
+                                <progress className='progress-bar' id="five" max={reviews.length} value={fiveCount}></progress>
                             </div>
                             <span>
                                 ({fiveCount})
                             </span>
                         </li>
-                        <li className='flex row'>
+                        <li className='flex row progress-container'>
                             <span className={fourCount ? 'active' : 'disabled'}>
                                 4 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress id="four" max={reviews.length} value={fourCount}></progress>
+                                <progress className='progress-bar' id="four" max={reviews.length} value={fourCount}></progress>
                             </div>
                             <span>
                                 ({fourCount})
                             </span>
                         </li>
-                        <li className='flex row'>
+                        <li className='flex row progress-container'>
                             <span className={threeCount ? 'active' : 'disabled'}>
                                 3 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress id="three" max={reviews.length} value={threeCount}></progress>
+                                <progress className='progress-bar' id="three" max={reviews.length} value={threeCount}></progress>
                             </div>
                             <span>
                                 ({threeCount})
                             </span>
                         </li>
-                        <li className='flex row'>
+                        <li className='flex row progress-container'>
                             <span className={twoCount ? 'active' : 'disabled'}>
                                 2 Stars
                             </span>
                             <div className='progress-bar-container'>
-                                <progress id="two" max={reviews.length} value={twoCount}></progress>
+                                <progress className='progress-bar' id="two" max={reviews.length} value={twoCount}></progress>
                             </div>
                             <span>
                                 ({twoCount})
                             </span>
                         </li>
 
-                        <li className='flex row'>
+                        <li className='flex row progress-container'>
                             <span className={oneCount ? 'active' : 'disabled'}>
-                                1 Star
+                                1 Star<span className='s'>s</span> 
                             </span>
                             <div className='progress-bar-container' >
-                                <progress id="one" max={reviews.length} value={oneCount}></progress>
+                                <progress className='progress-bar' id="one" max={reviews.length} value={oneCount}></progress>
                             </div>
-                            <span>({oneCount})</span>
+                            <span>
+                                ({oneCount})
+                            </span>
                         </li>
                     </ul>
                 </div>

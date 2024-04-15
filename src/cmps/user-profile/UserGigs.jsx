@@ -13,7 +13,8 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig }) {
     const [gigToAdd, setGigToAdd] = useState(gigService.getEmptyGig())
 
     function handleChange({ target }) {
-        const { value, name: field } = target
+        let { value, name: field, type } = target
+        value = type === 'number' ? +value : value
         setGigToAdd(prevGig => ({ ...prevGig, [field]: value }))
         setValidationErrors((prevErrors) => ({ ...prevErrors, [field]: "" }))
     }
@@ -122,8 +123,8 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig }) {
                 </>
             }
 
-            {(!gigs || !gigs.length) ? 
-            !isFormOpen && <div> Become a seller!</div> :
+            {(!gigs || !gigs.length) ?
+                !isFormOpen && <div> Become a seller!</div> :
                 < table >
                 <thead>
                     <tr>
