@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { utilService } from "../services/util.service"
 
+import PersonIcon from '@mui/icons-material/Person'
 import SettingsIcon from '@mui/icons-material/Settings'
 import InboxRoundedIcon from '@mui/icons-material/InboxRounded'
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded'
@@ -65,12 +66,15 @@ export function UserProfile() {
         <section className="flex space-between user-profile">
             <aside className="flex column align-center user-profile-card">
                 <UserImg imgUrl={user.imgUrl} size={150}/>
-                <h2 className="user-fullname">{user.fullName}</h2>
+                <h2 className="user-fullname">{user.fullname}</h2>
                 <h4 className="member-since flex space-between">
-                    <div>Member since:</div>
+                    <div className="flex align-center">
+                        <PersonIcon className="member-icon"/>
+                        Member since:</div>
                     <div>
-                        {utilService.getMonthName(new Date(user.createdAt))},
-                        {new Date(user.createdAt).getFullYear()}
+                        April, 2024
+                        {/* {utilService.getMonthName(new Date(user.createdAt))}, */}
+                        {/* {new Date(user.createdAt).getFullYear()} */}
                     </div>
                 </h4>
                 <nav className="flex column space-between user-profile-nav">
