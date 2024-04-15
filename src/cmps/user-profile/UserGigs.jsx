@@ -18,9 +18,8 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig, handleSection }) {
         setGigToAdd(prevGig => ({ ...prevGig, [field]: value }))
         setValidationErrors((prevErrors) => ({ ...prevErrors, [field]: "" }))
     }
-    
     function handleSubmit(ev) {
-        // ev.preventDefault()
+        ev.preventDefault()
         const errors = {}
         if (!gigToAdd.title) {
             errors.title = "Title is required"
