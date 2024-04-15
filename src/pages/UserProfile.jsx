@@ -17,6 +17,7 @@ import { UserStatistics } from "../cmps/user-profile/UserStatistics"
 
 import { addGig, loadUserGigs, removeGig } from "../store/actions/gig.actions"
 import { loadOrders, loadSellerOrders } from "../store/actions/order.actions"
+import { UserImg } from "../cmps/UserImg"
 
 export function UserProfile() {
     const [chosenSection, setChosenSection] = useState('orders')
@@ -56,7 +57,7 @@ export function UserProfile() {
     return (
         <section className="flex space-between user-profile">
             <aside className="flex column align-center user-profile-card">
-                <img src={user.imgUrl} />
+                <UserImg imgUrl={user.imgUrl} size={150}/>
                 <h2 className="user-fullname">{user.fullName}</h2>
                 <h4 className="member-since flex space-between">
                     <div>Member since:</div>

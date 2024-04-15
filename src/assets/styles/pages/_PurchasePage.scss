@@ -1,12 +1,22 @@
 .gig-purchase {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
     align-content: center;
     gap: 40px;
-    margin-block: em(150px);
-    margin-inline: auto;
-    width: min(80%, 1000px);
-    padding: 0 em(32px);
+    padding: 32px 32px 64px;
+    // margin-block: em(100px);
+    // margin-inline: auto;
+    max-width: 1400px;
+    width: 100%;
+    margin: em(100px) auto;
+    // padding: 0 em(32px);
+    min-height: calc(100vh - 160px);
+
+    .inner-container {
+        // margin-left: -16px;
+        // margin-right: -16px;
+        gap: 96px;
+    }
 
     .header {
         font-size: 1.2em;
@@ -14,8 +24,14 @@
     }
 
     .payment-section {
-        background-color: $clr12;
+        // background-color: $clr12;
         border: 1px solid $clr7;
+        flex-basis: 58.33333%;
+        max-width: 58.33333%;
+        max-width: 66.66%;
+        flex-basis: 66.66%;
+        padding: 0 16px;
+        border-radius: 4px;
 
         .credit-debit-card-container {
             padding-inline: em(20px);
@@ -25,10 +41,11 @@
             padding-inline-start: em(15px);
             min-width: em(100px);
             height: em(40px);
-            border-radius: 3px;
+            border-radius: 8px;
             border: 1px solid $clr7;
             font-size: em(18px);
             color: $clr5;
+            
         }
 
         .short-inputs {
@@ -63,18 +80,24 @@
     }
 
     .package-container {
-        flex: 1;
+        flex-basis: 41.66667%;
+        max-width: 41.66667%;
+        flex-basis: 33.33%;
+        max-width: 33.33%;
+        // flex: 1;
         background-color: $clr1;
         position: sticky;
-        top: em(53px);
+        top: 53px;
         height: 100%;
         overflow-y: auto;
+        // display: flex;
 
         .order-details {
             border-radius: 3px;
             padding: em(32px) em(24px);
             border: 1px solid $clr7;
             margin-block-end: em(16px);
+            background-color: #fafafa;
 
             .img-container {
                 height: em(70px);
