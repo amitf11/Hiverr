@@ -1,7 +1,7 @@
-import { storageService } from "./async-storage.service"
-import { reviewService } from "./review.service"
 import { utilService } from "./util.service"
 import { httpService } from "./http.service"
+import { reviewService } from "./review.service"
+import { storageService } from "./async-storage.service"
 
 export const gigService = {
     query,
@@ -72,12 +72,13 @@ async function query(filterBy, sortBy = 'recommended') {
 //     // return httpService.get(BASE_URL, { params: { filterBy, sortBy } })
 // }
 
-// async function getByUserId(userId) {
-//     // const gigs = httpService.get(BASE_URL, { params: { filterBy, sortBy } })
-//     const gigs = await storageService.query(STORAGE_KEY)
-//     const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
-//     return filteredGigs
-// }
+async function getByUserId(userId) {
+    const gigs = await httpService.get(BASE_URL + '/usergigs')
+    return gigs
+    // const gigs = await storageService.query(STORAGE_KEY)
+    // const filteredGigs = gigs.filter(gig => gig.owner._id === userId)
+    // return filteredGigs
+}
 
 // function getById(gigId) {
 //     return storageService.get(STORAGE_KEY, gigId)
@@ -927,11 +928,12 @@ const categories = {
     'digital-marketing': 'Promote businesses online with social media, ads, and clever content.',
     'video-animation': 'Make videos and animations that tell stories and grab attention.',
     'writing-translation': 'Write and translate words to convey messages clearly and effectively.',
-    'music': 'Make music and sound effects for movies, games, and podcasts.',
+    'music-audio': 'Make music and sound effects for movies, games, and podcasts.',
     'business': 'Run companies and make them successful by planning and managing everything.',
     'consulting': 'Help businesses solve problems and improve by giving expert advice.',
     'data': 'Use information to understand trends and make smart decisions. ',
-    'ai-services': 'Use smart computer programs to automate tasks and make things easier.'
+    'ai-services': 'Use smart computer programs to automate tasks and make things easier.',
+    'translation': 'Reach a larger audience with content translations in many language combinations.'
 }
 
 

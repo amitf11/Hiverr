@@ -17,6 +17,7 @@ import { UserStatistics } from "../cmps/user-profile/UserStatistics"
 
 import { addGig, loadUserGigs, removeGig } from "../store/actions/gig.actions"
 import { loadOrders, loadSellerOrders } from "../store/actions/order.actions"
+import { UserImg } from "../cmps/UserImg"
 
 export function UserProfile() {
     const [chosenSection, setChosenSection] = useState('orders')
@@ -34,12 +35,18 @@ export function UserProfile() {
 
     useEffect(() => {
         loadOrders(user._id)
+        loadSellerOrders(user._id)
+        loadUserGigs(user._id)
     }, [])
 
-    useEffect(() => {
-        loadUserGigs(user._id)
-    }, [gigs])
+    // useEffect(() => {
+    // }, [])
+ 
+    // console.log('buyerOrders:', buyerOrders)
 
+    // useEffect(() => {
+    // }, [])
+    console.log('gigs:', gigs)
     function handleSection(section) {
         setChosenSection(section)
     }
@@ -50,13 +57,14 @@ export function UserProfile() {
     }
 
     function onRemoveGig(gigId) {
+        console.log('gigId:', gigId)
         removeGig(gigId)
     }
 
     return (
         <section className="flex space-between user-profile">
             <aside className="flex column align-center user-profile-card">
-                <img src={user.imgUrl} />
+                <UserImg imgUrl={user.imgUrl} size={150}/>
                 <h2 className="user-fullname">{user.fullName}</h2>
                 <h4 className="member-since flex space-between">
                     <div>Member since:</div>
@@ -101,7 +109,8 @@ export function UserProfile() {
                 {chosenSection === 'orders' && <UserOrders
                     buyerOrders={buyerOrders} />}
                 {chosenSection === 'gigs' && <UserGigs
-                    gigs={gigs} onAddGig={onAddGig} onRemoveGig={onRemoveGig} />}
+                    gigs={gigs} onAddGig={onAddGig} onRemoveGig={onRemoveGig}
+                    handleSection={handleSection} />}
                 {chosenSection === 'dashboard' && <UserDashboard
                     sellerOrders={sellerOrders} />}
                 {chosenSection === 'statistics' && <UserStatistics />}

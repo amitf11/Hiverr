@@ -16,14 +16,18 @@ async function query(userId) {
     // const orders = await storageService.query(STORAGE_KEY)
     // const userOrders = orders.filter(order => order.buyer._id === userId)
     // return userOrders
-    const params = JSON.stringify({ buyer: userId })
-    return httpService.get(BASE_URL, { params })
+    
+    // const params = JSON.stringify({ buyer: userId })
+    return httpService.get(BASE_URL + '/buyer')
 }
 
 async function sellerQuery(userId) {
-    const orders = await storageService.query(STORAGE_KEY)
-    const filteredOrders = orders.filter(order => order.seller._id === userId)
-    return filteredOrders
+    // const orders = await storageService.query(STORAGE_KEY)
+    // const filteredOrders = orders.filter(order => order.seller._id === userId)
+    // return filteredOrders
+
+    // const params = JSON.stringify({ seller: userId })
+    return httpService.get(BASE_URL + '/seller')
 }
 
 async function save(order) {
