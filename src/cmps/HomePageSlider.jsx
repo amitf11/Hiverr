@@ -169,7 +169,7 @@ export function HomePageSlider() {
             <section className="homepage-slider-container flex column">
 
                 <h2 className="homepage-slider-title">Popular services</h2>
-                {/* <section className="homepage-slider-cards-container flex"> */}
+                 <section className="homepage-slider-cards-container flex"> 
 
                     {/* <Slider {...settings}>  */}
                         {cards.map(card => {
