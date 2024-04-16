@@ -224,6 +224,10 @@
         height: 100%;
 
         padding: 0 0 32px;
+        
+        @include for-mobile-layout {
+            position: static;
+        }
     }
 
     .packages-tabs {
