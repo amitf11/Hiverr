@@ -48,8 +48,8 @@ export function UserProfile() {
     }
 
     const chosenSectionStyleMobile = {
-        backgroundColor: '#a5e5c7',
-        color: 'black',
+        // backgroundColor: '#a5e5c7',
+        color: '#1dbf73',
         borderTopLeftRadius: '24px',
         borderTopRightRadius: '24px',
     }
