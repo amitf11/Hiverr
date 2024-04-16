@@ -1,7 +1,22 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+import IconButton from '@mui/material/IconButton'
 
 export function StatusModal({ isModalOpen, onChangeStatus, onCloseModal }) {
+    const [anchorEl, setAnchorEl] = useState(null)
+    const open = Boolean(anchorEl)
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
+    }
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
     const modalRef = useRef(null)
+    const options = ['Reject', 'Approve']
+
+    const ITEM_HEIGHT = 48
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -19,12 +34,44 @@ export function StatusModal({ isModalOpen, onChangeStatus, onCloseModal }) {
         }
     }, [isModalOpen, onCloseModal])
 
-    if (!isModalOpen) return null
+    const handleStatusChange = (status) => {
+        onChangeStatus(status)
+        handleClose()
+    }
+
     return (
-        <div ref={modalRef} className="flex column set-status">
-            <div onClick={() => onChangeStatus('approved')} className="flex align-center justify-center status approved">Approve</div>
-            <div onClick={() => onChangeStatus('pending')} className="flex align-center justify-center status pending">Pending</div>
-            <div onClick={() => onChangeStatus('rejected')} className="flex align-center justify-center status rejected">Reject</div>
+        <div>
+            <IconButton
+                aria-label="more"
+                id="long-button"
+                aria-controls={open ? 'long-menu' : undefined}
+                aria-expanded={open ? 'true' : undefined}
+                aria-haspopup="true"
+                onClick={handleClick}
+            >
+                <MoreVertIcon />
+            </IconButton>
+            <Menu
+                id="long-menu"
+                MenuListProps={{
+                    'aria-labelledby': 'long-button',
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                PaperProps={{
+                    style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: '20ch',
+                    },
+                }}
+            >
+                {options.map((option) => (
+                    <MenuItem key={option} selected={option === 'Pyxis'} onClick={() => handleStatusChange(option)}>
+                        {option}
+                    </MenuItem>
+                ))}
+            </Menu>
         </div>
     )
 }
