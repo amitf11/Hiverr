@@ -1,10 +1,15 @@
 .user-msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     padding: 10px;
     font-size: 1em;
     position: fixed;
-    top: 125px;
-    right: 120px;
+    top: 120px;
+    text-align: center;
+    height: 30px;
+    width: 100%;
     background-color: $clr3;
     color: $clr1;
     z-index: 2000;
