@@ -78,11 +78,9 @@ export function UserProfile() {
         <section className="flex space-between user-profile">
             <aside className="flex column align-center user-profile-card">
                 <UserImg imgUrl={user.imgUrl} size={150} />
-                <UserImg imgUrl={user.imgUrl} size={150} />
                 <h2 className="user-fullname">{user.fullname}</h2>
                 <h4 className="member-since flex space-between">
                     <div className="flex align-center">
-                        <PersonIcon className="member-icon" />
                         <PersonIcon className="member-icon" />
                         Member since:</div>
                     <div>

@@ -63,6 +63,10 @@
         }
     }
 
+    .mobile-nav-bar {
+        display: none;
+    }
+
     .user-profile-right-container {
         flex-grow: 1;
     }
@@ -111,27 +115,29 @@
 
 
                 }
+
+                .mobile-nav-bar {
+                    display: block;
+                    position: fixed;
+                    bottom: 0;
+                    background-color: #1dbf73;
+                    overflow: hidden;
+                
+                    width: 100%;
+                    z-index: 999;
+                
+                    div {
+                        float: left;
+                        width: 20%;
+                        color: #f2f2f2;
+                        text-align: center;
+                        padding: 14px 16px;
+                        text-decoration: none;
+                        font-size: 17px;
+                    }
+                }
             }
         }
     }
 }
 
-.mobile-nav-bar {
-    position: fixed;
-    bottom: 0;
-    background-color: #1dbf73;
-    overflow: hidden;
-
-    width: 100%;
-    z-index: 999;
-
-    div {
-        float: left;
-        width: 20%;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
-}
