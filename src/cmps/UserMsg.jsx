@@ -25,6 +25,7 @@ export function UserMsg() {
         socketService.on(SOCKET_EVENT_ORDER_STATUS_UPDATED, ({ sellerName, status }) => {
             showUserMsg(`Your order from ${sellerName} was ${status}`)
         })
+        
         return () => {
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current)
