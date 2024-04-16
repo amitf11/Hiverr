@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router"
 import { gigService } from "../services/gig.service"
 import { addOrder } from "../store/actions/order.actions"
 import { useLocation } from "react-router-dom"
+import { showUserMsg } from "../services/event-bus.service"
+import { SOCKET_EVENT_ORDER_ADDED, socketService } from "../services/socket.service"
 
 export function PurchasePage() {
     const location = useLocation()
@@ -49,15 +51,18 @@ export function PurchasePage() {
                 price: gig.price,
                 imgUrl: gig.imgs[0]
             },
-            status: "pending",
+            status: 'pending',
             createdAt: new Date(Date.now())
         }
         console.log('order:', order)
         try {
             await addOrder(order)
+            showUserMsg('Your order has been placed successfully')
+            socketService.emit(SOCKET_EVENT_ORDER_ADDED, order)
             navigate(`/user/${user._id}`)
         }
         catch (err) {
+            showUserMsg('Something went wrong')
             console.log("cant add order", err)
         }
     }

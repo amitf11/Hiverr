@@ -1,18 +1,15 @@
 import React from 'react'
+import routes from './routes'
 import { Routes, Route } from 'react-router'
-
 import { AppFooter } from './cmps/AppFooter'
 import { AppHeader } from './cmps/AppHeader'
-
-import routes from './routes'
-
-
+import { UserMsg } from './cmps/UserMsg'
 
 export function RootCmp() {
 
     return (
         <div className='main-container'>
-            <AppHeader/>
+            <AppHeader />
             <main className='flex column'>
                 <Routes>
                     {routes.map(route => (
@@ -25,6 +22,7 @@ export function RootCmp() {
                 </Routes>
             </main>
             <AppFooter />
+            <UserMsg />
         </div>
     )
 }
