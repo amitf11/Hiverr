@@ -5,7 +5,7 @@ import { gigService } from "../services/gig.service"
 import { addOrder } from "../store/actions/order.actions"
 import { useLocation } from "react-router-dom"
 import { showUserMsg } from "../services/event-bus.service"
-import { SOCKET_EVENT_ORDER_ADDED, socketService } from "../services/socket.service"
+import { SOCKET_EVENT_NEW_CLIENT_ORDER, socketService } from "../services/socket.service"
 
 export function PurchasePage() {
     const location = useLocation()
@@ -58,7 +58,7 @@ export function PurchasePage() {
         try {
             await addOrder(order)
             showUserMsg('Your order has been placed successfully')
-            socketService.emit(SOCKET_EVENT_ORDER_ADDED, order)
+            socketService.emit(SOCKET_EVENT_NEW_CLIENT_ORDER, order)
             navigate(`/user/${user._id}`)
         }
         catch (err) {

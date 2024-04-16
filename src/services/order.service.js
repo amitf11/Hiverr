@@ -1,7 +1,5 @@
 import { utilService } from "./util.service"
-import { storageService } from "./async-storage.service"
 import { httpService } from "./http.service"
-import { SOCKET_EVENT_ORDER_ADDED, SOCKET_EVENT_ORDER_UPDATED, socketService } from "./socket.service"
 
 export const orderService = {
     query,
@@ -14,41 +12,26 @@ const STORAGE_KEY = 'orderDB'
 const BASE_URL = 'order'
 
 async function query(userId) {
-    // const orders = await storageService.query(STORAGE_KEY)
-    // const userOrders = orders.filter(order => order.buyer._id === userId)
-    // return userOrders
-    
-    // const params = JSON.stringify({ buyer: userId })
     return httpService.get(BASE_URL + '/buyer')
 }
 
 async function sellerQuery(userId) {
-    // const orders = await storageService.query(STORAGE_KEY)
-    // const filteredOrders = orders.filter(order => order.seller._id === userId)
-    // return filteredOrders
-
-    // const params = JSON.stringify({ seller: userId })
     return httpService.get(BASE_URL + '/seller')
 }
 
 async function save(order) {
     let savedOrder
     if (order._id) {
-        // savedOrder = await storageService.put(STORAGE_KEY, order)
         savedOrder = await httpService.put(`${BASE_URL}/${order._id}`, order)
     } else {
-        // savedOrder = await storageService.post(STORAGE_KEY, order)
         savedOrder = await httpService.post(BASE_URL, order)
     }
-    socketService.emit(SOCKET_EVENT_ORDER_ADDED, {sellerId: order.seller._id, buyerName: order.buyer.fullname})
     return savedOrder
 }
 
 async function updateStatus(order) {
     try {
-        // const savedOrder = await storageService.put(STORAGE_KEY, order)
         const savedOrder = await httpService.put(`${BASE_URL}/${order._id}`, order)
-        socketService.emit(SOCKET_EVENT_ORDER_UPDATED, order)
         return savedOrder
     } catch (err) {
         console.error('Error updating order status:', err);
