@@ -7,8 +7,8 @@ export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
 export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
 
 // Orders
-export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
-export const SOCKET_EVENT_ORDER_UPDATED = 'order-updated'
+export const SOCKET_EVENT_NEW_CLIENT_ORDER = 'new-client-order'
+export const SOCKET_EVENT_ORDER_STATUS_UPDATED = 'order-status-updated'
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
@@ -38,6 +38,7 @@ function createSocketService() {
             else socket.off(eventName, cb)
         },
         emit(eventName, data) {
+            console.log('data:', data)
             socket.emit(eventName, data)
         },
         login(userId) {

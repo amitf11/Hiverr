@@ -3,7 +3,6 @@ import { useSelector } from "react-redux"
 import { StatusModal } from "../cmps/StatusModal"
 import { loadOrders, setOrderStatus } from "../store/actions/order.actions"
 import { UserImg } from "../cmps/UserImg"
-import { SOCKET_EVENT_ORDER_UPDATED, socketService } from "../services/socket.service"
 
 export function Dashboard() {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -34,10 +33,6 @@ export function Dashboard() {
             const updatedOrder = { ...selectedOrder, status: newStatus }
             await setOrderStatus(updatedOrder)
             setSelectedOrder(updatedOrder)
-            // socketService.emit(SOCKET_EVENT_ORDER_UPDATED,
-            //     {
-
-            //     })
         }
         onCloseModal()
     }

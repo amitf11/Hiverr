@@ -1,29 +1,122 @@
+// .homepage-slider-container {
+//     padding: 24px 0;
+
+//     .carousle-imgs {
+//         display: flex !important;
+//         // justify-content: space-around;
+//     }
+
+//     // .carousle-imgs {
+//     //     display: flex !important;
+//     //     gap: em(5px);
+
+//     //     li:last-of-type {
+//     //         // display: none;
+//     //         // display: none;
+//     //         padding: 0;
+//     //     }
+
+//     //     li {
+//     //         padding-right: 0;
+
+//     //         a {
+//     //             cursor: pointer;
+//     //         }
+//     //     }
+//     // }
+
+//     .homepage-slider-cards-container {
+//         column-gap: 16px;
+
+//         .slider-card-container {
+//             margin: 12px 4px;
+//             padding: 25px 6px 6px;
+
+//             width: 200px;
+//             min-height: 266px;
+
+//             border-radius: 16px;
+//             color: #fbfdfc;
+
+//             .slider-card {
+//                 height: 100%;
+
+//                 a {
+//                     height: 100%;
+//                     position: relative;
+//                 }
+
+//                 h4 {
+//                     position: relative;
+
+//                     font-size: em(24px);
+//                     line-height: 130%;
+
+//                     margin: 0;
+//                     padding: 0 16px;
+
+//                     z-index: 1;
+//                     color: $clr1;
+
+//                     small {
+//                         display: block;
+//                         font-size: 14px;
+//                         font-weight: 400;
+//                         line-height: 20px;
+//                     }
+//                 }
+
+//                 img {
+//                     height: 345px;
+//                     height: 345px;
+//                     width: 100%;
+//                     border-radius: 12px;
+//                     object-fit: cover;
+//                 }
+//             }
+//         }
+
+//         .slider-card-container:hover {
+//             opacity: .88;
+//         }
+//     }
+
+//     .homepage-slider-title {
+//         //OLD FIVERR
+//         font-size: 32px;
+//         line-height: 120%;
+//         font-weight: 700;
+//         padding-bottom: 24px;
+//         margin: 0;
+//         color: #404145;
+
+//         // @include for-mobile-layout {
+//         //     font-size: em(28px);
+//         //     padding-bottom: 20px;
+//         // }
+
+//         //NEW FIVERR
+
+//         // font-size: em(48px);
+//         // font-weight: 400;
+
+//         // margin: 0;
+//         // max-width: 720px;
+
+//         // line-height: 105%;
+//         // letter-spacing: -1.44px;
+//         // color: #404145;
+//     }
+
+//     // @include for-normal-layout {
+//     //     margin-bottom: $normal-margin-bottom;
+//     // }
+
+// }
+
 .homepage-slider-container {
-    padding: 24px 0;
-
-    .carousle-imgs {
-        display: flex !important;
-        // justify-content: space-around;
-    }
-
-    // .carousle-imgs {
-    //     display: flex !important;
-    //     gap: em(5px);
-
-    //     li:last-of-type {
-    //         // display: none;
-    //         // display: none;
-    //         padding: 0;
-    //     }
-
-    //     li {
-    //         padding-right: 0;
-
-    //         a {
-    //             cursor: pointer;
-    //         }
-    //     }
-    // }
+    gap: 32px;
+    padding: 40px 0;
 
     .homepage-slider-cards-container {
         column-gap: 16px;
@@ -43,73 +136,44 @@
 
                 a {
                     height: 100%;
-                    position: relative;
                 }
 
-                h4 {
+                h3 {
                     position: relative;
 
-                    font-size: em(24px);
-                    line-height: 130%;
+                    font-size: 18px;
+                    line-height: 28px;
 
                     margin: 0;
-                    padding: 0 16px;
+                    padding: 0 10px;
 
                     z-index: 1;
-                    color: $clr1;
-
-                    small {
-                        display: block;
-                        font-size: 14px;
-                        font-weight: 400;
-                        line-height: 20px;
-                    }
+                    color: #fff;
                 }
 
                 img {
-                    height: 345px;
-                    height: 345px;
+                    height: 172px;
                     width: 100%;
                     border-radius: 12px;
                     object-fit: cover;
                 }
             }
         }
-
-        .slider-card-container:hover {
-            opacity: .88;
-        }
     }
 
     .homepage-slider-title {
-        //OLD FIVERR
-        font-size: 32px;
-        line-height: 120%;
-        font-weight: 700;
-        padding-bottom: 24px;
+        font-size: 48px;
+        font-weight: 400;
+
         margin: 0;
+        max-width: 720px;
+
+        line-height: 105%;
+        letter-spacing: -1.44px;
         color: #404145;
-
-        // @include for-mobile-layout {
-        //     font-size: em(28px);
-        //     padding-bottom: 20px;
-        // }
-
-        //NEW FIVERR
-
-        // font-size: em(48px);
-        // font-weight: 400;
-
-        // margin: 0;
-        // max-width: 720px;
-
-        // line-height: 105%;
-        // letter-spacing: -1.44px;
-        // color: #404145;
     }
 
-    // @include for-normal-layout {
-    //     margin-bottom: $normal-margin-bottom;
-    // }
-
+    .slider-card-container:hover {
+        opacity: .88;
+    }
 }
