@@ -140,19 +140,19 @@ export function UserGigs({ gigs, onAddGig, onRemoveGig, handleSection }) {
                     <table className="user-gigs-table">
                         <thead>
                             <tr className="table-row">
-                                <td>Title</td>
-                                <td>Price</td>
-                                <td>Days to make</td>
-                                <td>Actions</td>
+                                <th>Title</th>
+                                <th>Days to make</th>
+                                <th>Price</th>
+                                <th className="action-col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {gigs.map((gig, idx) => (
                                 <tr className="table-row" key={idx}>
                                     <td className="title">{gig.title}</td>
-                                    <td>${gig.price}</td>
                                     <td>{gig.daysToMake}</td>
-                                    <td>
+                                    <td><strong>${gig.price}</strong></td>
+                                    <td className="action-col">
                                         <Button
                                             size="small"
                                             color="error"

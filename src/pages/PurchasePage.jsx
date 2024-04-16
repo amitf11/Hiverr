@@ -173,7 +173,7 @@ export function PurchasePage() {
                                 <div className="img-container">
                                     <img src={gig.imgs ? gig.imgs[0] : ''} alt="gig-img" />
                                 </div>
-                                <p>{gig.title}</p>
+                                <p className='flex align-center'>{gig.title}</p>
                             </div>
                             <div className="pricing">
                                 <strong className="price">US${gig.price}</strong>

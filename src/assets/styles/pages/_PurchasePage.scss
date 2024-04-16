@@ -19,7 +19,8 @@
     }
 
     header {
-        border: 1px solid #efeff0;
+        margin-top: 10px;
+        // border: 1px solid #efeff0;
         padding: 16px;
         font-size: 16px;
         font-weight: 700;
@@ -66,7 +67,7 @@
             font-size: 16px;
             font-weight: 700;
             color: #404145;
-            border: 1px solid #efeff0;
+            // border: 1px solid #efeff0;
             // text-align: center;
 
             h1 {
@@ -82,6 +83,11 @@
         .credit-debit-card-container {
             padding: 0 0 0 16px;
             // height: 64px;
+
+            h4 {
+                margin-right: 8px;
+                font-weight: 400;
+            }
 
             span {
                 width: 20px;

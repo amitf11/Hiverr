@@ -178,6 +178,7 @@ export function HomePageSlider() {
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156477/website-development.png'
         },
         {
+            small: 'Build your brand',
             title: 'Logo Design',
             backgroundColor: '#ff7640',
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/logo-design.png'
