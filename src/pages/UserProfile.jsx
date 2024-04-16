@@ -19,6 +19,7 @@ import { UserStatistics } from "../cmps/user-profile/UserStatistics"
 import { addGig, loadUserGigs, removeGig } from "../store/actions/gig.actions"
 import { loadOrders, loadSellerOrders } from "../store/actions/order.actions"
 import { UserImg } from "../cmps/UserImg"
+import { Height } from "@mui/icons-material"
 
 export function UserProfile() {
     const [chosenSection, setChosenSection] = useState('orders')
@@ -32,6 +33,13 @@ export function UserProfile() {
         color: 'black',
         borderBottomRightRadius: '20px',
         borderTopRightRadius: '20px',
+    }
+
+    const chosenSectionStyleMobile = {
+        backgroundColor: '#a5e5c7',
+        color: 'black',
+        borderTopLeftRadius: '24px',
+        borderTopRightRadius: '24px',
     }
 
     useEffect(() => {
@@ -57,11 +65,11 @@ export function UserProfile() {
     return (
         <section className="flex space-between user-profile">
             <aside className="flex column align-center user-profile-card">
-                <UserImg imgUrl={user.imgUrl} size={150}/>
+                <UserImg imgUrl={user.imgUrl} size={150} />
                 <h2 className="user-fullname">{user.fullname}</h2>
                 <h4 className="member-since flex space-between">
                     <div className="flex align-center">
-                        <PersonIcon className="member-icon"/>
+                        <PersonIcon className="member-icon" />
                         Member since:</div>
                     <div>
                         April, 2024
@@ -75,31 +83,59 @@ export function UserProfile() {
                             style={chosenSection === 'orders' ? chosenSectionStyle : {}}
                             onClick={() => handleSection('orders')}>
                             <span className="flex align-center icon"><InboxRoundedIcon /></span>
-                            My Orders</div>
+                            <span className="user-profile-txt">My Orders</span></div>
                         <div className="flex align-center user-profile-nav-item"
                             style={chosenSection === 'gigs' ? chosenSectionStyle : {}}
                             onClick={() => handleSection('gigs')}>
                             <span className="flex align-center icon"><FormatListBulletedRoundedIcon /></span>
-                            My Gigs</div>
+                            <span className="user-profile-txt">My Gigs</span></div>
                         <div className="flex align-center user-profile-nav-item"
                             style={chosenSection === 'dashboard' ? chosenSectionStyle : {}}
                             onClick={() => handleSection('dashboard')}>
                             <span className="flex align-center icon"><DashboardRoundedIcon /></span>
-                            Dashboard</div>
+                            <span className="user-profile-txt">Dashboard</span></div>
                         <div className="flex align-center user-profile-nav-item"
                             style={chosenSection === 'statistics' ? chosenSectionStyle : {}}
                             onClick={() => handleSection('statistics')}>
                             <span className="flex align-center icon"><LeaderboardRoundedIcon /></span>
-                            Statistics
+                            <span className="user-profile-txt">Statistics</span>
                         </div>
                     </div>
                     <div className="flex align-center user-profile-nav-item"
                         style={chosenSection === 'settings' ? chosenSectionStyle : {}}
                         onClick={() => handleSection('settings')}>
                         <span className="flex align-center icon"><SettingsIcon /></span>
-                        Settings</div>
+                        <span className="user-profile-txt"> Settings</span></div>
                 </nav>
             </aside>
+
+            <nav className="mobile-nav-bar">
+                <div className="flex align-center justify-center user-profile-nav-item"
+                    style={chosenSection === 'orders' ? chosenSectionStyleMobile : {}}
+                    onClick={() => handleSection('orders')}>
+                    <span className="flex align-center icon"><InboxRoundedIcon /></span>
+                </div>
+                <div className="flex align-center justify-center user-profile-nav-item"
+                    style={chosenSection === 'gigs' ? chosenSectionStyleMobile : {}}
+                    onClick={() => handleSection('gigs')}>
+                    <span className="flex align-center icon"><FormatListBulletedRoundedIcon /></span>
+                </div>
+                <div className="flex align-center justify-center user-profile-nav-item"
+                    style={chosenSection === 'dashboard' ? chosenSectionStyleMobile : {}}
+                    onClick={() => handleSection('dashboard')}>
+                    <span className="flex align-center icon"><DashboardRoundedIcon /></span>
+                </div>
+                <div className="flex align-center justify-center user-profile-nav-item"
+                    style={chosenSection === 'statistics' ? chosenSectionStyleMobile : {}}
+                    onClick={() => handleSection('statistics')}>
+                    <span className="flex align-center icon"><LeaderboardRoundedIcon /></span>
+                </div>
+                <div className="flex align-center justify-center user-profile-nav-item"
+                    style={chosenSection === 'settings' ? chosenSectionStyleMobile : {}}
+                    onClick={() => handleSection('settings')}>
+                    <span className="flex align-center icon"><SettingsIcon /></span>
+                </div>
+            </nav>
 
             <article className="user-profile-right-container">
                 {chosenSection === 'orders' && <UserOrders

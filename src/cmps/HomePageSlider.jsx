@@ -13,7 +13,6 @@ export function HomePageSlider() {
         },
         {
             small: 'Build your brand',
-            small: 'Build your brand',
             title: 'Logo Design',
             backgroundColor: '#ff7640',
             imgUrl: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161257/logo-design-2x.png',
