@@ -4,7 +4,6 @@ import { UserImg } from "../../cmps/UserImg"
 import { StatusModal } from "../../cmps/StatusModal"
 import { loadOrders, setOrderStatus } from "../../store/actions/order.actions"
 
-
 export function UserDashboard({ sellerOrders }) {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedOrder, setSelectedOrder] = useState(null)
@@ -28,10 +27,12 @@ export function UserDashboard({ sellerOrders }) {
         setIsModalOpen(false)
     }
 
-    async function onChangeStatus(newStatus) {
+    function onChangeStatus(newStatus) {
+        if (newStatus === 'Reject') newStatus = 'rejected'
+        else newStatus = 'approved'
         if (selectedOrder) {
             const updatedOrder = { ...selectedOrder, status: newStatus }
-            await setOrderStatus(updatedOrder)
+            setOrderStatus(updatedOrder)
             setSelectedOrder(updatedOrder)
         }
         onCloseModal()
@@ -46,9 +47,9 @@ export function UserDashboard({ sellerOrders }) {
                 ) : (
                     <div className="order-table flex column">
                         <div className="table-head flex align-center">
-                            <div className="buyer-col">
+                            {/* <div className="buyer-col">
                                 <h4>Buyer</h4>
-                            </div>
+                            </div> */}
                             <div className="gig-col col">
                                 <h4>Gig</h4>
                             </div>
@@ -65,11 +66,11 @@ export function UserDashboard({ sellerOrders }) {
 
                         <div className="orders-container flex column">
                             {sellerOrders ? sellerOrders.map(order => (
-                                    <section key={order._id} className="table-row flex align-center space-between">
+                                <section key={order._id} className="table-row flex align-center space-between">
                                     {/* <div className=""> */}
-                                    <div className="buyer-col">
+                                    {/* <div className="buyer-col">
                                         <img src="https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png" alt="" />
-                                    </div>
+                                    </div> */}
                                     <div className="flex gig-col">
                                         <span>{order.gig.title}</span>
                                     </div>
@@ -82,19 +83,19 @@ export function UserDashboard({ sellerOrders }) {
                                     <div className="total total-col">
                                         <span>US${order.gig.price}</span>
                                     </div>
-                                    <div onClick={() => onOpenStatusModal(order)} className="status-container status-col">
+                                    <div onClick={() => onOpenStatusModal(order)} className="flex status-container status-col">
                                         <div className="flex align-center justify-center status" style={{ backgroundColor: geStatusBgc(order) }}>
                                             <span>{order.status}</span>
                                         </div>
+                                        <StatusModal
+                                            isModalOpen={isModalOpen}
+                                            onChangeStatus={onChangeStatus}
+                                            onCloseModal={onCloseModal} />
                                     </div>
                                 </section>
                             )) : ''
-                        }
+                            }
                         </div>
-                        <StatusModal
-                            isModalOpen={isModalOpen}
-                            onChangeStatus={onChangeStatus}
-                            onCloseModal={onCloseModal} />
                     </div>
                 )}
             </section>

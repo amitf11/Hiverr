@@ -28,10 +28,10 @@ export function orderReducer(state = initialState, action) {
             return newState
 
         case SET_ORDER_STATUS:
-            const orderIdx = state.orders.findIndex(order => order._id === action.order._id)
-            newState = state.orders
+            const orderIdx = state.sellerOrders.findIndex(order => order._id === action.order._id)
+            newState = state.sellerOrders
             newState.splice(orderIdx, 1, action.order)
-            return { ...state, orders: [...newState] }
+            return { ...state, sellerOrders: [...newState] }
 
         case CLEAR_NEW_ORDERS:
             return { ...state, newOrders: [] }
