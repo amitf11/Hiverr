@@ -11,6 +11,42 @@
     margin: em(100px) auto;
     min-height: calc(100vh - 160px);
 
+    h1,
+    h2,
+    h4,
+    p {
+        margin: 0;
+    }
+
+    header {
+        border: 1px solid #efeff0;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #404145;
+    }
+
+    .billing-info {
+        padding: 20px;
+        justify-content: space-between;
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            background: none;
+            color: #222325;
+            border: solid 1px #222325;
+            border-radius: 4px;
+
+            &:hover {
+                background: #404145;
+                border-color: transparent;
+                color: #fff;
+            }
+        }
+    }
+
     .inner-container {
         gap: 96px;
     }
@@ -26,27 +62,66 @@
         border-radius: 4px;
 
         .header {
-            font-size: 1.2em;
-            text-align: center;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #404145;
+            border: 1px solid #efeff0;
+            // text-align: center;
+
+            h1 {
+                margin: 0;
+
+            }
+        }
+
+        .outer-debit-container {
+            height: 64px;
         }
 
         .credit-debit-card-container {
-            padding-inline: em(20px);
+            padding: 0 0 0 16px;
+            // height: 64px;
+
+            span {
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                border: solid 5px black;
+                border-radius: 999px;
+                margin: 1px 8px 0 0;
+            }
+        }
+
+        p {
+            margin-bottom: 10px;
         }
 
         input {
             padding-inline-start: em(15px);
+            // margin-top: 10px;
+            padding: 2px;
+            padding-left: 16px;
             min-width: em(100px);
             height: em(40px);
             border-radius: 8px;
-            border: 1px solid $clr7;
+            border: 1px solid #c5c6c9;
             font-size: em(18px);
-            color: $clr5;
+            color: $clr10;
+            font-weight: 400;
+            margin-bottom: 24px;
 
         }
 
         .short-inputs {
-            gap: em(10px);
+            gap: 16px;
+            grid-template-columns: 1fr 1fr;
+
+
+
+            .code {
+                width: 100%;
+            }
         }
 
         form {
@@ -66,13 +141,47 @@
             flex-wrap: wrap;
 
             .short {
-                max-width: em(100px);
+                width: 100%;
+
+                .date {
+                    width: 100%;
+                }
             }
         }
 
         .buyer-details {
             flex-wrap: wrap;
             margin-block: em(10px);
+
+            b {
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+                color: #74767e;
+                font-weight: 400;
+            }
+
+            .last-name-input {
+                width: 100%;
+                margin-bottom: 6px;
+            }
+        }
+
+        .payment-form {
+            max-width: 580px;
+            padding: 24px 18px 24px 40px;
+
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                color: $clr5;
+                line-height: 24px;
+            }
+
+        }
+
+        .paypal-container {
+            padding: 0 18px 24px 40px;
         }
     }
 
@@ -89,12 +198,27 @@
         overflow-y: auto;
         // display: flex;
 
+
+
         .order-details {
             border-radius: 3px;
             padding: em(32px) em(24px);
             border: 1px solid $clr7;
             margin-block-end: em(16px);
             background-color: #fafafa;
+
+            .package-inner-container {
+                padding-bottom: 16px;
+
+                .taxes {
+                    margin: 0 0 16px;
+                    padding: 0 0 16px;
+
+                    p {
+                        padding: 6px 0;
+                    }
+                }
+            }
 
             .img-container {
                 height: em(70px);
@@ -123,9 +247,10 @@
 
                     li {
                         gap: 10px;
+                        padding: 6px 0;
 
                         .list-txt {
-                            font-size: em(14px);
+                            font-size: 16px;
                             line-height: em(24px);
                             color: $clr10;
                         }
