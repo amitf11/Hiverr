@@ -17,8 +17,9 @@ import { UserDashboard } from "../cmps/user-profile/UserDashboard"
 import { UserStatistics } from "../cmps/user-profile/UserStatistics"
 
 import { addGig, loadUserGigs, removeGig } from "../store/actions/gig.actions"
-import { loadOrders, loadSellerOrders } from "../store/actions/order.actions"
+import { loadOrders, loadSellerOrders, setOrderStatus } from "../store/actions/order.actions"
 import { UserImg } from "../cmps/UserImg"
+import { SOCKET_EVENT_ORDER_STATUS_UPDATED, socketService } from "../services/socket.service"
 
 export function UserProfile() {
     const [chosenSection, setChosenSection] = useState('orders')
@@ -26,6 +27,18 @@ export function UserProfile() {
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
     const buyerOrders = useSelector(storeState => storeState.orderModule.orders)
     const sellerOrders = useSelector(storeState => storeState.orderModule.sellerOrders)
+
+    const handleOrderStatusUpdated = (updatedOrder) => {
+        loadOrders(user._id)
+    }
+
+    useEffect(() => {
+        socketService.on(SOCKET_EVENT_ORDER_STATUS_UPDATED, handleOrderStatusUpdated)
+
+        return () => {
+            socketService.off(SOCKET_EVENT_ORDER_STATUS_UPDATED, handleOrderStatusUpdated)
+        }
+    }, [])
 
     const chosenSectionStyle = {
         backgroundColor: '#a5e5c7',
@@ -57,11 +70,11 @@ export function UserProfile() {
     return (
         <section className="flex space-between user-profile">
             <aside className="flex column align-center user-profile-card">
-                <UserImg imgUrl={user.imgUrl} size={150}/>
+                <UserImg imgUrl={user.imgUrl} size={150} />
                 <h2 className="user-fullname">{user.fullname}</h2>
                 <h4 className="member-since flex space-between">
                     <div className="flex align-center">
-                        <PersonIcon className="member-icon"/>
+                        <PersonIcon className="member-icon" />
                         Member since:</div>
                     <div>
                         April, 2024
