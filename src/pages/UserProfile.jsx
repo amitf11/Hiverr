@@ -28,8 +28,9 @@ export function UserProfile() {
     const buyerOrders = useSelector(storeState => storeState.orderModule.orders)
     const sellerOrders = useSelector(storeState => storeState.orderModule.sellerOrders)
 
-    const handleOrderStatusUpdated = (updatedOrder) => {
+    const handleOrderStatusUpdated = () => {
         loadOrders(user._id)
+        loadSellerOrders(user._id)
     }
 
     useEffect(() => {
@@ -58,6 +59,7 @@ export function UserProfile() {
         loadOrders(user._id)
         loadSellerOrders(user._id)
         loadUserGigs(user._id)
+        console.log('from user profile');
     }, [])
 
     function handleSection(section) {
