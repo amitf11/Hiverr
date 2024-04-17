@@ -1,9 +1,15 @@
 .dashboard {
     width: 90%;
     margin-inline: auto;
+
     h2 {
         align-self: flex-start;
         color: $clr5;
+    }
+
+    .manage-orders {
+        width: 90vw;
+        margin-inline: 10px;
     }
 
     .order-table {
@@ -53,6 +59,10 @@
         justify-content: space-around;
     }
 
+    .gig-col.col {
+        padding-inline-start: 10px;
+    }
+
     .col {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -84,7 +94,7 @@
     }
 
     .status-col.col {
-        padding-right: em(10px);
+        // padding-right: em(10px);
     }
 
     span {
