@@ -76,6 +76,10 @@
         span {
             padding-inline-start: 10px;
         }
+
+        span {
+            padding-inline-start: 10px;
+        }
     }
 
     .due-on-col {
@@ -95,6 +99,9 @@
     .status-col.status-container {
         display: ruby;
         margin-inline-end: 5px;
+    .status-col.status-container {
+        display: ruby;
+        margin-inline-end: 5px;
     }
 
     span {
@@ -108,6 +115,7 @@
     }
 
     .table-row {
+        justify-content: space-around;
         justify-content: space-around;
         border-bottom: 1px solid $clr7;
 
@@ -132,6 +140,8 @@
             font-size: em(12px);
             cursor: pointer;
             padding: 4px;
+            width: 65px;
+            justify-content: space-evenly;
             width: 65px;
             justify-content: space-evenly;
 

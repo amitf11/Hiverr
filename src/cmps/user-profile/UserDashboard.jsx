@@ -31,6 +31,10 @@ export function UserDashboard({ sellerOrders }) {
         return str.replace(/\b\w/g, match => match.toUpperCase())
     }
 
+    function capitalizeWords(str) {
+        return str.replace(/\b\w/g, match => match.toUpperCase())
+    }
+
     function onChangeStatus(newStatus) {
         if (newStatus === 'Reject') newStatus = 'rejected'
         else newStatus = 'approved'
@@ -95,6 +99,7 @@ export function UserDashboard({ sellerOrders }) {
                                             isModalOpen={isModalOpen}
                                             onChangeStatus={onChangeStatus}
                                             onCloseModal={onCloseModal} />
+                                        </div>
                                     </div>
                                 </section>
                             )) : ''
