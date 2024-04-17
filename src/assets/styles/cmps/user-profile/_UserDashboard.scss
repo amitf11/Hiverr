@@ -77,9 +77,6 @@
             padding-inline-start: 10px;
         }
 
-        span {
-            padding-inline-start: 10px;
-        }
     }
 
     .due-on-col {
@@ -91,14 +88,11 @@
         position: relative;
         min-width: 110px;
 
-        &.col{
+        &.col {
             margin-inline-end: 15px;
         }
     }
 
-    .status-col.status-container {
-        display: ruby;
-        margin-inline-end: 5px;
     .status-col.status-container {
         display: ruby;
         margin-inline-end: 5px;
@@ -115,7 +109,6 @@
     }
 
     .table-row {
-        justify-content: space-around;
         justify-content: space-around;
         border-bottom: 1px solid $clr7;
 
@@ -142,8 +135,6 @@
             padding: 4px;
             width: 65px;
             justify-content: space-evenly;
-            width: 65px;
-            justify-content: space-evenly;
 
             span {
                 color: $clr1;
@@ -151,7 +142,7 @@
         }
     }
 
-    .css-78trlr-MuiButtonBase-root-MuiIconButton-root{
+    .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
         padding: 0;
     }
 
