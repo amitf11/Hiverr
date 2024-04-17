@@ -84,7 +84,7 @@ export function GigDetails() {
                 <a>
                     <img src={gig.imgs[i]} alt='' />
                 </a>
-            );
+            )
         },
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,

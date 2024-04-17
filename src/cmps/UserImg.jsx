@@ -4,7 +4,6 @@ export function UserImg({ imgUrl, size }) {
             className="user-image"
             src={imgUrl}
             alt="user-image"
-            title="user image"
             style={{ height: `${size}px` }} />
     )
 }
