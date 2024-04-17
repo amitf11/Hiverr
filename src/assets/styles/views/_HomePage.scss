@@ -15,9 +15,9 @@
     ul {
         padding: 0 em(24px);
 
-        // &>*:not(:last-child) {
-        //     padding-right: em(60px);
-        // }
+        li {
+            padding-right: 60px;
+        }
     }
 
     @include for-mobile-layout {
