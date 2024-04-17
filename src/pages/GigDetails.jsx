@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus.service'
 import { ReviewList } from '../cmps/reviews/ReviewList'
 import Slider from 'react-slick'
 import { UserLevel } from '../cmps/UserLevel'
 import { PackageModal } from '../cmps/PackageModal'
 import { AboutThisSeller } from '../cmps/AboutThisSeller'
 import { reviewService } from '../services/review.service'
-import React from 'react';
+import React from 'react'
 
 
 export function GigDetails() {
@@ -17,6 +17,7 @@ export function GigDetails() {
     const [gig, setGig] = useState(null)
     const { gigId } = useParams()
     const navigate = useNavigate()
+    let isSharing = false
 
     useEffect(() => {
         loadGig()
@@ -37,6 +38,30 @@ export function GigDetails() {
         setScreenWidth(window.innerWidth)
     }
 
+    function handleShareButtonClick(gig) {
+        if (navigator.share) {
+            if (isSharing) return
+
+            isSharing = true
+
+            navigator
+                .share({
+                    title: gig.title,
+                    text: gig.description,
+                    url: window.location.href,
+                })
+                .then(() => {
+                })
+                .catch((error) => {
+                    console.error('Error sharing gig:', error)
+                })
+                .finally(() => {
+                    isSharing = false
+                })
+        } else {
+            console.log('Share API not supported, implement your own sharing logic')
+        }
+    }
 
     async function loadGig() {
         try {
@@ -53,7 +78,7 @@ export function GigDetails() {
                 className='arrow next-arrow'
                 onClick={onClick}
             />
-        );
+        )
     }
 
     function SamplePrevArrow({ onClick }) {
@@ -62,7 +87,7 @@ export function GigDetails() {
                 className='arrow prev-arrow'
                 onClick={onClick}
             />
-        );
+        )
     }
 
     async function addReview(newReview) {
@@ -85,7 +110,7 @@ export function GigDetails() {
                 <a>
                     <img src={gig.imgs[i]} alt='' />
                 </a>
-            );
+            )
         },
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
@@ -135,7 +160,8 @@ export function GigDetails() {
                         </Slider>
                     </div>
                 </div>
-                {(screenWidth < 920) && <PackageModal gig={gig} />}
+                {(screenWidth < 920) &&
+                    <PackageModal gig={gig} handleShareButtonClick={handleShareButtonClick} />}
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
@@ -151,7 +177,7 @@ export function GigDetails() {
                 <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
             {/* <PackageModal gig={gig} /> */}
-            {(screenWidth > 920) && <PackageModal gig={gig} />}
+            {(screenWidth > 920) && <PackageModal gig={gig} handleShareButtonClick={handleShareButtonClick} />}
         </section >
     )
 }

@@ -1,12 +1,21 @@
+import { Tooltip } from "@mui/material"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-export function PackageModal({ gig }) {
+export function PackageModal({ gig, handleShareButtonClick }) {
     const [plan, setPlan] = useState('basic')
-    // const selectedPackage = gig.packages[plan]
 
     return (
         <aside className='sidebar'>
+            <div className="flex share-container">
+                <Tooltip title="Share this Gig" placement="top" arrow>
+                    <button onClick={handleShareButtonClick}>
+                        <svg width="16" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg" fill="currentFill">
+                            <path d="M11 10c-.707 0-1.356.244-1.868.653L5.929 8.651a3.017 3.017 0 0 0 0-1.302l3.203-2.002a3 3 0 1 0-1.06-1.696L4.867 5.653a3 3 0 1 0 0 4.694l3.203 2.002A3 3 0 1 0 11 10Z"></path>
+                        </svg>
+                    </button>
+                </Tooltip>
+            </div>
             <div className='flex column packages-tabs'>
                 <div className='flex row tab'>
                     <button onClick={() => setPlan('basic')}
