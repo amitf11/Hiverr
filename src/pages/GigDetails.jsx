@@ -8,6 +8,7 @@ import { UserLevel } from '../cmps/UserLevel'
 import { PackageModal } from '../cmps/PackageModal'
 import { AboutThisSeller } from '../cmps/AboutThisSeller'
 import { reviewService } from '../services/review.service'
+import React from 'react';
 
 
 export function GigDetails() {
@@ -134,18 +135,23 @@ export function GigDetails() {
                         </Slider>
                     </div>
                 </div>
-               {(screenWidth < 920) && <PackageModal gig={gig} />} 
+                {(screenWidth < 920) && <PackageModal gig={gig} />}
                 <div className='about-this-gig'>
                     <h2>About This Gig</h2>
                     <div>
-                        <pre>{gig.description}</pre>
+                        {gig.description.split('.').map((sentence, index, sentencesArray) => (
+                            <React.Fragment key={index}>
+                                <p>{sentence.trim()}{index !== sentencesArray.length - 1 && '.'}</p>
+                                <p className={`empty-p ${index === gig.description.split('.').length ? 'last' : ' '}`}></p>
+                            </React.Fragment>
+                        ))}
                     </div>
                 </div>
-                <AboutThisSeller gig={gig}/>
+                <AboutThisSeller gig={gig} />
                 <ReviewList reviews={gig.reviews} addReview={addReview} />
             </section>
-                    {/* <PackageModal gig={gig} /> */}
-             {(screenWidth > 920) && <PackageModal gig={gig} />} 
+            {/* <PackageModal gig={gig} /> */}
+            {(screenWidth > 920) && <PackageModal gig={gig} />}
         </section >
     )
 }

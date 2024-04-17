@@ -111,6 +111,7 @@
 
         & .about-this-gig {
             margin: em(64px) 0;
+            margin-bottom: 20px;
 
             h2 {
                 padding-bottom: em(25px);
@@ -122,7 +123,7 @@
             div {
                 overflow: auto;
 
-                pre {
+                p {
                     font: 400 16px / 24px macan-regular;
                     color: $clr5;
                     font-size: em(16px);
@@ -131,6 +132,16 @@
                     word-wrap: break-word;
                     overflow-wrap: break-word;
                 }
+
+                .empty-p {
+                    margin: 16px 0;
+
+                    &:last-child {
+                        background-color: salmon;
+                    }
+                }
+
+
             }
 
         }
@@ -224,7 +235,7 @@
         height: 100%;
 
         padding: 0 0 32px;
-        
+
         @include for-mobile-layout {
             position: static;
         }
