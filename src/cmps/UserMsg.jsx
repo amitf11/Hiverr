@@ -6,8 +6,6 @@ export function UserMsg() {
     const [msg, setMsg] = useState(null)
     const timeoutRef = useRef()
 
-    console.log(msg);
-
     useEffect(() => {
         eventBus.on(SHOW_MSG, (msg) => {
             setMsg(msg)

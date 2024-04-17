@@ -137,7 +137,7 @@ export function AppHeader() {
 
     return (
         <>
-            {isSideMenuOpen && <SideMenu closeSideMenu={closeSideMenu} />}
+            {isSideMenuOpen && <SideMenu closeSideMenu={closeSideMenu} onLogout={onLogout}/>}
             <header className={`main-header ${headerClassName}`}>
                 <div className="header flex align-center space-between">
                     <div className="flex mobile-logo-wrapper">
