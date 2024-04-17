@@ -2,7 +2,8 @@
     position: fixed;
     width: 100%;
     z-index: 999;
-    
+
+
     .header {
         height: 80px;
         margin: 0 auto;
@@ -17,7 +18,7 @@
 
         .header-logo {
             height: auto;
-            margin: 4px 0 0;
+            margin: 0;
             min-width: 121px;
 
             h1 {
@@ -34,6 +35,22 @@
                 }
             }
         }
+
+        @include for-mobile-layout {
+
+            .mobile-logo-wrapper {
+                flex-grow: 1;
+            }
+
+            .header-logo {
+                display: flex;
+                flex-grow: 1;
+                justify-content: center;
+                height: auto;
+                margin: 0;
+                min-width: 0;
+            }
+        }
     }
 
     transition: 0.5s;
@@ -45,6 +62,8 @@
         }
     }
 }
+
+
 
 .main-nav {
     li {
@@ -81,6 +100,15 @@
         }
     }
 
+    @include for-mobile-layout {
+        .orders-btn {
+            display: none;
+        }
+
+        .log-out-btn {
+            display: none;
+        }
+    }
 }
 
 .join-btn {
@@ -232,20 +260,20 @@ ul>*:not(:last-child) {
     width: 100%;
     height: 40px;
     z-index: 998;
-    
+
     background-color: #fff;
     border-bottom: 1px solid lightgray;
-    
+
     transition: 0.5s;
-    
+
     .categories-menu {
         position: relative;
-        
+
         width: min(100%, 1400px);
         margin-inline: auto;
         padding: 0 32px;
-            
-        
+
+
         li {
             display: inline-block;
             flex-shrink: 0;

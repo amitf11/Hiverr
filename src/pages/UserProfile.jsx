@@ -81,16 +81,16 @@ export function UserProfile() {
             <aside className="flex column align-center user-profile-card">
                 <UserImg imgUrl={user.imgUrl} size={150} />
                 <h2 className="user-fullname">{user.fullname}</h2>
-                <h4 className="member-since flex space-between">
-                    <div className="flex align-center">
-                        <PersonIcon className="member-icon" />
-                        Member since:</div>
-                    <div>
-                        April, 2024
+                {/* <h4 className="member-since flex space-between"> */}
+                    {/* <div className="flex align-center"> */}
+                        {/* <PersonIcon className="member-icon" /> */}
+                        {/* Member since:</div> */}
+                    {/* <div> */}
+                        {/* April, 2024 */}
                         {/* {utilService.getMonthName(new Date(user.createdAt))}, */}
                         {/* {new Date(user.createdAt).getFullYear()} */}
-                    </div>
-                </h4>
+                    {/* </div> */}
+                {/* </h4> */}
                 <nav className="flex column space-between user-profile-nav">
                     <div>
                         <div className="flex align-center user-profile-nav-item"
