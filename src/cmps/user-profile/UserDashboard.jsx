@@ -53,9 +53,9 @@ export function UserDashboard({ sellerOrders }) {
                             <div className="gig-col col">
                                 <h4>Gig</h4>
                             </div>
-                            <div className="due-on-col col">
+                            {/* <div className="due-on-col col">
                                 <h4>Order Date</h4>
-                            </div>
+                            </div> */}
                             <div className="total-col col">
                                 <h4>Total</h4>
                             </div>
@@ -74,12 +74,12 @@ export function UserDashboard({ sellerOrders }) {
                                     <div className="flex gig-col">
                                         <span>{order.gig.title}</span>
                                     </div>
-                                    <div className="due-on-col">
-                                        <span>
-                                            07/04/2024
-                                            {/* {order.date} */}
-                                        </span>
-                                    </div>
+                                    {/* <div className="due-on-col">
+                                        <span> */}
+                                    {/* 07/04/2024 */}
+                                    {/* {order.date} */}
+                                    {/* </span> */}
+                                    {/* </div> */}
                                     <div className="total total-col">
                                         <span>US${order.gig.price}</span>
                                     </div>

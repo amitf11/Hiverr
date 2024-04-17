@@ -176,4 +176,8 @@
     .slider-card-container:hover {
         opacity: .88;
     }
+
+    @include for-mobile-layout {
+        display: none;
+    }
 }
