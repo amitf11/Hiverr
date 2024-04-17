@@ -1,5 +1,6 @@
 import { ReviewFilter } from "./ReviewFilter"
 import ReactStars from 'react-stars'
+import { reviewService } from "../../services/review.service"
 
 export function ReviewPreview({ review }) {
 
@@ -9,12 +10,12 @@ export function ReviewPreview({ review }) {
         <li key={review._id} className='clean-list review' >
             <div>
                 <div className="flex align-center review-first">
-                    <div className='user-img-container'><img src='https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg'></img></div>
+                    <div className='user-img-container'><img src={review.imgUrl}></img></div>
                     <div className="flex column user-info">
                         <strong>{review.name}</strong>
                         <div className='flex row country'>
                             <div className='flex align-center flag-div'>
-                                <img className="review-flag" src={review.flag}></img>
+                               <img className="review-flag" src={review.flag}></img> 
                             </div>
 
                             <div className='flex country-name'>{review.country}</div>
