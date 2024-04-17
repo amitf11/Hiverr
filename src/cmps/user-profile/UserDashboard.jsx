@@ -27,6 +27,10 @@ export function UserDashboard({ sellerOrders }) {
         setIsModalOpen(false)
     }
 
+    function capitalizeWords(str) {
+        return str.replace(/\b\w/g, match => match.toUpperCase())
+    }
+
     function onChangeStatus(newStatus) {
         if (newStatus === 'Reject') newStatus = 'rejected'
         else newStatus = 'approved'
@@ -83,14 +87,14 @@ export function UserDashboard({ sellerOrders }) {
                                     <div className="total total-col">
                                         <span>US${order.gig.price}</span>
                                     </div>
-                                    <div onClick={() => onOpenStatusModal(order)} className="flex status-container status-col">
-                                        <div className="flex align-center justify-center status" style={{ backgroundColor: geStatusBgc(order) }}>
-                                            <span>{order.status}</span>
-                                        </div>
+                                    <div onClick={() => onOpenStatusModal(order)} className="status-container status-col">
+                                        <div className="flex align-center status" style={{ backgroundColor: geStatusBgc(order) }}>
+                                            <span>{capitalizeWords(order.status)}</span>
                                         <StatusModal
                                             isModalOpen={isModalOpen}
                                             onChangeStatus={onChangeStatus}
                                             onCloseModal={onCloseModal} />
+                                        </div>
                                     </div>
                                 </section>
                             )) : ''
