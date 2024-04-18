@@ -42,7 +42,7 @@ export function GigIndex() {
 
     return (
         <section className='explore-page'>
-            <GigIndexNavBar category={filterBy.category || 'Explore'} />
+            <GigIndexNavBar category={filterBy.category || 'Explore'}/>
 
                 <GigFilter
                     filterBy={filterBy}
