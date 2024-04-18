@@ -12,6 +12,7 @@ export const SOCKET_EVENT_ORDER_STATUS_UPDATED = 'order-status-updated'
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
+const SOCKET_EMIT_WATCH_USER = 'user-watch'
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()
@@ -50,6 +51,9 @@ function createSocketService() {
         terminate() {
             socket = null
         },
+        watchUser(userId) {
+            socket.emit(SOCKET_EMIT_WATCH_USER, userId)
+        }
 
     }
     return socketService

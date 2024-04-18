@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
-import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus.service'
+import { showErrorMsg } from '../services/event-bus.service'
 import { ReviewList } from '../cmps/reviews/ReviewList'
 import Slider from 'react-slick'
 import { UserLevel } from '../cmps/UserLevel'
@@ -9,7 +9,8 @@ import { PackageModal } from '../cmps/PackageModal'
 import { AboutThisSeller } from '../cmps/AboutThisSeller'
 import { reviewService } from '../services/review.service'
 import React from 'react'
-
+import { useSelector } from 'react-redux'
+import { GigDetailsNavBar } from '../cmps/gig/GigDetailsNavBar'
 
 export function GigDetails() {
 
@@ -18,6 +19,7 @@ export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     let isSharing = false
+    const filterBy = useSelector(storeState=> storeState.gigModule.filterBy)
 
     useEffect(() => {
         loadGig()
@@ -126,6 +128,7 @@ export function GigDetails() {
     return (
         <section className='flex main-details'>
             <section className='flex column gig-details'>
+            <GigDetailsNavBar category={filterBy.category || 'Explore'} />
                 <div className='gig-layout'>
                     <h1>{gig.title}</h1>
                     <div className='flex row about-user'>
