@@ -4,7 +4,6 @@ import { LoadingList } from '../../assets/styles/cmps/LoadingList'
 
 export function GigList({ gigs }) {
 
-    console.log(gigs)
 
     if (!gigs || !gigs.length) return (
         <LoadingList/>
