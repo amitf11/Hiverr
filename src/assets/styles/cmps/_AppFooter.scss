@@ -32,9 +32,15 @@
             .logo {
                 margin: 0;
                 padding: 0;
-                font-weight: 700;
+                font-weight: 400;
                 letter-spacing: -2px;
                 font-family: macan-bold;
+                color: #62646a;
+
+                span {
+                    font-size: 38px;
+                    color: #74767e;
+                }
             }
 
             svg {
