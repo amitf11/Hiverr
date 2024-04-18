@@ -42,7 +42,7 @@ export function UserDashboard({ sellerOrders }) {
         onCloseModal()
     }
 
-    return (
+      return (
         <section className="dashboard flex column align-center justify-center">
             <h2>Manage Your Services</h2>
             <section className="manage-orders flex column">
@@ -64,7 +64,7 @@ export function UserDashboard({ sellerOrders }) {
 
                         <div className="orders-container flex column">
                             {sellerOrders.map(order => (
-                                <section key={order._id} className="table-row flex align-center space-between">
+                                <section key={order._id} className="table-row flex align-center space-between">                      
                                     <div className="flex gig-col">
                                         <span>{order.gig.title}</span>
                                     </div>
@@ -75,13 +75,11 @@ export function UserDashboard({ sellerOrders }) {
                                         <div className="flex align-center status" style={{ backgroundColor: geStatusBgc(order) }}>
                                             <span>{capitalizeWords(order.status)}</span>
                                         </div>
-                                        {isModalOpen && (
                                             <StatusModal
                                                 isModalOpen={isModalOpen}
                                                 onChangeStatus={onChangeStatus}
                                                 onCloseModal={onCloseModal}
                                             />
-                                        )}
                                     </div>
                                 </section>
                             ))}
@@ -90,54 +88,5 @@ export function UserDashboard({ sellerOrders }) {
                 )}
             </section>
         </section>
-    );
-
-    // return (
-    //     <section className="dashboard flex column align-center justify-center">
-    //         <h2>Manage Your Services</h2>
-    //         <section className="manage-orders flex column">
-    //             {!sellerOrders || !sellerOrders.length ? (
-    //                 <div>No orders yet</div>
-    //             ) : (
-    //                 <div className="order-table flex column">
-    //                     <div className="table-head flex align-center">
-    //                         <div className="gig-col col">
-    //                             <h4>Gig</h4>
-    //                         </div>
-    //                         <div className="total-col col">
-    //                             <h4>Total</h4>
-    //                         </div>
-    //                         <div className="status-col col">
-    //                             <h4>Status</h4>
-    //                         </div>
-    //                     </div>
-
-    //                     <div className="orders-container flex column">
-    //                         {sellerOrders ? sellerOrders.map(order => (
-    //                             <section key={order._id} className="table-row flex align-center space-between">                      
-    //                                 <div className="flex gig-col">
-    //                                     <span>{order.gig.title}</span>
-    //                                 </div>
-    //                                 <div className="total total-col">
-    //                                     <span>US${order.gig.price}</span>
-    //                                 </div>
-    //                                 <div onClick={() => onOpenStatusModal(order)} className="status-container status-col">
-    //                                     <div className="flex align-center status" style={{ backgroundColor: geStatusBgc(order) }}>
-    //                                         <span>{capitalizeWords(order.status)}</span>
-    //                                     </div>
-    //                                     <StatusModal
-    //                                         isModalOpen={isModalOpen}
-    //                                         onChangeStatus={onChangeStatus}
-    //                                         onCloseModal={onCloseModal} />
-    //                                     </div>
-    //                                 </div>
-    //                             </section>
-    //                         )) : ''
-    //                         }
-    //                     </div>
-    //                 </div>
-    //             )}
-    //         </section>
-    //     </section>
-    // )
+    )
 }

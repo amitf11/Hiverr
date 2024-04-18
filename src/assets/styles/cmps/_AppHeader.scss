@@ -36,11 +36,12 @@
             }
         }
 
+        .mobile-logo-wrapper {
+            flex-grow: 1;
+        }
+
         @include for-mobile-layout {
 
-            .mobile-logo-wrapper {
-                flex-grow: 1;
-            }
 
             .header-logo {
                 display: flex;
@@ -66,6 +67,8 @@
 
 
 .main-nav {
+    margin-left: 32px;
+    
     li {
         cursor: pointer;
     }
@@ -144,7 +147,7 @@
 .regular-header {
     color: #74767e;
     background-color: #fff;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #e4e5e7;
     transition: 0.5s;
 
     h1 {
@@ -174,7 +177,7 @@
     justify-content: space-between;
     color: #74767e;
     background-color: #fff;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #e4e5e7;
     transition: 0.5s;
 
 
@@ -206,6 +209,7 @@ ul>*:not(:last-child) {
 .header-search-bar {
     position: relative;
     width: 430px;
+    flex-grow: 1;
 
     form {
         position: relative;
@@ -262,7 +266,7 @@ ul>*:not(:last-child) {
     z-index: 998;
 
     background-color: #fff;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #e4e5e7;
 
     transition: 0.5s;
 

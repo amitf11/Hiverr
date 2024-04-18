@@ -239,6 +239,21 @@
         @include for-mobile-layout {
             position: static;
         }
+
+        .share-container {
+            justify-content: flex-end;
+            margin-block-end: 10px;
+
+            button {
+                background-color: $clr1;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                border: 1px solid $clr15;
+                border-radius: 8px;
+                padding: 8px 15px;
+            }
+        }
     }
 
     .packages-tabs {

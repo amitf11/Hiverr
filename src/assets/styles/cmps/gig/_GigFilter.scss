@@ -285,7 +285,13 @@
         }
     }
 
+    @include for-mobile-layout {
+        .gig-filter {
+            height: 70px;
+            text-align: center;
+        }
 
+    }
 }
 
 .fixed-filter {
@@ -312,11 +318,10 @@
     max-width: 1400px;
     margin-block-end: .5em;
 
-
-
     .gig-sort {
         font-size: em(14px);
         white-space: nowrap;
+
         .sort-by-txt {
             padding: 10px 8px;
         }
@@ -409,8 +414,10 @@
                 padding: 0 32px;
                 margin: 24px 0;
             }
+
         }
     }
+
 }
 
 input[type="radio"] {

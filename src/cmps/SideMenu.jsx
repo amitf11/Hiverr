@@ -3,11 +3,7 @@ import { NavLink, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { LoginSignup } from "./LoginSignup"
 
-
-import { logout } from "../store/actions/user.actions"
-
-
-export function SideMenu({ closeSideMenu }) {
+export function SideMenu({ closeSideMenu, onLogout }) {
 
 
     const [isSignUp, setIsSignUp] = useState(null)
@@ -54,19 +50,11 @@ export function SideMenu({ closeSideMenu }) {
             <ul className='clean-list'>
                 {loggedinUser ? (
                     <>
-                        <li className="orders-btn"><a onClick={(event) => onOpenOrderModal(event)}>Orders
-                            <div className={`${getNewOrderClass()} new-order`}></div>
-                        </a></li>
                         <li><a className="clean-link" onClick={onLogout}>Logout</a></li>
-                        <li><Link to={`user/${loggedinUser._id}`} className="flex">
-                            <UserImg imgUrl={loggedinUser.imgUrl} size={32} /></Link>
-                        </li>
                     </>
-
                 ) : (
                     <>
                         <li><a className="clean-link sign-in" onClick={handleSignIn}>Sign In</a></li>
-
                     </>
                 )}
 
