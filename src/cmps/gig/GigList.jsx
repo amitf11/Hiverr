@@ -1,16 +1,13 @@
 import { GigPreview } from './GigPreview'
-import { Skeleton } from '@mui/material'
-import { Grid } from '@mui/material'
+import { LoadingList } from '../../assets/styles/cmps/LoadingList'
 
 
 export function GigList({ gigs }) {
 
+    console.log(gigs)
+
     if (!gigs || !gigs.length) return (
-        <Grid container item xs={3} spacing={0} direction="column">
-            <Skeleton variant="rectangular"></Skeleton>
-            <Skeleton variant="rectangular"></Skeleton>
-            <Skeleton variant="rectangular"></Skeleton>
-        </Grid>
+        <LoadingList/>
     )
     return (
         <section className='content flex'>

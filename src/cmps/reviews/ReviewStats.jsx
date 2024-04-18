@@ -11,12 +11,6 @@ export function ReviewStats({ reviews }) {
     const twoCount = reviews.filter(review => review.rate === 2).length
     const oneCount = reviews.filter(review => review.rate === 1).length
 
-
-    reviews.forEach(review => {
-        console.log(typeof review.rate === 'number')
-    }
-    )
-
     return (
         <section className='flex column review-stats'>
             <div className='stat-title'>Reviews</div>
