@@ -29,6 +29,14 @@
             min-width: 0;
             width: auto;
 
+            .logo {
+                margin: 0;
+                padding: 0;
+                font-weight: 700;
+                letter-spacing: -2px;
+                font-family: macan-bold;
+            }
+
             svg {
                 height: 23px;
                 width: 77px;
