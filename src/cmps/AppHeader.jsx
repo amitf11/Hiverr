@@ -127,17 +127,15 @@ export function AppHeader() {
 
     function openSideMenu() {
         setIsSideMenuOpen(true)
-        document.body.style.overflow = 'hidden'
     }
 
     function closeSideMenu() {
         setIsSideMenuOpen(false)
-        document.body.style.overflow = 'auto'
     }
 
     return (
         <>
-            {isSideMenuOpen && <SideMenu closeSideMenu={closeSideMenu} onLogout={onLogout}/>}
+            <SideMenu setIsSideMenuOpen={setIsSideMenuOpen} closeSideMenu={closeSideMenu} onLogout={onLogout} isSideMenuOpen={isSideMenuOpen} />
             <header className={`main-header ${headerClassName}`}>
                 <div className="header flex align-center space-between">
                     <div className="flex mobile-logo-wrapper">

@@ -1,16 +1,30 @@
 import { useSelector } from "react-redux"
 import { NavLink, Link } from "react-router-dom"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { LoginSignup } from "./LoginSignup"
 
-export function SideMenu({ closeSideMenu, onLogout }) {
-
-
+export function SideMenu({ closeSideMenu, onLogout, setIsSideMenuOpen, isSideMenuOpen }) {
     const [isSignUp, setIsSignUp] = useState(null)
     const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
+    const menuRef = useRef()
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                closeSideMenu()
+            }
+        }
+
+        if (isSideMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [isSideMenuOpen, closeSideMenu])
 
     function handleSignIn() {
         setIsSignUp(false)
@@ -34,9 +48,9 @@ export function SideMenu({ closeSideMenu, onLogout }) {
         setIsCategoriesOpen(prevIsCategoriesOpen => !prevIsCategoriesOpen)
     }
 
-
+    if (!isSideMenuOpen) return null
     return (
-        <section className='flex column side-nav'>
+        <section className='flex column side-nav' ref={menuRef}>
             <div>
                 <button onClick={() => closeSideMenu()}>
                     X
