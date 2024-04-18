@@ -15,8 +15,8 @@ export function PurchasePage() {
     const [gig, setGig] = useState({})
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
     const selectedPackage = location.state ? location.state.selectedPackage : null
-    console.log('location:', location)
-    console.log('location.state:', location.state)
+    // console.log('location:', location)
+    // console.log('location.state:', location.state)
 
     useEffect(() => {
         loadGig()
