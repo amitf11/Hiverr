@@ -23,7 +23,7 @@ export function GigDetails() {
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
     useEffect(() => {
-        loadGig()
+            loadGig()
 
         setScreenWidth(window.innerWidth)
         window.removeEventListener('resize', onResize)
