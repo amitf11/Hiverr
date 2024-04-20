@@ -1,5 +1,5 @@
 import { GigPreview } from './GigPreview'
-import { LoadingList } from '../../assets/styles/cmps/LoadingList'
+import { LoadingList } from '../LoadingList'
 
 
 export function GigList({ gigs }) {

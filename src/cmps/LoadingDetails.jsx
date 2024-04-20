@@ -3,10 +3,10 @@ import { Skeleton } from "@mui/material"
 export function LoadingDetails() {
 
     return (
-        <section className='flex main-details'>
+        <section className='flex main-details skeleton-details'>
             <section className='flex column gig-details'>
                 <div className='gig-layout'>
-                    <Skeleton variant="rectangular" />
+                    <Skeleton className='skeleton-title' variant="rectangular" />
                     <div className='flex row about-user'>
                         <div className='user-pic'>
                             <Skeleton variant="circular" width={64} height={64} />

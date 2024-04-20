@@ -11,6 +11,7 @@ import { reviewService } from '../services/review.service'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { GigDetailsNavBar } from '../cmps/gig/GigDetailsNavBar'
+import { LoadingDetails } from '../cmps/LoadingDetails'
 
 export function GigDetails() {
 
@@ -19,7 +20,7 @@ export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     let isSharing = false
-    const filterBy = useSelector(storeState=> storeState.gigModule.filterBy)
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
 
     useEffect(() => {
         loadGig()
@@ -124,11 +125,13 @@ export function GigDetails() {
         slidesToScroll: 1
     }
 
-    if (!gig) return <div>Loading...</div>
+    if (!gig) return (
+        <LoadingDetails />
+    )
     return (
         <section className='flex main-details'>
             <section className='flex column gig-details'>
-            <GigDetailsNavBar category={filterBy.category || 'Explore'} />
+                <GigDetailsNavBar category={filterBy.category || 'Explore'} />
                 <div className='gig-layout'>
                     <h1>{gig.title}</h1>
                     <div className='flex row about-user'>
