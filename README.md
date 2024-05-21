@@ -19,12 +19,6 @@ Hiverr is a responsive, end-to-end application built with the latest technologie
 - We used Web sockets to ensure that users are updated in real time: notification to the seller when a new order is placed, and to the buyer when the order status is changed.
 - Processes for user authentication, and a user profile in which he can see the orders he made as a buyer, and the orders that was placed for his products as a seller, as well as the abillity to become a seller and publish new products.
 
-## Authors
-
-- [@amitf11](https://github.com/amitf11)
-- [@omerKaduri1](https://github.com/omerKaduri1)
-- [@LeanneBoro](https://github.com/LeanneBoro)
-
 
 ## Demo
 
@@ -42,5 +36,9 @@ https://github.com/amitf11/Hiverr/assets/159138384/1823de47-f6c2-4cbb-b451-1f9e0
 
 ![](https://i.ibb.co/3pxZfhx/2024-05-21-154428.png)
 
+## Authors
 
+- [@amitf11](https://github.com/amitf11)
+- [@omerKaduri1](https://github.com/omerKaduri1)
+- [@LeanneBoro](https://github.com/LeanneBoro)
 
