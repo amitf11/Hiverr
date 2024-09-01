@@ -27,7 +27,7 @@ export function HomePage() {
                 <Hero />
                 <TrustedBy />
                 <LoginSignup />
-                <HomePageSlider /> 
+                {/* <HomePageSlider />  */}
                 <TheBestPart />
                 <CategoriesNav />
                 <JoinPoster />
